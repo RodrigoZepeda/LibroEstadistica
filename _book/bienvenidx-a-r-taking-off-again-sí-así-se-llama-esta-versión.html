@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 Bienvenidx a R, Taking Off Again (sí, así se llama esta versión) | Estadística I: Análisis exploratorio de datos y muestreo</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 Bienvenidx a R, Taking Off Again (sí, así se llama esta versión) | Estadística I: Análisis exploratorio de datos y muestreo" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 Bienvenidx a R, Taking Off Again (sí, así se llama esta versión) | Estadística I: Análisis exploratorio de datos y muestreo" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Rodrigo Zepeda-Tello" />
+
+
+<meta name="date" content="2020-08-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="apéndice.html"/>
+<link rel="next" href="primeros-pasos-en-rstudio.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefacio</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="apéndice.html"><a href="apéndice.html"><i class="fa fa-check"></i>Apéndice</a><ul>
+<li class="chapter" data-level="6.1" data-path="apéndice.html"><a href="apéndice.html#instalación-de-r"><i class="fa fa-check"></i><b>6.1</b> Instalación de R</a></li>
+<li class="chapter" data-level="6.2" data-path="apéndice.html"><a href="apéndice.html#algunas-ventajas-de-r-y-cosas-no-tan-padres"><i class="fa fa-check"></i><b>6.2</b> Algunas ventajas de <code>R</code> y cosas no tan padres</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="apéndice.html"><a href="apéndice.html#puntos-a-favor-de-r"><i class="fa fa-check"></i><b>6.2.1</b> Puntos a favor de <code>R</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html"><a href="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html"><i class="fa fa-check"></i><b>7</b> Bienvenidx a <code>R</code>, Taking Off Again (sí, así se llama esta versión)</a><ul>
+<li class="chapter" data-level="7.1" data-path="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html"><a href="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html#nuestro-entorno-de-trabajo"><i class="fa fa-check"></i><b>7.1</b> Nuestro entorno de trabajo</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html"><a href="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html#r"><i class="fa fa-check"></i><b>7.1.1</b> <code>R</code></a></li>
+<li class="chapter" data-level="7.1.2" data-path="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html"><a href="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html#rstudio"><i class="fa fa-check"></i><b>7.1.2</b> RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="primeros-pasos-en-rstudio.html"><a href="primeros-pasos-en-rstudio.html"><i class="fa fa-check"></i><b>8</b> Primeros pasos en <code>RStudio</code></a></li>
+<li class="chapter" data-level="9" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html"><i class="fa fa-check"></i><b>9</b> Primeros pasos con <code>R</code></a><ul>
+<li class="chapter" data-level="9.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#cálculos-numéricos"><i class="fa fa-check"></i><b>9.1</b> Cálculos numéricos</a></li>
+<li class="chapter" data-level="9.2" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#ejercicio"><i class="fa fa-check"></i><b>9.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="9.3" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#ejercicio-1"><i class="fa fa-check"></i><b>9.3</b> Ejercicio</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#respuestas"><i class="fa fa-check"></i><b>9.3.1</b> Respuestas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#variables"><i class="fa fa-check"></i><b>9.4</b> Variables</a></li>
+<li class="chapter" data-level="9.5" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#ejercicios"><i class="fa fa-check"></i><b>9.5</b> Ejercicios</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#nivel-3"><i class="fa fa-check"></i><b>9.5.1</b> NIVEL 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#observaciones-sobre-la-aritmética-de-punto-flotante"><i class="fa fa-check"></i><b>9.6</b> Observaciones sobre la aritmética de punto flotante</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#cómo-checar-un-if"><i class="fa fa-check"></i><b>9.6.1</b> ¿Cómo checar un if?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="leer-y-almacenar-variables-en-r.html"><a href="leer-y-almacenar-variables-en-r.html"><i class="fa fa-check"></i><b>10</b> Leer y almacenar variables en <code>R</code></a><ul>
+<li class="chapter" data-level="10.0.1" data-path="leer-y-almacenar-variables-en-r.html"><a href="leer-y-almacenar-variables-en-r.html#ejercicio-2"><i class="fa fa-check"></i><b>10.0.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="instalación-de-paquetes.html"><a href="instalación-de-paquetes.html"><i class="fa fa-check"></i><b>11</b> Instalación de paquetes</a><ul>
+<li class="chapter" data-level="11.0.1" data-path="instalación-de-paquetes.html"><a href="instalación-de-paquetes.html#ejercicios-1"><i class="fa fa-check"></i><b>11.0.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="comentarios-adicionales-sobre-el-formato.html"><a href="comentarios-adicionales-sobre-el-formato.html"><i class="fa fa-check"></i><b>12</b> Comentarios adicionales sobre el formato</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Rodrigo Zepeda Tello</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión" class="section level1">
+<h1><span class="header-section-number">Capítulo 7</span> Bienvenidx a <code>R</code>, Taking Off Again (sí, así se llama esta versión)</h1>
+<p><code>R</code> es un lenguaje de cómputo y un programa estadístico <a href="https://www.gnu.org/philosophy/free-sw.html">libre</a>, gratuito, <a href="http://adv-r.had.co.nz/Functional-programming.html">de programación funcional</a> (¿qué es eso?), <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">orientado a objetos</a> (<em>what??</em>) que mutó a partir de otros dos lenguajes conocidos como <code>Scheme</code> y <code>S</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. El primero de estos fue desarrollado en el MIT por Sussman y Steele mientras que el segundo surgió en los laboratorios Bell<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> creado por Becker, Wilks y Chambers. <code>R</code> <a href="https://cran.r-project.org/doc/html/interface98-paper/paper_2.html">nació en junio de 1995</a> a partir del trabajo de Ross Ihaka y Robert Gentleman<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
+<p>Desde su creación, la mayor parte del desarrollo de <code>R</code> ha sido trabajo completamente voluntario de la <a href="https://www.r-project.org/foundation/">Fundación R</a>, del equipo de R Core y de miles de usuarios que han creado funciones específicas para <code>R</code> conocidas como paquetes (<code>packages</code>). Actualmente el repositorio más importante de <code>R</code>, CRAN, contiene más de <em>16000</em> paquetes con distintas funciones para hacer ¡lo que quieras!</p>
+<p>Como todo el trabajo en <code>R</code> es voluntario hace falta:</p>
+<ol style="list-style-type: decimal">
+<li><p>Una homologación en los métodos. Puedes encontrar varias funciones <em>que supuestamente hacen exactamente lo mismo</em> (como es el caso de <code>emojifont</code>, <code>fontemoji</code> y <code>emoGG</code> para graficar usando emojis).</p></li>
+<li><p>Estandarizar la notación. Algunos paquetes como aquellos del <code>tidyverse</code> (veremos más adeltna) utilizan <code>pipes</code> (<code>%&gt;%</code>); estos sólo funcionan en el <code>tidyverse</code> pero no fuera del mismo.</p></li>
+</ol>
+<p>Sin embargo, también es una gran ventaja que sean los usuarios de <code>R</code> quienes guían su desarrollo. El lenguaje va mutando según peticiones de las personas que lo usan. Si hay algo que te gustaría <code>R</code> tuviera y aún no existe ¡lo puedes proponer!</p>
+<div id="nuestro-entorno-de-trabajo" class="section level2">
+<h2><span class="header-section-number">7.1</span> Nuestro entorno de trabajo</h2>
+<div id="r" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> <code>R</code></h3>
+<div class="figure"><span id="fig:unnamed-chunk-7"></span>
+<img src="images/CRAN1.png" alt="Oficialmente, la página de `R` es de las páginas más feas del mundo. ¡No te dejes llevar por las apariencias!" width="1440" />
+<p class="caption">
+Figure 7.1: Oficialmente, la página de <code>R</code> es de las páginas más feas del mundo. ¡No te dejes llevar por las apariencias!
+</p>
+</div>
+<p>A lo largo de estas notas estaré trabajando con: R version 4.0.2 (2020-06-22) <em>Taking Off Again</em>. La más reciente versión de <code>R</code> la puedes encontrar en <a href="https://cran.r-project.org">CRAN</a>. Para ello ve al sitio y selecciona tu plataforma.</p>
+<blockquote>
+<p><strong>Nota usuarios de Mac</strong> En algunas Mac, al abir R, aparece el siguiente mensaje de advertencia:
+<code>During startup - Warning messages: 1: Setting LC_CTYPE failed [...]</code>
+para <a href="https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c">solucionarlo</a> ve a <code>Aplicaciones</code> y abre <code>Terminal</code>. Copia y pega en ella el siguiente texto:
+<code>defaults write org.R-project.R force.LANG en_US.UTF-8</code>
+Da enter, cierra la <code>Terminal</code> y reinicia <code>R</code>.</p>
+</blockquote>
+<ul>
+<li><p>En el caso de Windows da clic en <code>Download R for Windows</code> y luego en <code>install R for the first time</code>. Finalmente, ejecuta el instalable que aparece al dar click en <code>Download R 4.0.2 for Windows</code> .
+<!-- Para este curso haremos uso de las herramientas de desarrollador [Rtools](https://cran.r-project.org/bin/windows/Rtools/) --></p></li>
+<li><p>En el caso de Mac selecciona <code>Download R for (Mac) OS X</code> y luego elige <code>R-4.0.2.pkg</code>. En Mac puede que necesites instalar adicionalmente <a href="https://www.xquartz.org">XQuartz</a> (según tu versión de Mac). Si tu Mac es una versión suficientemente antigua, sigue las instrucciones específicas de <code>CRAN</code>.</p></li>
+</ul>
+<blockquote>
+<p>Si tienes problemas para instalar puedes usar <a href="https://rstudio.cloud">RStudio Cloud</a>.</p>
+</blockquote>
+<ul>
+<li>En el caso de Linux al elegir <code>Download R for Linux</code> tendrás la opción de buscar tu distribución específica. Al elegirla, aparecerán instrucciones para tu terminal de comandos; síguelas. En el caso de Linux, según los paquetes de <code>R</code> que elijamos instalar en la computadora requerirás instalar paquetería adicional para tu distribución de Linux. <code>R</code> te informará de la paquetería necesaria conforme la requiera.</li>
+</ul>
+</div>
+<div id="rstudio" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> RStudio</h3>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="images/rstudio.png" alt="RStudio es una empresa que se dedica a hacer cosas para R." width="1767" />
+<p class="caption">
+Figure 7.2: RStudio es una empresa que se dedica a hacer cosas para R.
+</p>
+</div>
+<p><code>RStudio</code> es una interfaz gráfica (IDE) para <code>R</code>. Puedes pensar a <code>R</code> como el <em>Bloc de Notas</em> y a <code>RStudio</code> como <em>Word</em>. El <em>Bloc</em> tiene todas las capacidades que necesitas para poder escribir; empero, es muchísimo mejor trabajar tus <em>papers</em> en <em>Word</em>. De la misma manera, <code>R</code> tiene todas las capacidades para hacer estadística <em>pero un formato horrible</em> y <code>RStudio</code> se ha convertido en la más popular forma de usar <code>R</code>. Por supuesto que no es la única; algunas alternativas son <a href="https://atom.io/packages/ide-r">Atom con ide-r</a>, <a href="https://marketplace.eclipse.org/content/statet-r">Eclipse con StatET</a> y <a href="https://rkward.kde.org">RKWard</a>. En general es posible seguir estas notas sin que tengas <code>RStudio</code> pero, si es tu primera vez programando, no lo recomiendo.</p>
+<blockquote>
+<p>Si ya tienes experiencia con lenguajes como Python, Javascript, Java ó alguno de los mil C que existen, no tendrás ningún problema usando el editor de tu preferencia.</p>
+</blockquote>
+<p>Para descargar <code>RStudio</code> ve a <a href="https://www.rstudio.com">su página</a> y da clic en <code>Download RStudio</code>. Baja tu pantalla hasta donde dice <code>Installers for Supported Platforms</code> y elige tu plataforma: <code>Windows</code>, <code>Mac OS X</code> ó tu sabor de <code>Linux</code> preferido. Una vez descargado el archivo, ábrelo y sigue las instrucciones que aparecen en pantalla.</p>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>De ahí que se llame <code>R</code> porque la <code>R</code> es una mejor letra que la <code>S</code> (todos lo sabemos)
+-Atte. Rodrigo, el autor de este documento.<a href="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Mejor conocidos ahora como AT&amp;T, la compañía celular que nunca tiene señal.<a href="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Sus nombres empiezan con la letra <code>R</code> ¿coincidencia?<a href="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html#fnref5" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="apéndice.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="primeros-pasos-en-rstudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introduccion_a_Muestreo.pdf", "Introduccion_a_Muestreo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,2339 @@
+---
+title: "Análisis Exploratorio de Datos"
+author: "Rodrigo Zepeda (rodrigo.zepeda@itam.mx)"
+date: "25 de junio 2020"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r setup, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(latex2exp)
+library(kableExtra)
+```
+
+## Inicio
+
+Siempre que inicies un nuevo trabajo en `R` ¡no olvides borrar el historial!
+
+```{r}
+rm(list = ls()) #Clear all
+```
+
+## Librerías
+
+Para este análisis vamos a tener que llamar a las siguientes librerías previamente instaladas (por única vez) con `install.packages`:
+
+```{r, message = FALSE}
+library(tidyverse)
+library(dplyr)
+library(moments)
+library(lubridate)
+library(ggcorrplot)
+library(ks)
+```
+
+Si no tienes una librería puedes instalarla escribiendo en la consola el `install` junto con su nombre:
+```{r, eval = FALSE}
+install.packages("lubridate")
+```
+
+## Base a analizar
+Como ejemplo analizaremos la base de _Carpetas de Investigación de la Fiscalía General de Justicia_ de la CDMX para el año 2018 y mes de Diciembre misma que se encuentra [en este link](https://datos.cdmx.gob.mx/explore/dataset/carpetas-de-investigacion-pgj-cdmx/download/?format=csv&refine.ao_hechos=2018&refine.mes_hechos=Diciembre&timezone=America/Mexico_City&lang=es&use_labels_for_header=true&csv_separator=%2C)
+
+> Si el link anterior no abre ve al sitio [https://datos.cdmx.gob.mx/explore/dataset/carpetas-de-investigacion-pgj-cdmx/table/?refine.ao_hechos=2018](https://datos.cdmx.gob.mx/explore/dataset/carpetas-de-investigacion-pgj-cdmx/table/?refine.ao_hechos=2018) y elige la opción de año 2018, mes diciembre y descargar como csv.
+
+La forma más fácil en RStudio es yéndonos a `Import Dataset` en el panel derecho seguido de `From Text` y seleccionamos el archivo. En este caso hay dos opciones cualquiera de las dos opciones funciona: si en tu ordenador no sirve una, ¡prueba la otra!
+
+En mi caso el archivo está en el escritorio y se lee de la siguiente manera:
+
+```{r}
+datos <- read.csv("~/Desktop/carpetas-de-investigacion-pgj-cdmx.csv")
+```
+
+## Definiciones y notación
+Denotamos el conjunto de datos observados como la matriz (_base de datos_) de $\ell \times n$
+$$
+Z = \begin{pmatrix} 
+z_1 \Big| z_2 \Big| \dots \Big| z_{\ell}
+\end{pmatrix}
+$$
+donde $\ell \in \mathbb{N}$ con $\ell > 0$ y las $z_i$ sin pérdida de generalidad, son vectores columna ($z_i = (z_{i,1}, z_{i,2}, \dots, z_{i,n})^T$) de longitud $n$. Una columna $z_{k}$ con $0 \leq k \leq \ell$ se le conoce como: 
+
+  + *Numérica* si $z_{k} \in \mathbb{R}^{n}$. En particular es entera si $z_{j} \in \mathbb{Z}^{n}$. 
+    
+  + *Categórica* si cada entrada de $z_{k}$ es una indicadora de pertenencia a algún conjunto (por ejemplo `Hombre / Mujer` ó `Ingresos Altos / Ingresos Medios / Ingresos Bajos`). Usualmente $z_{k}$ se representa con un caracter o con un entero. 
+    
+  + *Lógica* si $z_{k}$ es un indicador que toma alguno de los dos valores: `r TRUE` ó `r FALSE`. 
+    
+  + *Caracter* si $z_{k}$ es un caracter o una cadena de caracteres donde los caracteres son el objeto de análisis en sí (no como pertenencia). Por ejemplo si cada entrada $z_{k,m}$ representa un Tweet.  
+    
+**OJO** Los datos $z_{k,m}$ son variables fijas ya dadas y **NO SON ALEATORIAS**. 
+
+En el caso de nuestra base de datos podemos resumir la información contenida en la misma mediante `glimpse`:
+
+```{r}
+datos %>% glimpse()
+```
+
+Notamos que el vector columna `año_hechos` es una variable numérica mientras que `mes_hechos` es categórica. No hay variables lógicas en esta base. Una variable caracter es el vector columna `calle_hechos` que no denota un conjunto sino una cadena de caracteres (véanse las faltas de ortografía, por ejemplo). 
+
+Al ser la tabla de datos una matriz podemos acceder a la entrada en la fila $j$ y columna $k$ haciendo:
+$$
+\textrm{base}[j,k]
+$$
+por ejemplo:
+```{r}
+datos[4,6]
+```
+
+> **NOTACIÓN** 
+> Para facilitar la notación en lo que sigue de estas notas y hasta nuevo aviso, si $z_k$ es una columna categórica de $Z$ denotaremos a los elementos de dicha columna como $C = (c_1, c_2, \dots, c_n) = z_k^T$. Si $z_k$ es numérica denotamos a los elementos de dicha columna como $\vec{x} = (x_1, x_2, \dots, x_n) = z_k^T$. 
+
+## Estadísticos univariados
+
+### Definición [Estadístico]
+Un estadístico es una función cuyo dominio es la matriz de datos observados $Z$ o una columna de la misma. Es decir, un estadístico es cualquier función de los datos. A continuación veremos algunos ejemplos de estadísticos así como su interpretación. 
+
+**1. Media poblacional** Dado un vector de datos numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ definimos la media poblacional como:
+  $$
+  \bar{x} = \dfrac{1}{n} \sum\limits_{i=1}^{n} x_i, \qquad x_i \in \mathbb{R}
+  $$
+En el caso de nuestros datos podemos **calcular el promedio de delitos por día** como sigue. Primero necesitamos especificar a `R` que la `fecha_hechos` es una fecha. Esto lo hacemos mediante la función `ymd_hms` (`year-month-day_hour-minute-second`) del paquete de `lubridate` y la función `mutate` (que cambia una columna de la base de datos). El siguiente código le indica a `R` que cambie la columna `fecha_hechos` volviéndola a leer como fecha:
+  
+```{r}
+datos <- datos %>% mutate(fecha_hechos = ymd_hms(fecha_hechos))
+```
+
+Para mantener sólo la fecha y eliminar la hora de `fecha_hechos` podemos generar una nueva columna como sigue:
+```{r}
+datos <- datos %>% mutate(fecha = date(fecha_hechos))
+```
+
+Finalmente podemos contar (`tally`) observaciones agrupadas (`group_by`) por día mediante la combinación de ambas funciones:
+
+```{r}
+conteo_delitos <- datos %>% group_by(fecha) %>% tally()
+``` 
+
+
+```{r, echo = FALSE}
+head(conteo_delitos)
+```
+
+Hay distintas formas de calcular la media. La primera es tomando la columna directo, para acceder a una columna utilizamos el signo de pesos $\$$ como sigue:
+$$
+\texttt{base} \texttt{\$} \texttt{columna}
+$$
+
+En nuestro caso:
+```{r}
+mean(conteo_delitos$n)
+```
+
+O bien podemos usar la función `summarise` integrada en `dplyr`:
+```{r}
+conteo_delitos %>% summarise(mean(n))
+```
+**2. Total poblacional** Dado un vector de datos numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ definimos el total poblacional como: 
+
+$$
+t_{\vec{x}} = \sum\limits_{i=1}^{n} x_i, \qquad x_i \in \mathbb{R}
+$$
+En este caso de las carpetas de investigación el total nos daría todas las carpetas abiertas durante diciembre. Para ello calculamos el total sumando todos los elementos: 
+
+```{r}
+sum(conteo_delitos$n)
+```
+
+O bien (y esto es una de las cosas interesantes de `tidyverse`) agregándolo a los cálculos previos:
+
+```{r}
+conteo_delitos %>% summarise(mean(n), sum(n))
+```
+  
+**3. Varianza poblacional (no ajustada)** Dado un vector de datos numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ definimos la varianza poblacional como: 
+$$
+\sigma^2_{\vec{x}} = \dfrac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2, \qquad x_i \in \mathbb{R}
+$$
+Misma que podemos calcular con el comando `var` ya sea directamente en la columna:
+```{r}
+var(conteo_delitos$n)
+```
+
+O bien a través del `summarise` integrando con el anterior:
+```{r}
+conteo_delitos %>% summarise(mean(n), sum(n), var(n))
+```
+La raíz cuadrada de la varianza se conoce como **desviación estándar** y se denota como sigue:
+$$
+\sigma_{\vec{x}} = \sqrt{\sigma^2_{\vec{x}}}
+$$
+
+Recuerda que la varianza se interpreta como la distancia cuadrática promedio a la que están los datos. En particular la varianza casi no considera valores que están a menos de $1$ de distancia de $\bar{x}$ (pues $(x_i - \bar{x})^2 < 1$ en ese caso) pero le da mayor peso a valores que están muy lejanos (donde $(x_i - \bar{x})^2 \gg 1$ si $x_i$ está muy lejos de $\bar{x}$). Gráficamente:
+
+```{r, echo = FALSE}
+x <- seq(-2.5, 2.5, length.out = 250)
+ggplot() + 
+  geom_rect(aes(xmin = -1, xmax = 1, ymin = 0, ymax = 0.4), fill = "deepskyblue3",
+            alpha = 0.2) +
+  geom_rect(aes(xmin = min(x), xmax = -1, ymin = 0, ymax = 0.4), fill = "tomato3",
+            alpha = 0.2) +
+  geom_rect(aes(xmin = 1, xmax = max(x), ymin = 0, ymax = 0.4), fill = "tomato3",
+            alpha = 0.2) +
+  geom_vline(aes(xintercept = 0), linetype = "dotted") +
+  geom_line(aes(x = x, y = dnorm(x)), color = "black", size = 1) +
+  theme_minimal() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(),
+        axis.title = element_blank()) +
+  annotate("text", x = 0, y = 0.2, label = "DISTANCIA < 1\nCUENTAN MENOS") + 
+  annotate("text", x = -1.75, y = 0.2, label = "DISTANCIA > 1\nCUENTAN MÁS") + 
+  annotate("text", x = 1.75, y = 0.2, label = "DISTANCIA > 1\nCUENTAN MÁS")
+```
+
+Si nos interesara que todos los valores (tanto los cercanos a $\bar{x}$ como los lejanos) pesaran de manera idéntica entonces usaríamos el MAD:
+
+**4. Desviación Media Absoluta (MAD)** Dado un vector de datos numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ definimos la desviación media absoluta, MAD, como:
+$$
+\text{MAD}_{\vec{x}} = \frac{1}{n} \sum\limits_{i=1}^{n} | x_i - \bar{x} |
+$$
+
+Misma que se puede calcular en `R` como:
+```{r}
+mad(conteo_delitos$n)
+```
+o bien dentro del `summarise`:
+```{r}
+conteo_delitos %>% summarise(mean(n), sum(n), var(n), mad(n))
+```
+
+La MAD también es una forma de medir distancia pero en este caso se tiene que todos aportan por igual los muy alejados y los que no:
+
+```{r, echo = FALSE}
+ggplot() + 
+  geom_rect(aes(xmin = min(x), xmax = max(x), ymin = 0, ymax = 0.4), fill = "tomato3",
+            alpha = 0.2) +
+  geom_vline(aes(xintercept = 0), linetype = "dotted") +
+  geom_line(aes(x = x, y = dnorm(x)), color = "black", size = 1) +
+  theme_minimal() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(),
+        axis.title = element_blank()) +
+  annotate("text", x = 0, y = 0.2, label = "DISTANCIA < 1\nCUENTAN IGUAL") + 
+  annotate("text", x = -1.75, y = 0.2, label = "DISTANCIA > 1\nCUENTAN IGUAL") + 
+  annotate("text", x = 1.75, y = 0.2, label = "DISTANCIA > 1\nCUENTAN IGUAL")
+```
+
+> *Para pensarle*: En el caso de una variable que se supone que es uniforme y no interesa penalizar valores lejanos de la media ¿cuál sería una mejor manera de cuantificar la dispersión MAD ó varianza? ¿en qué casos importaría la otra?
+
+Las siguientes dos definiciones son con base en conceptos de proba. ¿Los recuerdas?
+
+**5. Coeficiente de asimetría** Dado un vector de datos numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ definimos el coeficiente de asimetría de Pearson (_skewness_) como:
+$$
+\text{Skewness}_{\vec{x}} = \frac{1}{n \sigma^3_{\vec{x}} } \sum\limits_{i = 1}^{n} (x_i - \bar{x})^3
+$$
+
+Para interpretar el coeficiente de asimetría podemos dividir esa suma en dos pedazos (olvidándonos de la constante):
+$$
+\sum\limits_{i = 1}^{n} (x_i - \bar{x})^3 = \underbrace{\sum\limits_{\substack{i = 1 \\ \\ x_i > \bar{x}}}^{n} (x_i - \bar{x})^3}_{\text{A}} + \underbrace{\sum\limits_{\substack{i = 1 \\ \\ x_i < \bar{x}}}^{n} (x_i - \bar{x})^3}_{\text{B}} 
+$$
+Notamos que si $|A| > |B|$ la mayor parte de las $x_i$ (o las que se alejan más de la media) son mayores a $\bar{x}$ y por tanto los datos van a estar _sesgados a la derecha_:. Por otro lado si $|B| > |A|$ significa que hay más $x_i$ (o con mayor peso) del lado izquierdo de la media que del lado derecho de la misma y por tanto los datos están _sesgados a la izquierda_. Datos _insesgados_ son aquellos donde $\text{Skewness}_{\vec{x}} = 0$. 
+
+```{r, echo=FALSE}
+set.seed(346)
+cowplot::plot_grid(
+  ggplot() + 
+    geom_histogram(aes(x = rpois(1000, 1)), binwidth = 1, fill = "forestgreen",
+                   color = "white") +
+    theme_classic() +
+    ggtitle("Distribución sesgada a la\nderecha") +
+    xlab("Skewness > 0") +
+    theme(axis.title.y = element_blank(), axis.ticks = element_blank(),
+          axis.text = element_blank()),
+  ggplot() + 
+    geom_histogram(aes(x = rnorm(1000)), bins = 30, fill = "tomato3",
+                   color = "white") +
+    theme_classic() +
+    ggtitle("Distribución insesgada") +
+    xlab("Skewness = 0") +
+    theme(axis.title.y = element_blank(), axis.ticks = element_blank(),
+          axis.text = element_blank()),
+  ggplot() + 
+    geom_histogram(aes(x = -rpois(1000, 1)), binwidth = 1, fill = "deepskyblue4",
+                   color = "white") +
+    theme_classic() +
+    ggtitle("Distribución sesgada a la\nizquierda") +
+    xlab("Skewness < 0") +
+    theme(axis.title.y = element_blank(), axis.ticks = element_blank(),
+          axis.text = element_blank()), ncol = 3)
+
+```
+En el caso de las carpetas podemos calcular la asimetría que no se encuentra preprogramada en R como sigue:
+
+```{r}
+#Estimación de la desviación estándar
+desv.est <- sd(conteo_delitos$n)
+
+#Estimación del x barra
+x.barra <- mean(conteo_delitos$n)
+
+#Obtención de la n (longitud del vector)
+n.longitud <- length(conteo_delitos$n)
+
+#Cálculo de la asimetría
+(1/desv.est^3)*mean((conteo_delitos$n - x.barra)^3)
+```
+
+> ¿Qué implica el resultado anterior?
+
+**6. Curtosis** Dado el mismo vector $\vec{x}$ que en el enunciado anterior el coeficiente de curtosis se define como
+
+$$
+\text{Curtosis}_{\vec{x}} = \frac{1}{n \sigma^4_{\vec{x}} } \sum\limits_{i = 1}^{n} (x_i - \bar{x})^4
+$$
+
+La interpretación de la curtosis es similar a la que hizimos de la varianza en el sentido que el elevar a la cuarta va a magnificar los efectos de aquellos valores que estén a más de $\sigma$ de distancia de la media pues podemos reescribir la suma como:
+
+$$
+\frac{1}{n \sigma^4_{\vec{x}} } \sum\limits_{i = 1}^{n} (x_i - \bar{x})^4  = \frac{1}{n \sigma^4_{\vec{x}} }  \underbrace{\sum\limits_{\substack{i = 1 \\ \\ | x_i - \bar{x}| < \sigma}}^{n} (x_i - \bar{x})^4}_{\text{A}} + \frac{1}{n \sigma^4_{\vec{x}} }  \underbrace{\sum\limits_{\substack{i = 1 \\ \\ | x_i - \bar{x}| > \sigma}}^{n} (x_i - \bar{x})^3}_{\text{B}} 
+$$
+Notamos que la única parte importante que apota a la curtosis es la dada por **B** que es la que capta las _colas_ de la distribución (pues ese lado es $\gg 1$) . De ahí que podamos decir que, entre dos vectores de datos, uno tiene colas más pesadas que el otro si su curtosis es mayor. En este caso podemos analizar la `latitud` y `longitud` de los datos a través de la curtosis:
+```{r}
+datos %>% summarise(kurtosis(latitud, na.rm = T), kurtosis(longitud, na.rm = T))
+```
+donde se agregó el comando `na.rm = T` para eliminar los valores de no respuesta (missing) marcados como `NA`. Del análisis notamos que la longitud tiene colas más pesadas que la latitud. 
+
+> **NOTACIÓN** Dado un vector $\vec{x} = (x_1, x_2, \dots, x_n)^T$ de valores numéricos denotamos el $j$-ésimo valor muestral ($1 \leq j \leq n$) como $x_{(j)}$ tal que $x_{(1)} = \min \{ x_1, x_2, \dots, x_n \}$ y
+$$
+x_{(j)} = \min \{ x_1, x_2, \dots, x_n \} \setminus \{ x_{(1)}, x_{(2)}, \dots, x_{(j-1)} \}
+$$
+Es decir $x_{(j)}$ es el valor en orden $j$ al momento de ordenar la muestra. Como nota adicional se define $x_{(0)} = 0$ y $x_{(n+1)} = 0$.
+
+**7. Mediana** Dado un vector de valores numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ denotamos la mediana como:
+$$
+\text{Mediana}_{\vec{x}} = \dfrac{x_{(\lfloor \frac{n+1}{2} \rfloor)} + x_{(\lceil \frac{n+1}{2} \rceil)}}{2} 
+$$
+La mediana puede calcularse fácilmente haciendo:
+```{r}
+median(conteo_delitos$n)
+```
+
+**8. Cuantil** Dado un vector de valores numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ el $\alpha$-ésimo cuantil está dado por:
+$$
+\text{Cuantil}_{\vec{x}}(\alpha) = \dfrac{x_{x_{(\lfloor \alpha\cdot (n+1) \rfloor)}} + x_{(\lceil \alpha\cdot (n+1)\rceil)}}{2} 
+$$
+donde $x_{(0)} = x_{(n+1)} = 0$. `R` no calcula los cuantiles de manera exacta sino que por velocidad los aproxima mediante la función `quantile`. Por ejemplo en el cálculo de los cuantiles $\alpha = 0.1$ y $\alpha = 0.66$:
+
+```{r}
+conteo_delitos %>% summarise(quantile(n, c(0.1, 0.66)))
+```
+La función `summary` también es bastante útil resumiendo múltiples observaciones de la base:
+```{r}
+summary(conteo_delitos$n)
+```
+
+Ésta incluye los **cuartiles** los cuales corresponden a los cuantiles asociados a $\alpha =0.25, 0.5, 0.75$ y $1$.
+
+**9. Rango intercuartílico** Definimos el rango intercuartílico para valores numèricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ como la distancia entre el cuantil $0.75$ y el $0.25$ (primer y tercer cuartil):
+$$
+\text{IQR}_{\vec{x}} = \text{Cuantil}_{\vec{x}}(0.75) -  \text{Cuantil}_{\vec{x}}(0.25)
+$$
+
+```{r}
+IQR(conteo_delitos$n)
+```
+
+**10. Valores atípicos (outliers)** Dado un vector de datos numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ definimos los valores atípicos _outliers_ como aquellas observaciones:
+$$
+\textrm{Outliers}_{\vec{x}} = \Big\{ x_i \in \vec{x} \big| x_i \not\in \big[ \text{Cuantil}_{\vec{x}}(0.25) - \frac{3}{2} \text{IQR}_{\vec{x}}, \text{Cuantil}_{\vec{x}}(0.75) + \frac{3}{2} \text{IQR}_{\vec{x}}\big] \Big\}
+$$
+Los _outliers_ en esta definción son valores que serían verdaderamente improbables bajo una distribución normal. 
+
+```{r, echo =  FALSE}
+x <- seq(-5, 5, length.out = 500)
+iqr <- qnorm(0.75) - qnorm(0.25)
+ggplot() +
+  geom_rect(aes(xmin = qnorm(0.25), xmax = qnorm(0.75), ymin = 0, ymax = 0.4),
+            fill = "deepskyblue3", alpha = 0.2) +
+  geom_rect(aes(xmin = min(x), xmax = qnorm(0.25) - 3/2*iqr, ymin = 0, ymax = 0.4),
+            fill = "tomato3", alpha = 0.2) +
+  geom_rect(aes(xmin = qnorm(0.75) + 3/2*iqr, xmax =max(x), ymin = 0, ymax = 0.4),
+            fill = "tomato3", alpha = 0.2) +
+  geom_line(aes(x = x, y = dnorm(x))) +
+  geom_vline(aes(xintercept = qnorm(0.25)), linetype = "dotted") + 
+  geom_vline(aes(xintercept = qnorm(0.75)), linetype = "dotted") + 
+  annotate("text", x = 0, y = 0.2, label = "IQR") +
+  annotate("text", x = 3.75, y = 0.2, label = "Outliers") +
+  annotate("text", x = -3.75, y = 0.2, label = "Outliers") +
+  theme_void()
+
+```
+
+Particularmente en el caso de la normal los _outliers_ son valores que tienen una probabilidad de salir aproximadamente de `r 2*(1 - pnorm(qnorm(0.75) + 3/2*iqr))` (por eso son atípicos porque no se esperaría que aparecieran nunca). 
+
+Para identificar los _outliers_ calculamos el IQR primero y los cuartiles:
+
+```{r}
+iqr      <- IQR(conteo_delitos$n)
+cuartil1 <- quantile(conteo_delitos$n, 0.25)
+cuartil3 <- quantile(conteo_delitos$n, 0.75)
+```
+
+después identificamos el límite inferior y superior del conjunto
+
+```{r}
+lim.inf  <- cuartil1 - 3/2*iqr
+lim.sup  <- cuartil3 + 3/2*iqr
+```
+
+finalmente preguntamos por cuáles están antes o después:
+```{r}
+outliers <- conteo_delitos %>% filter(n < lim.inf | n > lim.sup)
+```
+
+En este caso no tenemos _outliers_. 
+
+**11. Rango** El rango se define como la diferencia entre el mínimo y el máximo de los valores de un vector numérico $\vec{x} = (x_1, x_2, \dots, x_n)^T$:
+
+$$
+\textrm{Rango}_{\vec{x}} = \max \{x_1, x_2, \dots, x_n\} - \min \{x_1, x_2, \dots, x_n\}
+$$
+En `R` puede calcularse con la resta:
+```{r}
+#Obtenemos máximo y mínimo
+maximo <- max(conteo_delitos$n)
+minimo <- min(conteo_delitos$n)
+
+#Rango
+maximo - minimo
+```
+
+> **Nota** En algunos casos el rango se refiere al intervalo $[a,b]$ de valores donde $a = \min \{x_1, x_2, \dots, x_n\}$ y $b = \max \{x_1, x_2, \dots, x_n\}$. Éste es el caso de la función `range` en `R`:
+```{r}
+range(conteo_delitos$n)
+```
+
+**12. Conteo asociado a un conjunto**  Sea $\vec{y} = (y_1, y_2, \dots, y_n)^T$ un vector de datos de cualquier tipo (numéricos, categóricos, lógicos, caracteres, etc). Para un conjunto $A$ definimos el conteo asociado al conjunto $A$ como:
+$$
+\text{Conteo}_{\vec{y}}(A) = \sum\limits_{i = 1}^{n} \mathbb{I}_A (y_i)
+$$
+donde 
+$$
+\mathbb{I}_A (y) = \begin{cases}
+1 & \text{ si } y \in A, \\
+0 & \text{ en otro caso },
+\end{cases}
+$$
+es una variable indicadora.
+
+Una forma rápida de obtener dicho conteo en `R` es mediante `table`:
+
+```{r, eval = FALSE}
+table(datos$delito)
+```
+
+```{r, echo = FALSE}
+head(table(datos$delito))
+```
+O bien si se desean contar en la base de datos por ejemplo los delitos de `ABANDONO DE PERSONA` pueden hacerse mediante un filtro.
+
+```{r}
+datos %>% filter(delito == "ABANDONO DE PERSONA") %>% tally()
+```
+
+Al filtro pueden agregárseles grupos por si se desea obtener por fecha:
+
+```{r}
+datos %>% filter(delito == "ABANDONO DE PERSONA") %>% 
+  group_by(fecha) %>%  tally()
+```
+
+El filtro funciona igual que un `if` pudiéndose usar \texttt{and} (\&) u \texttt{or} (\|):
+
+```{r}
+datos %>% 
+  filter(delito == "ABANDONO DE PERSONA" |  delito == "ABORTO") %>% 
+  group_by(fecha) %>%  tally()
+```
+
+```{r}
+datos %>% 
+  filter(delito == "ABANDONO DE PERSONA" & 
+           fiscalía == "INVESTIGACIÓN EN IZTAPALAPA") %>%
+  group_by(fecha) %>%  tally()
+```
+
+
+**13. Moda** 
+En términos simples, la moda es el conjunto de los valores que más se repiten. Matemáticamente la moda es el conjunto $\textrm{Moda}_{\vec{y}} = \{ m_1, m_2, \dots, m_k \}$ tal que $m \in \textrm{Moda}$ sí y sólo si
+$$
+\sum_{i = 1}^{n} \mathbb{I}_{\{m\}}(y_i) \geq \sum_{i = 1}^{n} \mathbb{I}_{\{ \ell\}}(y_i) \qquad \forall \ell \neq m \textrm{ donde } y_i \in \vec{y}.
+$$
+
+Para calcularla en `R` no existe una función predefinida para calcular la moda. Nosotros podemos crearla con el comando `function`. El término `function` nos sirve para construir funciones; por ejemplo, una función que eleva al cuadrado:
+
+```{r}
+elevar.cuadrado <- function(x){
+  return(x^2)
+}
+```
+
+Observa la estructura que siempre será de esta forma: 
+\begin{equation}
+\begin{aligned}
+\text{Nombre de la función} \leftarrow & \texttt{function}(\text{argumento 1}, \text{argumento 2}, \dots, \text{argumento n})\{ \\ 
+& \#\text{Hacer algunos cálculos usando los argumentos} \\
+& \texttt{return}(\text{output}) \\
+\}
+\end{aligned}
+\end{equation}
+Podemos llamar a la función con un número:
+```{r}
+elevar.cuadrado(8)
+```
+o bien con un vector:
+```{r}
+elevar.cuadrado(12)
+```
+
+En nuestro caso vamos a crear una función que se llame `moda` para estimar la moda:
+```{r}
+#Función para estimar la moda de un vector x
+moda <- function(x){
+  
+  #Contar cuántas veces aparecen las observaciones
+  conteo <- table(x)
+  
+  #Obtengo el máximo que aparece
+  max_aparece <- max(conteo)
+  
+  #Busco cuáles aparecen más y obtengo los nombres
+  moda <- names(conteo)[which(conteo == max_aparece)]
+  
+  #Finalmente checo que si los datos eran numéricos moda debe
+  #ser numérico
+  if (is.numeric(x)){
+    moda <- as.numeric(moda)
+  }
+  
+  return(moda)
+}
+
+```
+
+Podemos probar nuestra función con datos que ya sepamos su resultado nada más para asegurarnos que funciona:
+```{r}
+#Creamos un vector numérico con dos modas
+vector.ejemplo.1 <- c(1,6,6,1,2,7,8,10)
+moda(vector.ejemplo.1)
+```
+Podemos probarlo también con caracteres:
+```{r}
+#Creamos un vector numérico con dos modas
+vector.ejemplo.2 <- c("manzana","pera","guayaba","perejil","manzana")
+moda(vector.ejemplo.2)
+```
+
+Una vez sabemos funciona podemos buscar el delito que ocurrió más:
+```{r}
+moda(datos$delito)
+```
+
+## Ejercicios 
+
+1. Construye una función que tome de input dos variables: $x$ un vector y $k$ un entero de tal manera que calcule el **$k$-ésimo momento central** de los datos:
+$$
+\text{Momento}_{\vec{x}}(k) = \frac{1}{n} \sum\limits_{i=1}^n (x_i - \bar{x})^k
+$$
+La función debe tener la siguiente estructura:
+```{r, eval = FALSE}
+kesimo.momento <- function(x, k){
+  #Rellena aquí
+}
+```
+
+2. Sin usar la opción de `trim` ni `trimmed.mean` crea una función que calcule la media de los datos que están entre el cuantil $\alpha/2$ y el cuantil $1 - \alpha/2$ ($0 \leq \alpha \leq 1$. A esta media se le conoce como **media truncada al nivel $\alpha \times 100\%$**. Matemáticamente se define como:
+$$
+\textrm{Media Truncada}_{\vec{x}}(\alpha) = \frac{1}{n_\alpha} \sum\limits_{i = 1}^{n} x_i \cdot  \mathbb{I}_{[q_{\alpha/2}, q_{1-\alpha/2}]}(x_i)
+$$
+donde $n_{\alpha} = \sum_{i=1}^n \mathbb{I}_{[q_{\alpha/2}, q_{1-\alpha/2}]}(x_i)$ es la cantidad de $x_i$ que están en el intervalo $[q_{\alpha/2}, q_{1-\alpha/2}]$ donde $q_{\alpha/2} = \text{Cuantil}_{\vec{x}}(\alpha/2)$ y $q_{1 - \alpha/2} = \text{Cuantil}_{\vec{x}}(1 - \alpha/2)$. 
+
+3. Una función llamada `jesimo.dato` de dos argumentos que dado un vector de datos $\vec{x}$ me devuelva el $j$-ésimo dato ordenado (es decir el $x_{(j)}$). **NOTA** No confundir con devolver el $x_j$ que es la $j$-ésima entrada. Como sugerencia usar `arrange`, `order` ó `sort`. Un ejemplo de lo que debe hacer la función es:
+```{r, echo = FALSE}
+jesimo.dato <- function(x, j){sort(x)[j]}
+```
+```{r}
+x <- c(12,8,9,7,14, 21)
+jesimo.dato(x, 4)
+```
+
+## Gráficas univariadas
+
+**1. Gráfica de caja (boxplot)** 
+Una gráfica de caja pretende resumir los cuartiles, la mediana e identificar los _outliers_ todo en una sola imagen. Para ello considera un vector numérico $\vec{x} = (x_1, x_2, \dots, x_n)^T$ tal que:
+
+  1. $q_1$ sea el primer cuartil ($\textrm{Cuantil}_{\vec{x}}(0.25)$), $q_2$ sea la mediana (que es lo mismo que el segundo cuartil o bien $\textrm{Cuantil}_{\vec{x}}(0.5)$) y $q_3$ corresponda al tercer cuartil ($\textrm{Cuantil}_{\vec{x}}(0.75)$). 
+  2. $w_1 = \min \{x_j \in \vec{x} | x_j \geq q_1 - \frac{3}{2} IQR \}$ es el valor más pequeño de $\vec{x}$ que _no es outlier_ y $w_2 = \max \{x_j \in \vec{x} | x_j \leq q_3 + \frac{3}{2} IQR \}$ es el valor más grande de $\vec{x}$ que _no es outlier_.
+  3. Sea $\textrm{Outliers}_{\vec{x}}$ el conjunto de outliers como lo definimos anteriormente: 
+$$
+\textrm{Outliers}_{\vec{x}} = \Big\{ x_i \in \vec{x} \big| x_i \not\in \big[ q_1 - \frac{3}{2} \text{IQR}_{\vec{x}}, q_3 + \frac{3}{2} \text{IQR}_{\vec{x}}\big] \Big\}
+$$
+donde $\textrm{Outliers}_{\vec{x}} = \{ o_1, o_2, \dots, o_d \}$. Una gráfica de caja corresponde al siguiente diagrama:
+
+```{r, echo = FALSE, warning=FALSE}
+ggplot() +
+  geom_segment(aes(x = -1.75, xend = 1, y = 0, yend = 0),
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1.75, xend = 1, y = 2, yend = 2),
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1.75, xend = 1, y = -2, yend = -2),
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1.75, xend = 1, y = -6, yend = -6),
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1.75, xend = 1, y = 6, yend = 6),
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1.75, xend = 1, y = 10, yend = 10),
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1.75, xend = 1, y = 12, yend = 12),
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1.75, xend = 1, y = -9, yend = -9),
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1, xend = 1, y = 2, yend = 2)) +
+  geom_segment(aes(x = -1, xend = 1, y = 0, yend = 0), 
+               size = 1, color = "deepskyblue3") +
+  geom_segment(aes(x = -1, xend = 1, y = -2, yend = -2)) +
+  geom_segment(aes(x = -1, xend = -1, y = -2, yend = 2)) +
+  geom_segment(aes(x = 1, xend = 1, y = -2, yend = 2)) +
+  geom_segment(aes(x = 0, xend = 0, y = 2, yend = 6), 
+               linetype = "dashed") +
+  geom_segment(aes(x = 0, xend = 0, y = -2, yend = -6),
+               linetype = "dashed") +
+  geom_segment(aes(x = -0.4, xend = 0.4, y = 6, yend = 6), 
+               linetype = "dashed") +
+  geom_segment(aes(x = -0.4, xend = 0.4, y = -6, yend = -6), 
+               linetype = "dashed") +
+  geom_point(aes(x = 0, y = 10), color = "tomato3", size = 2) +
+  geom_point(aes(x = 0.2, y = 12), color = "tomato3", size = 2) +
+  geom_point(aes(x = -0.3, y = -9), color = "tomato3", size = 2) +
+  geom_segment(aes(x = -1.5, xend = -1.5, y = -14, yend = 14)) +
+  geom_label(aes(x = -1.75, y = 0), label = TeX("q_2")) +
+  geom_label(aes(x = -1.75, y = -2), label = TeX("q_1")) +
+  geom_label(aes(x = -1.75, y = 2), label = TeX("q_3")) +
+  geom_label(aes(x = -1.75, y = 6), label = TeX("w_2")) +
+  geom_label(aes(x = -1.75, y = -6), label = TeX("w_1")) +
+  geom_label(aes(x = -1.75, y = 10), label = TeX("o_1")) +
+  geom_label(aes(x = -1.75, y = 12), label = TeX("o_2")) +
+  geom_label(aes(x = -1.75, y = -9), label = TeX("o_3")) +
+  theme_void() + coord_flip()
+```
+
+La imagen anota la mediana, los cuartiles así como el rango de valores donde se sabe que no hay outliers. Finalmente la gráfica identifica los _outliers_ si es que hay. Para armar una gráfica de boxplot usamos la librería de _ggplot2_ especificando dentro de la función `ggplot` la base de datos de donde sale nuestra información:
+
+```{r}
+ggplot(conteo_delitos) +
+  geom_boxplot(aes(x = n))
+```
+
+la cual pone la mediana en `r round(median(conteo_delitos$n), 2)` como habíamos calculado, los cuartiles en `r round(quantile(conteo_delitos$n, c(0.25, 0.75)), 2)[1]` y `r round(quantile(conteo_delitos$n, c(0.25, 0.75)), 2)[2]` respectivamente. Finalmente no presenta _outliers_ pues nuestro análisis previo nos mostraba que no había _outliers_. 
+
+Podemos personalizar nuestra gráfica agregando títulos con la función lab:
+
+```{r}
+ggplot(conteo_delitos) +
+  geom_boxplot(aes(x = n)) +
+  labs(
+    x = "Cantidad de carpetas de investigación abiertas por día",
+    y = "",
+    title = "Gráfica de cajas de los delitos en CDMX",
+    subtitle = "Fuente: Carpetas de investigación FGJ de la Ciudad de México",
+    caption = "Datos de Diciembre 2018"
+  )
+```
+Finalmente, podemos personalizar los colores de la gráfica editando directamente en el `geom_boxplot`:
+
+```{r}
+ggplot(conteo_delitos) +
+  geom_boxplot(aes(x = n), color = "red", fill = "deepskyblue4") +
+  labs(
+    x = "Cantidad de carpetas de investigación abiertas por día",
+    y = "",
+    title = "Gráfica de cajas de los delitos en CDMX",
+    subtitle = "Fuente: Carpetas de investigación FGJ de la Ciudad de México",
+    caption = "Datos de Diciembre 2018"
+  )
+```
+
+**2. Gráfica de barras** Sea $\vec{c} = (c_1, c_2, \dots, c_n)^T$ un vector de datos categóricos. Sea $C = \{ a_i | a_i \in \vec{c} \}$ el conjunto de $\ell$ valores únicos que se tienen registrados en el vector $\vec{c}$. Denotamos la cantidad de veces que aparece $a_i$ en $\vec{c}$ como $n_i$; es decir:
+
+$$
+n_i = \sum\limits_{k = 1}^n \mathbb{I}_{\{a_i\}}(c_k)
+$$
+
+Una gráfica de barras consiste en una representación gráfica del conjunto:
+$$
+\text{Barras} = \{ (a_i, n_i) | a_i \in C  \}
+$$
+Gráficamente:
+
+```{r, warning = FALSE, echo = FALSE}
+ggplot() +
+  geom_col(aes(x = c(1,2,3,4), y = c(2,4,5,1)), fill = "forestgreen") +
+  theme_void() +
+  geom_segment(aes(x = 0, xend = 0, y = 0, yend = 5)) +
+  geom_segment(aes(x = 0, xend = 5, y = 0, yend = 0)) +
+  geom_label(aes(x = 1, y = -0.5), label = TeX("a_1")) +
+  geom_label(aes(x = 2, y = -0.5), label = TeX("a_2")) +
+  geom_label(aes(x = 3, y = -0.5), label = TeX("a_3")) +
+  geom_label(aes(x = 4, y = -0.5), label = TeX("a_4")) +
+  geom_segment(aes(x = -0.5, xend = 1, y = 2, yend = 2), 
+               linetype = "dotted", color = "black") +
+  geom_segment(aes(x = -0.5, xend = 2, y = 4, yend = 4), 
+               linetype = "dotted", color = "black") +
+  geom_segment(aes(x = -0.5, xend = 3, y = 5, yend = 5), 
+               linetype = "dotted", color = "black") +
+  geom_segment(aes(x = -0.5, xend = 4, y = 1, yend = 1), 
+               linetype = "dotted", color = "black") +
+  geom_label(aes(x = -0.5, y = 2), label = TeX("n_1")) +
+  geom_label(aes(x = -0.5, y = 4), label = TeX("n_2")) +
+  geom_label(aes(x = -0.5, y = 5), label = TeX("n_3")) +
+  geom_label(aes(x = -0.5, y = 1), label = TeX("n_4")) 
+```
+
+Podemos crear una gráfica de barras con el comando `geom_col` para ello creemos unas barras correspondientes al tipo de delito (sólo en delitos que `categoria_delito` dice `ROBO`) haciendo una nueva base que cuente por delito:
+
+```{r}
+conteo_tipo <- datos %>% filter(str_detect(categoria_delito,"ROBO")) %>% 
+  group_by(delito) %>% tally()
+```
+
+Y hagamos la gráfica:
+```{r}
+ggplot(conteo_tipo) +
+  geom_col(aes(x = delito, y = n), color = "white") +
+  theme_bw()
+```
+Para evitar que se encime todo el texto podemos establecer un ángulo del mismo al usar `theme`:
+```{r}
+ggplot(conteo_tipo) +
+  geom_col(aes(x = delito, y = n), color = "white") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, size = 3))
+```
+
+> **NOTA** Una mala praxis [es usar gráficas de pay](https://www.data-to-viz.com/caveat/pie.html) pues es muy complicado contar una historia a partir de ellas. ¡No lo hagas!
+
+## Gráficas bivariadas
+
+**1. Gráfica de puntos (scatterplot)** Dada una matriz de datos $Z$ consideramos dos  columnas numéricas $z_i$ y $z_j$ ($i \neq j$) de dicha matriz. Sea $\mathbb{X} = \{ (z_{i,1}, z_{j,1}), (z_{i,2}, z_{j,2}), \dots, (z_{i,n}, z_{j,n}) \}$ el conjunto de parejas ordenadas correspondientes a dichas columnas. Una gráfica de puntos consiste en la proyección de dichos puntos sobre $\mathbb{R}^2$. Para generarla en `R` podemos usar `ggplot`:
+
+```{r, warning = FALSE}
+ggplot(datos) +
+  geom_point(aes(x = longitud, y = latitud), size = 1, color = "purple",
+             alpha = 0.2)
+```
+donde los parámetros `size` establecen el tamaño del punto, `color` su color y `alpha` su nivel de transparencia ($0 \leq \alpha \leq 1$). 
+
+**2. Gráfica de líneas (lineplot)** Dada una matriz de datos $Z$ consideramos dos  columnas numéricas $z_i$ y $z_j$ ($i \neq j$) de dicha matriz. Sea $\mathbb{X} = \{ (z_{i,1}, z_{j,1}), (z_{i,2}, z_{j,2}), \dots, (z_{i,n}, z_{j,n}) \}$ el conjunto de parejas ordenadas correspondientes a dichas columnas. Para evitar confusión de subíndices escribiré a las $z_i$ como $x$ y a las $z_j$ como $y$ de tal forma que $\mathbb{X} = \{ (x_1, y_1), (x_2, y_2), \dots, (x_n, y_n) \}$ 
+Supongamos, sin pérdida de generalidad que los datos están ordenados según las $x$: $x_1 \leq x_2 \leq \dots \leq x_n$. Sea $f$ la función de interpolación lineal dada por:
+$$
+f(x) = \begin{cases}
+y_1 + \frac{y_2 - y_1}{x_2 - x_1} (x -x_1) & \text{ si } x_1 \leq x \leq x_2 \\
+\vdots \\
+y_{k-1} + \frac{y_k - y_{k-1}}{x_k - x_{k-1}} (x -x_{k-1}) & \text{ si } x_{k-1} \leq x \leq x_k \\
+\vdots \\
+y_{n-1} + \frac{y_{n} - y_{n-1}}{x_n - x_{n-1}} (x -x_{n-1}) & \text{ si } x_{n-1} \leq x \leq x_n \\
+\end{cases}
+$$
+Una gráfica de líneas corresponde a la representación gráfica del conjunto
+$$
+\textrm{Gr}_f = \Big\{ \big(x, f(x)\big) |  x_1 \leq x \leq x_n \Big\}
+$$
+De manera un poco más intuitiva notamos que si tenemos, por ejemplo, $\mathbb{X} = \{(x_1, y_1),(x_2, y_2), (x_3, y_3), (x_4, y_4)\}$ una gráfica de líneas se construye interpolando una línea entre $(x_1, y_1)$ y $(x_2, y_2)$, otra línea entre $(x_2, y_2)$ y $(x_3, y_3)$ y, finalmente, otra recta entre $(x_3, y_3)$ y $(x_4, y_4)$. Usando la ecuación de la línea 
+$$
+y = \frac{y_2 - y_1}{x_2 - x_1} (x - x_1) + y_1
+$$
+interpolamos cada uno de los puntos como en la gráfica siguiente:
+
+```{r, warning=FALSE, echo = FALSE}
+ggplot(data.frame(x = c(1,2,3,4), y = c(1,3,-1,2))) +
+  geom_segment(aes(x = 0, xend = 1, y = 1, yend = 1), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 0, xend = 2, y = 3, yend = 3), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 0, xend = 3, y = -1, yend = -1), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 0, xend = 4, y = 2, yend = 2), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 1, xend = 1, y = -1.5, yend = 1), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 2, xend = 2, y = -1.5, yend = 3), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 3, xend = 3, y = -1.5, yend = -1), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 4, xend = 4, y = -1.5, yend = 2), 
+               linetype = "dotted", color = "gray75") +
+  geom_line(aes(x = x, y = y), color = "deepskyblue3") +
+  geom_point(aes(x = x, y = y), color = "red", size = 4) +
+  geom_label(aes(x = 1, y = -2), label = TeX("x_1")) + 
+  geom_label(aes(x = 2, y = -2), label = TeX("x_2")) + 
+  geom_label(aes(x = 3, y = -2), label = TeX("x_3")) + 
+  geom_label(aes(x = 4, y = -2), label = TeX("x_4")) +
+  geom_label(aes(x = 0, y = 1), label = TeX("y_1")) +
+  geom_label(aes(x = 0, y = 3), label = TeX("y_2")) +
+  geom_label(aes(x = 0, y = -1), label = TeX("y_3")) +
+  geom_label(aes(x = 0, y = 2), label = TeX("y_4")) +
+  geom_label(aes(x = 1.5, y = 2), label = TeX("\\frac{y_2 - y_1}{x_2 - x_1} (x - x_1) + y_1"), size = 3) +
+  geom_label(aes(x = 2.5, y = 1), label = TeX("\\frac{y_3 - y_2}{x_3 - x_2} (x - x_2) + y_2"), size = 3) +
+  geom_label(aes(x = 3.5, y = 0), label = TeX("\\frac{y_4 - y_3}{x_4 - x_3} (x - x_3) + y_3"), size = 3) +
+  geom_segment(aes(x = 0.5, xend = 0.5, y = -1.5, yend = 3)) +
+  geom_segment(aes(x = 0.5, xend = 5, y = -1.5, yend = -1.5)) +
+  theme_void()
+  
+```
+Para realizar una gráfica de líneas podemos usar de nuevo ggplot2 con la opción de `geom_line`:
+
+```{r}
+ggplot(conteo_delitos) + 
+  geom_line(aes(x = fecha, y = n))
+```
+
+Podemos cambiar el tema y agregar puntos de otro color para que nuestra gráfica se vea más bonita:
+```{r}
+ggplot(conteo_delitos) + 
+  geom_line(aes(x = fecha, y = n)) +
+  geom_point(aes(x = fecha, y = n), color = "red", size = 3) +
+  theme_classic() +
+  labs(
+    x = "Fecha de apertura de la carpeta de investigación",
+    y = "Cantidad de carpetas de investigación en FGJ"
+  )
+```
+Finalmente con `geom_label` podemos agregar anotaciones a nuestra gráfica:
+```{r}
+ggplot(conteo_delitos) + 
+  geom_line(aes(x = fecha, y = n)) +
+  geom_point(aes(x = fecha, y = n), color = "red", size = 3) +
+  theme_classic() +
+  labs(
+    x = "Fecha de apertura de la carpeta de investigación",
+    y = "Cantidad de carpetas de investigación en FGJ"
+  ) +
+  geom_label(aes(x = dmy("25/12/2018"), y = 425), label = "Efecto de Navidad")
+```
+
+### Ejercicio
+Utiliza las siguiente bases de datos para replicar exactamente el formato de las gráficas que se muestran abajo de las bases. No todo viene en estas notas, la idea es que investigues y para ello te sugiero [consultar este libro](https://ggplot2-book.org)
+
+*Gráfica de barras*
+
+```{r}
+datos.barras <- data.frame(Pais = c("EEUU","Canadá","México"), 
+                           PIB = c(20.54, 17.13, 1.21))
+```
+
+Los colores usados son `firebrick`, `deepskyblue3` y `forestgreen`:
+
+```{r, echo = FALSE}
+ggplot(datos.barras) +
+  geom_col(aes(x = Pais, y = PIB, fill = Pais), color = "white") +
+  theme_minimal() +
+  scale_fill_manual("País", values = c("EEUU" = "firebrick", 
+                                       "Canadá" = "deepskyblue3",
+                                       "México" = "forestgreen"))
+```
+*Línea*
+```{r}
+x <- seq(-2*pi, 2*pi, length.out = 100)
+datos.linea <- data.frame(x = x, y = sin(x))
+```
+
+```{r, echo = FALSE}
+ggplot(datos.linea) +
+  geom_line(aes(x = x, y = y), linetype = "dotted") +
+  labs(
+    x = "t",
+    y = "sin(t)",
+    title = "Función seno",
+    subtitle = "Aproximación por computadora"
+  )
+```
+
+*Boxplot*
+```{r}
+x <- c(1,10, 100, -2, 3, 5, 6, 12, -8, 31, 2, pi, 3)
+datos.linea <- data.frame(Dientes = x)
+```
+
+```{r, echo = FALSE}
+ggplot(datos.linea) +
+  geom_boxplot(aes(y = x), outlier.color = "red", fill = "purple",
+               outlier.shape = 20, outlier.size = 3)
+```
+
+*Puntos*
+```{r}
+datos.arbol <- data.frame(altura = c(1.7, 1.4, 1.8, 1.9, 1.5, 1.7,
+                                     1.6, 1.8, 1.7, 1.8),
+                          ancho = c(1.2, 1.4, 1.2, 1, 1.5, 1.7, 1.6,
+                                    1.2, 1.2, 1),
+                          tipo = c("Pino","Sauce","Sauce","Sauce","Pino",
+                                   "Pino","Pino","Sauce","Sauce","Sauce"))
+```
+
+```{r, echo = FALSE}
+ggplot(datos.arbol) +
+  geom_point(aes(x= ancho, y = altura, color = tipo)) +
+  facet_wrap(~tipo)
+```
+
+## Estadísticos bivariados
+**NOTACIÓN** Para esta sección vamos a considerar dos (vectores) columnas de la matriz de datos $Z$ y los denominaremos $\vec{x}$ y $\vec{y}$ (en lugar de $z_i$ y $z_j$). En particular, denotaremos $\mathcal{X} = \{ a_{i, x } | a_{i,x} \in \vec{x} \}$ el conjunto de valores únicos del vector $\vec{x}$ y $\mathcal{Y} = \{ a_{y ,j} | a_{y ,j} \in \vec{y} \}$ el conjunto de valores únicos de $\vec{y}$. La cardinalidad de dichos conjuntos es $\ell_{x}$ y $\ell_{y}$ respectivamente. Finalmente, definimos el conteo de cuántas veces aparece el valor $a_{i,x }$ (respectivamente el $a_{y ,j}$) en los vectores $\vec{x}$ (respectivamente $\vec{y}$) como:
+\begin{equation}
+\begin{aligned}
+n_{i,x } & = \sum\limits_{k=1}^{n} \mathbb{I}_{\{ a_{i,x } \}}(x_k) \\
+n_{y ,j} & = \sum\limits_{k=1}^{n} \mathbb{I}_{\{ a_{y ,j} \}}(y_k)
+\end{aligned}
+\end{equation}
+para $1 \leq i \leq \ell_{x}$ y $1 \leq j \leq \ell_{y}$. 
+
+>Por poner un ejemplo, considera el siguiente conjunto de datos:
+```{r, echo = FALSE}
+dats <- data.frame(x = c("Rojo","Azul","Verde","Rojo","Verde"), 
+                   y = c("Coche","Taza","Árbol","Taza","Libro"))
+kable(dats) %>% kable_styling(latex_options = "striped")
+```
+En este sentido el vector es $\vec{x} = (\text{Rojo},\text{Azul},\text{Verde},\text{Rojo},\text{Verde})^T$ mientras que el conjunto de valores únicos asociados está dado por $\mathcal{X} = \{ \text{Rojo},\text{Azul},\text{Verde} \}$. En este sentido (siguiendo el conjunto) se tiene que $a_{1,x} = \text{Rojo}$, $a_{2,x} = \text{Azul}$ y $a_{3,x } = \text{Verde}$ mientras que (siguiendo el vector) se observa $x_1 = \text{Rojo}$, $x_2 = \text{Azul}$, $x_3 = \text{Verde}$, $x_4 = \text{Rojo}$, $x_5 = \text{Verde}$. Finalmente notamos que el conteo de veces que aparece cada cosa es: $n_{1,x} = 2$ (aparece el $a_{1, x}$ que es rojo tres veces), $n_{2,x} = 1$ y $n_{3,x } = 2$ (el azul y verde dados por $a_{2,x}$ y $a_{3,x}$ respectivamente aparecen una vez para azul y dos veces para verde). Por otro lado, $\vec{y} = (\text{Coche},\text{Taza},\text{Árbol},\text{Taza},\text{Libro})^T$ con su conjunto  de valores únicos $\mathcal{Y} = \{ \text{Coche},\text{Taza},\text{Árbol}, \text{Libro} \}$. Para el caso de $\vec{y}$ se tiene que $y_1 = \text{Coche}$, $y_2 = \text{Taza}$, $y_3 = \text{Árbol}$, $y_4 = \text{Taza}$, $y_5 = \text{Libro}$ mientras que en el caso de valores únicos $a_{y, 1} = \text{Coche}$, $a_{y, 2} = \text{Taza}$, $a_{y, 3} = \text{Árbol}$, $a_{\cdot, 4} = \text{Libro}$. Los conteos asociados son:  $n_{y,1} =  n_{y,3} = n_{y,4} = 1$ (aparecen el coche, el árbol y el libro una vez) mientras que $n_{y,2} = 2$ representa que la taza está dos veces. 
+
+Por otro lado denotamos a la submatriz de $Z$ compuesta solamente por las columnas $\vec{x}$ y $\vec{y}$ como: 
+
+$$
+Z_{(x,y)} = 
+\begin{pmatrix}
+x_1 & y_1 \\
+x_2 & y_2 \\
+\vdots & \vdots \\
+x_n & y_n \\
+\end{pmatrix}
+$$
+Sea $\mathcal{X}\times\mathcal{Y} = \{ a_{i,j} = (x_i,y_j) | x_i \in \mathcal{X} \quad \& \quad y_j \in \mathcal{Y}\}$ el conjunto de observaciones únicas _posibles_ de las parejas $(x,y)$ (todas las permutaciones). Finalmente, el conteo de cuántas veces aparece el vector bivariado $a_{i,j}$ en los datos está dado por:
+$$
+n_{i,j} = \sum\limits_{k = 1}^{n}  \mathbb{I}_{\{ a_{i,j} \}}\big( (x_k, y_k) \big)
+$$
+Lo anterior puede representarse en la tabla \eqref{tab:resumen}:
+\begin{table}[!htb]
+\centering
+\begin{tabular}{l||r|cccc|r}
+                   & \multicolumn{1}{l}{} & \multicolumn{5}{c}{$\vec{y}$}                                                                               \\
+                   \hline
+                   \hline
+\multirow{6}{*}{$\vec{x}$} & \multicolumn{1}{l}{} & $a_{y,1}$      & $a_{y,2}$      & $\dots$  & $a_{y,\ell_y}$      & \multicolumn{1}{c}{Total (fila)} \\
+\hline
+
+                   & $a_{1,x}$            & $n_{1,1}$      & $n_{1,2}$      & $\dots$  & $n_{1,\ell_y}$      & $n_{1,x}$                        \\
+                   & $a_{2,x}$            & $n_{2,1}$      & $n_{2,2}$      & $\dots$  & $n_{2,\ell_y}$      & $n_{2,x}$                        \\
+                   & $\vdots$             & $\vdots$       & $\vdots$       & $\ddots$ & $\vdots$            & $n_{3,x}$                        \\
+                   & $a_{\ell_x,x}$       & $n_{\ell_x,1}$ & $n_{\ell_x,2}$ & $\dots$  & $n_{\ell_x,\ell_y}$ & $n_{\ell_x,x}$                   \\
+                   \hline
+                   & Total (columna)      & $n_{y,1}$      & $n_{y,2}$      & $\dots$  & $n_{y,\ell_y}$      & \multicolumn{1}{l}{$n$}       \\   
+                   \hline
+                   \hline
+\end{tabular}
+\caption{Tabla resumen}
+\label{tab:resumen}
+\end{table}
+En el ejemplo anterior, la tabla se vería como la \eqref{tab:ej}. 
+\begin{table}[!htb]
+\centering
+\begin{tabular}{l||c|cccc|c}
+  & \multicolumn{1}{l}{} & \multicolumn{5}{c}{$\vec{y}$}                       \\
+  \hline
+  \hline
+$\vec{x}$ &                      & Coche & Taza & Árbol & Libro & Total (fila) \\
+\hline
+  & Rojo                 & 1     & 1    & 0     & 0     & 2            \\
+  & Azul                 & 0     & 1    & 0     & 0     & 1            \\
+  & Verde                & 0     & 0    & 1     & 1     & 2            \\
+  \hline
+  & Total (columna)      & 1     & 2    & 1     & 1     & 5 \\
+ \hline
+ \hline
+\end{tabular}
+\caption{Tabla de los datos en el ejemplo}
+\label{tab:ej}
+\end{table}
+
+
+**1. Tabla de contingencia **
+Para $\vec{x}$, $\vec{y}$ definidas como al inicio de la sección (y siguiendo la notación anterior), definimos una tabla de contingencia como la matriz $N_{x,y}$ dada por:
+$$
+N_{x,y} = \begin{pmatrix}
+n_{1,1} & n_{1,2} & \dots & n_{1, \ell_y} \\
+n_{2,1} & n_{2,2} & \dots & n_{2, \ell_y} \\
+\vdots  & \vdots  & \ddots & \vdots \\
+n_{\ell_x,1} & n_{\ell_x,2} & \dots & n_{\ell_x, \ell_y} \\
+\end{pmatrix}
+$$
+Al vector $n_x = (n_{1,x}, n_{2,x}, \dots, n_{\ell_x,x})^T$ se le conoce como **distribución frecuencial (observada) marginal** de $\vec{x}$ mientras que  $n_y = (n_{y,1}, n_{y,2}, \dots, n_{y,\ell_y})^T$ es la **distribución frecuencial (observada) marginal** de $\vec{y}$. 
+
+
+Una tabla de contingencia representa el conteo de observaciones de una variable ajustado por la otra. Para crear una tabla de contingencia en `R` podemos usar el mismo comando `table` que ya usamos antes pero esta vez introduciendo dos vectores como en el siguiente ejemplo donde notamos alcaldía contra año del registo:
+```{r, eval = FALSE}
+table(datos$alcaldia_hechos, datos$ao_inicio)
+```
+```{r, echo = FALSE}
+tail(table(datos$alcaldia_hechos, datos$ao_inicio))
+```
+Para agregar las distribuciones frecuenciales marginales a la tabla podemos usar el comando `addmargins`:
+
+```{r, eval = FALSE}
+addmargins(table(datos$alcaldia_hechos, datos$ao_inicio))
+```
+
+```{r, echo = FALSE}
+tail(addmargins(table(datos$alcaldia_hechos, datos$ao_inicio)))
+```
+
+**2. Tabla de frecuencias**
+
+Una tabla de frecuencia es la matriz $\text{Freq}_{x,y}$ dada por:
+$$
+\text{Freq}_{x,y} = \begin{pmatrix}
+f_{1,1} & f_{1,2} & \dots & f_{1, \ell_y} \\
+f_{2,1} & f_{2,2} & \dots & f_{2, \ell_y} \\
+\vdots  & \vdots  & \ddots & \vdots \\
+f_{\ell_x,1} & f_{\ell_x,2} & \dots & f_{\ell_x, \ell_y} \\
+\end{pmatrix}
+$$
+
+donde $f_{i,j} = \frac{n_{i,j}}{n}$ representa la frecuencia relativa de la observación de $(a_{i,x}, a_{y,j})$ _i.e._ cuánto representa del total. Al vector $f_{x} = (f_{1,x}, f_{2,x}, \dots, f_{\ell_x,x})^T$ se le conoce como **la distribución frecuencial marginal relativa** de $\vec{x}$. Análogamente para $y$ se tiene **la distribución frecuencial marginal relativa** de $\vec{y}$ dada por: $f_{y} = (f_{y,1}, f_{y,2}, \dots, f_{y,\ell_y})^T$. Las entradas de dichos vectores son de la forma $f_{i,x} = n_{i,x}/n$ y $f_{y,j} = n_{y,j}/n$. 
+
+En `R` podemos obtener las frecuencias mediante `prop.table`:
+```{r, eval = FALSE}
+prop.table(table(datos$alcaldia_hechos, datos$ao_inicio))
+```
+
+```{r, echo = F}
+tail(prop.table(table(datos$alcaldia_hechos, datos$ao_inicio)))
+```
+
+Así mismo, podemos agregar las marginales:
+```{r, eval = F}
+addmargins(prop.table(table(datos$alcaldia_hechos, datos$ao_inicio)))
+```
+
+```{r, echo = F}
+tail(addmargins(prop.table(table(datos$alcaldia_hechos, datos$ao_inicio))))
+```
+
+**3. Riesgo Relativo (discreto)**
+Para definir Riesgo Relativo empezaremos por un ejemplo. Tomamos la  tabla \eqref{fumador} donde se guardó un registro de personas según si fumaban o no así como si dichas personas desarrollaron o no enfisema pulmonar.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{l||c|cc|r}
+                          & \multicolumn{1}{c}{} & \multicolumn{3}{c}{FUMA} \\
+                          \hline
+                          \hline
+                          &                      & SÍ     & NO    & Total   \\
+                          \hline
+\multirow{3}{*}{ENFISEMA} & SÍ                   & 100    & 40    & 140     \\
+                          & NO                   & 30     & 50    & 80      \\
+                          \hline
+                          & Total                & 130    & 90    & 220  \\  
+                          \hline
+                          \hline
+\end{tabular}
+\caption{Tabla de fumadores}
+\label{fumador}
+\end{table}
+
+Si quisiéramos analizar la hipótesis de que FUMAR está asociado con ENFISEMA tendríamos que ver, dentro de la población de fumadores (FUMAR = SÍ) cuántos hay (proporcionalmente) con ENFISEMA. La hipótesis es que si no hubiera relación, saldría que las proporciones de fumadores con y sin enfisema serían $50\%$ cada una. La proporción de fumadores con enfisema está dada por $100/130$ mientras que la de no fumadores con enfisema es $40/90$. El riesgo relativo (intuitivamente). se define como la división entre ambas proporciones:
+$$
+\text{Riesgo Relativo de Enfisema} = \dfrac{\frac{\text{Expuestos enfermos}}{\text{Total de expuestos}}}{\frac{\text{No Expuestos enfermos}}{\text{Total de no expuestos}}} =  \dfrac{100/130}{40/90} \approx 1.73
+$$
+Lo que se interpreta como que los fumadores tienen $1.73$ veces más riesgo de desarrollar enfisema que los no fumadores ya que si despejamos de la fórmula anterior:
+$$
+\frac{\text{Expuestos enfermos}}{\text{Total de expuestos}}   \approx 1.73 \times \frac{\text{No Expuestos enfermos}}{\text{Total de no expuestos}}
+$$
+De manera general, dadas dos vectores lógicos $\vec{x}$ (interpretada como el resultado) y $\vec{y}$ (interpretada como la exposición) con una tabla de contingencia y frecuencias marginales dadas por la tabla \ref{tablabivariada}, 
+\begin{table}[!htb]
+\centering
+\begin{tabular}{l||c|cc|r}
+                          & \multicolumn{1}{c}{} & \multicolumn{3}{c}{$\vec{y}$} \\
+                          \hline
+                          \hline
+                          &                      & \texttt{TRUE}     & \texttt{FALSE}    & Total   \\
+                          \hline
+\multirow{3}{*}{$\vec{x}$} & \texttt{TRUE}                   & a    & b    & a + b     \\
+                          & \texttt{FALSE}                   & c     & d    & c + d      \\
+                          \hline
+                          & Total                & a + c    & b + d    & a + b + c + d  \\  
+                          \hline
+                          \hline
+\end{tabular}
+\caption{Tabla de contingencia de dos lógicas}
+\label{tablabivariada}
+\end{table}
+definimos el riesgo relativo de $\vec{x}$ dado $\vec{y}$ como:
+$$
+RR(\vec{x}|\vec{y}) = \dfrac{\frac{a}{a + c}}{\frac{b}{b + d}}
+$$
+Mientras que el riesgo relativo de no $\vec{x}$ dado $\vec{y}$ está dado por:
+$$
+RR(\neg \vec{x}|\vec{y}) = \dfrac{\frac{c}{a + c}}{\frac{d}{b + d}}
+$$
+
+La base de datos de los delitos no contiene información suficiente para poder calcular un riesgo relativo pero podemos crear la base de datos correspondiente a la tabla \ref{fumador} como sigue:
+```{r}
+fumadores <- data.frame(SI_FUMA = c(100, 30), NO_FUMA =c(40, 50))
+```
+
+Podemos agregar nombres a las filas para tener la base de datos mejor:
+
+```{r}
+rownames(fumadores) <- c("ENFISEMA","NO_ENFISEMA")
+```
+
+La tabla se ve así:
+```{r}
+fumadores
+```
+
+Luego el riesgo relativo de ENFISEMA está dado por:
+```{r}
+numerador   <- fumadores["ENFISEMA","SI_FUMA"]/sum(fumadores$SI_FUMA)
+denominador <- fumadores["ENFISEMA","NO_FUMA"]/sum(fumadores$NO_FUMA)
+
+rr <- numerador/denominador #El riesgo relativo
+rr
+```
+
+Por otro lado, el riesgo relativo de no enfisema es:
+```{r}
+numerador   <- fumadores["NO_ENFISEMA","SI_FUMA"]/sum(fumadores$SI_FUMA)
+denominador <- fumadores["NO_ENFISEMA","NO_FUMA"]/sum(fumadores$NO_FUMA)
+
+rr_neg <- numerador/denominador #El riesgo relativo
+rr_neg
+```
+Éste último se interpreta como si la proporción de individuos sin enfisema es $0.41$ veces más pequeña entre fumadores que no fumadores. 
+
+**4. Razón de momios (discreto)**
+Para dos vectores lógicos $\vec{x}$ y $\vec{y}$ definimos la razón de momios como:
+$$
+\textrm{OR}(\vec{x}|\vec{y}) =\dfrac{RR(\vec{x}|\vec{y})}{RR(\neg\vec{x}|\vec{y})} 
+$$
+Podemos calcular en `R` la razón de momios a partir de los datos: 
+```{r}
+razon.momios <- rr/rr_neg
+```
+donde la razón de momios de `r round(razon.momios,2)` se interpreta como "si un individuo tiene enfisema, la factibilidad de que dicho individuo sea fumador es `r round(razon.momios,2)` veces más alta". Esta interpretación se obtiene a partir de un despeje y sustitución:
+\begin{equation}\nonumber
+\begin{aligned}
+RR(\vec{x}|\vec{y})  & = 4.16 \cdot RR(\neg\vec{x}|\vec{y}) \\  \\
+\Leftrightarrow  \dfrac{\frac{\text{Expuestos enfermos}}{\text{Total de expuestos}}}{\frac{\text{No Expuestos enfermos}}{\text{Total de no expuestos}}} & = 4.16 \cdot \dfrac{\frac{\text{Expuestos no enfermos}}{\text{Total de expuestos}}}{\frac{\text{No Expuestos no enfermos}}{\text{Total de no expuestos}}} \\ \\
+\Leftrightarrow \frac{\text{Expuestos enfermos}}{\text{No Expuestos enfermos}} & = 4.16\cdot \frac{\text{Expuestos no enfermos}}{\text{No Expuestos no enfermos}}  \\
+\\ \Leftrightarrow  \frac{\text{Expuestos enfermos}}{\text{Expuestos no enfermos}} & = 4.16\cdot \frac{\text{No Expuestos enfermos}}{\text{No Expuestos no enfermos}}
+\end{aligned}
+\end{equation}
+
+**5. Correlación (Bravais-Pearson)** Sean $\vec{x}$ y $\vec{y}$ dos vectores columa numéricos de nuestra matriz de datos $Z$. Tomemos $\tilde{x} = (x_1 - \bar{x}, x_2 - \bar{x}, \dots, x_n - \bar{x})$ la versión centrada de $\vec{x}$ y  $\tilde{y} = (y_1 - \bar{y}, y_2 - \bar{y}, \dots, y_n - \bar{y})$ la versión centrada de $\vec{y}$.
+Al coseno entre dichos vectores (bajo el producto punto) se le conoce como correlación de Bravais-Pearson y se le denota $\rho_{\vec{x},\vec{y}}$. Es decir:
+$$
+\rho_{\vec{x},\vec{y}} = \cos(\tilde{x},\tilde{y}) = \dfrac{\tilde{x} \cdot \tilde{y}}{\|\tilde{x}\| \cdot \|\tilde{y}\|}
+$$
+donde $\tilde{x}\cdot\tilde{y} = \sum_{i=1}^{n} (x_i - \bar{x}) \cdot (y_i - \bar{y})$ representa el producto de los vectores $\tilde{x}$ y $\tilde{y}$ y se conoce como **covarianza entre $\vec{x}$ y $\vec{y}$**. Por otro lado, 
+$$
+\|\tilde{x}\| = \sqrt{\sum\limits_{i=1}^{n} (x_i - \bar{x})^2} = \sigma_{\vec{x}}
+$$
+Por tanto la correlación también puede medirse como: 
+$$
+\rho_{\vec{x},\vec{y}} = \cos(\tilde{x},\tilde{y}) = \frac{1}{\sigma_{\vec{y}} \sigma_{\vec{x}}}\sum\limits_{i=1}^{n} (x_i - \bar{x}) \cdot (y_i - \bar{y})  
+$$
+
+Para matriz de datos $Z$ con $\ell$ columnas, definimos la matriz de correlaciones $\mathcal{C}$ como la matriz dada por:
+$$
+\mathcal{C} = \begin{pmatrix}
+\rho(z_1,z_1) & \rho(z_1,z_2) & \dots & \rho(z_1,z_{\ell}) \\
+\rho(z_2,z_1) & \rho(z_2,z_2) & \dots & \rho(z_2,z_{\ell}) \\
+\vdots        & \vdots & \ddots & \vdots \\
+\rho(z_{\ell},z_1) & \rho(z_{\ell},z_2) & \dots & \rho(z_{\ell},z_{\ell})
+\end{pmatrix}
+$$
+Donde notamos (**demuestra**) que $\rho(z_i, z_i) = 1$. 
+
+Podemos usar la base `mtcars` precargada en `R` para analizar las correlaciones:
+```{r}
+data(mtcars)
+datos.coches <- mtcars
+```
+
+La base está explicada en la ayuda de `R`:
+```{r, eval = FALSE}
+?mtcars
+```
+
+Podemos obtener la correlación entre el número de millas por galón `mpg` y el peso del automóvil `wt` haciendo:
+
+```{r}
+cor(datos.coches$mpg, datos.coches$wt, method = "pearson")
+```
+Esta correlación se interpreta como que por cada aumento en el peso corresponde una disminución en las millas por galón. Podemos ver gráficamente que esto es así:
+
+```{r}
+ggplot(datos.coches) +
+  geom_point(aes(x = wt, y = mpg), color = "purple") +
+  theme_bw()
+```
+Para obtener toda la matriz de correlaciones de la base podemos tomar `cor` aplicado a toda la base de datos:
+```{r}
+cor(datos.coches, method = "pearson")
+```
+
+Finalmente, el paquete `ggcorrplot` puede ayudarnos a visualizar gráficamente dicha matriz:
+
+```{r}
+ggcorrplot(cor(datos.coches, method = "pearson"), 
+           lab = TRUE,
+           type = "upper") +
+  labs(title = "Matriz de Correlaciones")
+```
+
+> Una correlación de Pearson igual a $1$ ó $-1$ se interpreta como que hay una relación lineal perfecta mientras que una correlación igual a $0$ se interpreta como que no hay relación lineal (aunque puede existir de otro tipo)
+
+```{r}
+#Ejemplo de correlación lineal perfecta
+x <- seq(0,4, length.out = 9)
+y <- 2*x + 1
+```
+
+Gráficamente:
+
+```{r, echo = FALSE}
+ggplot() + geom_point(aes(x = x, y = y)) + theme_bw()
+```
+
+El valor en este caso de la correlación es: 
+
+```{r}
+cor(x,y, method = "pearson")
+```
+
+Mientras que por otro lado podemos tener variables relacionadas pero _sin correlación_ :
+
+```{r}
+#Ejemplo sin correlación lineal pero con variables relacionadas
+x <- seq(-4, 4,length.out = 9)
+y <- x^2
+cor(x,y, method = "pearson")
+```
+
+```{r, echo = FALSE}
+ggplot() + geom_point(aes(x = x, y = y)) + theme_bw()
+```
+
+**6. Correlación de rango de Spearman** Para hablar de la correlación de rango de Spearman es necesario definir una variable como **ordinal**. 
+
+Un vector $\vec{x} = (x_1, x_2, \dots, x_n)^T$ de variables numéricas o categóricas es **ordinal** si existe una relación $\leq$ de [orden total](https://en.wikipedia.org/wiki/Total_order) sobre los elementos del vector tal que:
+
+  1. Es _antisimétrica_: si $x_i \leq x_j$ y $x_j \leq x_i$ entonces $x_i = x_j$.
+    
+  2. Es _transitiva_: si $x_i \leq x_j$ y $x_j \leq x_k$ entonces $x_i \leq x_k$.
+  
+  3. Es _conexa_: $x_i \leq x_j$ ó $x_j \leq x_i$. 
+  
+De manera intuitiva un vector es **ordinal** si hay un orden para sus entradas. Por ejemplo, cuando calificas un servicio como ``Malo`` $\leq$ ``Regular`` $\leq$ ``Bueno`` o bien cuando se compara nivel educativo (en términos de años) ``Primaria`` $\leq$ ``Secundaria`` $\leq$ ``Preparatoria`` $\leq$ ``Educación superior``. **Toda variable numérica es ordinal**. 
+
+Para un vector ordinal definimos su ordenamiento como $x_{(1)} = \min \{ x_1, x_2, \dots, x_n \}$ y $x_{(j)} = \min \{ x_1, x_2, \dots, x_n \} \setminus \{ x_{(1)}, x_{(2)}, \dots, x_{(j-1)} \}$ de tal forma que $x_{(1)} \leq x_{(2)} \leq \dots \leq x_{(n)}$. El rango de $x_{(j)}$ denotado como $R(x_{(j)})$ es $j$ (su posición en el ordenamiento). Es decir:
+$$
+R(x_i) = j \Leftrightarrow x_i = x_{(j)}
+$$
+
+Dado un vector $\vec{x}$ definimos su **vector de rango** como: 
+
+$$
+R(\vec{x}) = \big( R(x_1), R(x_2), \dots, R(x_n) )^T
+$$
+
+Para dos variables ordinales, $\vec{x}$ y $\vec{y}$ se define la **correlación de rango de Spearman** como la correlación de Pearson entre sus vectores de rangos:
+
+$$
+\rho_{\text{Spearman}} =\rho\big( R(\vec{x}), R(\vec{y}))
+$$
+
+> Mientras que la correlación de Pearson mide linealidad; la de Spearman mide monotonicidad (que si una aumenta la otra también; que si una disminuye la otra también). 
+
+```{r}
+#Comparativo de correlaciones: la de Pearson no encuentra mucha línea
+x <- seq(0.1, 1, length.out = 25)
+y <- exp(1/x^2)
+```
+
+```{r, echo = FALSE}
+ggplot() + geom_point(aes(x = x, y = y)) + theme_bw()
+```
+
+En este caso la correlación de Pearson es muy mala:
+
+```{r}
+cor(x,y, method = "pearson")
+```
+
+Mientras que la de Spearman sí muestra la relación: 
+
+```{r}
+cor(x,y, method = "spearman")
+```
+
+**7. $\tau$ de Kendall** Consideremos  $\vec{x}$ y $\vec{y}$ dos vectores columna ordinales de una matriz de datos $Z$. Para cualquier par de observaciones $(x_i, y_i)$ y $(x_j, y_j)$ con $i < j$ decimos que dos observaciones son **concordantes ($c$)** si los rangos de ambas $x$ y $y$ coinciden; es decir si se cumple una de las siguientes: 
+
+  1. $R(x_i) < R(x_j)$ y $R(y_i) < R(y_j)$ o bien,
+  
+  2. $R(x_i) > R(x_j)$ y $R(y_i) > R(y_j)$.
+  
+Observaciones **discordantes ($d$)** ocurren cuando los rangos de las $x$ y las $y$ son inversos el uno del otro; es decir, se cumple una de las siguientes:
+
+  1. $R(x_i) > R(x_j)$ y $R(y_i) < R(y_j)$ o bien,
+  
+  2. $R(x_i) < R(x_j)$ y $R(y_i) > R(y_j)$.
+
+En el caso que cualquiera de las dos, $x$ ó $y$ sean igualdades ($x_i = x_j$ ó $y_i = y_j$) no son discordantes ni concordantes. 
+
+Observa que existen $\binom{n}{2}$ distintos pares de $(x_i,y_i)$ y $(x_j,y_j)$ para comparar. Sea $c_{\vec{x},\vec{y}}$ la cantidad de pares concordantes y $d_{\vec{x},\vec{y}}$ la cantidad de pares discordantes. Luego la probabilidad de que dos pares seleccionados de manera uniforme sean concordantes es:
+$$
+\dfrac{c_{\vec{x},\vec{y}}}{\binom{n}{2}}
+$$
+mientras que la probabilidad de que dos pares seleccionados uniformemente sean discordantes es:
+$$
+\dfrac{d_{\vec{x},\vec{y}}}{\binom{n}{2}}.
+$$
+
+Definimos entonces la $\tau$ de Kendall como la diferencia entre ambas probabilidades empíricas:
+$$
+\tau_{\vec{x},\vec{y}} = \dfrac{c_{\vec{x},\vec{y}} - d_{\vec{x},\vec{y}}}{\binom{n}{2}}
+$$
+La tau de Kendall cumple que:
+$$
+-1 \leq \tau_{\vec{x},\vec{y}} \leq 1
+$$
+donde el $-1$ se alcanza sólo si son completamente discordantes (el rango de $x$ es el inverso del rango de las $y$) y el $1$ si son completamente concordantes (el rango de $x$ y de $y$ tienen el mismo orden). Una $\tau$ cercana a cero se interpreta como ausencia de relación en los rangos. 
+
+Podemos aplicar la tau de Kendall a la siguiente base de datos que contiene la calificación de dos servicios de un restaurante:
+
+```{r, echo = FALSE}
+calidad_alimentos <- factor(c("Malo","Bueno","Bueno","Regular","Bueno","Bueno"),
+                            order = TRUE, 
+                            levels = c("Malo","Regular","Bueno"))
+calidad_servicio <- factor(c("1 estrella", "4 estrellas",  "5 estrellas", 
+                             "2 estrellas", "5 estrellas","4 estrellas"),
+                            order = TRUE, 
+                            levels = c("1 estrella","2 estrellas","3 estrellas",
+                                       "4 estrellas","5 estrellas"))
+datos_restaurante <- data.frame(calidad_alimentos = calidad_alimentos, 
+                                calidad_servicio = calidad_servicio)
+kable(datos_restaurante) %>% kable_styling(latex_options = "striped")
+```
+
+Para ello codificamos las variables como `factor` diciéndole que son variables ordinales `order = TRUE` e indicando el orden de los niveles:
+
+```{r}
+calidad_alimentos <- factor(c("Malo","Bueno","Bueno","Regular","Bueno","Bueno"),
+                            order = TRUE, 
+                            levels = c("Malo","Regular","Bueno"))
+calidad_servicio <- factor(c("1 estrella", "4 estrellas",  "5 estrellas", 
+                             "2 estrellas", "5 estrellas","4 estrellas"),
+                            order = TRUE, 
+                            levels = c("1 estrella","2 estrellas","3 estrellas",
+                                       "4 estrellas","5 estrellas"))
+```
+
+Esto de las variables ordinales permite hacer comparaciones ordinales, por ejemplo:
+```{r}
+calidad_alimentos[2] > calidad_alimentos[4]
+```
+
+Los datos se ven así:
+
+```{r, echo = FALSE}
+ggplot() +
+  geom_point(aes(x = calidad_alimentos, y = calidad_servicio,
+                 color = calidad_alimentos, size = calidad_servicio)) +
+  theme_classic() +
+  scale_color_manual("Calidad de los alimentos",
+                     values = c("deepskyblue3","tomato3","forestgreen")) +
+  labs(
+    x = "Calidad de los alimentos",
+    y = "Calidad del servicio",
+    title = "Evaluación del restaurante"
+  )
+```
+
+Finalmente, calculamos la $\tau$ de Kendall, para ello es necesario obtener el rango de nuestras variables ordinales:
+
+```{r}
+rango_alimentos <- as.numeric(calidad_alimentos)
+rango_servicio  <- as.numeric(calidad_servicio)
+cor(rango_alimentos, rango_servicio, method = "kendall")
+```
+Lo cual indica que hay una relación entre la calificación de calidad de alimentos y la del servicio. 
+
+
+**8. Ajuste de modelo lineal**
+
+Sean $\vec{x}$ y $\vec{y}$ dos vectores columna de una matriz de datos $Z$. Supongamos, además, se tiene la hipótesis de que existe una relación afín entre los vectores; es decir que:
+$$
+\vec{y} \approx \beta_1 \vec{x} + \beta_0 \vec{1} 
+$$
+donde $\vec{1} = (1, 1, \dots, 1)^T$ es un vector con todas las entradas idénticas a $1$ y $\beta_0, \beta_1 \in \mathbb{R}$. Algunas razónes para tener esta hipótesis podría ser una correlación de Pearson cercana a $\pm 1$ o por inspección gráfica. Esta hipótesis implica que:
+$$
+y \approx \underbrace{\beta_1 x + \beta_0}_{\hat{y}}
+$$
+Podemos entonces trazar la línea $y = \beta_0 + \beta_1 x$ y graficar contra los puntos $\{(x_i,y_i)\}_{i=1}^{n}$, Si la línea no ajusta perfecto tendremos errores $e_i = (y_i - \hat{y}_i)^2$ de predicción las cuales representan la diferencia entre  la $y$ observada ($y_i$) y la $y$ predicha por la línea $\hat{y}_i = \beta_1 x_i + \beta_0$. La suma de estos errores es:
+$$
+\textrm{SSR}(\beta_0, \beta_1) = \sum\limits_{i=1}^{n} e_i = \sum\limits_{i=1}^{n} \big( y_i - \hat{y}_i \big)^2 = \sum\limits_{i=1}^{n} \big( y_i - (\beta_1 x_i + \beta_0) \big)^2 
+$$
+
+El nombre de _SSR_ es por ( _Sum of Squared Residuals_ ) dado que en estadística se define un residual como $r_i = (y_i - \hat{y}_i)$
+Gráficamente:
+
+```{r, echo = FALSE, warning=FALSE}
+x <- c(1,2,3,4,5)
+y <- c(1, 3, 1, 4, 6)
+ggplot() +
+  geom_line(aes(x = x, y = x), color = "black") +
+  geom_segment(aes(x = 1, xend = 1, y = -1, yend = 1), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1, xend = 1, y = 1, yend = 1), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 2, xend = 2, y = -1, yend = 3), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1, xend = 2, y = 3, yend = 3), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 3, xend = 3, y = -1, yend = 1), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1, xend = 3, y = 1, yend = 1), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 4, xend = 4, y = -1, yend = 4), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1, xend = 4, y = 4, yend = 4), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 5, xend = 5, y = -1, yend = 6), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = -1, xend = 5, y = 6, yend = 6), 
+               linetype = "dotted", color = "gray75") +
+  geom_segment(aes(x = 2, xend = 2, y = 2, yend = 3), linetype = "dashed") +
+  geom_segment(aes(x = 3, xend = 3, y = 1, yend = 3), linetype = "dashed") +
+  geom_segment(aes(x = 5, xend = 5, y = 5, yend = 6), linetype = "dashed") +
+  geom_segment(aes(x = 0, xend = 8, y = 0, yend = 0), linetype = "solid") +
+  geom_segment(aes(x = 0, xend = 0, y = 0, yend = 7), linetype = "solid") +
+  geom_point(aes(x = x, y = y), color = "red", size = 3) +
+  geom_label(aes(x = -1, y = 1), label = TeX("y_1 = y_4")) +
+  geom_label(aes(x = -1, y = 3), label = TeX("y_2"))+
+  geom_label(aes(x = -1, y = 4), label = TeX("y_3"))+
+  geom_label(aes(x = -1, y = 6), label = TeX("y_5")) +
+  geom_label(aes(x = 1, y = -1), label = TeX("x_1"))+
+  geom_label(aes(x = 2, y = -1), label = TeX("x_2"))+
+  geom_label(aes(x = 3, y = -1), label = TeX("x_3"))+
+  geom_label(aes(x = 4, y = -1), label = TeX("x_4"))+
+  geom_label(aes(x = 5, y = -1), label = TeX("x_5"))+
+  geom_label(aes(x = 3.5, y = 2), label = TeX("$e_3 = (y_3 - \\hat{y}_3)^2$"))+
+  geom_label(aes(x = 1, y = 2.5), label = TeX("$e_2 = (y_2 - \\hat{y}_2)^2$"))+
+  geom_label(aes(x = 4, y = 5.5), label = TeX("$e_5 = (y_5 - \\hat{y}_5)^2$"))+
+  geom_label(aes(x = 6, y = 5), label = TeX("Línea $\\hat{y} = \\beta_0 + \\beta_1 x$")) +
+  theme_void() 
+  
+```
+
+Lo que se busca entonces es minimizar el error respecto a las constantes a determinar: $\beta_0$ y $\beta_1$. Para ello buscamos un punto de inflexión derivando:
+$$
+\dfrac{\partial\textrm{SSR}}{\partial \beta_0} = \sum\limits_{i=1}^{n} 2\big(y_i - (\beta_1 x_i + \beta_0 ) \big) = 0
+$$
+
+De donde se sigue que:
+$$
+\sum\limits_{i=1}^n y_i - \beta_1 \sum\limits_{i=1}^{n} x_i - n \beta_0 = 0 \Rightarrow \beta_0 = \dfrac{1}{n} \sum\limits_{i=1}^n y_i - \beta_1 \dfrac{1}{n} \sum\limits_{i=1}^n x_i \Rightarrow \bar{y} - \beta_1 \bar{x},
+$$
+
+de donde concluimos que de cumplirse la relación lineal se tiene que:
+$$
+\beta_0 = \bar{y} - \beta_1 \bar{x}.
+$$
+
+Por otro lado, la derivada respecto a $\beta_1$ es:
+$$
+\dfrac{\partial\textrm{SSR}}{\partial \beta_1} = - \sum\limits_{i=1}^{n} 2\big(y_i - (\beta_1 x_i + \beta_0 ) \big) \cdot x_i = 0
+$$
+
+De donde se sigue (si suponemos que existe al menos un $x_i \neq 0$):
+\begin{equation}\nonumber
+\begin{aligned}
+0 & = - \sum\limits_{i=1}^n \Big( x_i y_i - \beta_1  x_i^2 - \underbrace{\beta_0}_{\bar{y} - \beta_1 \bar{x}} x_i \Big)  \\
+& = \sum\limits_{i=1}^n \Big( x_i y_i - \beta_1  x_i^2 - \bar{y}x_i - \beta_1 \bar{x} x_i \Big) \\
+& = \sum\limits_{i=1}^n \Big( y_i + \beta_1  x_i - \bar{y} - \beta_1 \bar{x} \Big) x_i \\
+& = \sum\limits_{i=1}^n \Big( y_i  - \bar{y} \Big) x_i - \beta_1  \sum\limits_{i=1}^n\Big(   x_i -   \bar{x} \Big) x_i
+\end{aligned}
+\end{equation}
+de donde se sigue (suponiendo que existen $i,j$ tales que $x_i \neq x_j$ que:
+$$
+\beta_1 = \dfrac{\sum_{i=1}^n \Big( y_i  - \bar{y} \Big)x_i}{\sum_{i=1}^n\Big(   x_i -   \bar{x} \Big)x_i} = \dfrac{\sum_{i=1}^n \Big( y_i  - \bar{y} \Big)\Big(   x_i -   \bar{x} \Big)}{\sum_{i=1}^n\Big(   x_i -   \bar{x} \Big)^2} = \dfrac{\sigma_{\vec{x}} \cdot \sigma_{\vec{y}} \cdot \rho_{\vec{x},\vec{y}}}{n \sigma_{\vec{x}}^2}
+$$
+por lo cual:
+$$
+\beta_1 = \dfrac{\sigma_{\vec{y}}}{\sigma_{\vec{x}}} \cdot \dfrac{\rho_{\vec{x},\vec{y}}}{n}
+$$
+
+De donde se tienen las fórmulas para el $\beta_0$ y $\beta_1$.
+
+### Ejercicio
+Demuestra la igualdad que usamos anteriormente:
+
+$$
+\dfrac{\sum_{i=1}^n \Big( y_i  - \bar{y} \Big) x_i}{\sum_{i=1}^n\Big(   x_i -   \bar{x} \Big)x_i} = \dfrac{\sum_{i=1}^n \Big( y_i  - \bar{y} \Big)\Big(   x_i -   \bar{x} \Big)}{\sum_{i=1}^n\Big(   x_i -   \bar{x} \Big)^2} 
+$$
+
+
+En `R` podemos ajustar un modelo lineal para dos variables de una base de datos con `lm`:
+```{r}
+modelo.lineal <- lm(mpg ~ wt, data = datos.coches)
+coef(modelo.lineal)
+```
+
+Gráficamente podemos ver el modelo:
+
+```{r}
+ggplot(datos.coches) +
+  geom_point(aes(y = mpg, x = wt)) +
+  geom_smooth(aes(y = mpg, x = wt), method = "lm", 
+              formula = y ~ x, se = FALSE) +
+  theme_minimal()
+```
+
+Para predecir, dada una nueva observación, cuál debe haber sido el valor de $\hat{y}$ para una nueva observación $x_*$  (o varias nuevas observaciones) puede usarse la función `predict`
+
+```{r}
+datos_a_predecir <- data.frame(wt = c(5.5, 6, 6.5))
+predict(modelo.lineal, datos_a_predecir)
+```
+
+Hay que tener mucho cuidado con la generalización de un modelo lineal como los siguientes valores muestran:
+```{r}
+datos_a_predecir <- data.frame(wt = c(7,8,9))
+predict(modelo.lineal, datos_a_predecir)
+```
+
+O bien el siguiente [comic de xkcd](https://xkcd.com/605/):
+
+```{r, echo = FALSE}
+knitr::include_graphics("extrapolating.png")
+```
+
+Para hacer la extrapolación gráfica podemos agregar un `fullrange = TRUE` combinado con un `xlim`
+
+```{r}
+ggplot(datos.coches) +
+  geom_point(aes(y = mpg, x = wt)) +
+  geom_smooth(aes(y = mpg, x = wt), method = "lm", 
+              formula = y ~ x, se = FALSE, fullrange=TRUE) +
+  theme_minimal() +
+  xlim(c(1,6.5))
+```
+
+
+## Ejercicio
+1. Generaliza el proceso de estimación para cuando se tiene un polinomio $y = \beta_0 + \beta_1 x + \beta_2 x^2$
+2. Utiliza los datos confirmados de COVID-19 a nivel nacional (sólo los confirmados) disponibles en [este link](https://datos.gob.mx/busca/dataset/informacion-referente-a-casos-covid-19-en-mexico). Ajusta un modelo cuadrático (en el `lm` la fórmula ahora es del estilo de `y ~ poly(x,2)` ) y predice cuántos casos confirmados habrá el 29 de junio. Grafica tu ajuste así como tu predicción en la misma gráfica. 
+
+<!--**8. Ajuste polinomial local**
+PRÓXIMAMENTE
+**9. Ajuste LOWESS**
+PRÓXIMAMENTE
+**10. Modelo Poisson**
+PRÓXIMAMENTE
+-->
+
+# Ajuste funcional
+
+## Introducción
+Hacemos una apuesta por teléfono. Yo voy a tirar una moneda $10$ veces y si salen más `Soles` que `Águilas` yo gano 50 pesos. Si salen más `Águilas` que `Soles` tú ganas la misma cantidad. Al realizar el ejercicio yo te comunico que salieron en total $10$ `Soles` y por tanto me debes el dinero. _¿Sospecharías algo de mí?_ 
+
+Si no hablamos de probabilidad no hay forma en la que se pueda justificar que _aparentemente_ hay algo raro con la moneda. Claro, siempre puede ser un caso improbable ([hay gente que lo ha hecho](https://www.youtube.com/watch?v=rwvIGNXY21Y)) pero es _raro_ que me hayan salido tantos `Soles`. Para cuantificar qué tan raro es el evento podemos suponer que las monedas siguen un modelo Binomial con parámetro $p = 1/2$ y en este caso $n = 10$ (fueron 10 tiros). La probabilidad de que haya obtenido $10$ soles bajo este modelo es de:
+
+```{r}
+dbinom(10,10, 1/2)
+```
+
+¡Rarísimo! Este resultado te haría sospechar que quizá mi moneda no es _justa_ y no se obtienen la misma cantidad de `Águilas` que `Soles` cuando la tiro. Esto porque, aparentemente, en mi moneda la probabilidad de `Sol` debería de ser $p = 1$ (por tu triste experiencia). Si por ejemplo en el onceavo tiro saliera un `Águila`, concluirías que, en mi moneda, aparentemente, la probabilidad de `Sol` es $p = \frac{10}{11}$. Por supuesto, entre más tiros y más información obtienes, mejor podrás caracterizar la moneda y con mayor sustento tendrás sospechas (o no) de que mi moneda es tramposa. 
+
+Formalmente, en el ejemplo anterior, lo que se hace es suponer que existe una variable aleatoria $X \in\{ \text{Águila}, \text{Sol}\}$ (el resultado de la moneda) de la cual observamos $n = 11$ realizaciones codificadas en el siguiente vector: 
+
+$$
+\vec{x} = \big( \text{Sol}, \text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Águila}\big)^T
+$$
+
+Aproximamos entonces la probabilidad $\mathbb{P}(X = \text{Sol})$ mediante:
+
+$$
+\mathbb{P}(X = \text{Sol}) \approx \dfrac{1}{n}\sum\limits_{i=1}^n \mathbb{I}_{\{\text{Sol}\}}(x_i) = \dfrac{10}{11}
+$$
+
+Mientras que la de Águila se aproxima mediante:
+
+$$
+\mathbb{P}(X = \text{Águila}) \approx \dfrac{1}{n}\sum\limits_{i=1}^n \mathbb{I}_{\{\text{Águila}\}}(x_i) = \dfrac{1}{11}
+$$
+
+Para ver que éstas son buenas aproximaciones, podemos considerar un vector aleatorio de los _posibles_ datos observados:
+$$
+\vec{X} = (X_1, X_2, \dots, X_{11})^T
+$$
+Donde $X_1$ es una variable aleatoria que representa lo que _pudo_ haber salido en el primer tiro, $X_2$ es una v.a. que representa lo que _pudo_ haber salido en el segundo tiro y en general $X_k$  es una v.a. que representa lo que _pudo_ haber salido en el $k$-ésimo tiro. 
+
+Suponiendo que la moneda tiene una probabilidad $p$ de arrojar `Sol` y $1-p$ de arrojar `Águila`, notamos que las variables indicadoras evaluadas en las $X_i$ (aleatorias) son variables aleatorias
+$$
+\mathbb{I}_{\{\text{Sol}\}}(X_i) \sim \text{Beroulli}(p)
+$$
+y que por tanto
+$$
+\hat{p} = \dfrac{1}{n}\sum\limits_{i=1}^n \mathbb{I}_{\{\text{Sol}\}}(X_i)
+$$
+es una variable aleatoria (al ser suma de variables aleatorias). Podemos entonces calcular su valor esperado:
+$$
+\mathbb{E}\big[\hat{p}\big] = \mathbb{E}\bigg[\dfrac{1}{n}\sum\limits_{i=1}^n \mathbb{I}_{\{\text{Sol}\}}(X_i)\bigg] = \dfrac{1}{n}\sum\limits_{i=1}^n \mathbb{E}\big[ \mathbb{I}_{\{\text{Sol}\}}(X_i)\big] = \dfrac{1}{n}\sum\limits_{i=1}^n p = \dfrac{1}{n}\cdot np = p
+$$
+Es decir, que en promedio el estimador $\hat{p}$ va a atinarle al verdadero valor $p$. Esto lo podemos ver si hacemos `nsim`$= 1000$ simulaciones de $100$ `tiros` de una moneda con probabilidad `p`$= 8/10$ de sol. 
+
+```{r}
+nsim  <- 1000
+tiros <- 100
+p.val <- 8/10
+
+#Creamos un vector para guardar los valores de p gorro
+p.gorro <- rep(NA, nsim)
+
+#Loop recorriendo cada una de las nsim simulaciones
+for (i in 1:nsim){
+  experimento <- sample(c("Sol","Águila"), tiros, replace = TRUE, 
+                        prob = c(p.val, 1 - p.val))
+  soles       <- table(experimento)["Sol"]
+  p.gorro[i]  <- soles/tiros
+}
+```
+
+Podemos ver que en promedio le atinamos al valor verdadero:
+
+```{r}
+#Vemos que en promedio le atina:
+mean(p.gorro)
+```
+
+Lo mismo podemos verlo gráficamente:
+
+```{r}
+#Graficamos
+ggplot() +
+  geom_point(aes(x = 1:nsim, y = p.gorro, color = as.character(p.gorro)), 
+             size = 2, alpha = 0.2) +
+  geom_hline(aes(yintercept = p.val), size = 1.5, linetype = "solid") +
+  theme_classic() +
+  theme(legend.position = "none") + 
+  labs(
+    x = "Simulaciones",
+    y = "Estimación de p",
+    title = "Simulación de proceso de estimación\nde que una moneda caiga Sol"
+  ) +
+  geom_label(aes(x = nsim/2, y = p.val), label = "Verdadero valor de p")
+
+```
+
+_¿Qué significa esto?_ El que en promedio $\hat{p}$ sea $p$ (formalmente, que $\mathbb{E}\big[\hat{p}\big] = p$) significa que, si yo hago muchísimos experimentos (o procesos de muestreo) de la misma cosa, mi $\hat{p}$ es un buen estimador porque en promedio le va a atinar. Empero, esto no dice nada de qué tan bueno es mi estimador $\hat{p}$ para mi caso (mi muestra o mi experimento) específico. Puedes pensarlo con los exámenes: que alguien tenga un promedio de _8_  dice que en general le ha ido bien en los exámenes, pero no dice nada respecto al primer examen de cálculo que hizo (donde pudo tener $10$ ó $5$ para llegar a ese promedio de $8$ _pero no podemos saber de manera específica cuánto fue_ ). Esto es igual: en promedio el estimador $\hat{p}$ será $p$ pero para un análisis específico _no sabemos_. 
+
+
+> **OJO** Los datos observados no son variables aleatorias: esos ya son fijos, ya los viste. Los _posibles_ datos observados sí son variables aleatorias ya que ellos, consisten en las variables que se _pudieron_ haber observado y te permiten calcular las probabilidades de tus datos observados bajo algún modelo. En el caso de la moneda, los datos observados son $\vec{x} = \big( \text{Sol}, \text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Águila}\big)^T$ pero los que se _pudieron_ haber observado son todas las $\binom{n}{2}$ formas en las que la moneda pudo haber salido.
+
+
+**1. Estimación de una función de masa de probabilidad**
+Formalmente, para una variable aleatoria discreta $X$ que puede tomar los valores $\{ a_1, a_2, \dots, a_{\ell} \}$ de la cual se observaron $n$ realizaciones descritas mediante $\vec{x} = (x_1, x_2, \dots, x_n)^T$ (observados, fijos, constantes). Definimos la **función de masa de probabilidad empírica** como:
+$$
+\hat{p}(x) = \begin{cases}
+\\
+\frac{1}{n} \sum_{i=1}^{n} \mathbb{I}_{\{a_1\}}(x_i) & \text{ si } x = a_1 \\ \\
+\frac{1}{n} \sum_{i=1}^{n} \mathbb{I}_{\{a_2\}}(x_i) & \text{ si } x = a_2 \\ \\
+\vdots \\ \\
+\frac{1}{n} \sum_{i=1}^{n} \mathbb{I}_{\{a_{\ell}\}}(x_i) & \text{ si } x = a_{\ell} \\
+0 & \text{ en otro caso}
+\end{cases}
+$$
+
+donde se supone que $\mathbb{P}(X = x) \approx \hat{p}(x)$. Notamos que lo anterior puede resumirse en:
+$$
+\hat{p}(x) = \frac{1}{n} \sum_{i=1}^{n} \mathbb{I}_{\{ x\}}(x_i)
+$$
+
+
+Análogamente, nota que para un conjunto (medible) $A$, la aproximación para $\mathbb{P}(X \in A)$ está dada por: 
+
+$$
+\hat{p}(A) = \dfrac{1}{n}\sum\limits_{i=1}^{n} \mathbb{I}_A (x_i).
+$$
+
+Podemos graficar para la base de datos `conteo_delitos` la probabilidad de que, dado que se cometió un delito, éste haya ocurrido en el dia $d_i$ de diciembre. Para ello usamos un `geom_col`:
+
+```{r}
+ggplot(conteo_delitos) +
+  geom_col(aes(x = fecha, y = n/sum(n), fill = n)) +
+  scale_fill_gradient("Delito", low = "orange", high = "red") +
+  theme_bw() +
+  theme(legend.position = "none") +
+  labs(
+    y = "p(x)",
+    x = "x",
+    title = "Aproximación a p(x)"
+  )
+```
+
+Una propiedad interesante de la función de masa de probabilidad es que, en promedio, le atina al verdadero valor (lo que comentábamos antes de que $\hat{p} = p$). Es decir, suponiendo que $X$ tiene una función de masa dada por:
+
+$$
+p(x) = \begin{cases}
+p_1 & \text{ si } x = a_1 \\
+p_2 & \text{ si } x = a_2 \\
+\vdots \\
+p_{\ell} & \text{ si } x = a_{\ell} \\
+\end{cases}
+$$
+
+y suponiendo un vector de muestras posibles $\vec{X} = (X_1, X_2, \dots, X_n)^T$ notamos que 
+$$
+\mathbb{I}_{\{ a_j \}}(X_i) \sim \text{Bernoulli} (p_j)
+$$
+
+Luego para cualquier $x$ se tiene que:
+
+$$
+\mathbb{E}\big[ \hat{p}(x)\big] = \mathbb{E}\bigg[ \dfrac{1}{n}\sum\limits_{i=1}^{n} \mathbb{I}_{\{ x \}}(X_i)  \bigg] = 
+ \dfrac{1}{n}\sum\limits_{i=1}^{n}\mathbb{E}\big[ \mathbb{I}_{\{ x \}}(X_i)  \big] = \frac{1}{n} n \cdot p_j = p_j.
+$$
+
+
+**2. Función de distribución empírica**
+
+Recuerda que para cualquier variable aleatoria $X:\mathbb{R}\to\mathbb{R}$ existe su función de distribución $F_X$ dada por:
+$$
+F_X(x) = \mathbb{P}(X \leq x)
+$$
+La idea de la función de distribución empírica es reconstruir (a partir de los datos observados) a $F_X$. Para ello, notamos que queremos estimar
+$$
+\mathbb{P}(X \leq x) \qquad \forall x\in\mathbb{R}
+$$
+esto es equivalente a estimar:
+$$
+\mathbb{P}\big(X \in (-\infty, x] \big)
+$$
+y podemos aplicar la aproximación que usamos arriba para un conjunto $A$:
+$$
+\mathbb{P}\big(X \in (-\infty, x] \big) \approx \sum\limits_{i=1}^n \mathbb{I}_{(-\infty, x]}(x_i)
+$$
+
+La función de distribución empírica está definida para un vector numérico $\vec{x} = (x_1, x_2, \dots, x_n)^T$ por: 
+$$
+\hat{F} (x) = \frac{1}{n} \sum\limits_{i=1}^{n} \mathbb{I}_{(-\infty, x]}(x_i)
+$$
+
+La función de distribución empírica es una función de distribución pues cumple las siguientes propiedades (demuéstralo):
+
+  1. $\lim_{x \to -\infty} \hat{F}(x) = 0$
+
+  2. $\lim_{x \to \infty} \hat{F}(x) = 1$
+  
+  3. Si $x < y$ entonces $\hat{F}(x) \leq \hat{F}(y)$ (no decreciente)
+  
+  4. $\hat{F}$ es continua por la derecha con límites por la izquierda (càdlàg). 
+
+Para demostrar 4. basta con demostrar que para $x_i$ fija, la función $i(x) = \mathbb{I}_{(-\infty, x]}(x_i)$ es continua por la derecha con límites por la izquierda pues $\hat{F}(x)$ es una suma de dichas funciones.  
+
+En particular, podemos notar que la función de distribución empírica $\hat{F} (x)$ le atina a la función de distribución; es decir:
+
+$$
+\mathbb{E}\big[\hat{F} (x) \big] = F(x) 
+$$
+
+Para ello consideramos un vector de valores posibles $\vec{X} = (X_1, X_2, \dots, X_n)^T$ donde las $X_i$ tienen la misma distribución que $X$. Y notamos que:
+$$
+\mathbb{I}_{(-\infty, x]}(X_i) \sim \textrm{Bernoulli}\big(F(x)\big)
+$$
+pues $\mathbb{I}_{(-\infty, x]}(X_i) = 1$ si $X_i \leq x$ y $\mathbb{I}_{(-\infty, x]}(X_i) = 0$ si $X_i > x$. Luego:
+$$
+\mathbb{P}\Big( \mathbb{I}_{(-\infty, x]}(X_i) = 1 \Big) = \mathbb{P}(X_i \leq x) = \mathbb{P}(X\leq x) = F(x)
+$$
+
+donde la igualdad del medio se sigue de que $X_i$ y $X$ tienen la misma distribución. Entonces:
+$$
+\mathbb{E}\big[ \hat{F}(x) \big] = \mathbb{E}\Big[ \dfrac{1}{n} \sum\limits_{i=1}^{n} \mathbb{I}_{(-\infty, x]}(X_i) \Big] = \dfrac{1}{n}\sum\limits_{i=1}^{n} \mathbb{E}\big[  \mathbb{I}_{(-\infty, x]}(X_i)\big] = \dfrac{1}{n} n \cdot F(x) = F(x)
+$$
+
+En `R` podemos calcular la función de distribución empírica con el comando `ecdf` el cual cuenta la cantidad de observaciones y regresa una función. Así, para la base de datos `conteo_delitos` podemos calcular la función de distribución empírica `ecdf` asociada a la cantidad de delitos que se cometen en un día mediante:
+
+```{r}
+Fgorro <- ecdf(conteo_delitos$n)
+```
+
+De esta forma podemos calcular la probabilidad de que en un día se cometan menos de 500 delitos:
+
+```{r}
+Fgorro(500)
+```
+
+O bien podemos graficar la función:
+```{r}
+x <- seq(300, 1000, length.out = 100)
+y <- Fgorro(x)
+ggplot() +
+  geom_step(aes(x = x, y = y), color = "red") +
+  labs(
+    x = "Número de carpetas de investigación (x)",
+    y = "Probabilidad de que en un día\nse abran menos de x carpetas",
+    title = "Distribución acumulada de carpetas de investigación en CDMX"
+  ) +
+  theme_minimal()
+```
+
+Mediante simulaciones, podemos observar que $\hat{F}$ realmente le atina a $F$ como sigue:
+
+```{r}
+#Cantidad de simulaciones
+nsim       <- 100
+
+#Tamaño de la muestra en cada simulacion
+n_muestra  <- 100
+
+#Valores a evaluar la función
+x          <- seq(-5, 5, length.out = 200)
+
+#Base de datos para guardar resultados de simulaciones
+F_simulado <- data.frame(matrix(NA, ncol = nsim, nrow = length(x)))
+
+for (i in 1:nsim){
+  valores_simulados <- rnorm(n_muestra)
+  F_empirica        <- ecdf(valores_simulados)
+  F_simulado[,i]    <- F_empirica(x)
+}
+
+F_simulado$Valor_x <- x
+
+#Cambiamos el formato de la base para graficar
+F_simulado <- F_simulado %>% pivot_longer(cols = -Valor_x)
+
+ggplot(F_simulado) +
+  geom_step(aes(x = Valor_x, y = value, color = name), alpha = 0.1) +
+  geom_line(aes(x = Valor_x, y = pnorm(Valor_x)), color = "black") +
+  theme_classic() +
+  theme(legend.position = "none") +
+  labs(
+    x = "x",
+    y = "F(x)",
+    title = "Simulaciones de funciones de distribuciones acumuladas empíricas",
+    subtitle = "Para X ~ Normal(0,1)"
+  )
+
+```
+
+**2. Histograma**
+Para una variable aleatoria continua, la aproximación $\hat{p}$ que hicimos no funciona (la masa siempre es $0$). Por lo que es necesario analizar alternativas para estudiar la densidad si suponemos que los datos pueden modelarse mediante algo continuo. Para construir un histograma consideremos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ y una constante $h > 0$ llamada el **ancho de banda (binwidth)**.  Sea $\{ I_j \}$ una colección de intervalos no vacíos de $\mathbb{R}$ tal que $\cup_{j=1} I_j = \mathbb{R}$ e $I_j \cap I_k = \emptyset$ (_i.e._ los $\{ I_j \}$ forman una partición de $\mathbb{R}$). Supongamos, además, los $I_j$ son de la forma:
+$$
+I_j = \Big[\kappa + (j-1) h, \kappa + jh  \Big)
+$$
+para algún $\kappa \in \mathbb{R}$ fijo. Sea
+$$
+n_j(\vec{x}) = \sum\limits_{i=1}^n \mathbb{I}_{I_j}(x_i)
+$$
+la cantidad de $x_i$ en el intervalo $I_j$. 
+
+Un histograma es la gráfica de la función:
+$$
+\text{hist}_{\vec{x}}(x) = \frac{1}{n \cdot h} \sum\limits_{j} n_j(\vec{x}) \cdot \mathbb{I}_{I_j}(x)
+$$
+
+Una propiedad interesante de un histograma es que éste aproxima correctamente las probabilidades $\mathbb{P}(X \in I_j)$. Para ver esto, consideramos un vector de valores posibles $\vec{X} = (X_1, X_2, \dots, X_n)^T$ y que $x\in I_j$, luego:
+
+$$
+\mathbb{E}\Big[ \int_{I_j} \text{hist}_{\vec{X}}(x) dx \Big] = \mathbb{E}\bigg[ \frac{1}{n \cdot h} \sum\limits_{j} n_j(\vec{X}) \cdot \int_{I_j} \mathbb{I}_{I_j}(x) dx \bigg] =  \frac{1}{n \cdot h} \sum\limits_{j} \mathbb{E}\big[ n_j(\vec{X}) \big] \cdot h  = \dfrac{1}{n}\sum\limits_{j} \mathbb{E}\big[ n_j(\vec{X}) \big]
+$$
+donde las $n_j(\vec{X})$ son variables aleatorias en este caso y:
+$$
+\mathbb{E}\big[ n_j(\vec{X})\big] = \sum\limits_{i=1}^n \mathbb{E}\big[\mathbb{I}_{I_j}(X_i)\big] = \sum\limits_{i=1}^n\mathbb{P}(X_i \in I_j) = n \mathbb{P}(X \in I_j)
+$$
+donde la última igualdad se da pues las $X_i$ tienen la misma distribución que $X$. Luego:
+$$
+\mathbb{E}\Big[ \int_{I_j} \text{hist}_{\vec{X}}(x) dx \Big] = \mathbb{P}(X \in I_j)
+$$
+Es decir, el valor esperado del área bajo un histograma en un intervalo $I_j$ coincide con la probabilidad de que $X$ pertenezca a dicho intervalo. 
+
+Gráficamente:
+
+```{r, echo = FALSE, warning=FALSE}
+ggplot() +
+  #geom_rect(aes(xmin = 0, xmax = 1, ymin = 0, ymax = 0.4), 
+  #          fill = "deepskyblue3", color = "white") +
+  geom_rect(aes(xmin = 1, xmax = 2, ymin = 0, ymax = 0.2), 
+            fill = "orange", color = "white") +
+  #geom_rect(aes(xmin = 2, xmax = 3, ymin = 0, ymax = 0.3), 
+  #          fill = "deepskyblue3", color = "white") +
+  theme_void() +
+  geom_segment(aes(x = -1.5, xend = 4, y = 0, yend = 0)) + 
+  geom_segment(aes(x = -1.5, xend = -1.5, y = 0, yend = 0.5)) +
+  geom_segment(aes(x = -2, xend = 1, y = 0.4, yend = 0.4),
+               color = "gray75", linetype = "dashed") +
+  geom_segment(aes(x = -2, xend = 2, y = 0.2, yend = 0.2),
+               color = "gray75", linetype = "dashed") +
+  geom_segment(aes(x = -2, xend = 3, y = 0.3, yend = 0.3),
+               color = "gray75", linetype = "dashed") +
+  geom_step(aes(x = c(-1.5, 0, 1,2,3,4), y = c(0,0.4,0.2,0.3,0,0),
+                color = "hist(x)"), size = 1) +
+  geom_label(aes(x = -0.5, y = 0), label = TeX("$I_{j-2}$")) +
+  geom_label(aes(x = 0.5, y = 0), label = TeX("$I_{j-1}$")) +
+  geom_label(aes(x = 1.5, y = 0), label = TeX("$I_{j}$")) +
+  geom_label(aes(x = 2.5, y = 0), label = TeX("$I_{j+1}$")) +
+  geom_label(aes(x = 3.5, y = 0), label = TeX("$I_{j+2}$")) +
+  geom_label(aes(x = 1.5, y = 0.1), label = TeX("$\\int_{I_{j}}$hist$(x)dx$")) +
+  geom_label(aes(x = 0.5, y = 0.4), label = TeX("Longitud $h$")) +
+  geom_label(aes(x = -2, y = 0.3), label = TeX("$\\frac{n_{j+1}}{h}$")) +
+  geom_label(aes(x = -2, y = 0.2), label = TeX("$\\frac{n_j}{h}$")) +
+  geom_label(aes(x = -2, y = 0.4), label = TeX("$\\frac{n_{j-1}}{h}$")) +
+  scale_color_manual("Función",values = c("firebrick"))
+```
+En `R` podemos hacer un histograma a través de `geom_histogram`. En este caso lo haremos de la latitud:
+
+```{r, warning = FALSE}
+#En este caso binwidth = h y kappa = boundary
+ggplot(datos) +
+  geom_histogram(aes(x = latitud, y = ..density..), 
+                 binwidth = 0.02, boundary = -99,
+                 color = "white", fill = "purple") +
+  theme_light() 
+```
+
+
+### Ejercicio 
+
+Considera la siguiente base de datos:
+
+```{r}
+mis.datos <- data.frame(
+  A =  c(3.15, 5.46, 3.28, 4.20, 1.98, 2.28, 3.12, 4.10, 3.42, 3.91, 
+         2.06, 5.53, 5.19, 2.39, 1.88, 3.43, 5.51, 2.54, 3.64, 4.33, 
+         4.85, 5.56, 1.89, 4.84, 5.74, 3.22, 5.52, 1.84, 4.31, 2.01, 
+         4.01, 5.31, 2.56, 5.11, 2.58, 4.43, 4.96, 1.90, 5.60, 1.92),
+  B =  c(2.90, 5.21, 3.03, 3.95, 1.73, 2.03, 2.87, 3.85, 3.17, 3.66,
+         1.81, 5.28, 4.94, 2.14, 1.63, 3.18, 5.26, 2.29, 3.39, 4.08,
+         4.60, 5.31, 1.64, 4.59, 5.49, 2.97, 5.27, 1.59, 4.06, 1.76, 
+         3.76, 5.06, 2.31, 4.86, 2.33, 4.18, 4.71, 1.65, 5.35, 1.67),
+  C =  c(2.65, 4.96, 2.78, 3.70, 1.48, 1.78, 2.62, 3.60, 2.92, 3.41,
+         1.56, 5.03, 4.69, 1.89, 1.38, 2.93, 5.01, 2.04, 3.14, 3.83,
+         4.35, 5.06, 1.39, 4.34, 5.24, 2.72, 5.02, 1.34, 3.81, 1.51, 
+         3.51, 4.81, 2.06, 4.61, 2.08, 3.93, 4.46, 1.4, 5.1, 1.42),
+  D =  c(2.40, 4.71, 2.53, 3.45, 1.23, 1.53, 2.37, 3.35, 2.67, 3.16,
+         1.31, 4.78, 4.44, 1.64, 1.13, 2.68, 4.76, 1.79, 2.89, 3.58,
+         4.10, 4.81, 1.14, 4.09, 4.99, 2.47, 4.77, 1.09, 3.56, 1.26, 
+         3.26, 4.56, 1.81, 4.36, 1.83, 3.68, 4.21, 1.15, 4.85, 1.17)
+)
+```
+
+
+Grafica un histograma de las variables `A`, `B`, `C` y `D` de dicha base con un ancho de banda (binwidth) igual a `1`. 
+
+  a. ¿Podemos concluir la forma de la distribución a partir del histograma? Es decir ¿hay distribuciones sesgadas a la izquierda, a la derecha, uniformes, centradas o con colas pesadas?
+
+  b. Realiza el mismo histograma pero ahora con un ancho de banda de 0.25 ¿por qué hubo cambios?
+
+  c. Analiza la base de datos (los valores en función de la columna A) y concluye.
+
+
+**3. Densidad kernel**
+Un histograma tiene muchos bemoles: en particular, es necesario decidir quién es $h$ y quién $\kappa$ y no hay una regla clara de cómo hacerlo. La densidad `kernel` es un intento de mejorar esta situación. Para ello recordamos que si $X$ es una variable aleatoria continua con densidad $F$ entonces:
+$$
+f(x) = F'(x) = \lim_{h \to 0} \dfrac{F(x + h) - F(x - h)}{2h}
+$$
+Por lo que para un $h$ positiva con $h \approx 0$ tenemos que:
+$$
+f(x) \approx \dfrac{F(x + h) - F(x - h)}{2h} 
+$$
+En el caso de un vector de observaciones $\vec{x} = (x_1, x_2, \dots, x_n)^T$ recordamos que podemos asociar una función de distribución empírica $\hat{F}$ y por tanto obtener el _estimador de Rosenblatt_ de la densidad $f$ mediante:
+$$
+\hat{f}(x) =  \dfrac{\hat{F}(x + h) -\hat{F}(x - h)}{2h} 
+$$
+Podemos reescribir esto como:
+$$
+\hat{f}(x) =  \dfrac{1}{2nh} \sum\limits_{i = 1}^n \mathbb{I}_{(x-h, x+h]}(x_i) = \dfrac{1}{nh}\sum\limits_{i = 1}^n K\Big( \frac{x_i - x}{h}\Big)
+$$
+donde:
+$$
+K(u) = \frac{1}{2} \mathbb{I}_{(-1, 1]}(u)
+$$
+
+se conoce como el _kernel rectangular_. Una vez que llegamos hasta este punto notamos que para cualquier $K$ que cumple:
+
+  1. $\int\limits_{-\infty}^{\infty} K(u) du = 1$
+  
+  2. $K(u) \geq 0$
+  
+la función $\hat{f}$ es una función de densidad. La función $\hat{f}$ se conoce como el _estimador de densidad del kernel K_. Algunos ejemplos de kernels $K$ son:
+
+  1. **Rectangular:** $K(u) = \frac{1}{2} \mathbb{I}_{(-1, 1]}(u)$
+  
+  2. **Triangular:** $K(u) = (1 - |u|) \mathbb{I}_{(-1, 1]}(u)$
+  
+  3. **Epanechnikov:** $K(u) = \frac{3}{4}(1 - u^2) \mathbb{I}_{(-1, 1]}(u)$
+  
+  4. **Gaussiano:** $K(u) = \frac{1}{\sqrt{2\pi}}\text{exp}(-u^2/2)$
+
+> **OJO** No confundir el Kernel $K$ (que es una función que integra a $1$) con _función de densidad kernel_ que es una función de los datos que utiliza un kernel y es una densidad por sí misma.
+
+En `R` podemos calcular la densidad `kernel` en `n` puntos con relativa facilidad mediante `density`:
+
+```{r}
+densidad_kernel <- density(datos$latitud, kernel = "gaussian", n = 700,
+                           na.rm = TRUE)
+```
+
+Nota que `R` en automático preselecciona los valores de `h` mediante un criterio preprogramado de optimización. Podemos ver dicha densidad gráficamente (y compararla con un histograma):
+
+```{r, warning = FALSE}
+ggplot(datos) +
+  geom_histogram(aes(x = latitud, y = ..density..), 
+                 binwidth = 0.01, boundary = 19,
+                 fill = "purple", color = "white") +
+  geom_density(aes(x = latitud), kernel = "gaussian", size = 1.5) +
+  theme_bw()
+```
+
+Esto no se queda ahí, podemos generalizar el concepto de kernel a dos dimensiones para aproximar una función de densidad $f(x,y)$ de dos variables aleatorias sí tenemos dos vectores $\vec{x}$ y $\vec{y}$ y calculamos:
+
+$$
+\hat{f}(x,y) =\dfrac{1}{nh^2} \sum\limits_{i = 1}^n K \Big( \frac{x_i - x}{h}\Big) K \Big( \frac{y_i - y}{h}\Big)
+$$
+
+En particular esto nos permite generar una densidad en `R` para saber en qué coordenadas de latitud y longitud ocurren más los delitos:
+
+```{r, warning=FALSE}
+ggplot(datos) +
+  geom_point(aes(x = longitud, y = latitud), alpha = 0.025) +
+  geom_density_2d_filled(aes(x = longitud, y = latitud), alpha = 0.75) +
+  geom_density2d(aes(x = longitud, y = latitud)) +
+  theme_void()
+```
+
+### Ejercicio sugerido 
+Este ejercicio es para que tengas la seguridad de que comprendiste los conceptos previos y sabes calcularlos. Es tedioso pero bueno para aclarar dudas. 
+
+Considera la siguiente base de datos:
+```{r, echo = FALSE}
+dats <- data.frame(x = c(1,2,3,2,1,3), 
+                   y = c(-100, -2, 2, 3, 1, 4), 
+                   z = c("Rojo","Azul","Azul","Rojo","Verde","Amarillo"),
+                   w = c("Bueno","Malo","Regular","Bueno","Bueno","Malo"))
+kable(dats) %>% kable_styling(latex_options = "striped")
+```
+
+Calcula **a mano** (es decir puedes usar calculadora pero no lo calcules en `R`) y luego **verifica tus cálculos haciéndolo en `R`**:
+
+  1. El total de $\vec{x}$
+  
+  2. La media y varianza de $\vec{y}$
+  
+  3. La curtosis y la asimetría de $\vec{x}$ (su media es `r mean(dats$x)` y su varianza `r var(dats$x)`). Determina si tiene un sesgo a la derecha, a la izquierda o ninguno. 
+  
+  4. Determina mediante la curtosis si $\vec{x}$ tiene colas más pesadas que $\vec{y}$. 
+  
+  5. Calcula el cuantil $0.25$ y el $0.75$ de $\vec{y}$ así como su rango intercuartílico (IQR).
+  
+  6. ¿Hay valores atípicos (_outliers_) en $\vec{y}$? En caso afirmativo, determina cuáles son. 
+  
+  7. ¿Cuál es el rango de $\vec{y}$? (no confundir con el IQR).
+  
+  8. Determina la moda de $\vec{z}$
+
+  9. Determina la mediana de $\vec{x}$.
+  
+  10. Determina la MAD de $\vec{x}$
+  
+  11. Realiza el conteo de cuáles $\vec{z}$ pertenecen al conjunto $A = \{ \text{Rojo}, \text{Amarillo} \}$
+  
+  12. Realiza una tabla de contingencia de $\vec{w}$ y $\vec{z}$. 
+  
+  13. Determina la distribución frecuencial (observada) marginal de $\vec{w}$.
+  
+  14. Realiza una tabla de frecuencias de $\vec{w}$ y $\vec{z}$. 
+  
+  15. Calcula el riesgo relativo de estar en un choque dado que manejas en CDMX a partir de los datos en la tabla \ref{conduce}:
+  
+\begin{table}[!htb]
+\centering
+\begin{tabular}{l||c|cc|r}
+                          & \multicolumn{1}{c}{} & \multicolumn{3}{c}{LUGAR DONDE MANEJA} \\
+                          \hline
+                          \hline
+                          &                      & CDMX     & MONTERREY    & Total   \\
+                          \hline
+\multirow{3}{*}{CHOCÓ} & SÍ                      & 1100    & 4000    & 5100     \\
+                          & NO                   & 120     & 5080    & 5200      \\
+                          \hline
+                          & Total                & 1220    & 9080    & 10300  \\  
+                          \hline
+                          \hline
+\end{tabular}
+\caption{Tabla de conductores}
+\label{conduce}
+\end{table}
+
+  Interpreta tu resultado. 
+  
+  16. De la tabla anterior calcula la razón de momios asociada a chocar dado que manejas en CDMX. Interprétala.
+  
+  17. Calcula la correlación de Bravais Pearson de $\vec{x}$ y $\vec{y}$. Interpreta. 
+  
+  18. Obtén la correlación de Spearman de $\vec{x}$ y $\vec{y}$
+  
+  19. Para $\vec{w}$ y $\vec{x}$ obtén la $\tau$ de Kendall (son `r choose(6,2)` comparaciones para generarla)
+  
+  20. Descartando el _outlier_ de $\vec{y}$ (y su $\vec{x}$ asociada), ajusta un modelo lineal $\hat{y} = \hat{\beta}_1 x + \hat{\beta}_0$ y grafícalo para ver qué tan buen modelo es. 
+  
+  21. Realiza una gráfica de caja (boxplot) para $\vec{y}$
+  
+  22. Realiza un scatterplot para la submatriz $Z_{(x,y)}$.
+  
+  23. Realiza una gráfica de líneas para $Z_{(x,y)}$ identificando la función de interpolación lineal $f(x)$ asociada.
+  
+  24. Realiza una gráfica de barras de $\vec{w}$ especificando quiénes son los $a_i$ y los $n_j$. 
+  
+  25. Estima mediante $\hat{p}$ la función de probabilidad de $\vec{w}$. 
+  
+  25. Identifica la función de distribución empírica para $\vec{x}$, $\hat{F}$ y grafícala.
+  
+  26. Realiza un histograma con $h = 2$ para $x$. Toma $\kappa = 4$.
+  
+  27. Ajusta una densidad kernel a $\vec{x}$ con $h = 1$ y usando un kernel $K$ triangular. Calcula $\hat{f}(x)$ para $x = 0,1,2,3,4$.
+
+# Ejercicios 
+
+1. Dado $\vec{x}$ vector de variables ordinales, obtén una expresión matemática para los siguientes estadísticos:
+    a. La media de las diferencias entre las $x_i$ quitando la de $x_k$ consigo misma.
+    b. El valor numérico o categoría menos común en $\vec{x}$.
+    c. Si ordenamos todos los valores, la diferencia más alta entre algún $x_{(i)}$ y su sucesor: $x_{(i+1)}$. 
+    d. Este cálculo de \texttt{R} para una S dada como vector numérico:
+```{r, eval = FALSE}
+#x es la muestra; x <- c(x1,x2, ..., xn)
+datos_nuevos <- c()
+for (i in 1:length(x)){
+    datos_nuevos <- c(datos_nuevos, x[i]^i)
+}
+mean(datos_nuevos) #Este valor es el que me interesa
+```
+
+2. Demuestra que:
+$$
+\sigma^2_{\vec{x}} = \dfrac{1}{n}\sum\limits_{i=1}^n x_i^2 - \bar{x}^2
+$$
+
+3. Para unos datos observados numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ se tiene que las $x$ toman el valor $a_{x,1}$ $n_{x,1}$ veces, el valor $a_{x,2}$, $n_{x,2}$ veces y el valor $a_{x,\ell}$, $n_{x,\ell}$ veces ($n_j \geq 0$, $0 < \ell \leq n$ y $\sum_{j=1}^{\ell} n_j = n$). Demuestra que:
+$$
+    \bar{x} = \dfrac{1}{\sum_{j = 1}^{\ell} n_{j}} \cdot \sum\limits_{j=1}^{\ell} n_j a_j 
+$$
+
+4. Sea $n$ impar y $f$ una función estrictamente decreciente.
+    a. Demuestra que si $x_*$ es la mediana de $\vec{x} = ( x_1, x_2,\dots, x_n)^T$ entonces $f(x_*)$ es la mediana de $\Tilde{\vec{x}} = \big( f(x_1), f(x_2),\dots, f(x_n)\big)^T$.
+    b. Demuestra que si $\bar{x}$ es la media observada de $\vec{x} = ( x_1, x_2,\dots, x_n)^T$ y $f(\bar{x})$ es la media observada de $\Tilde{\vec{x}} = \big( f(x_1), f(x_2),\dots, f(x_n)\big)^T$ y además $f$ es diferenciable, entonces $f(x) = a \cdot x + b$ (es decir es una transformación afín). **Hint** Deriva. 
+
+5. Sea $\phi$ una función convexa. Demuestra que:
+$$
+    \phi \Big( \bar{x} \Big) \leq \dfrac{1}{n}\sum\limits_{i=1}^n \phi(x_i)
+$$
+**Hint** Deriva.  Recuerda que si $\phi$ es convexa, para $0 \leq \alpha \leq 1$ se tiene que:
+$$
+\phi\big(\alpha x + (1-\alpha) y\big) \leq \alpha \phi(x) + (1-\alpha)\phi(y)
+$$
+
+6. Sea $\hat{p}_R(x)$ la densidad kernel asociada a $\vec{x} = (x_1, x_2, \dots, x_n)$ con un núcleo (kernel) $K(u) \geq 0$ y $h > 0$. Demuestra:
+    a. $\hat{p}_h(x)$ es una función de densidad de probabilidad (\textit{i.e.} integra a $1$).
+    b. Determina la media de una variable aleatoria $X$ que se distribuye con densidad $\hat{p}_h(x)$ bajo: Kernel triangular.
+    c. Determina la varianza de una variable aleatoria $X$ que se distribuye con densidad $\hat{p}_h(x)$ bajo: Kernel Epanechnikov
+    
+7. Sea $\text{hist}_{\vec{x}}$ la función de histograma para un vector numérico $\vec{x}$ con $h > 0$, $\kappa \in \mathbb{R}$ fijos y una partición $\{I_j\}_{j \in \mathbb{Z}}$. Demuestra que $\text{hist}_{\vec{x}}$ es una función de densidad. 
+
+8. Demuestra que para  $\vec{x} = (x_1, x_2, \dots, x_n)^T$ la función de distribución empírica $\hat{F}(x)$ es una función de distribución acumulada; es decir:
+    a. $\lim_{x \to -\infty} \hat{F} (x) = 0$
+    b. $\lim_{x \to \infty} \hat{F} (x) = 1$
+    c. $\lim_{x \to x_0^+} \hat{F} (x) = \hat{F} (x_0)$ (continua por la derecha)
+    d. $\lim_{x \to x_0^-} \hat{F} (x)$ existe
+    e. $F_n (x)$ es no decreciente.
+
+9.  La tabla \ref{tab:my_label} muestra datos observados del PIB de un país en billones de dólares:
+    \begin{table}[!htb]
+        \centering
+        \begin{tabular}{cc}
+           \bf Año  & \bf PIB  \\
+           \hline
+           \hline
+            2000 & 0.5 \\
+            2005 & 1.2 \\
+            2010 & 1.5 \\
+            2015 & 2.1 \\
+            \hline
+            \hline
+        \end{tabular}
+        \caption{Los datos observados}
+        \label{tab:my_label}
+    \end{table}
+    Ajusta una parábola $q (x) = a \cdot x^2 + b\cdot x + c$ para obtener la mejor parábola que ajuste esos puntos. ¿Qué valor de PIB se espera para el 2020 bajo este modelo? 
+10. Demuestra que si $\vec{x} = -\vec{y}$ (dos vectores numéricos) la correlación de Spearman entre ambos es $-1$. 
+
+11. Para una variable aleatoria $T$ que representa un tiempo, se define una función de supervivencia como la probabilidad de que $T$ dure más que un cierto tiempo $t$; es decir:
+\begin{equation}\nonumber
+    S(t) = \mathbb{P}(T > t)
+\end{equation}
+Construye $\hat{S}$ una aproximación empírica a la función de supervivencia $S$ tal que $\mathbb{E}[\hat{S}(t)] = S(t)$. Demuestra este último resultado. 
+
+12. Demuestra que $\text{Var}\big[ \hat{F}(x) \big] = \frac{1}{n} F(x) \big( 1 - F(x) \big)$. 
+
+13. Recuerda que para dos variables aleatorias $X$ y $Y$ se define la covarianza $\text{Cov}(X,Y) = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]$. Calcula entonces la covarianza dada por $\text{Cov}\big(\hat{p}(u), \hat{p}(v)\big)$.
+
+14. Demuestra que si $X$ es independiente de $Y$ entonces $\mathbb{I}_A(X)$ es independiente de $\mathbb{I}_A(Y)$. Recuerda que dos variables aleatorias $X$, $Y$ son independientes si y sólo si $\mathbb{P}(X \in A, Y \in B) = \mathbb{P}(X \in A) \mathbb{P}(Y \in B)$ para conjuntos $A,B$ medibles. 
+
+15. Sean $\rho$ la $\rho$ de Spearman y $\tau$ la $\tau$ de Kendall para dos vectores ordinales $\vec{x}$ y $\vec{y}$. Demuestra que:
+$$
+\frac{1 + \rho}{2} \geq \Big( \frac{1 + \tau}{2} \Big)^2
+$$
+
+16. Da un ejemplo de vector $\vec{x}$ de al menos dos entradas tal que $\text{MAD}_{\vec{x}} \geq \sigma_{\vec{x}}$
+
+17. Demuestra que $\text{MAD}_{\vec{x}} = 0 \Leftrightarrow \sigma_{\vec{x}} = 0$ para el mismo vector $\vec{x}$. 
+
+18. Si un vector $\vec{x}$ tiene $3$ entradas, media $\bar{x} = 1$ y varianza $\sigma_{\vec{x}} = 1$ y además se sabe que su curtosis es $1$, ¿quién es $\vec{x}$?
+
+19. Bajo la correlación de Pearson demuestra que para vectores $\vec{x}, \vec{y}$ y $\vec{z}$ si $\rho_{\vec{x},\vec{y}} = 1$ y $\rho_{\vec{x},\vec{z}} = 1$ entonces $\rho_{\vec{y},\vec{z}} = 1$
+
+20. Sean $\vec{w}, \vec{x}, \vec{y}, \vec{z} \in\mathbb{R}^n$ y $a,b,c,d\in\mathbb{R}$ demuestra que:
+$$
+\rho(a \vec{x} + b \vec{w}, c \vec{y} + d \vec{z}) = K_1\cdot\rho(\vec{x}, \vec{y}) + K_2\cdot\rho(\vec{w}, \vec{y}) + K_3\cdot\rho(\vec{x}, \vec{z}) + K_4\cdot\rho(\vec{w}, \vec{z}) 
+$$
+para algunas constantes $K_1, K_2, K_3, K_4$; donde, además, $\rho$ es la correlación de Pearson. 
+
+21. Sean $\vec{x} = (x_1,x_2, \dots, x_n)^T$ el vector de los datos observados (fijo) y $\vec{X} = (X_1,X_2, \dots, X_n)^T$ el vector de los datos posibles (aleatorio). Supongamos que las entradas de $\vec{X}$ son independientes e idénticamente distribuidas con la misma distribución de $X$ con media $\mu$ y varianza $\sigma^2$. 
+    a. Demuestra que $\mathbb{E}\big[ \bar{X} \big] = \mu$ ¿Qué te dice esto de $\bar{x}$?
+    b. Demuestra que $\mathbb{E}\big[ \sigma_{\vec{X}}^2 \big] \neq \sigma^2$ ¿Qué te dice esto de $\sigma_{\vec{x}}^2$? 
+Donde $\sigma_{\vec{X}}^2 = \frac{1}{n}\sum_{i=1}^n \big( X_i - \bar{X}\big)^2$. Hint: usa el ejercicio 2 de esta sección.
+
+22. Quiénes son $\vec{x}, \vec{y}$ si su tabla de contingencia es la dada por Cuadro \ref{contingencia}:
+\begin{table}[!htb]
+\centering
+\begin{tabular}{l||c|ccc}
+                          & \multicolumn{1}{c}{} & \multicolumn{3}{c}{$\vec{y}$} \\
+                          \hline
+                          \hline
+                          &                      & Consomé     & Taco    & Postre   \\
+                          \hline
+\multirow{3}{*}{$\vec{x}$} & Tacos el Güero                    & 1    & 3    & 2     \\
+                          & Tacos la Güera                  & 4     & 2    & 1      \\
+                          \hline
+                          \hline
+                          \hline
+\end{tabular}
+\caption{Tabla de conductores}
+\label{contingencia}
+\end{table}
+
+23. Da un ejemplo de vectores $\vec{x}$ y $\vec{y}$ de tamaño $10$ cuya $\tau$ de Kendall sea $0$ pero estén completamente relacionados; es decir exista una función $g$ tal que $\vec{y} = g(\vec{x})$. 
+
+24. Construye una función `function` en `R` que dado un vector `x <- c(x_1, x_2, ..., x_n)` regrese la densidad kernel (bajo kernel gaussiano) asociada a `x` y evaluada en los puntos dados por el vector `t <- c(t_1, t_2, ..., t_m)`. 
+
+25. Considera la siguiente base de datos de calificaciones. Calcula la mediana de calificaciones, media, varianza y el IQR.
+
+```{r, echo = FALSE}
+calif <- tibble(Calificación = c(10,9,8,7,6,5),
+                `Cantidad de alumnos` = c(3,4,12,11,1,4))
+
+kable(calif) %>% kable_styling(latex_options = "striped")
+```
+
+
+26. A partir de la siguiente gráfica determina si los incisos son verdaderos o falsos o no se puede determinar:
+
+```{r, echo = FALSE}
+x <- seq(-5, 5, length.out = 20)
+y <- -1/(1 + exp(-x))
+ggplot() +
+  geom_point(aes(x = x, y = y), size = 2, color = "red") +
+  geom_segment(aes(x = -5, xend = 5, y = 0, yend = 0)) +
+  geom_segment(aes(x = -5, xend = -5, y = 0, yend = -1)) +
+  geom_label(aes(x = 0, y = 0.1), label = "x") +
+  geom_label(aes(x = -6, y = -0.5), label = "y") +
+  theme_void() 
+```
+
+  a. La correlación de Pearson de $\vec{x}$ y $\vec{y}$ es $-1$
+      + Verdadero
+      + Falso
+      + No se puede determinar
+  
+  b. La correlación de Spearman de $\vec{x}$ y $\vec{y}$ es $-1$
+      + Verdadero
+      + Falso  
+      + No se puede determinar
+  
+  c. La tau de Kendall de $\vec{x}$ y $\vec{y}$ es $-1$
+      + Verdadero
+      + Falso
+      + No se puede determinar
+
+27. A partir de la siguiente gráfica determina si los incisos son verdaderos o falsos o no se puede determinar:
+
+```{r, echo = FALSE, warning = FALSE}
+x <- 1:5
+y <- c(10, 20, 15, 5, 10)
+ggplot() +
+  geom_point(aes(x = x, y = y), size = 5, color = "red") +
+  geom_segment(aes(x = 0, xend = 6, y = 0, yend = 0)) +
+  geom_segment(aes(x = 0, xend = 0, y = 0, yend = 20)) +
+  geom_label(aes(x = 3, y = 0), label = "x") +
+  geom_label(aes(x = 0, y = 10), label = TeX("n_x")) +
+  theme_void() 
+```
+
+  a. El coeficiente de asimetría de $\vec{x}$ es positivo. 
+      + Verdadero
+      + Falso
+      + No se puede determinar  
+  
+  b. El coeficiente de curtosis de $\vec{x}$ es positivo. 
+      + Verdadero
+      + Falso
+      + No se puede determinar   
+      
+  c. La distribución de $\vec{x}$ tiene una sola moda. 
+      + Verdadero
+      + Falso
+      + No se puede determinar
+      
+28. Considera el problema de mínimos cuadrados donde ahora suponemos que existe una submatriz $X_{n \times k}$ de la base de datos $Z$ y un vector columna $y$ tal que cada entrada de las $y$, $y_i$ es una función lineal de las $x_{i,j}$:
+$$
+y_i = \beta_1 x_{i,1} + \beta_2 x_{i,2} + \dots + \beta_k x_{i,k}
+$$
+Suponemos, además que las columnas de $X_{n \times k}$ son linealmente independientes (_i.e._ es de rango completo). En este caso la función de error a minimizar para estimar las $\beta$s es:
+$$
+\text{SSR}(\beta_1, \beta_2, \dots, \beta_k) = \sum\limits_{i=1}^n \big( y_i - \sum\limits_{j=1}^k \beta_j x_{i,j}\big)^2
+$$
+
+  a. Demuestra que en este caso el problema es equivalente a minimizar:
+\begin{equation}\nonumber
+\text{SSR}(\vec{\beta}) = (\vec{y} - X \vec{\beta})^T (\vec{y} - X \vec{\beta})
+\end{equation}
+  b. Obtén entonces que:
+\begin{equation}\nonumber
+\beta = (X^T X)^{-1} X^T \vec{y}
+\end{equation}  
+  c. Finalmente, suponiendo que $y = \alpha + \gamma x + \eta z$ es un hiperplano de $x$ y $z$ calcula los coeficientes:
+```{r, echo = FALSE}
+plano <- data.frame(x = c(1,2,3,1), y = c(7,9,12,14), z = c(-1,-2,-3,1))
+kable(plano) %>% kable_styling(plano)
+```
+  d. Verifica los coeficientes haciendo la regresión en `R`. 
+  
+  

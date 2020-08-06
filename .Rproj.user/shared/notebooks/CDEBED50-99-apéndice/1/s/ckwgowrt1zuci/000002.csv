@@ -1,0 +1,6 @@
+"0","rm(rojos, empty, pdata, scatter, xmin, ymin, hist_right, hist_top,"
+"0","   verdes, bg, g, r, xhist, yhist)"
+"0","names(.GlobalEnv)[-which(names(.GlobalEnv) %in% c("".Random.seed"", ""escritorio"",""subDir"",""subcarpeta"", ""filedir""))]"
+"1","[0;38;5;40m[0;38;5;30m[1][0;38;5;40m[0m[0;38;5;40m [0;38;5;85m""x""[0;38;5;40m       [0m[0;38;5;40m [0;38;5;85m""y""[0;38;5;40m       [0m"
+"1","[0;38;5;40m [0;38;5;85m""z""[0;38;5;40m       [0m[0;38;5;40m [0;38;5;85m""Example1""[0;38;5;40m[0m[0;38;5;40m[0m
+"

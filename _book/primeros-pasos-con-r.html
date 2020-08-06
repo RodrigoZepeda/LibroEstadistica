@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 Primeros pasos con R | Estadística I: Análisis exploratorio de datos y muestreo</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 Primeros pasos con R | Estadística I: Análisis exploratorio de datos y muestreo" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 Primeros pasos con R | Estadística I: Análisis exploratorio de datos y muestreo" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Rodrigo Zepeda-Tello" />
+
+
+<meta name="date" content="2020-08-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="apéndice-r.html"/>
+<link rel="next" href="comentarios-adicionales-sobre-el-formato.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefacio</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="apéndice-r.html"><a href="apéndice-r.html"><i class="fa fa-check"></i>Apéndice: R</a><ul>
+<li class="chapter" data-level="6.1" data-path="apéndice-r.html"><a href="apéndice-r.html#algunas-ventajas-de-r-y-cosas-no-tan-padres"><i class="fa fa-check"></i><b>6.1</b> Algunas ventajas de <code>R</code> y cosas no tan padres</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="apéndice-r.html"><a href="apéndice-r.html#puntos-a-favor-de-r"><i class="fa fa-check"></i><b>6.1.1</b> Puntos a favor de <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="apéndice-r.html"><a href="apéndice-r.html#bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión"><i class="fa fa-check"></i><b>6.2</b> Bienvenidx a <code>R</code>, Taking Off Again (sí, así se llama esta versión)</a></li>
+<li class="chapter" data-level="6.3" data-path="apéndice-r.html"><a href="apéndice-r.html#instalando-cosas"><i class="fa fa-check"></i><b>6.3</b> Instalando cosas</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="apéndice-r.html"><a href="apéndice-r.html#instalación-de-r"><i class="fa fa-check"></i><b>6.3.1</b> Instalación de <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="apéndice-r.html"><a href="apéndice-r.html#instalación-de-rstudio"><i class="fa fa-check"></i><b>6.4</b> Instalación de <code>RStudio</code></a></li>
+<li class="chapter" data-level="6.5" data-path="apéndice-r.html"><a href="apéndice-r.html#primeros-pasos-en-r-usando-rstudio"><i class="fa fa-check"></i><b>6.5</b> Primeros pasos en <code>R</code> usando <code>RStudio</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html"><i class="fa fa-check"></i><b>7</b> Primeros pasos con <code>R</code></a><ul>
+<li class="chapter" data-level="7.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#cálculos-numéricos"><i class="fa fa-check"></i><b>7.1</b> Cálculos numéricos</a></li>
+<li class="chapter" data-level="7.2" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#ejercicio"><i class="fa fa-check"></i><b>7.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="7.3" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#ejercicio-1"><i class="fa fa-check"></i><b>7.3</b> Ejercicio</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#respuestas"><i class="fa fa-check"></i><b>7.3.1</b> Respuestas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#variables"><i class="fa fa-check"></i><b>7.4</b> Variables</a></li>
+<li class="chapter" data-level="7.5" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#ejercicios"><i class="fa fa-check"></i><b>7.5</b> Ejercicios</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#nivel-3"><i class="fa fa-check"></i><b>7.5.1</b> NIVEL 3</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#observaciones-sobre-la-aritmética-de-punto-flotante"><i class="fa fa-check"></i><b>7.6</b> Observaciones sobre la aritmética de punto flotante</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#cómo-checar-un-if"><i class="fa fa-check"></i><b>7.6.1</b> ¿Cómo checar un if?</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#leer-y-almacenar-variables-en-r"><i class="fa fa-check"></i><b>7.7</b> Leer y almacenar variables en <code>R</code></a><ul>
+<li class="chapter" data-level="7.7.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#ejercicio-2"><i class="fa fa-check"></i><b>7.7.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#instalación-de-paquetes"><i class="fa fa-check"></i><b>7.8</b> Instalación de paquetes</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#ejercicios-1"><i class="fa fa-check"></i><b>7.8.1</b> Ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="comentarios-adicionales-sobre-el-formato.html"><a href="comentarios-adicionales-sobre-el-formato.html"><i class="fa fa-check"></i><b>8</b> Comentarios adicionales sobre el formato</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Rodrigo Zepeda Tello</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="primeros-pasos-con-r" class="section level1">
+<h1><span class="header-section-number">Capítulo 7</span> Primeros pasos con <code>R</code></h1>
+<div id="cálculos-numéricos" class="section level2">
+<h2><span class="header-section-number">7.1</span> Cálculos numéricos</h2>
+<p><code>R</code> sirve como calculadora para las operaciones usuales. En él puedes hacer sumas,</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="primeros-pasos-con-r.html#cb8-1"></a><span class="co">#Esto es una suma en R</span></span>
+<span id="cb8-2"><a href="primeros-pasos-con-r.html#cb8-2"></a><span class="dv">12</span> <span class="op">+</span><span class="st"> </span><span class="dv">31</span></span></code></pre></div>
+<pre><code>## [1] 43</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-22"></span>
+<img src="images/ada_lovelace.jpg" alt="Ada Lovelace (1815-1852), la primera en diseñar un algoritmo computacional ¡y sin tener computadoras!" width="512" />
+<p class="caption">
+Figure 7.1: Ada Lovelace (1815-1852), la primera en diseñar un algoritmo computacional ¡y sin tener computadoras!
+</p>
+</div>
+<p>restas,</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="primeros-pasos-con-r.html#cb10-1"></a><span class="co">#Esto es una resta en R</span></span>
+<span id="cb10-2"><a href="primeros-pasos-con-r.html#cb10-2"></a><span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span></span></code></pre></div>
+<pre><code>## [1] -1</code></pre>
+<p>multiplicaciones,</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="primeros-pasos-con-r.html#cb12-1"></a><span class="co">#Esto es una multiplicación en R</span></span>
+<span id="cb12-2"><a href="primeros-pasos-con-r.html#cb12-2"></a><span class="dv">7</span><span class="op">*</span><span class="dv">8</span></span></code></pre></div>
+<pre><code>## [1] 56</code></pre>
+<p>divisiones,</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="primeros-pasos-con-r.html#cb14-1"></a><span class="co">#Esto es una división en R</span></span>
+<span id="cb14-2"><a href="primeros-pasos-con-r.html#cb14-2"></a><span class="dv">4</span><span class="op">/</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>sacar logaritmos naturales <span class="math inline">\(\ln\)</span>,</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="primeros-pasos-con-r.html#cb16-1"></a><span class="co">#Para sacar logaritmo usas el comando log</span></span>
+<span id="cb16-2"><a href="primeros-pasos-con-r.html#cb16-2"></a><span class="kw">log</span>(<span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## [1] 4.60517</code></pre>
+<p>o bien logaritmos en cualquier base,<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="primeros-pasos-con-r.html#cb18-1"></a><span class="co">#Puedes especificar la base del logaritmo con base </span></span>
+<span id="cb18-2"><a href="primeros-pasos-con-r.html#cb18-2"></a><span class="kw">log</span>(<span class="dv">100</span>, <span class="dt">base =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>también puedes elevar a una potencia (por ejemplo hacer <span class="math inline">\(6^3\)</span>),</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="primeros-pasos-con-r.html#cb20-1"></a><span class="co">#Así se calculan potencias</span></span>
+<span id="cb20-2"><a href="primeros-pasos-con-r.html#cb20-2"></a><span class="dv">6</span><span class="op">^</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 216</code></pre>
+<p>calcular la exponencial <span class="math inline">\(e\)</span>,</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="primeros-pasos-con-r.html#cb22-1"></a><span class="co">#Para exponenciales puedes usar exp</span></span>
+<span id="cb22-2"><a href="primeros-pasos-con-r.html#cb22-2"></a><span class="kw">exp</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 2.718282</code></pre>
+<p>o bien exponenciar cualquier variable <span class="math inline">\(e^{-3}\)</span>,</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="primeros-pasos-con-r.html#cb24-1"></a><span class="co">#O bien exponenciales específicas, e^-3</span></span>
+<span id="cb24-2"><a href="primeros-pasos-con-r.html#cb24-2"></a><span class="kw">exp</span>(<span class="op">-</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 0.04978707</code></pre>
+<p>también puedes usar el número <span class="math inline">\(\pi\)</span>.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="primeros-pasos-con-r.html#cb26-1"></a><span class="co">#Cálculo de pi</span></span>
+<span id="cb26-2"><a href="primeros-pasos-con-r.html#cb26-2"></a>pi</span></code></pre></div>
+<pre><code>## [1] 3.141593</code></pre>
+<p>No olvides que <code>R</code> usa el orden de las operaciones de matemáticas. Siempre es de izquierda a derecha con las siguientes excepciones:</p>
+<ol style="list-style-type: decimal">
+<li><p>Primero se evalúa lo que está entre paréntesis.</p></li>
+<li><p>En segundo lugar se calculan potencias.</p></li>
+<li><p>Lo tercero en evaluarse son multiplicaciones y divisiones.</p></li>
+<li><p>Finalmente, se realizan sumas y restas.</p></li>
+</ol>
+<p>Por ejemplo, en la siguiente ecuación
+<span class="math display">\[
+2 - 2 \cdot \frac{(3^4 - 9)}{(5 + 4)}
+\]</span>
+se resuelven primero los paréntesis <span class="math inline">\((3^4 - 9) = 81 - 9 = 72\)</span> y <span class="math inline">\((5 + 4) = 9\)</span>; luego se resuelve la división: <span class="math inline">\(\frac{72}{9}=8\)</span>, se multiplica por el <span class="math inline">\(2\)</span>: <span class="math inline">\(2 \cdot 8\)</span> y finalmente se hace la resta: <span class="math inline">\(2-8 = -6\)</span>.</p>
+</div>
+<div id="ejercicio" class="section level2">
+<h2><span class="header-section-number">7.2</span> Ejercicio</h2>
+<p>Determina, sin evaluar, los resultados de los siguientes segmentos de código:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="primeros-pasos-con-r.html#cb28-1"></a><span class="co">#Primer ejercicio </span></span>
+<span id="cb28-2"><a href="primeros-pasos-con-r.html#cb28-2"></a>(<span class="dv">9</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>) <span class="op">-</span><span class="st"> </span><span class="dv">6</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="primeros-pasos-con-r.html#cb29-1"></a><span class="co">#Segundo ejercicio </span></span>
+<span id="cb29-2"><a href="primeros-pasos-con-r.html#cb29-2"></a><span class="dv">6</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span>(<span class="dv">7</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span>) <span class="op">*</span><span class="st"> </span><span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="primeros-pasos-con-r.html#cb30-1"></a><span class="co">#Tercer ejercicio </span></span>
+<span id="cb30-2"><a href="primeros-pasos-con-r.html#cb30-2"></a><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span>(<span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span>) <span class="op">*</span><span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">10</span> </span></code></pre></div>
+<p>Evalúa para comprobar tu respuesta.</p>
+</div>
+<div id="ejercicio-1" class="section level2">
+<h2><span class="header-section-number">7.3</span> Ejercicio</h2>
+<p>Calcula el área y el perímetro de un círculo de radio 5. Recuerda que la fórmula del área es <span class="math inline">\(\pi \cdot r^2\)</span> donde <span class="math inline">\(r\)</span> es el radio; mientras que la del perímetro es: <span class="math inline">\(\pi \cdot d\)</span> donde <span class="math inline">\(d\)</span> es el díametro (= dos veces el radio).</p>
+<div id="respuestas" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Respuestas</h3>
+<pre><code>## Área = 78.5398163397448</code></pre>
+<pre><code>## Perímetro = 31.4159265358979</code></pre>
+</div>
+</div>
+<div id="variables" class="section level2">
+<h2><span class="header-section-number">7.4</span> Variables</h2>
+<p><code>R</code> es un programa orientado a objetos; esto quiere decir que <code>R</code> almacena la información en un conjunto de variables que pueden tener diferentes <code>clases</code> y opera con ellos según su clase. Por ejemplo, un conjunto de caracteres, entre comillas, es un <code>Character</code> (<code>R</code> lo piensa como texto)</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="primeros-pasos-con-r.html#cb33-1"></a><span class="co">#Un conjunto de caracteres es un char</span></span>
+<span id="cb33-2"><a href="primeros-pasos-con-r.html#cb33-2"></a><span class="st">&quot;Hola&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;Hola&quot;</code></pre>
+<p>Un número (por ejemplo <code>2</code> tiene clase <code>numeric</code>)<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>. Hay que tener mucho cuidado con combinar floats con <code>Strings</code>:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="primeros-pasos-con-r.html#cb35-1"></a><span class="co">#Código que sí funciona porque ambos son números</span></span>
+<span id="cb35-2"><a href="primeros-pasos-con-r.html#cb35-2"></a><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span> </span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-38"></span>
+<img src="images/algorithm_lovelace.jpg" alt="El algoritmo diseñado por Ada Lovelace." width="960" />
+<p class="caption">
+Figure 7.2: El algoritmo diseñado por Ada Lovelace.
+</p>
+</div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="primeros-pasos-con-r.html#cb37-1"></a><span class="co">#Código que no funciona porque uno es caracter</span></span>
+<span id="cb37-2"><a href="primeros-pasos-con-r.html#cb37-2"></a><span class="dv">2</span> <span class="op">+</span><span class="st"> &quot;4&quot;</span> </span></code></pre></div>
+<pre><code>## Error in 2 + &quot;4&quot;: non-numeric argument to binary operator</code></pre>
+<p>Si lo piensas, este último error ¡tiene todo el sentido! no puedes sumar un número a un texto. ¿O qué significaría <code>'Felices' * 4</code> ?</p>
+<p>La magia de <code>R</code> comienza con que puedes almacenar valores en variables. Por ejemplo, podemos asignar un valor a una variable:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="primeros-pasos-con-r.html#cb39-1"></a><span class="co">#Asignamos x = 10</span></span>
+<span id="cb39-2"><a href="primeros-pasos-con-r.html#cb39-2"></a>x &lt;-<span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+<p>Hay dos formas de asignar valores, una es con la flecha de asignación <span class="math inline">\(\leftarrow\)</span> y otra con el signo de igual:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="primeros-pasos-con-r.html#cb40-1"></a><span class="co">#Podemos asignar valores con el signo de =</span></span>
+<span id="cb40-2"><a href="primeros-pasos-con-r.html#cb40-2"></a>y =<span class="st"> </span><span class="dv">6</span></span></code></pre></div>
+<p>Nota que, cuando realizamos operaciones, la asignación es la última que se realiza:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="primeros-pasos-con-r.html#cb41-1"></a><span class="co">#Aquí z = 106</span></span>
+<span id="cb41-2"><a href="primeros-pasos-con-r.html#cb41-2"></a>z &lt;-<span class="st"> </span>y <span class="op">+</span><span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
+<p>Los valores que fueron asignados en las variables, <code>R</code> los recuerda y es posible calcular con ellos:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="primeros-pasos-con-r.html#cb42-1"></a><span class="co">#Podemos realizar una suma</span></span>
+<span id="cb42-2"><a href="primeros-pasos-con-r.html#cb42-2"></a>x <span class="op">+</span><span class="st"> </span>y</span></code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="primeros-pasos-con-r.html#cb44-1"></a><span class="co">#O bien podemos realizar una multiplicación</span></span>
+<span id="cb44-2"><a href="primeros-pasos-con-r.html#cb44-2"></a><span class="dv">3</span><span class="op">*</span>y <span class="op">-</span><span class="st"> </span>x</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>Podemos preguntarnos por el valor de las variables numéricas mediante los operadores <code>==</code> (sí, son dos iguales), <code>!=</code> (que es un <span class="math inline">\(\neq\)</span>) <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;=</code> y <code>&lt;</code>:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="primeros-pasos-con-r.html#cb46-1"></a><span class="co">#Podemos preguntarnos si x vale 4</span></span>
+<span id="cb46-2"><a href="primeros-pasos-con-r.html#cb46-2"></a>x <span class="op">==</span><span class="st"> </span><span class="dv">4</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<blockquote>
+<p>El operador de asignación también se puede utilizar al revés <span class="math inline">\(2 \rightarrow x\)</span> pero no lo hagas, por favor.</p>
+</blockquote>
+<p>Nota que no estamos asignando el valor de <code>x</code>:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="primeros-pasos-con-r.html#cb48-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>Podemos preguntarnos por diferencia:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="primeros-pasos-con-r.html#cb50-1"></a>x <span class="op">!=</span><span class="st"> </span><span class="dv">4</span> </span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Así como por mayores, menores incluyendo posibles igualdades (<em>i.e.</em> los casos <span class="math inline">\(\geq\)</span> y <span class="math inline">\(\leq\)</span>)</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="primeros-pasos-con-r.html#cb52-1"></a><span class="co">#Nos preguntamos si x &gt; y</span></span>
+<span id="cb52-2"><a href="primeros-pasos-con-r.html#cb52-2"></a>x <span class="op">&gt;</span><span class="st"> </span>y</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="primeros-pasos-con-r.html#cb54-1"></a><span class="co">#Nos preguntamos si x &gt;= 10</span></span>
+<span id="cb54-2"><a href="primeros-pasos-con-r.html#cb54-2"></a>x <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="primeros-pasos-con-r.html#cb56-1"></a><span class="co">#Nos preguntamos si y &lt; 6</span></span>
+<span id="cb56-2"><a href="primeros-pasos-con-r.html#cb56-2"></a>y <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="primeros-pasos-con-r.html#cb58-1"></a><span class="co">#O bien si y &lt;= 6</span></span>
+<span id="cb58-2"><a href="primeros-pasos-con-r.html#cb58-2"></a>y <span class="op">&lt;=</span><span class="st"> </span><span class="dv">6</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>En todos los casos los resultados han sido <code>TRUE</code> ó <code>FALSE</code>. La clase de variables que toma valores <code>TRUE</code> ó <code>FALSE</code> se conoce como booleana. Hay que tener mucho cuidado con ellas porque, puedes acabar con resultados muy extraños:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="primeros-pasos-con-r.html#cb60-1"></a><span class="co">#MALAS PRÁCTICAS, NO HAGAS ESTO</span></span>
+<span id="cb60-2"><a href="primeros-pasos-con-r.html#cb60-2"></a><span class="co">#Cuando lo usas como número TRUE vale 1</span></span>
+<span id="cb60-3"><a href="primeros-pasos-con-r.html#cb60-3"></a><span class="dv">100</span> <span class="op">+</span><span class="st"> </span><span class="ot">TRUE</span></span></code></pre></div>
+<pre><code>## [1] 101</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="primeros-pasos-con-r.html#cb62-1"></a><span class="co">#MALAS PRÁCTICAS, NO HAGAS ESTO</span></span>
+<span id="cb62-2"><a href="primeros-pasos-con-r.html#cb62-2"></a><span class="co">#Cuando lo usas como número FALSE vale 0</span></span>
+<span id="cb62-3"><a href="primeros-pasos-con-r.html#cb62-3"></a><span class="dv">6</span><span class="op">*</span><span class="ot">FALSE</span></span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<blockquote>
+<p><a href="https://medium.com/mindorks/common-bad-programming-practices-7fb470ed74d2">Aquí</a> puedes encontrar una lista de malas prácticas en computación a evitar.</p>
+</blockquote>
+<p>Finalmente, nota que es posible reescribir una variable y cambiar su valor:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="primeros-pasos-con-r.html#cb64-1"></a><span class="co">#Aquí x vale 10, como antes</span></span>
+<span id="cb64-2"><a href="primeros-pasos-con-r.html#cb64-2"></a>x</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="primeros-pasos-con-r.html#cb66-1"></a><span class="co">#Aquí cambianos el valor de x y valdrá 0.5</span></span>
+<span id="cb66-2"><a href="primeros-pasos-con-r.html#cb66-2"></a>x &lt;-<span class="st"> </span><span class="fl">0.5</span></span>
+<span id="cb66-3"><a href="primeros-pasos-con-r.html#cb66-3"></a>x</span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+</div>
+<div id="ejercicios" class="section level2">
+<h2><span class="header-section-number">7.5</span> Ejercicios</h2>
+<p>Determina el valor que imprime <code>R</code> en cada caso, sin que corras los siguientes pedazos de código. Después, verifica tu respuesta con <code>R</code>:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="primeros-pasos-con-r.html#cb68-1"></a><span class="co">#Primer ejercicio</span></span>
+<span id="cb68-2"><a href="primeros-pasos-con-r.html#cb68-2"></a>x &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb68-3"><a href="primeros-pasos-con-r.html#cb68-3"></a>y &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb68-4"><a href="primeros-pasos-con-r.html#cb68-4"></a>x <span class="op">&gt;</span><span class="st"> </span>y</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="primeros-pasos-con-r.html#cb69-1"></a><span class="co">#Segundo ejercicio</span></span>
+<span id="cb69-2"><a href="primeros-pasos-con-r.html#cb69-2"></a>z &lt;-<span class="st"> </span>(<span class="dv">4</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span>)<span class="op">^</span><span class="dv">3</span></span>
+<span id="cb69-3"><a href="primeros-pasos-con-r.html#cb69-3"></a>z &lt;-<span class="st"> </span>z <span class="op">+</span><span class="st"> </span>z <span class="op">+</span><span class="st"> </span>z</span>
+<span id="cb69-4"><a href="primeros-pasos-con-r.html#cb69-4"></a>z</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="primeros-pasos-con-r.html#cb70-1"></a><span class="co">#Tercer ejercicio</span></span>
+<span id="cb70-2"><a href="primeros-pasos-con-r.html#cb70-2"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb70-3"><a href="primeros-pasos-con-r.html#cb70-3"></a>y &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb70-4"><a href="primeros-pasos-con-r.html#cb70-4"></a>z &lt;-<span class="st"> </span>x <span class="op">*</span><span class="st"> </span>y</span>
+<span id="cb70-5"><a href="primeros-pasos-con-r.html#cb70-5"></a>x &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb70-6"><a href="primeros-pasos-con-r.html#cb70-6"></a>y &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb70-7"><a href="primeros-pasos-con-r.html#cb70-7"></a>z</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="primeros-pasos-con-r.html#cb71-1"></a><span class="co">#Cuarto ejercicio</span></span>
+<span id="cb71-2"><a href="primeros-pasos-con-r.html#cb71-2"></a>variable1 &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb71-3"><a href="primeros-pasos-con-r.html#cb71-3"></a>variable2 &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb71-4"><a href="primeros-pasos-con-r.html#cb71-4"></a>variable3 &lt;-<span class="st"> </span>variable1<span class="op">/</span>variable2 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb71-5"><a href="primeros-pasos-con-r.html#cb71-5"></a>variable3</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="primeros-pasos-con-r.html#cb72-1"></a><span class="co">#Quinto ejercicio</span></span>
+<span id="cb72-2"><a href="primeros-pasos-con-r.html#cb72-2"></a><span class="st">&quot;2&quot;</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="primeros-pasos-con-r.html#cb73-1"></a><span class="co">#Sexto ejercicio</span></span>
+<span id="cb73-2"><a href="primeros-pasos-con-r.html#cb73-2"></a>(<span class="fl">0.1</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>) <span class="op">==</span><span class="st"> </span><span class="fl">0.3</span></span></code></pre></div>
+<div id="nivel-3" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> NIVEL 3</h3>
+<p>Determina, sin correr el programa, qué regresa la consola en este caso</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="primeros-pasos-con-r.html#cb74-1"></a>x &lt;-<span class="st"> </span><span class="dv">2</span> </span>
+<span id="cb74-2"><a href="primeros-pasos-con-r.html#cb74-2"></a>x &lt;-<span class="st"> </span><span class="dv">5</span> <span class="op">+</span><span class="st"> </span>x -&gt;<span class="st"> </span>y -&gt;<span class="st"> </span>x</span>
+<span id="cb74-3"><a href="primeros-pasos-con-r.html#cb74-3"></a>x &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb74-4"><a href="primeros-pasos-con-r.html#cb74-4"></a>x</span></code></pre></div>
+<p>Comprueba con la consola tus resultados; puede que encuentres respuestas poco intuitivas.</p>
+</div>
+</div>
+<div id="observaciones-sobre-la-aritmética-de-punto-flotante" class="section level2">
+<h2><span class="header-section-number">7.6</span> Observaciones sobre la aritmética de punto flotante</h2>
+<p>Si hiciste el penúltimo ejercicio (el cual, obviamente hiciste y comprobaste con la consola) podrás haber notado una trampa. Analicemos qué ocurre; quizá hicimos mal la suma</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="primeros-pasos-con-r.html#cb75-1"></a><span class="co">#Veamos si este lado está mal</span></span>
+<span id="cb75-2"><a href="primeros-pasos-con-r.html#cb75-2"></a>(<span class="fl">0.1</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>)</span></code></pre></div>
+<pre><code>## [1] 0.3</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="primeros-pasos-con-r.html#cb77-1"></a><span class="co">#O si éste es el que tiene la trampa</span></span>
+<span id="cb77-2"><a href="primeros-pasos-con-r.html#cb77-2"></a><span class="fl">0.3</span></span></code></pre></div>
+<pre><code>## [1] 0.3</code></pre>
+<p>Aparentemente no hay nada malo ¿qué rayos le pasa a <code>R</code>? La respuesta está <a href="https://www.youtube.com/watch?v=PZRI1IfStY0">en la aritmética de punto flotante</a>. Podemos pedirle a <code>R</code> que nos muestre los primeros 100 dígitos de la suma <code>0.1 + 0.1 + 0.1</code>:</p>
+<div class="figure"><span id="fig:unnamed-chunk-58"></span>
+<img src="images/Z3_Deutsches_Museum.jpeg" alt="Réplica de la Z3, la primer computadora con punto flotante (1941)." width="800" />
+<p class="caption">
+Figure 7.3: Réplica de la Z3, la primer computadora con punto flotante (1941).
+</p>
+</div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="primeros-pasos-con-r.html#cb79-1"></a><span class="co">#Veamos qué pasa con la suma</span></span>
+<span id="cb79-2"><a href="primeros-pasos-con-r.html#cb79-2"></a><span class="kw">options</span>(<span class="dt">digits =</span> <span class="dv">22</span>) <span class="co">#Cambiamos dígitos</span></span>
+<span id="cb79-3"><a href="primeros-pasos-con-r.html#cb79-3"></a>(<span class="fl">0.1</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>)    <span class="co">#Sumamos</span></span></code></pre></div>
+<pre><code>## [1] 0.3000000000000000444089</code></pre>
+<blockquote>
+<p>El comando <code>options(digits = 22)</code> especifica que <code>R</code> debe imprimir en la consola <code>22</code> dígitos. No más.</p>
+</blockquote>
+<p>¡<a href="https://www.youtube.com/watch?v=1jaCpeXg-gg">Ahí está el detalle</a>! <code>R</code> no sabe sumar. En general, ningún programa de computadora sabe hacerlo. Veamos otros ejemplos:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="primeros-pasos-con-r.html#cb81-1"></a><span class="fl">4.1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.1</span> <span class="co">#Debería dar 4</span></span></code></pre></div>
+<pre><code>## [1] 3.999999999999999555911</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="primeros-pasos-con-r.html#cb83-1"></a><span class="dv">3</span><span class="op">/</span><span class="dv">10</span>      <span class="co">#Debería ser 0.3</span></span></code></pre></div>
+<pre><code>## [1] 0.2999999999999999888978</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="primeros-pasos-con-r.html#cb85-1"></a><span class="kw">log</span>(<span class="dv">10</span><span class="op">^</span>(<span class="dv">12345</span>), <span class="dt">base =</span> <span class="dv">10</span>) <span class="co">#Debería dar 12345</span></span></code></pre></div>
+<pre><code>## [1] Inf</code></pre>
+<p>El problema está en cómo las computadoras representan los números. Ellas escriben los números en binario. Por ejemplo, 230 lo representan como 11100110 mientras que el 7 es: 111. El problema de las computadoras radica en que éstas tienen una memoria finita por lo que números muy grandes como: <span class="math inline">\(124765731467098372654176\)</span> la computadora hace lo mejor por representarlos eligiendo el más cercano:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="primeros-pasos-con-r.html#cb87-1"></a><span class="co">#Nota la diferencia entre lo que le decimos a R</span></span>
+<span id="cb87-2"><a href="primeros-pasos-con-r.html#cb87-2"></a><span class="co">#y lo que resulta</span></span>
+<span id="cb87-3"><a href="primeros-pasos-con-r.html#cb87-3"></a>x &lt;-<span class="st"> </span><span class="dv">124765731467098372654176</span></span>
+<span id="cb87-4"><a href="primeros-pasos-con-r.html#cb87-4"></a>x</span></code></pre></div>
+<pre><code>## [1] 124765731467098377420800</code></pre>
+<blockquote>
+<p>Un error de punto flotante en la vida real ocasionó en los años noventa, <a href="https://www.esa.int/Newsroom/Press_Releases/Ariane_501_-_Presentation_of_Inquiry_Board_report">la explosión del cohete <code>Ariane 5</code></a>. Moraleja: hay que tener cuidado y respeto al punto flotante.</p>
+</blockquote>
+<p>No olvides cambiar la cantidad de dígitos que deseas que imprima <code>R</code> en su consola de vuelta:</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="primeros-pasos-con-r.html#cb89-1"></a><span class="kw">options</span>(<span class="dt">digits =</span> <span class="dv">6</span>) <span class="co">#Cambiamos dígitos</span></span></code></pre></div>
+<p>El mismo problema ocurre con números decimales cuya representación binaria es periódica; por ejemplo el <span class="math inline">\(\frac{1}{10}\)</span> en binario se representa como <span class="math inline">\(0.0001100110011\overline{0011}\dots\)</span>. Como es el cuento de nunca acabar con dicho número, <code>R</code> lo trunca y almacena sólo los primeros dígitos de ahí que, cada vez que escribes <code>0.1</code>, <code>R</code> en realidad almacene el <code>0.1000000000000000055511</code> que es <em>casi lo mismo</em> pero no es estrictamente igual. Hay que tener mucho cuidado con esta inexactitud de las computadoras (inexactitud estudiada por la rama de <a href="https://www.springer.com/gp/book/9781461484523">Análisis Numérico</a>) pues puede generar varios resultados imprevistos.</p>
+<div id="cómo-checar-un-if" class="section level3">
+<h3><span class="header-section-number">7.6.1</span> ¿Cómo checar un if?</h3>
+<p>En general lo que hacen las computadoras para comparar valores es que verifican que, en valor absoluto, el error sea pequeño. Recuerda que el valor absoluto de <span class="math inline">\(x\)</span>, <span class="math inline">\(|x|\)</span>, regresa siempre el positivo:
+<span class="math display">\[
+|4| = 4 \qquad \textrm{y} \qquad |-8| = 8
+\]</span></p>
+<p>Para verificar que algo es más o menos <span class="math inline">\(0.3\)</span> suele usarse el valor absoluto<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> de la siguiente manera:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="primeros-pasos-con-r.html#cb90-1"></a><span class="kw">abs</span>( (<span class="fl">0.1</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>) <span class="op">-</span><span class="st"> </span><span class="fl">0.3</span> ) <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>.e<span class="dv">-6</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>donde <code>1.e-6</code> es notación corta para 0.000001 (también escrito como <span class="math inline">\(1\times 10^{-6}\)</span>). La pregunta que nos estamos haciendo es que si el error entre sumar <span class="math inline">\(0.1+0.1+0.1\)</span> y <span class="math inline">\(0.3\)</span> es muy pequeño <span class="math inline">\(&lt; 0.000001\)</span>:
+<span class="math display">\[
+| (0.1 + 0.1 + 0.1) - 0.3 | &lt; 0.000001
+\]</span></p>
+</div>
+</div>
+<div id="leer-y-almacenar-variables-en-r" class="section level2">
+<h2><span class="header-section-number">7.7</span> Leer y almacenar variables en <code>R</code></h2>
+<p>Para terminar esta sección, aprenderemos cómo guardar variables en <code>R</code>. Para eso, el concepto de directorio es uno de los más relevantes. En general, en computación, <a href="https://en.wikipedia.org/wiki/Working_directory">el directorio</a> se refiere a la dirección en tu computadora donde estás trabajando. Por ejemplo, si estás en una carpeta en tu escritorio de nombre “Ejercicios_R” probablemente tu directorio sea ‘~/Desktop/Ejercicios_R/’ (en Mac) o bien ‘~\Desktop\Ejercicios_R\’ en Windows<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>. La forma de saber tu directorio (en general) es ir a la carpeta que te interesa y con clic derecho ver propiedades (o escribir <code>ls</code> en la terminal <code>Unix</code>).</p>
+<p><code>R</code> tiene un directorio <code>default</code> que quién sabe dónde está (depende de tu instalación, generalmente está donde tu <code>Usuario</code>). Usualmente lo mejor es elegir un directorio para cada uno de los proyectos que hagas. Para ello si estás en <code>RStudio</code> puedes utilizar <code>Shift+Ctrl+H</code> (<code>Shift+Cmd+H</code> en Mac) o bien ir a <code>Session &gt; Set Working Directory &gt; Choose Directory</code> y elegir el directorio donde deseas trabajar tu proyecto. Pensando que elegiste el escritorio (<code>Desktop</code> en mi computadora) notarás que en la consola aparece el comando <code>setwd("~/Desktop")</code> (o bien con ‘\’ si eres Windows). Mi sugerencia es que copies ese comando en tu <code>Script</code> para que, la próxima vez que lo corras ya tengas preestablecido el directorio.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="primeros-pasos-con-r.html#cb92-1"></a><span class="co">#Si eres Mac/Linux</span></span>
+<span id="cb92-2"><a href="primeros-pasos-con-r.html#cb92-2"></a><span class="kw">setwd</span>(<span class="st">&quot;~/Desktop&quot;</span>) </span>
+<span id="cb92-3"><a href="primeros-pasos-con-r.html#cb92-3"></a></span>
+<span id="cb92-4"><a href="primeros-pasos-con-r.html#cb92-4"></a><span class="co">#Si eres Windows</span></span>
+<span id="cb92-5"><a href="primeros-pasos-con-r.html#cb92-5"></a><span class="kw">setwd</span>(<span class="st">&quot;C:\Users\Rodrigo\Desktop&quot;</span>) <span class="co">#Rodrigo = Mi usuario</span></span></code></pre></div>
+<p>Podemos verificar el directorio elegido con <code>getwd()</code>:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="primeros-pasos-con-r.html#cb93-1"></a><span class="kw">getwd</span>()</span></code></pre></div>
+<blockquote>
+<p>En general es buena práctica en <code>R</code> establecer, hasta arriba del <code>Script</code>, el comando de directorio. Esto con el propósito de que, cuando compartas un archivo, la persona a quien le fue compartido el archivo pueda rápidamente elegir su propio directorio en su computadora.</p>
+</blockquote>
+<p>Probemos guardar unas variables en un archivo dentro de nuestro directorio. Para ello utilizaremos el comando <code>save</code>.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="primeros-pasos-con-r.html#cb94-1"></a><span class="co">#Crear las variables</span></span>
+<span id="cb94-2"><a href="primeros-pasos-con-r.html#cb94-2"></a>x &lt;-<span class="st"> </span><span class="dv">200</span></span>
+<span id="cb94-3"><a href="primeros-pasos-con-r.html#cb94-3"></a>y &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb94-4"><a href="primeros-pasos-con-r.html#cb94-4"></a></span>
+<span id="cb94-5"><a href="primeros-pasos-con-r.html#cb94-5"></a><span class="co">#Los archivos de variables de R son rda</span></span>
+<span id="cb94-6"><a href="primeros-pasos-con-r.html#cb94-6"></a><span class="kw">save</span>(x,y, <span class="dt">file =</span> <span class="st">&quot;MisVariables.rda&quot;</span>)</span></code></pre></div>
+<p>Si vas a tu directorio, notarás que el archivo <code>MisVariables.rda</code> acaba de ser creado. De esta forma <code>R</code> puede almacenar objetos creados en <code>R</code> que sólo <code>R</code> puede leer (más adelante veremos cómo exportar bases de datos y gráficas). Observa que en tu ambiente (si estás en <code>RStudio</code> puedes verlas en el panel 3) deben aparecer las variables que hemos usado hasta ahora:</p>
+<pre><code>## [1] &quot;x&quot;        &quot;y&quot;        &quot;z&quot;        &quot;Example1&quot;</code></pre>
+<p>Podemos probar sumar nuestras variables y todo funciona súper:</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="primeros-pasos-con-r.html#cb96-1"></a>x <span class="op">+</span><span class="st"> </span>y <span class="co">#Funciona magníficamente</span></span></code></pre></div>
+<pre><code>## [1] 300</code></pre>
+<p>Limpiemos el ambiente. El comando equivalente al <code>clear all</code> en <code>R</code> es un poco más complicado de memorizar:</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="primeros-pasos-con-r.html#cb98-1"></a><span class="co">#EL clear all de R</span></span>
+<span id="cb98-2"><a href="primeros-pasos-con-r.html#cb98-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span></code></pre></div>
+<p>Ahora, si vuelves a ver el ambiente, éste estará vacío: ¡hemos limpiado el historial! Nota que si intentamos operar con las variables, <code>R</code> ya no las recuerda:</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="primeros-pasos-con-r.html#cb99-1"></a>x <span class="op">+</span><span class="st"> </span>y <span class="co">#Error</span></span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;x&#39; not found</code></pre>
+<blockquote>
+<p>Así como hay que lavarse las manos antes de comer, es buen hábito limpiar todas las variables del ambiente de <code>R</code> antes de usarlo.</p>
+</blockquote>
+<p>Podemos leer la base de datos usando <code>load</code>:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="primeros-pasos-con-r.html#cb101-1"></a><span class="co">#Leemos las variables</span></span>
+<span id="cb101-2"><a href="primeros-pasos-con-r.html#cb101-2"></a><span class="kw">load</span>(<span class="st">&quot;MisVariables.rda&quot;</span>)</span>
+<span id="cb101-3"><a href="primeros-pasos-con-r.html#cb101-3"></a></span>
+<span id="cb101-4"><a href="primeros-pasos-con-r.html#cb101-4"></a><span class="co">#Una vez leídas podemos empezar a jugar con ellas</span></span>
+<span id="cb101-5"><a href="primeros-pasos-con-r.html#cb101-5"></a>x <span class="op">+</span><span class="st"> </span>y <span class="co">#Ya funciona</span></span></code></pre></div>
+<pre><code>## [1] 300</code></pre>
+<p>Por último, es necesario resaltar la importancia del directorio. Para ello crea una nueva carpeta en tu escritorio de nombre <code>Mi_curso_de_R</code>. Mueve el archivo <code>"MisVariables.rda"</code> dentro de la carpeta. Borra todo e intenta leer de nuevo el archivo:</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="primeros-pasos-con-r.html#cb103-1"></a><span class="co">#Borramos todo</span></span>
+<span id="cb103-2"><a href="primeros-pasos-con-r.html#cb103-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb103-3"><a href="primeros-pasos-con-r.html#cb103-3"></a></span>
+<span id="cb103-4"><a href="primeros-pasos-con-r.html#cb103-4"></a><span class="co">#Intentamos leer el archivo de nuevo</span></span>
+<span id="cb103-5"><a href="primeros-pasos-con-r.html#cb103-5"></a><span class="kw">load</span>(<span class="st">&quot;MisVariables.rda&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning in readChar(con, 5L, useBytes = TRUE): cannot open compressed file
+## &#39;MisVariables.rda&#39;, probable reason &#39;No such file or directory&#39;</code></pre>
+<pre><code>## Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection</code></pre>
+<p>Este error es porque <code>R</code> sigue pensando que nuestro directorio es el escritorio y está buscando el archivo ahí sin hallarlo. Para encontrarlo hay que cambiar el directorio a través de <code>RStudio</code> (ya sea <code>Ctrl+Shift+H</code> o <code>Session &gt;Set Working Directory &gt; Choose Directory</code>) o bien a través de comandos en <code>R</code>:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="primeros-pasos-con-r.html#cb106-1"></a><span class="co">#Si eres Mac/Linux</span></span>
+<span id="cb106-2"><a href="primeros-pasos-con-r.html#cb106-2"></a><span class="kw">setwd</span>(<span class="st">&quot;~/Desktop/Mi_curso_de_R&quot;</span>) </span>
+<span id="cb106-3"><a href="primeros-pasos-con-r.html#cb106-3"></a></span>
+<span id="cb106-4"><a href="primeros-pasos-con-r.html#cb106-4"></a><span class="co">#Si eres Windows</span></span>
+<span id="cb106-5"><a href="primeros-pasos-con-r.html#cb106-5"></a><span class="kw">setwd</span>(<span class="st">&quot;C:\Users\Rodrigo\Desktop\Mi_curso_de_R&quot;</span>) <span class="co">#Rodrigo = Mi usuario</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="primeros-pasos-con-r.html#cb107-1"></a><span class="co">#Aquí sí se puede leer</span></span>
+<span id="cb107-2"><a href="primeros-pasos-con-r.html#cb107-2"></a><span class="kw">load</span>(<span class="st">&quot;MisVariables.rda&quot;</span>)</span></code></pre></div>
+<div id="ejercicio-2" class="section level3">
+<h3><span class="header-section-number">7.7.1</span> Ejercicio</h3>
+<p>Responde a las siguientes preguntas:</p>
+<ol style="list-style-type: decimal">
+<li><p>¿Qué es el directorio y por qué es necesario establecerlo?</p></li>
+<li><p>Si <code>R</code> me da el error <code>'No such file or directory'</code> ¿qué hice mal?</p></li>
+<li><p>En <code>RStudio</code>, ¿qué hace <code>Session &gt; Restart R</code>? ¿cuál es la diferencia con <code>rm(list = ls())</code>?</p></li>
+<li><p>¿Qué hace el comando <code>cat("\014")</code>? (<em>Ojo</em> puede que no haga nada). Si funciona, ¿cuál es la diferencia con <code>rm(list = ls())</code> y con <code>Restart R</code>?</p></li>
+</ol>
+</div>
+</div>
+<div id="instalación-de-paquetes" class="section level2">
+<h2><span class="header-section-number">7.8</span> Instalación de paquetes</h2>
+<p>Un paquete de <code>R</code> es un conjunto de funciones adicionales elaboradas por los usuarios, las cuales permiten hacer cosas adicionales en <code>R</code>. Para instalarlos requieres de una conexión a Internet (o bien puedes instalarlos a partir de un archivo, por ejemplo, mediante una <code>USB</code>). El comando de instalación es <code>install.packages</code> seguido del nombre del paquete. Por ejemplo (y por ocio) descarguemos el paquete <code>beepr</code> para hacer reproducir sonidos en la computadora<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. Para ello:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="primeros-pasos-con-r.html#cb108-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;beepr&quot;</span>)</span></code></pre></div>
+<pre><code>[...]
+* DONE (beepr)
+
+The downloaded source packages are in
+	‘/algun/lugar/downloaded_packages’</code></pre>
+<p>Esto significa que el paquete ha sido instalado. Nos interesa usar la función <code>beep</code> que emite un sonido (<code>??beep</code> para ver la ayuda). Si la llamamos así tal cual, nos da error:</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="primeros-pasos-con-r.html#cb110-1"></a><span class="kw">beep</span>(<span class="dv">3</span>)</span></code></pre></div>
+<p><code>R</code> es incapaz de hallar la función porque aún no le hemos dicho dónde se encuentra. Para ello podemos llamar al paquete mediante la función <code>library</code> y decirle a <code>R</code> que incluya las funciones que se encuentran dentro de <code>beepr</code>:</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="primeros-pasos-con-r.html#cb111-1"></a><span class="kw">library</span>(beepr)</span>
+<span id="cb111-2"><a href="primeros-pasos-con-r.html#cb111-2"></a><span class="kw">beep</span>(<span class="dv">3</span>) <span class="co">#Esto produce un sonido</span></span></code></pre></div>
+<p>El comando <code>library</code> le dice a <code>R</code> ¡hey, voy a usar unas funciones que creó alguien más y que están dentro del paquete <code>beepr</code>! De esta manera, al correr <code>beep(3)</code>, <code>R</code> ya sabe dónde hallar la función y por eso no arroja error.</p>
+<div id="ejercicios-1" class="section level3">
+<h3><span class="header-section-number">7.8.1</span> Ejercicios</h3>
+<p><strong>NIVEL 1</strong></p>
+<ol style="list-style-type: decimal">
+<li>Instala los paquetes <code>tidyverse</code> en <code>R</code>.</li>
+<li>De <code>tidyverse</code> haz lo necesario para que el siguiente bloque de código te arroje una gráfica:</li>
+</ol>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="primeros-pasos-con-r.html#cb112-1"></a><span class="co">#Aquí tienes que hacer algo</span></span>
+<span id="cb112-2"><a href="primeros-pasos-con-r.html#cb112-2"></a><span class="co">#</span></span>
+<span id="cb112-3"><a href="primeros-pasos-con-r.html#cb112-3"></a><span class="co"># RELLENA AQUÍ</span></span>
+<span id="cb112-4"><a href="primeros-pasos-con-r.html#cb112-4"></a><span class="co">#</span></span>
+<span id="cb112-5"><a href="primeros-pasos-con-r.html#cb112-5"></a></span>
+<span id="cb112-6"><a href="primeros-pasos-con-r.html#cb112-6"></a><span class="co">#Esto genera un histograma</span></span>
+<span id="cb112-7"><a href="primeros-pasos-con-r.html#cb112-7"></a><span class="kw">set.seed</span>(<span class="dv">1364752</span>)</span>
+<span id="cb112-8"><a href="primeros-pasos-con-r.html#cb112-8"></a>mis.datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">rnorm</span>(<span class="dv">1000</span>))</span>
+<span id="cb112-9"><a href="primeros-pasos-con-r.html#cb112-9"></a><span class="kw">ggplot</span>(mis.datos, <span class="kw">aes</span>(<span class="dt">x =</span> x)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb112-10"><a href="primeros-pasos-con-r.html#cb112-10"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">50</span>, <span class="dt">fill =</span> <span class="st">&quot;deepskyblue3&quot;</span>) <span class="op">+</span></span>
+<span id="cb112-11"><a href="primeros-pasos-con-r.html#cb112-11"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histograma generado por el código&quot;)</span></span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p><strong>NIVEL 3</strong></p>
+<ol style="list-style-type: decimal">
+<li>Instala el paquete <code>devtools</code> (para hacerlo probablemente necesites instalar más cosas en tu computadora; averigua cuáles)</li>
+<li>Usa <code>devtools</code> para instalar el paquete <a href="https://github.com/dill/emoGG"><code>emoGG</code></a> desde Github.</li>
+<li>Verifica que tu instalación fue correcta haciendo la siguiente gráfica:</li>
+</ol>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="primeros-pasos-con-r.html#cb113-1"></a><span class="kw">library</span>(emoGG)</span>
+<span id="cb113-2"><a href="primeros-pasos-con-r.html#cb113-2"></a><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(wt, mpg))<span class="op">+</span><span class="st"> </span><span class="kw">geom_emoji</span>(<span class="dt">emoji=</span><span class="st">&quot;1f697&quot;</span>)</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>Recuerda que un logaritmo base <span class="math inline">\(a\)</span> te dice a qué potencia <span class="math inline">\(b\)</span> tuve que elevar <span class="math inline">\(a\)</span> para llegar a <span class="math inline">\(b\)</span>. Por ejemplo <span class="math inline">\(\log_{10}(100) = 2\)</span> te dice que para llegar al <span class="math inline">\(100\)</span> tuviste que hacer <span class="math inline">\(10^2\)</span>.<a href="primeros-pasos-con-r.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Puede ser <code>float</code>, <code>int</code>, <code>double</code> pero no nos preocuparemos por eso.<a href="primeros-pasos-con-r.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>En <code>R</code> el comando <code>abs</code> toma el valor absoluto.<a href="primeros-pasos-con-r.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Windows usa backslash. Y hay <a href="https://www.howtogeek.com/181774/why-windows-uses-backslashes-and-everything-else-uses-forward-slashes/">toda una historia detrás de ello</a><a href="primeros-pasos-con-r.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>En los siguientes capítulos descargaremos paquetes más interesantes; pero no desprecies la utilidad de <code>beepr</code> yo lo he usado en múltiples ocasiones para que la computadora me avise que ya terminó de correr un código.<a href="primeros-pasos-con-r.html#fnref11" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="apéndice-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="comentarios-adicionales-sobre-el-formato.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introduccion_a_Muestreo.pdf", "Introduccion_a_Muestreo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

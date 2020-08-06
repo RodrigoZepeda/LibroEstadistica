@@ -1,0 +1,6 @@
+"0","#Crear las variables"
+"0","x <- 200"
+"0","y <- 100"
+"0",""
+"0","#Los archivos de variables de R son rda"
+"0","save(x,y, file = ""MisVariables.rda"")"

@@ -1,0 +1,12 @@
+"0","**Nota usuarios de Mac**
+En algunas Mac, al abir R, aparece el siguiente mensaje de advertencia:
+
+`During startup - Warning messages: 1: Setting LC_CTYPE failed [...]`
+
+para [solucionarlo](https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c) ve a `Aplicaciones` y abre `Terminal`. Copia y pega en ella el siguiente texto:
+
+`defaults write org.R-project.R force.LANG en_US.UTF-8`
+
+Da enter, cierra la `Terminal` y reinicia `R`. "
+"2","/bin/sh: marginfigure: command not found
+"

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 10 Leer y almacenar variables en R | Estadística I: Análisis exploratorio de datos y muestreo</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 10 Leer y almacenar variables en R | Estadística I: Análisis exploratorio de datos y muestreo" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 10 Leer y almacenar variables en R | Estadística I: Análisis exploratorio de datos y muestreo" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Rodrigo Zepeda-Tello" />
+
+
+<meta name="date" content="2020-08-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="primeros-pasos-con-r.html"/>
+<link rel="next" href="instalación-de-paquetes.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefacio</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="apéndice.html"><a href="apéndice.html"><i class="fa fa-check"></i>Apéndice</a><ul>
+<li class="chapter" data-level="6.1" data-path="apéndice.html"><a href="apéndice.html#instalación-de-r"><i class="fa fa-check"></i><b>6.1</b> Instalación de R</a></li>
+<li class="chapter" data-level="6.2" data-path="apéndice.html"><a href="apéndice.html#algunas-ventajas-de-r-y-cosas-no-tan-padres"><i class="fa fa-check"></i><b>6.2</b> Algunas ventajas de <code>R</code> y cosas no tan padres</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="apéndice.html"><a href="apéndice.html#puntos-a-favor-de-r"><i class="fa fa-check"></i><b>6.2.1</b> Puntos a favor de <code>R</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html"><a href="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html"><i class="fa fa-check"></i><b>7</b> Bienvenidx a <code>R</code>, Taking Off Again (sí, así se llama esta versión)</a><ul>
+<li class="chapter" data-level="7.1" data-path="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html"><a href="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html#nuestro-entorno-de-trabajo"><i class="fa fa-check"></i><b>7.1</b> Nuestro entorno de trabajo</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html"><a href="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html#r"><i class="fa fa-check"></i><b>7.1.1</b> <code>R</code></a></li>
+<li class="chapter" data-level="7.1.2" data-path="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html"><a href="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión.html#rstudio"><i class="fa fa-check"></i><b>7.1.2</b> RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="primeros-pasos-en-rstudio.html"><a href="primeros-pasos-en-rstudio.html"><i class="fa fa-check"></i><b>8</b> Primeros pasos en <code>RStudio</code></a></li>
+<li class="chapter" data-level="9" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html"><i class="fa fa-check"></i><b>9</b> Primeros pasos con <code>R</code></a><ul>
+<li class="chapter" data-level="9.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#cálculos-numéricos"><i class="fa fa-check"></i><b>9.1</b> Cálculos numéricos</a></li>
+<li class="chapter" data-level="9.2" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#ejercicio"><i class="fa fa-check"></i><b>9.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="9.3" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#ejercicio-1"><i class="fa fa-check"></i><b>9.3</b> Ejercicio</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#respuestas"><i class="fa fa-check"></i><b>9.3.1</b> Respuestas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#variables"><i class="fa fa-check"></i><b>9.4</b> Variables</a></li>
+<li class="chapter" data-level="9.5" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#ejercicios"><i class="fa fa-check"></i><b>9.5</b> Ejercicios</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#nivel-3"><i class="fa fa-check"></i><b>9.5.1</b> NIVEL 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#observaciones-sobre-la-aritmética-de-punto-flotante"><i class="fa fa-check"></i><b>9.6</b> Observaciones sobre la aritmética de punto flotante</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="primeros-pasos-con-r.html"><a href="primeros-pasos-con-r.html#cómo-checar-un-if"><i class="fa fa-check"></i><b>9.6.1</b> ¿Cómo checar un if?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="leer-y-almacenar-variables-en-r.html"><a href="leer-y-almacenar-variables-en-r.html"><i class="fa fa-check"></i><b>10</b> Leer y almacenar variables en <code>R</code></a><ul>
+<li class="chapter" data-level="10.0.1" data-path="leer-y-almacenar-variables-en-r.html"><a href="leer-y-almacenar-variables-en-r.html#ejercicio-2"><i class="fa fa-check"></i><b>10.0.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="instalación-de-paquetes.html"><a href="instalación-de-paquetes.html"><i class="fa fa-check"></i><b>11</b> Instalación de paquetes</a><ul>
+<li class="chapter" data-level="11.0.1" data-path="instalación-de-paquetes.html"><a href="instalación-de-paquetes.html#ejercicios-1"><i class="fa fa-check"></i><b>11.0.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="comentarios-adicionales-sobre-el-formato.html"><a href="comentarios-adicionales-sobre-el-formato.html"><i class="fa fa-check"></i><b>12</b> Comentarios adicionales sobre el formato</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Rodrigo Zepeda Tello</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="leer-y-almacenar-variables-en-r" class="section level1">
+<h1><span class="header-section-number">Capítulo 10</span> Leer y almacenar variables en <code>R</code></h1>
+<p>Para terminar esta sección, aprenderemos cómo guardar variables en <code>R</code>. Para eso, el concepto de directorio es uno de los más relevantes. En general, en computación, <a href="https://en.wikipedia.org/wiki/Working_directory">el directorio</a> se refiere a la dirección en tu computadora donde estás trabajando. Por ejemplo, si estás en una carpeta en tu escritorio de nombre “Ejercicios_R” probablemente tu directorio sea ‘~/Desktop/Ejercicios_R/’ (en Mac) o bien ‘~\Desktop\Ejercicios_R\’ en Windows<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>. La forma de saber tu directorio (en general) es ir a la carpeta que te interesa y con clic derecho ver propiedades (o escribir <code>ls</code> en la terminal <code>Unix</code>).</p>
+<p><code>R</code> tiene un directorio <code>default</code> que quién sabe dónde está (depende de tu instalación, generalmente está donde tu <code>Usuario</code>). Usualmente lo mejor es elegir un directorio para cada uno de los proyectos que hagas. Para ello si estás en <code>RStudio</code> puedes utilizar <code>Shift+Ctrl+H</code> (<code>Shift+Cmd+H</code> en Mac) o bien ir a <code>Session &gt; Set Working Directory &gt; Choose Directory</code> y elegir el directorio donde deseas trabajar tu proyecto. Pensando que elegiste el escritorio (<code>Desktop</code> en mi computadora) notarás que en la consola aparece el comando <code>setwd("~/Desktop")</code> (o bien con ‘\’ si eres Windows). Mi sugerencia es que copies ese comando en tu <code>Script</code> para que, la próxima vez que lo corras ya tengas preestablecido el directorio.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="leer-y-almacenar-variables-en-r.html#cb92-1"></a><span class="co">#Si eres Mac/Linux</span></span>
+<span id="cb92-2"><a href="leer-y-almacenar-variables-en-r.html#cb92-2"></a><span class="kw">setwd</span>(<span class="st">&quot;~/Desktop&quot;</span>) </span>
+<span id="cb92-3"><a href="leer-y-almacenar-variables-en-r.html#cb92-3"></a></span>
+<span id="cb92-4"><a href="leer-y-almacenar-variables-en-r.html#cb92-4"></a><span class="co">#Si eres Windows</span></span>
+<span id="cb92-5"><a href="leer-y-almacenar-variables-en-r.html#cb92-5"></a><span class="kw">setwd</span>(<span class="st">&quot;C:\Users\Rodrigo\Desktop&quot;</span>) <span class="co">#Rodrigo = Mi usuario</span></span></code></pre></div>
+<p>Podemos verificar el directorio elegido con <code>getwd()</code>:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="leer-y-almacenar-variables-en-r.html#cb93-1"></a><span class="kw">getwd</span>()</span></code></pre></div>
+<blockquote>
+<p>En general es buena práctica en <code>R</code> establecer, hasta arriba del <code>Script</code>, el comando de directorio. Esto con el propósito de que, cuando compartas un archivo, la persona a quien le fue compartido el archivo pueda rápidamente elegir su propio directorio en su computadora.</p>
+</blockquote>
+<p>Probemos guardar unas variables en un archivo dentro de nuestro directorio. Para ello utilizaremos el comando <code>save</code>.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="leer-y-almacenar-variables-en-r.html#cb94-1"></a><span class="co">#Crear las variables</span></span>
+<span id="cb94-2"><a href="leer-y-almacenar-variables-en-r.html#cb94-2"></a>x &lt;-<span class="st"> </span><span class="dv">200</span></span>
+<span id="cb94-3"><a href="leer-y-almacenar-variables-en-r.html#cb94-3"></a>y &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb94-4"><a href="leer-y-almacenar-variables-en-r.html#cb94-4"></a></span>
+<span id="cb94-5"><a href="leer-y-almacenar-variables-en-r.html#cb94-5"></a><span class="co">#Los archivos de variables de R son rda</span></span>
+<span id="cb94-6"><a href="leer-y-almacenar-variables-en-r.html#cb94-6"></a><span class="kw">save</span>(x,y, <span class="dt">file =</span> <span class="st">&quot;MisVariables.rda&quot;</span>)</span></code></pre></div>
+<p>Si vas a tu directorio, notarás que el archivo <code>MisVariables.rda</code> acaba de ser creado. De esta forma <code>R</code> puede almacenar objetos creados en <code>R</code> que sólo <code>R</code> puede leer (más adelante veremos cómo exportar bases de datos y gráficas). Observa que en tu ambiente (si estás en <code>RStudio</code> puedes verlas en el panel 3) deben aparecer las variables que hemos usado hasta ahora:</p>
+<pre><code>## [1] &quot;x&quot;        &quot;y&quot;        &quot;z&quot;        &quot;Example1&quot;</code></pre>
+<p>Podemos probar sumar nuestras variables y todo funciona súper:</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="leer-y-almacenar-variables-en-r.html#cb96-1"></a>x <span class="op">+</span><span class="st"> </span>y <span class="co">#Funciona magníficamente</span></span></code></pre></div>
+<pre><code>## [1] 300</code></pre>
+<p>Limpiemos el ambiente. El comando equivalente al <code>clear all</code> en <code>R</code> es un poco más complicado de memorizar:</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="leer-y-almacenar-variables-en-r.html#cb98-1"></a><span class="co">#EL clear all de R</span></span>
+<span id="cb98-2"><a href="leer-y-almacenar-variables-en-r.html#cb98-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span></code></pre></div>
+<p>Ahora, si vuelves a ver el ambiente, éste estará vacío: ¡hemos limpiado el historial! Nota que si intentamos operar con las variables, <code>R</code> ya no las recuerda:</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="leer-y-almacenar-variables-en-r.html#cb99-1"></a>x <span class="op">+</span><span class="st"> </span>y <span class="co">#Error</span></span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;x&#39; not found</code></pre>
+<blockquote>
+<p>Así como hay que lavarse las manos antes de comer, es buen hábito limpiar todas las variables del ambiente de <code>R</code> antes de usarlo.</p>
+</blockquote>
+<p>Podemos leer la base de datos usando <code>load</code>:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="leer-y-almacenar-variables-en-r.html#cb101-1"></a><span class="co">#Leemos las variables</span></span>
+<span id="cb101-2"><a href="leer-y-almacenar-variables-en-r.html#cb101-2"></a><span class="kw">load</span>(<span class="st">&quot;MisVariables.rda&quot;</span>)</span>
+<span id="cb101-3"><a href="leer-y-almacenar-variables-en-r.html#cb101-3"></a></span>
+<span id="cb101-4"><a href="leer-y-almacenar-variables-en-r.html#cb101-4"></a><span class="co">#Una vez leídas podemos empezar a jugar con ellas</span></span>
+<span id="cb101-5"><a href="leer-y-almacenar-variables-en-r.html#cb101-5"></a>x <span class="op">+</span><span class="st"> </span>y <span class="co">#Ya funciona</span></span></code></pre></div>
+<pre><code>## [1] 300</code></pre>
+<p>Por último, es necesario resaltar la importancia del directorio. Para ello crea una nueva carpeta en tu escritorio de nombre <code>Mi_curso_de_R</code>. Mueve el archivo <code>"MisVariables.rda"</code> dentro de la carpeta. Borra todo e intenta leer de nuevo el archivo:</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="leer-y-almacenar-variables-en-r.html#cb103-1"></a><span class="co">#Borramos todo</span></span>
+<span id="cb103-2"><a href="leer-y-almacenar-variables-en-r.html#cb103-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb103-3"><a href="leer-y-almacenar-variables-en-r.html#cb103-3"></a></span>
+<span id="cb103-4"><a href="leer-y-almacenar-variables-en-r.html#cb103-4"></a><span class="co">#Intentamos leer el archivo de nuevo</span></span>
+<span id="cb103-5"><a href="leer-y-almacenar-variables-en-r.html#cb103-5"></a><span class="kw">load</span>(<span class="st">&quot;MisVariables.rda&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning in readChar(con, 5L, useBytes = TRUE): cannot open compressed file
+## &#39;MisVariables.rda&#39;, probable reason &#39;No such file or directory&#39;</code></pre>
+<pre><code>## Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection</code></pre>
+<p>Este error es porque <code>R</code> sigue pensando que nuestro directorio es el escritorio y está buscando el archivo ahí sin hallarlo. Para encontrarlo hay que cambiar el directorio a través de <code>RStudio</code> (ya sea <code>Ctrl+Shift+H</code> o <code>Session &gt;Set Working Directory &gt; Choose Directory</code>) o bien a través de comandos en <code>R</code>:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="leer-y-almacenar-variables-en-r.html#cb106-1"></a><span class="co">#Si eres Mac/Linux</span></span>
+<span id="cb106-2"><a href="leer-y-almacenar-variables-en-r.html#cb106-2"></a><span class="kw">setwd</span>(<span class="st">&quot;~/Desktop/Mi_curso_de_R&quot;</span>) </span>
+<span id="cb106-3"><a href="leer-y-almacenar-variables-en-r.html#cb106-3"></a></span>
+<span id="cb106-4"><a href="leer-y-almacenar-variables-en-r.html#cb106-4"></a><span class="co">#Si eres Windows</span></span>
+<span id="cb106-5"><a href="leer-y-almacenar-variables-en-r.html#cb106-5"></a><span class="kw">setwd</span>(<span class="st">&quot;C:\Users\Rodrigo\Desktop\Mi_curso_de_R&quot;</span>) <span class="co">#Rodrigo = Mi usuario</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="leer-y-almacenar-variables-en-r.html#cb107-1"></a><span class="co">#Aquí sí se puede leer</span></span>
+<span id="cb107-2"><a href="leer-y-almacenar-variables-en-r.html#cb107-2"></a><span class="kw">load</span>(<span class="st">&quot;MisVariables.rda&quot;</span>)</span></code></pre></div>
+<div id="ejercicio-2" class="section level3">
+<h3><span class="header-section-number">10.0.1</span> Ejercicio</h3>
+<p>Responde a las siguientes preguntas:</p>
+<ol style="list-style-type: decimal">
+<li><p>¿Qué es el directorio y por qué es necesario establecerlo?</p></li>
+<li><p>Si <code>R</code> me da el error <code>'No such file or directory'</code> ¿qué hice mal?</p></li>
+<li><p>En <code>RStudio</code>, ¿qué hace <code>Session &gt; Restart R</code>? ¿cuál es la diferencia con <code>rm(list = ls())</code>?</p></li>
+<li><p>¿Qué hace el comando <code>cat("\014")</code>? (<em>Ojo</em> puede que no haga nada). Si funciona, ¿cuál es la diferencia con <code>rm(list = ls())</code> y con <code>Restart R</code>?</p></li>
+</ol>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="10">
+<li id="fn10"><p>Windows usa backslash. Y hay <a href="https://www.howtogeek.com/181774/why-windows-uses-backslashes-and-everything-else-uses-forward-slashes/">toda una historia detrás de ello</a><a href="leer-y-almacenar-variables-en-r.html#fnref10" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="primeros-pasos-con-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="instalación-de-paquetes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introduccion_a_Muestreo.pdf", "Introduccion_a_Muestreo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+"0","#Código que no funciona porque uno es caracter"
+"0","2 + ""4"" "
+"2","[0;48;5;1;38;5;15mError in 2 + ""4"" : non-numeric argument to binary operator[0m
+"
