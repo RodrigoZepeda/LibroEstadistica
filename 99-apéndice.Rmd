@@ -262,7 +262,7 @@ knitr::include_graphics('images/RStudio4.png')
 knitr::include_graphics('images/RStudio5.png')
 ```
 
-3. El tercer panel contiene el ambiente. Aquí aparecerán las variables que vayamos creando. Por ahora, para poner un ejemplo, importaremos el archivo `Example1.csv` (con valores simulados) dando clic en `Import Dataset` y `From Text (base)`. Selecciona el archivo y elige las opciones en la ventana de previsualización que hagan que se vea bien. Nota que una vez realizada la importación aparece en el panel derecho `Example1.` Al dar clic podrás ver la base de datos. Las bases de datos y variables que utilices durante tus análisis aparecerán en esa sección.
+3. El tercer panel contiene el ambiente. Aquí aparecerán las variables que vayamos creando. Por ahora, para poner un ejemplo, importaremos el archivo `Example1.csv` (con valores simulados) [disponible en Github](https://github.com/RodrigoZepeda/LibroEstadistica/tree/master/datasets) dando clic en `Import Dataset` y `From Text (base)`. Selecciona el archivo y elige las opciones en la ventana de previsualización que hagan que se vea bien. Nota que una vez realizada la importación aparece en el panel derecho `Example1.` Al dar clic podrás ver la base de datos. Las bases de datos y variables que utilices durante tus análisis aparecerán en esa sección.
 
 ```{r, echo = FALSE}
 set.seed(371)

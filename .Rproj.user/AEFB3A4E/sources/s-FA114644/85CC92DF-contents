@@ -1,0 +1,51 @@
+---
+title: "Proyecto 1"
+author: "Rodrigo Zepeda"
+date: "Agosto 2020"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Objetivo
+El proyecto consiste en realizar $10$ gráficas de alguna base de datos censales (no encuesta) de la vida real e incluir la interpretación de las mismas. Algunas opciones de bases pueden encontrarse en: [el portal de datos de CDMX](https://datos.cdmx.gob.mx/pages/home/), [el portal de datos del Gobierno Federal](https://datos.gob.mx), [el portal de datos de Jalisco](https://datos.jalisco.gob.mx), [el portal de datos de Nuevo León](http://datos.nl.gob.mx), [el portal de datos de Colombia](https://www.datos.gov.co), [la fundación para la Ciencia Abierta](https://osf.io), [Kaggle](https://www.kaggle.com/datasets). 
+
+> Se sugiere para este primer proyecto evitar datos geoespaciales por la dificultad del análisis. Aunque si te interesa puedes revisar [este libro](https://www.amazon.com/Spatial-Point-Patterns-Applications-Interdisciplinary/dp/1482210207).  
+
+## Fecha sugerida de entrega
+6 de septiembre.
+
+## Indicaciones
+
+1. El proyecto debe ser entregado en pdf o html. 
+  
+2. El proyecto debe incluir una descripción de los contenidos de la base (las variables) así como una breve descripción de la base (de dónde la obtuvieron las personas que generaron esa base, cuál era su objetivo, cómo fueron medidas las variables). 
+
+3. Deben realizarse e interpretarse al menos $10$ gráficas distintas para los datos de la base. Se califica tanto el código de R como la interpretación. La interpretación debe estar justificada por los datos y la visualización. Pueden incluirse las gráficas vistas en clase (máximo $5$ de ellas) así como otras $5$ gráficas (sugerencia: ver [este link](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)). Si se desea se puede utilizar la [librería meme](https://cran.r-project.org/web/packages/meme/vignettes/meme.html) y que la última gráfica (la décima) sea un meme sin interpretación. 
+    
+4. Para que una gráfica sea buena debe cumplir con los siguientes criterios:
+  a. _Reproducibilidad_ cualquiera con la base y el código puede reproducir la gráfica.
+  b. _Colores de alto contraste_ para que el usuario final que analiza la gráfica pueda fácilmente distinguir diferencias de colores. 
+  c. _Mismo idioma_ todo lo que está en la gráfica debe aparecer en el mismo idioma. 
+  d. _Incluir conceptos no variables_ los ejes y títulos de la gráfica deben incluir conceptos (por ejemplo `Peso de una persona (kg)`) y no variables (por ejemplo `dataset$wt`). 
+  e. _Sin errores ortográficos_ 
+  f. _La gráfica habla por sí misma_ La gráfica podría extraerse del texto y debería, por sí misma, comunicar toda la información incluyendo fuente, variables a graficar, periodo temporal, significado de los datos. 
+  h. _Escalas en notación humana_ Las escalas no deben de tener notación científica del estilo `1.e7`
+  i. _Ordenamiento de categorías_ Las variables categóricas deben seguir un orden ya sea alfabético o de mayor a menor. 
+  j. _Gráfica correcta para los datos_ No realizar gráficas de variables continuas para datos discretos, por ejemplo. 
+
+5. Deben utilizarse al menos una vez las siguientes funciones de `tidyverse` para la limpieza de la base a fin de realizar un análisis de una subpoblación, limpiar la base ó seleccionar variables para el análisis. 
+
+    a. `filter`
+    b. `select`
+    c. `group_by`
+    d. `count`
+    e. `summarise`
+    f. `mutate`
+
+6. El documento debe incluir todo el código a realizarse y comentarios a dicho código. El código debe seguir las [recomendaciones de tidyverse](https://style.tidyverse.org).  
+
+7. No se consideran proyectos donde el código no corra en mi computadora. No se consideran proyectos donde el equipo no pueda responder preguntas del tema en caso de que se requieran.  

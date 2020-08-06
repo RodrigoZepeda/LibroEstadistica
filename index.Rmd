@@ -7,12 +7,12 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: "Libro de estadística aplicada: temas de análisis exploratorio y muestreo"
 ---
 
 # Prefacio
 
-Hola 
+El libro está en construcción. Por favor si encuentras cualquier error levanta un _issue_ en Github 
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

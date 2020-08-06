@@ -16,3 +16,8 @@ gridExtra
 latex2exp
 filesstrings
 DescTools
+kableExtra
+moments
+lubridate
+ggcorrplot
+ks
