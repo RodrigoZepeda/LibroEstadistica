@@ -1,4 +1,0 @@
-"0","kable(plano) %>% kable_styling(plano, latex_options = ""striped"")
-"
-"2","[0;48;5;1;38;5;15mError in kable(plano) : object 'plano' not found[0m
-"

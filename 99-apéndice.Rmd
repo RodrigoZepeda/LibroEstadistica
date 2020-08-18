@@ -393,7 +393,7 @@ Por ejemplo, en la siguiente ecuación
 $$
 2 - 2 \cdot \frac{(3^4 - 9)}{(5 + 4)}
 $$
-se resuelven primero los paréntesis $(3^4 - 9) = 81 - 9 = 72$ y $(5 + 4) = 9$; luego se resuelve la división: $\frac{72}{9}=8$, se multiplica por el $2$: $2 \cdot 8$ y finalmente se hace la resta: $2-8 = -6$. 
+se resuelven primero los paréntesis $(3^4 - 9) = 81 - 9 = 72$ y $(5 + 4) = 9$; luego se resuelve la división: $\frac{72}{9}=8$, se multiplica por el $2$: $2 \cdot 8 = 16$ y finalmente se hace la resta: $2-16 = -14$. 
 
 ### Ejercicio 
 Determina, sin evaluar, los resultados de los siguientes segmentos de código:

@@ -10,9 +10,12 @@ link-citations: yes
 description: "Libro de estadística aplicada: temas de análisis exploratorio y muestreo"
 ---
 
-# Prefacio
+# Historia y conceptos
 
-El libro está en construcción. Por favor si encuentras cualquier error levanta un _issue_ en Github 
+> El libro está en construcción. Por favor si encuentras cualquier error levanta un _issue_ en Github 
+
+
+
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
