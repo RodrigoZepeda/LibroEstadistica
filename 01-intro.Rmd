@@ -189,6 +189,8 @@ $$
 $$
 donde el caso $\bar{c} = 0$ se interpreta como el límite por la derecha (respectivamente por la izquierda) de la arcotangente de acuerdo con el signo de $\bar{s}$. 
 
+Para más información sobre estadística circular puedes consultar @pewsey2013circular
+
 ## Ejercicio 
 Utiliza la función `atan2` de `R` junto con `cos` y `sin` para seno y coseno para estimar el día promedio en el que ocurren más delitos según la base `conteo.dia`.
 
@@ -249,6 +251,12 @@ ggplot() +
 ```
 
 Si nos interesara que todos los valores (tanto los cercanos a $\bar{x}$ como los lejanos) pesaran de manera idéntica entonces usaríamos el MAD:
+
+**3.1 Varianza angular (circular)** En el caso de datos circulares, @pewsey2013circular define la varianza circular como:
+$$
+\textrm{Var} = 1 - \bar{r}
+$$
+donde $\bar{r} = (\bar{c}^2 + \bar{s}^2)^{1/2}$ es el resolvente explicado anteriormente. 
 
 **4. Desviación Media Absoluta (MAD)** Dado un vector de datos numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ definimos la desviación media absoluta, MAD, como (@panaretos2016statistics):
 $$

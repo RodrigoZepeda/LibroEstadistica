@@ -24,7 +24,7 @@
 <meta name="author" content="Rodrigo Zepeda-Tello" />
 
 
-<meta name="date" content="2020-08-18" />
+<meta name="date" content="2020-08-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -435,6 +435,7 @@ y que:
 \end{cases}
 \]</span>
 donde el caso <span class="math inline">\(\bar{c} = 0\)</span> se interpreta como el límite por la derecha (respectivamente por la izquierda) de la arcotangente de acuerdo con el signo de <span class="math inline">\(\bar{s}\)</span>.</p>
+<p>Para más información sobre estadística circular puedes consultar <span class="citation">Pewsey, Neuhäuser, and Ruxton (<a href="#ref-pewsey2013circular" role="doc-biblioref">2013</a>)</span></p>
 </div>
 </div>
 <div id="ejercicio" class="section level2">
@@ -473,6 +474,11 @@ Misma que podemos calcular con el comando <code>var</code> ya sea directamente e
 <p>Recuerda que la varianza se interpreta como la distancia cuadrática promedio a la que están los datos. En particular la varianza casi no considera valores que están a menos de <span class="math inline">\(1\)</span> de distancia de <span class="math inline">\(\bar{x}\)</span> (pues <span class="math inline">\((x_i - \bar{x})^2 &lt; 1\)</span> en ese caso) pero le da mayor peso a valores que están muy lejanos (donde <span class="math inline">\((x_i - \bar{x})^2 \gg 1\)</span> si <span class="math inline">\(x_i\)</span> está muy lejos de <span class="math inline">\(\bar{x}\)</span>). Gráficamente:</p>
 <p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>Si nos interesara que todos los valores (tanto los cercanos a <span class="math inline">\(\bar{x}\)</span> como los lejanos) pesaran de manera idéntica entonces usaríamos el MAD:</p>
+<p><strong>3.1 Varianza angular (circular)</strong> En el caso de datos circulares, <span class="citation">Pewsey, Neuhäuser, and Ruxton (<a href="#ref-pewsey2013circular" role="doc-biblioref">2013</a>)</span> define la varianza circular como:
+<span class="math display">\[
+\textrm{Var} = 1 - \bar{r}
+\]</span>
+donde <span class="math inline">\(\bar{r} = (\bar{c}^2 + \bar{s}^2)^{1/2}\)</span> es el resolvente explicado anteriormente.</p>
 <p><strong>4. Desviación Media Absoluta (MAD)</strong> Dado un vector de datos numéricos <span class="math inline">\(\vec{x} = (x_1, x_2, \dots, x_n)^T\)</span> definimos la desviación media absoluta, MAD, como (<span class="citation">Panaretos (<a href="#ref-panaretos2016statistics" role="doc-biblioref">2016</a>)</span>):
 <span class="math display">\[
 \text{MAD}_{\vec{x}} = \frac{1}{n} \sum\limits_{i=1}^{n} | x_i - \bar{x} |
@@ -2243,6 +2249,9 @@ z
 </div>
 <div id="ref-peck2015introduction">
 <p>Peck, Roxy, Chris Olsen, and Jay L Devore. 2015. <em>Introduction to Statistics and Data Analysis</em>. Cengage Learning.</p>
+</div>
+<div id="ref-pewsey2013circular">
+<p>Pewsey, Arthur, Markus Neuhäuser, and Graeme D Ruxton. 2013. <em>Circular Statistics in R</em>. Oxford University Press.</p>
 </div>
 <div id="ref-sarndal2003model">
 <p>Särndal, Carl-Erik, Bengt Swensson, and Jan Wretman. 2003. <em>Model Assisted Survey Sampling</em>. Springer Science &amp; Business Media.</p>
