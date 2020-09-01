@@ -1663,7 +1663,7 @@ Dos variables aleatorias $X_i$ y $X_j$ ($i \neq j$) son independientes si:
 $$
 \mathbb{P}(X_i \in A, X_i \in B) = \mathbb{P}(X_i \in A) \cdot \mathbb{P}(X_j \in B)
 $$
-para $A,B$ medibles. Una colección $\{ X_i \}_{i}$ de variables aleatorias es **completamente independiente** si para cualquier subcolección  $\{ X_{i_k} \}_{i_k}$ se tiene que:
+para $A,B$ medibles. Una colección $\{ X_i \}_{i}$ de variables aleatorias es **completamente independiente** si para cualquier subcolección finita  $\{ X_{i_k} \}_{i_k}$ se tiene que:
 $$
 \mathbb{P}(X_{i_1} \in A_{i_1}, X_{i_2} \in A_{i_2}, \dots, X_{i_n} \in A_{i_n} ) = \prod_{k = 1}^n \mathbb{P}(X_{i_k} \in A) 
 $$
@@ -1704,7 +1704,7 @@ Para una función $g:\mathbb{R}^n \to \mathbb{R}$ multivariada de $n$ variables 
 \tiny
 \begin{equation}\nonumber
 \begin{aligned}
-\mathbb{E}\big[ & g(X_1, X_2, \dots, X_n) \big]  = 
+\mathbb{E}\big[  g(X_1, X_2, \dots, X_n) \big]  = 
 \\ &   \int_{-\infty}^{\infty}  \dots  \int_{-\infty}^{\infty} \sum_{x_j \in \text{Supp}(X_j)}  \dots \sum_{x_1 \in \text{Supp}(X_1)} g(x_1, x_2, \dots, x_n) p(x_1)  \dots p(x_j) f_{X_{j+1}}(x_{j+1}) \dots  f_{X_{n}}(x_{n}) dx_{j+1} \dots  dx_{n}
 \end{aligned}
 \end{equation}

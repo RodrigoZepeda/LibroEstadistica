@@ -51,74 +51,8 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
-<style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -267,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>En la lotería de Nueva York se eligen <span class="math inline">\(6\)</span> de <span class="math inline">\(44\)</span> números para un ticket. ¿Cuántos boletos de lotería posibles hay?</p>
 </blockquote>
-<p>Veamos algunas formas posibles de solución<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>:</p>
+<p>Veamos algunas formas posibles de solución<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>:</p>
 <ol style="list-style-type: lower-alpha">
 <li><p><strong>Ordenado y sin reemplazo</strong> Si sólo importa el orden y una vez que sale un número no se vuelve a meter a los posibles entonces tenemos:
 <span class="math display">\[
@@ -514,7 +448,7 @@ o bien:
 \mathbb{P}(X &lt; x) = \lim_{z \to x^-} F(z)
 \]</span></p>
 <p>Las funciones de distribución acumulada más comunes se veían como en la imagen:</p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-230-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-92-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Si una función de distribución acumulada <span class="math inline">\(F_X\)</span> era continua entonces decíamos que la variable aleatoria asociada (<span class="math inline">\(X\)</span>) es <em>continua</em>. En particular, la continuidad implica que:
 <span class="math display">\[
 \mathbb{P}(X = k) = 0 \qquad \forall k 
@@ -533,7 +467,7 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span class="math display">\[
 \mathbb{P}\big( X = a_k \big) = \dfrac{1}{n} \cdot \mathbb{I}_{A}(a_k) \qquad \forall k \in \{ 1, 2, \dots, n \} 
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-231-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-93-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Un modelo particular salía de considerar el siguiente problema:</p>
 <blockquote>
 <p>Tenemos una moneda que cae Águila con probabilidad <span class="math inline">\(p\)</span> y Sol con probabilidad <span class="math inline">\((1-p)\)</span> (con <span class="math inline">\(0 &lt; p &lt; 1\)</span>). Nos interesa saber cuál es la probabilidad de tener <span class="math inline">\(k\)</span> Águilas en <span class="math inline">\(n\)</span> tiros.
@@ -543,7 +477,7 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span class="math display">\[
 \mathbb{P}\big(X = k \big) = \binom{n}{k} p^k (1-p)^{n-k} \mathbb{I}_{\{0,1,2,\dots,n \}}(k)
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-232-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-94-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Una pregunta distinta que nos pudimos hacer fue:</p>
 <blockquote>
 <p>Tenemos una moneda que cae Águila con probabilidad <span class="math inline">\(p\)</span> y Sol con probabilidad <span class="math inline">\((1-p)\)</span> (con <span class="math inline">\(0 &lt; p &lt; 1\)</span>). Arrojamos la moneda hasta obtener <span class="math inline">\(r\)</span> Águilas y en ese momento nos detenemos. Determina la probabilidad de que se aviente la moneda <span class="math inline">\(k\)</span> veces.</p>
@@ -553,13 +487,13 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span class="math display">\[
 \mathbb{P}\big(X = k \big) = \binom{k-1}{r-1} p^r (1-p)^{k-r} \mathbb{I}_{\{r, r+1, r+2, \dots \}}(k)
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-233-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-95-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Finalmente, otro modelo que pudimos hacer con monedas es un caso específico del <em>Binomial Negativo</em> . Aquí la pregunta es, se tira una moneda que tiene probabilidad <span class="math inline">\(p\)</span> de salir Águila hasta que se obtiene el águila. Contamos cuántos tiros ocurrieron hasta que ocurriera el primer Águila y la pregunta de interés es la probabilidad de haber realizado específicamente <span class="math inline">\(k\)</span> tiros. Para ello necesitamos tener <span class="math inline">\((k-1)\)</span> tiros que fueran sol: <span class="math inline">\((1-p)^{k-1}\)</span> y un tiro que saliera águila <span class="math inline">\(p\)</span>. Esto nos genera el modelo geométrico:</p>
 <p>Una variable aleatoria <span class="math inline">\(X\)</span> tiene una distribución <span class="math inline">\(\text{Geométrica}(p)\)</span> si:
 <span class="math display">\[
 \mathbb{P}\big(X = k \big) = (1-p)^k p \cdot \mathbb{I}_{\mathbb{N}}(k).
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-234-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-96-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Otro modelo de interés es el siguiente:</p>
 <blockquote>
 <p>Se tiene una población de tamaño <span class="math inline">\(M\)</span> donde <span class="math inline">\(N\)</span> individuos pertenecen al partido político AZUL y <span class="math inline">\(M-N\)</span> pertenecen al VERDE Se toma una submuestra de tamaño <span class="math inline">\(m\)</span>. Determina la probabilidad de que haya <span class="math inline">\(n\)</span> individuos del partido político AZUL.</p>
@@ -569,7 +503,7 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span class="math display">\[
 \mathbb{P}\big(X = n \big) = \dfrac{\binom{M-N}{m-n} \binom{N}{n} }{\binom{M}{m}} \cdot \mathbb{I}_{\{0,1,\dots, \text{mín}\{m, N\} \}} (n)
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-235-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-97-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>El modelo Poisson va a ser bastante útil. Para estudiarlo, consideremos un modelo. Vamos a pensar en un servidor de computación (piensa en una página de Internet) que recibe solicitudes de entrar a la página de manera independiente y aleatoria en un intervalo de tiempo entre <span class="math inline">\(t = 0\)</span> y <span class="math inline">\(t = 1\)</span>. Como primera aproximación podemos dividir el intervalo en <span class="math inline">\(n\)</span> pedazos cada uno de longitud <span class="math inline">\(1/n\)</span> y asumir que, a fuerza, sólo una conexión se puede realizar en cada uno de esos pedazos. Finalmente, asumamos que la probabilidad <span class="math inline">\(p\)</span> de que se haga una conexión es proporcional a la longitud del intervalo y sea <span class="math inline">\(p = \lambda / n\)</span>. Con estas hipótesis, la probabilidad de tener <span class="math inline">\(k\)</span> conexiones (<span class="math inline">\(k\)</span> entero entre <span class="math inline">\(0\)</span> y <span class="math inline">\(n\)</span>) está dada por un modelo binomial:
 <span class="math display">\[\begin{equation}\nonumber
 \begin{aligned}
@@ -588,7 +522,7 @@ Esto resulta en el modelo Poisson:</p>
 <span class="math display">\[
 \mathbb{P}\big(X = k \big) = \dfrac{\lambda^k e^{-\lambda}}{k!} \mathbb{I}_{\mathbb{N}\cup \{ 0 \}}(k)
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-236-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-98-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="funciones-de-densidad" class="section level2">
 <h2><span class="header-section-number">B.8</span> Funciones de densidad</h2>
@@ -607,7 +541,7 @@ f_X(x) = \dfrac{d}{dx} F_X(x)
 <span class="math display">\[
 f_X(x) = \dfrac{1}{b-a}\mathbb{I}_{(a,b)}(x)
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-237-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-99-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Una generalización del modelo uniforme es el beta (eventualmente veremos de dónde sale):</p>
 <p>Una variable aleatoria <span class="math inline">\(X\)</span> tiene una distribución <span class="math inline">\(\text{Beta}(\alpha,\beta)\)</span> si:
 <span class="math display">\[
@@ -617,12 +551,12 @@ donde
 <span class="math display">\[
 B(\alpha, \beta) = \dfrac{\Gamma (\alpha) \Gamma (\beta)}{\Gamma (\alpha + \beta)}
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-238-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-100-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Podemos deducir el modelo exponencial a partir de la descripción del Poisson. Volvamos al mismo problema del <span class="math inline">\(\textrm{Poisson}(\lambda)\)</span> donde hay computadoras conectándose a un servidor. Sea <span class="math inline">\(W\)</span> la variable aleatoria que denota el tiempo de espera hasta el primer evento. Analicemos su distribución acumulada; notamos que
 <span class="math display">\[
 F_W(w) = \mathbb{P}(W \leq w) = 1 - \mathbb{P}(W &gt; w)
 \]</span>
-Ahora, para que <span class="math inline">\(W &gt; w\)</span> eso significa que ningún evento tuvo que haber ocurrido en los primeros <span class="math inline">\(w\)</span> minutos (horas, lo que sea la unidad de tiempo). Y ese evento es equivalente a que nuestra variable aleatoria Poisson (tasa <span class="math inline">\(\lambda w\)</span>)<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> no tenga ningún arribo:
+Ahora, para que <span class="math inline">\(W &gt; w\)</span> eso significa que ningún evento tuvo que haber ocurrido en los primeros <span class="math inline">\(w\)</span> minutos (horas, lo que sea la unidad de tiempo). Y ese evento es equivalente a que nuestra variable aleatoria Poisson (tasa <span class="math inline">\(\lambda w\)</span>)<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> no tenga ningún arribo:
 <span class="math display">\[
 \mathbb{P}(X = 0) = \dfrac{(\lambda w)^0 e^{-\lambda w}}{0!} = e^{-\lambda}
 \]</span>
@@ -695,7 +629,7 @@ Y para que integre a <span class="math inline">\(1\)</span>:s
 <span class="math display">\[
 f(x) = \frac{1}{\sqrt{2 \pi}} e^{-\frac{1}{2} x^2}
 \]</span></p>
-<p>Por último, notamos que si <span class="math inline">\(Z\sim \textrm{Normal}(0,1)\)</span> entonces <span class="math inline">\(X = \sigma Z + \mu\)</span> tiene la densidad dada por<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>:
+<p>Por último, notamos que si <span class="math inline">\(Z\sim \textrm{Normal}(0,1)\)</span> entonces <span class="math inline">\(X = \sigma Z + \mu\)</span> tiene la densidad dada por<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>:
 <span class="math display">\[
 f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{1}{2\sigma^2} (x - \mu)^2}
 \]</span></p>
@@ -711,7 +645,7 @@ f_X(x) =  \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x - \mu)^2}{2 \sigma^2}}
 f_X(x) = \dfrac{1}{x \sqrt{2 \pi \sigma^2}}e^{-(\ln(x) - \mu)^2/2\sigma^2} \mathbb{I}_{(0,\infty)}(x).
 \]</span></p>
 <p>Lo cual cambia mucho la forma de la distribución:</p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-239-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-101-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>La pregunta es, cómo obtener la función de densidad de <span class="math inline">\(X\)</span> si se conoce la función <span class="math inline">\(\phi\)</span>; el teorema de cambio de variable nos da una respuesta cuando <span class="math inline">\(\phi\)</span> es monótona estrictamente creciente o bien estrictamente decreciente y diferenciable.</p>
 <p>Sea <span class="math inline">\(X\)</span> una variable aleatoria continua y <span class="math inline">\(\phi\)</span> una función estrictamente creciente ó estrictamente decreciente y diferenciable. Entonces:
 <span class="math display">\[
@@ -761,7 +695,7 @@ En general la función de probabilidad conjunta siempre va a esta dada por:
 <span class="math display">\[
 \mathbb{P}(X_i \in A, X_i \in B) = \mathbb{P}(X_i \in A) \cdot \mathbb{P}(X_j \in B)
 \]</span>
-para <span class="math inline">\(A,B\)</span> medibles. Una colección <span class="math inline">\(\{ X_i \}_{i}\)</span> de variables aleatorias es <strong>completamente independiente</strong> si para cualquier subcolección <span class="math inline">\(\{ X_{i_k} \}_{i_k}\)</span> se tiene que:
+para <span class="math inline">\(A,B\)</span> medibles. Una colección <span class="math inline">\(\{ X_i \}_{i}\)</span> de variables aleatorias es <strong>completamente independiente</strong> si para cualquier subcolección finita <span class="math inline">\(\{ X_{i_k} \}_{i_k}\)</span> se tiene que:
 <span class="math display">\[
 \mathbb{P}(X_{i_1} \in A_{i_1}, X_{i_2} \in A_{i_2}, \dots, X_{i_n} \in A_{i_n} ) = \prod_{k = 1}^n \mathbb{P}(X_{i_k} \in A) 
 \]</span>
@@ -797,7 +731,7 @@ En el caso de conjuntos finitos de variables aleatorias la definción es similar
 
 <span class="math display">\[\begin{equation}\nonumber
 \begin{aligned}
-\mathbb{E}\big[ &amp; g(X_1, X_2, \dots, X_n) \big]  = 
+\mathbb{E}\big[  g(X_1, X_2, \dots, X_n) \big]  = 
 \\ &amp;   \int_{-\infty}^{\infty}  \dots  \int_{-\infty}^{\infty} \sum_{x_j \in \text{Supp}(X_j)}  \dots \sum_{x_1 \in \text{Supp}(X_1)} g(x_1, x_2, \dots, x_n) p(x_1)  \dots p(x_j) f_{X_{j+1}}(x_{j+1}) \dots  f_{X_{n}}(x_{n}) dx_{j+1} \dots  dx_{n}
 \end{aligned}
 \end{equation}\]</span></p>
@@ -908,37 +842,9 @@ donde la última igualdad se sigue de agrupar los términos idénticos tras sus 
 <div>
 <p>Casella, George, and Roger L Berger. 2002. <em>Statistical Inference</em>. Vol. 2. Duxbury Pacific Grove, CA.</p>
 </div>
-<div>
-<p>Gelman, Andrew, John B Carlin, Hal S Stern, David B Dunson, Aki Vehtari, and Donald B Rubin. 2013. <em>Bayesian Data Analysis</em>. CRC press.</p>
-</div>
-<div>
-<p>Hyndman, Rob J, and Yanan Fan. 1996. “Sample Quantiles in Statistical Packages.” <em>The American Statistician</em> 50 (4): 361–65.</p>
-</div>
-<div>
-<p>Myatt, Glenn J, and Wayne P Johnson. 2007. <em>Making Sense of Data</em>. Wiley Online Library.</p>
-</div>
-<div>
-<p>Panaretos, Victor M. 2016. “Statistics for Mathematicians.” <em>Compact Textbook in Mathematics. Birkhäuser/Springer</em> 142: 9–15.</p>
-</div>
-<div>
-<p>Peck, Roxy, Chris Olsen, and Jay L Devore. 2015. <em>Introduction to Statistics and Data Analysis</em>. Cengage Learning.</p>
-</div>
-<div>
-<p>Pewsey, Arthur, Markus Neuhäuser, and Graeme D Ruxton. 2013. <em>Circular Statistics in R</em>. Oxford University Press.</p>
-</div>
-<div>
-<p>Särndal, Carl-Erik, Bengt Swensson, and Jan Wretman. 2003. <em>Model Assisted Survey Sampling</em>. Springer Science &amp; Business Media.</p>
-</div>
-<div>
-<p>SURI, NNR MURTY RANGA, M Narasimha Murty, and G Athithan. 2019. <em>Outlier Detection: Techniques and Applications</em>. Springer.</p>
-</div>
-<div>
-<p>Wolfe, Douglas A, and Grant Schneider. 2017. <em>Intuitive Introductory Statistics</em>. Springer.</p>
 </div>
 </div>
 </div>
-</div>
-
 
 
 
@@ -967,10 +873,10 @@ donde la última igualdad se sigue de agrupar los términos idénticos tras sus 
 </div>
 <div class="footnotes">
 <hr />
-<ol start="13">
-<li id="fn13"><p>¿Se te ocurre alguna que no esté aquí?<a href="repaso-de-proba.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>Recuerda que <span class="math inline">\(\lambda\)</span> era para un tiempo entre <span class="math inline">\(0\)</span> y <span class="math inline">\(1\)</span>; <span class="math inline">\(\lambda w\)</span> es para un escalamiento del tiempo entre <span class="math inline">\(0\)</span> y <span class="math inline">\(w\)</span>.<a href="repaso-de-proba.html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>Por teorema de cambio de variable.<a href="repaso-de-proba.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<ol start="12">
+<li id="fn12"><p>¿Se te ocurre alguna que no esté aquí?<a href="repaso-de-proba.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Recuerda que <span class="math inline">\(\lambda\)</span> era para un tiempo entre <span class="math inline">\(0\)</span> y <span class="math inline">\(1\)</span>; <span class="math inline">\(\lambda w\)</span> es para un escalamiento del tiempo entre <span class="math inline">\(0\)</span> y <span class="math inline">\(w\)</span>.<a href="repaso-de-proba.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>Por teorema de cambio de variable.<a href="repaso-de-proba.html#fnref14" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

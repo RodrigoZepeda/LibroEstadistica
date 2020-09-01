@@ -51,74 +51,8 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
-<style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -237,15 +171,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="programación-en-r" class="section level1">
 <h1><span class="header-section-number">A</span> Programación en <code>R</code></h1>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-141"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
 <img src="images/rlogo.png" alt="`R` es un programa chido de estadística. FIN." width="150px" />
 <p class="caption">
 Figure A.1: <code>R</code> es un programa chido de estadística. FIN.
 </p>
 </div>
 <p>Una de las primeras cosas que necesitamos saber es que <code>R</code> (por más que sus más ávidos defensores digan lo contrario) no es para todo. Si tú ya conoces otro lenguaje (sea <code>Stata</code>, <code>Excel</code>, <code>SAS</code>, <code>Python</code>, <code>Matlab</code>, <code>Julia</code>, etc) sabrás utilizar muchas de sus opciones. Estoy seguro que, de conocer uno de estos, te será muchísimo más fácil seguir sacando promedios en tu lenguaje favorito que en <code>R</code>, realizar regresiones lineales es probablemente más sencillo en <code>Stata</code> mientras que las gráficas de barras para mí son más simples en <code>Excel</code>, <code>Python</code> excede en aplicaciones de inteligencia artificial mientras que <code>Matlab</code> es más veloz que <code>R</code>, <code>Julia</code> tiene muchas cosas de ecuaciones diferenciales que nadie más.</p>
-<p>Lo que probablemente no sea más sencillo de hacer en otro lenguaje es realizar análisis estadístico, gráficas de todo tipo y modelos de simulación. Para eso, <code>R</code> es, indiscutiblemente, una de las mejores opciones para quienes no conocen de programación<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
-<p>Finalmente, uno de los consejos más importantes que te puedo dar es que este curso no te va a servir si no practicas. Igual que como pasa con los idiomas uno no aprende <code>R</code> en una semana <em>sin practicarlo después</em>. Mi sugerencia es que, a la vez que sigues estas notas comiences a trabajar un proyecto <em>tuyo</em> específico junto con <a href="https://yandex.com">el buscador de Internet de tu preferencia</a> a la mano y empieces a usar <code>R</code> en él. Practica<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>Lo que probablemente no sea más sencillo de hacer en otro lenguaje es realizar análisis estadístico, gráficas de todo tipo y modelos de simulación. Para eso, <code>R</code> es, indiscutiblemente, una de las mejores opciones para quienes no conocen de programación<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>Finalmente, uno de los consejos más importantes que te puedo dar es que este curso no te va a servir si no practicas. Igual que como pasa con los idiomas uno no aprende <code>R</code> en una semana <em>sin practicarlo después</em>. Mi sugerencia es que, a la vez que sigues estas notas comiences a trabajar un proyecto <em>tuyo</em> específico junto con <a href="https://yandex.com">el buscador de Internet de tu preferencia</a> a la mano y empieces a usar <code>R</code> en él. Practica<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
 <div id="algunas-ventajas-de-r-y-cosas-no-tan-padres" class="section level2">
 <h2><span class="header-section-number">A.1</span> Algunas ventajas de <code>R</code> y cosas no tan padres</h2>
 <div id="puntos-a-favor-de-r" class="section level3">
@@ -259,10 +193,10 @@ Figure A.1: <code>R</code> es un programa chido de estadística. FIN.
 <li><p>En <code>R</code> puedes hacer libros o notas ¡como este! donde guardes todo tu trabajo, reportes automatizados e incluso <a href="https://gallery.shinyapps.io/086-bus-dashboard/">documentos interactivos</a> para facilitar el análisis de datos.</p></li>
 <li><p><code>R</code> puede hacer gráficas bonitas:</p></li>
 </ul>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-142-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-4-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Por supuesto, no todo es miel sobre hojuelas con <code>R</code>. Particularmente, algunos de los problemas con el lenguaje:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-143"></span>
-<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-143-1.png" alt="La curva de aprendizaje de `R` es más empinada pero después de un rato vale la pena" width="528" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-5-1.png" alt="La curva de aprendizaje de `R` es más empinada pero después de un rato vale la pena" width="528" />
 <p class="caption">
 Figure A.2: La curva de aprendizaje de <code>R</code> es más empinada pero después de un rato vale la pena
 </p>
@@ -271,7 +205,7 @@ Figure A.2: La curva de aprendizaje de <code>R</code> es más empinada pero desp
 <li><p>La curva de aprendizaje es mucho más empinada que para otros programas estadísticos (como <code>Stata</code>, <code>SAS</code> o <code>SPSS</code>) ¡particularmente si es tu primera vez programando!</p></li>
 <li><p>La mayor parte de las personas que trabajan en <code>R</code> no son programadores de verdad. Gran parte del código que te puedes encontrar <strong>en el mundo real</strong> está escrito <a href="https://nsaunders.wordpress.com/2014/05/14/this-is-why-code-written-by-scientists-gets-ugly/">con prisa para salir del aprieto</a> sin mucha planeación, con pocos comentarios, falta de control de versiones y pocas herramientas de revisión. ¡Internet está lleno de <a href="https://codegolf.stackexchange.com/a/4011">creaturas espantosas escritas en <code>R</code></a>!</p></li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-144"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
 <img src="images/compiling.png" alt="`R` puede ser muy lento pero eso te da oportunidad de hacer otras cosas ;) ." width="206" />
 <p class="caption">
 Figure A.3: <code>R</code> puede ser muy lento pero eso te da oportunidad de hacer otras cosas ;) .
@@ -284,7 +218,7 @@ Figure A.3: <code>R</code> puede ser muy lento pero eso te da oportunidad de hac
 </div>
 <div id="bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión" class="section level2">
 <h2><span class="header-section-number">A.2</span> Bienvenidx a <code>R</code>, Taking Off Again (sí, así se llama esta versión)</h2>
-<p><code>R</code> es un lenguaje de cómputo y un programa estadístico <a href="https://www.gnu.org/philosophy/free-sw.html">libre</a>, gratuito, <a href="http://adv-r.had.co.nz/Functional-programming.html">de programación funcional</a> (¿qué es eso?), <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">orientado a objetos</a> (<em>what??</em>) que mutó a partir de otros dos lenguajes conocidos como <code>Scheme</code> y <code>S</code><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. El primero de estos fue desarrollado en el MIT por Sussman y Steele mientras que el segundo surgió en los laboratorios Bell<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> creado por Becker, Wilks y Chambers. <code>R</code> <a href="https://cran.r-project.org/doc/html/interface98-paper/paper_2.html">nació en junio de 1995</a> a partir del trabajo de Ross Ihaka y Robert Gentleman<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.</p>
+<p><code>R</code> es un lenguaje de cómputo y un programa estadístico <a href="https://www.gnu.org/philosophy/free-sw.html">libre</a>, gratuito, <a href="http://adv-r.had.co.nz/Functional-programming.html">de programación funcional</a> (¿qué es eso?), <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">orientado a objetos</a> (<em>what??</em>) que mutó a partir de otros dos lenguajes conocidos como <code>Scheme</code> y <code>S</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. El primero de estos fue desarrollado en el MIT por Sussman y Steele mientras que el segundo surgió en los laboratorios Bell<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> creado por Becker, Wilks y Chambers. <code>R</code> <a href="https://cran.r-project.org/doc/html/interface98-paper/paper_2.html">nació en junio de 1995</a> a partir del trabajo de Ross Ihaka y Robert Gentleman<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
 <p>Desde su creación, la mayor parte del desarrollo de <code>R</code> ha sido trabajo completamente voluntario de la <a href="https://www.r-project.org/foundation/">Fundación R</a>, del equipo de R Core y de miles de usuarios que han creado funciones específicas para <code>R</code> conocidas como paquetes (<code>packages</code>). Actualmente el repositorio más importante de <code>R</code>, CRAN, contiene más de <em>16000</em> paquetes con distintas funciones para hacer ¡lo que quieras!</p>
 <p>Como todo el trabajo en <code>R</code> es voluntario hace falta:</p>
 <ol style="list-style-type: decimal">
@@ -297,7 +231,7 @@ Figure A.3: <code>R</code> puede ser muy lento pero eso te da oportunidad de hac
 <h2><span class="header-section-number">A.3</span> Instalando cosas</h2>
 <div id="instalación-de-r" class="section level3">
 <h3><span class="header-section-number">A.3.1</span> Instalación de <code>R</code></h3>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-145"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
 <img src="images/CRAN1.png" alt="Oficialmente, la página de `R` es de las páginas más feas del mundo. ¡No te dejes llevar por las apariencias!" width="1440" />
 <p class="caption">
 Figure A.4: Oficialmente, la página de <code>R</code> es de las páginas más feas del mundo. ¡No te dejes llevar por las apariencias!
@@ -328,7 +262,7 @@ Da enter, cierra la <code>Terminal</code> y reinicia <code>R</code>.</p>
 </div>
 <div id="instalación-de-rstudio" class="section level2">
 <h2><span class="header-section-number">A.4</span> Instalación de <code>RStudio</code></h2>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-146"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
 <img src="images/rstudio.png" alt="RStudio es una empresa que se dedica a hacer cosas para R." width="1767" />
 <p class="caption">
 Figure A.5: RStudio es una empresa que se dedica a hacer cosas para R.
@@ -342,7 +276,7 @@ Figure A.5: RStudio es una empresa que se dedica a hacer cosas para R.
 </div>
 <div id="primeros-pasos-en-r-usando-rstudio" class="section level2">
 <h2><span class="header-section-number">A.5</span> Primeros pasos en <code>R</code> usando <code>RStudio</code></h2>
-<p>Una vez hayas instalado <code>R</code> y <code>RStudio</code>, abre <code>RStudio</code><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>. Te enfrentarás a una pantalla similar a esta:</p>
+<p>Una vez hayas instalado <code>R</code> y <code>RStudio</code>, abre <code>RStudio</code><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. Te enfrentarás a una pantalla similar a esta:</p>
 <div class="figure" style="text-align: center"><span id="fig:fig-main"></span>
 <img src="images/RStudio1.png" alt="La primera vez que abres RStudio" width="1440" />
 <p class="caption">
@@ -350,15 +284,15 @@ Figure A.6: La primera vez que abres RStudio
 </p>
 </div>
 <p>Si tu RStudio tiene sólo 3 páneles, como en mi caso, ve a la esquina superior izquierda (signo de hoja+) y elige un nuevo <code>R Script</code></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-147"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
 <img src="images/RStudio2.png" alt="Elige hoja+ para crear un nuevo archivo" width="1440" />
 <p class="caption">
 Figure A.7: Elige hoja+ para crear un nuevo archivo
 </p>
 </div>
 <p>Tendrás, entonces, 4 páneles como se ve a continuación:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-148"></span>
-<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-148-1.png" alt="RStudio &lt;3" width="384" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-10-1.png" alt="RStudio &lt;3" width="384" />
 <p class="caption">
 Figure A.8: RStudio &lt;3
 </p>
@@ -366,7 +300,7 @@ Figure A.8: RStudio &lt;3
 <ol style="list-style-type: decimal">
 <li>El primer panel (esquina inferior izquierda) es la <code>Consola</code>. Aquí es donde se ejecutan las acciones. Prueba escribir <code>2 + 3</code> en él y presiona enter. Aparece el resultado de la suma. Definitivamente, <code>R</code> es la calculadora que más trabajo cuesta instalar.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-149"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
 <img src="images/RStudio4.png" alt="La consola de `R` es la calculadora más difícil de instalar que existe." width="1440" />
 <p class="caption">
 Figure A.9: La consola de <code>R</code> es la calculadora más difícil de instalar que existe.
@@ -375,7 +309,7 @@ Figure A.9: La consola de <code>R</code> es la calculadora más difícil de inst
 <ol start="2" style="list-style-type: decimal">
 <li>El segundo panel (esquina superior izquierda) es el panel con el <code>Script</code>. Aquí se escribe el programa pero no <em>se ejecuta</em>. Prueba escribir <code>10 + 9</code>. ¿Ves que no pasa nada? Lo que acabas de hacer es crear un programa que, cuando se ejecute, hará la suma de <code>10 + 9</code>. ¡Qué programa más aburrido! Sin embargo, no todo está perdido: presiona <code>CTRL+Enter</code> (<code>Cmd+Enter</code> en Mac) al final de la línea o bien da clic en <code>Run</code> y verás que, en la consola, aparece la instrucción y el resultado de la misma. El <code>Script</code> es una excelente fuente para tener un historial de lo que estás haciendo.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-150"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
 <img src="images/RStudio5.png" alt="El `Script` sirve para salvar las instrucciones en el orden en que las vas a ejecutar." width="1440" />
 <p class="caption">
 Figure A.10: El <code>Script</code> sirve para salvar las instrucciones en el orden en que las vas a ejecutar.
@@ -384,7 +318,7 @@ Figure A.10: El <code>Script</code> sirve para salvar las instrucciones en el or
 <ol start="3" style="list-style-type: decimal">
 <li>El tercer panel contiene el ambiente. Aquí aparecerán las variables que vayamos creando. Por ahora, para poner un ejemplo, importaremos el archivo <code>Example1.csv</code> (con valores simulados) <a href="https://github.com/RodrigoZepeda/LibroEstadistica/tree/master/datasets">disponible en Github</a> dando clic en <code>Import Dataset</code> y <code>From Text (base)</code>. Selecciona el archivo y elige las opciones en la ventana de previsualización que hagan que se vea bien. Nota que una vez realizada la importación aparece en el panel derecho <code>Example1.</code> Al dar clic podrás ver la base de datos. Las bases de datos y variables que utilices durante tus análisis aparecerán en esa sección.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-152"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
 <img src="images/RStudio6.png" alt="El `Ambiente` muestra las variables (incluyendo bases de datos) que estás utilizando en este momento. A diferencia de otros programas estadísticos (o sea `Stata`) en `R` es posible tener múltiples bases de datos abiertas a la vez." width="1440" />
 <p class="caption">
 Figure A.11: El <code>Ambiente</code> muestra las variables (incluyendo bases de datos) que estás utilizando en este momento. A diferencia de otros programas estadísticos (o sea <code>Stata</code>) en <code>R</code> es posible tener múltiples bases de datos abiertas a la vez.
@@ -393,13 +327,13 @@ Figure A.11: El <code>Ambiente</code> muestra las variables (incluyendo bases de
 <ol start="4" style="list-style-type: decimal">
 <li>Para entender mejor lo que ocurre en el último de los páneles, lo mejor es trabajar con nuestra base. Escribe en la consola <code>plot(Example1)</code> . En el cuarto pánel aparecerá una gráfica. El cuarto de los páneles para nosotros tendrá esa utilidad: mostrará las gráficas que hagamos así como la ayuda. Para ver la ayuda para las instrucciones de <code>R</code> puedes escribir <code>?</code>. Prueba teclear <code>?plot</code> en la consola. El signo de interrogación es un <code>help()</code> que muestra las instrucciones para usar una función.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-153"></span>
-<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-153-1.png" alt="La gráfica que aparece de hacer un `plot` de la base de datos de ejemplo." width="384" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
+<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-15-1.png" alt="La gráfica que aparece de hacer un `plot` de la base de datos de ejemplo." width="384" />
 <p class="caption">
 Figure A.12: La gráfica que aparece de hacer un <code>plot</code> de la base de datos de ejemplo.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-154"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
 <img src="images/RStudio7.png" alt="El cuarto panel muestra respectivamente las gráficas y la ayuda." width="1440" />
 <p class="caption">
 Figure A.13: El cuarto panel muestra respectivamente las gráficas y la ayuda.
@@ -417,7 +351,7 @@ Figure A.13: El cuarto panel muestra respectivamente las gráficas y la ayuda.
 <h2><span class="header-section-number">A.6</span> Cálculos numéricos</h2>
 <p><code>R</code> sirve como calculadora para las operaciones usuales. En él puedes hacer sumas,</p>
 <p>[1] 43</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-160"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
 <img src="images/ada_lovelace.jpg" alt="Ada Lovelace (1815-1852), la primera en diseñar un algoritmo computacional ¡y sin tener computadoras!" width="512" />
 <p class="caption">
 Figure A.14: Ada Lovelace (1815-1852), la primera en diseñar un algoritmo computacional ¡y sin tener computadoras!
@@ -431,7 +365,7 @@ Figure A.14: Ada Lovelace (1815-1852), la primera en diseñar un algoritmo compu
 [1] 2</p>
 <p>sacar logaritmos naturales <span class="math inline">\(\ln\)</span>,
 [1] 4.60517</p>
-<p>o bien logaritmos en cualquier base,<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>
+<p>o bien logaritmos en cualquier base,<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>
 [1] 2</p>
 <p>también puedes elevar a una potencia (por ejemplo hacer <span class="math inline">\(6^3\)</span>),
 [1] 216</p>
@@ -472,9 +406,9 @@ Perímetro = 31.4159265358979</p>
 <h2><span class="header-section-number">A.7</span> Variables</h2>
 <p><code>R</code> es un programa orientado a objetos; esto quiere decir que <code>R</code> almacena la información en un conjunto de variables que pueden tener diferentes <code>clases</code> y opera con ellos según su clase. Por ejemplo, un conjunto de caracteres, entre comillas, es un <code>Character</code> (<code>R</code> lo piensa como texto)</p>
 <p>[1] “Hola”</p>
-<p>Un número (por ejemplo <code>2</code> tiene clase <code>numeric</code>)<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>. Hay que tener mucho cuidado con combinar floats con <code>Strings</code>:</p>
+<p>Un número (por ejemplo <code>2</code> tiene clase <code>numeric</code>)<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>. Hay que tener mucho cuidado con combinar floats con <code>Strings</code>:</p>
 <p>[1] 6</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-176"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-38"></span>
 <img src="images/algorithm_lovelace.jpg" alt="El algoritmo diseñado por Ada Lovelace." width="960" />
 <p class="caption">
 Figure A.15: El algoritmo diseñado por Ada Lovelace.
@@ -527,7 +461,7 @@ Figure A.15: El algoritmo diseñado por Ada Lovelace.
 [1] 0.3
 [1] 0.3</p>
 <p>Aparentemente no hay nada malo ¿qué rayos le pasa a <code>R</code>? La respuesta está <a href="https://www.youtube.com/watch?v=PZRI1IfStY0">en la aritmética de punto flotante</a>. Podemos pedirle a <code>R</code> que nos muestre los primeros 100 dígitos de la suma <code>0.1 + 0.1 + 0.1</code>:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-196"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-58"></span>
 <img src="images/Z3_Deutsches_Museum.jpeg" alt="Réplica de la Z3, la primer computadora con punto flotante (1941)." width="800" />
 <p class="caption">
 Figure A.16: Réplica de la Z3, la primer computadora con punto flotante (1941).
@@ -554,7 +488,7 @@ Figure A.16: Réplica de la Z3, la primer computadora con punto flotante (1941).
 <span class="math display">\[
 |4| = 4 \qquad \textrm{y} \qquad |-8| = 8
 \]</span></p>
-<p>Para verificar que algo es más o menos <span class="math inline">\(0.3\)</span> suele usarse el valor absoluto<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> de la siguiente manera:
+<p>Para verificar que algo es más o menos <span class="math inline">\(0.3\)</span> suele usarse el valor absoluto<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> de la siguiente manera:
 [1] TRUE</p>
 <p>donde <code>1.e-6</code> es notación corta para 0.000001 (también escrito como <span class="math inline">\(1\times 10^{-6}\)</span>). La pregunta que nos estamos haciendo es que si el error entre sumar <span class="math inline">\(0.1+0.1+0.1\)</span> y <span class="math inline">\(0.3\)</span> es muy pequeño <span class="math inline">\(&lt; 0.000001\)</span>:
 <span class="math display">\[
@@ -564,7 +498,7 @@ Figure A.16: Réplica de la Z3, la primer computadora con punto flotante (1941).
 </div>
 <div id="leer-y-almacenar-variables-en-r" class="section level2">
 <h2><span class="header-section-number">A.9</span> Leer y almacenar variables en <code>R</code></h2>
-<p>Para terminar esta sección, aprenderemos cómo guardar variables en <code>R</code>. Para eso, el concepto de directorio es uno de los más relevantes. En general, en computación, <a href="https://en.wikipedia.org/wiki/Working_directory">el directorio</a> se refiere a la dirección en tu computadora donde estás trabajando. Por ejemplo, si estás en una carpeta en tu escritorio de nombre “Ejercicios_R” probablemente tu directorio sea ‘~/Desktop/Ejercicios_R/’ (en Mac) o bien ‘~\Desktop\Ejercicios_R\’ en Windows<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. La forma de saber tu directorio (en general) es ir a la carpeta que te interesa y con clic derecho ver propiedades (o escribir <code>ls</code> en la terminal <code>Unix</code>).</p>
+<p>Para terminar esta sección, aprenderemos cómo guardar variables en <code>R</code>. Para eso, el concepto de directorio es uno de los más relevantes. En general, en computación, <a href="https://en.wikipedia.org/wiki/Working_directory">el directorio</a> se refiere a la dirección en tu computadora donde estás trabajando. Por ejemplo, si estás en una carpeta en tu escritorio de nombre “Ejercicios_R” probablemente tu directorio sea ‘~/Desktop/Ejercicios_R/’ (en Mac) o bien ‘~\Desktop\Ejercicios_R\’ en Windows<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>. La forma de saber tu directorio (en general) es ir a la carpeta que te interesa y con clic derecho ver propiedades (o escribir <code>ls</code> en la terminal <code>Unix</code>).</p>
 <p><code>R</code> tiene un directorio <code>default</code> que quién sabe dónde está (depende de tu instalación, generalmente está donde tu <code>Usuario</code>). Usualmente lo mejor es elegir un directorio para cada uno de los proyectos que hagas. Para ello si estás en <code>RStudio</code> puedes utilizar <code>Shift+Ctrl+H</code> (<code>Shift+Cmd+H</code> en Mac) o bien ir a <code>Session &gt; Set Working Directory &gt; Choose Directory</code> y elegir el directorio donde deseas trabajar tu proyecto. Pensando que elegiste el escritorio (<code>Desktop</code> en mi computadora) notarás que en la consola aparece el comando <code>setwd("~/Desktop")</code> (o bien con ‘\’ si eres Windows). Mi sugerencia es que copies ese comando en tu <code>Script</code> para que, la próxima vez que lo corras ya tengas preestablecido el directorio.</p>
 <p>Podemos verificar el directorio elegido con <code>getwd()</code>:</p>
 <blockquote>
@@ -572,26 +506,7 @@ Figure A.16: Réplica de la Z3, la primer computadora con punto flotante (1941).
 </blockquote>
 <p>Probemos guardar unas variables en un archivo dentro de nuestro directorio. Para ello utilizaremos el comando <code>save</code>.</p>
 <p>Si vas a tu directorio, notarás que el archivo <code>MisVariables.rda</code> acaba de ser creado. De esta forma <code>R</code> puede almacenar objetos creados en <code>R</code> que sólo <code>R</code> puede leer (más adelante veremos cómo exportar bases de datos y gráficas). Observa que en tu ambiente (si estás en <code>RStudio</code> puedes verlas en el panel 3) deben aparecer las variables que hemos usado hasta ahora:</p>
-<p>[1] “maximo” “minimo” “nsim”<br />
-[4] “desv.est” “datos.arbol” “p.gorro”<br />
-[7] “datos.linea” “outliers” “valores_simulados”
-[10] “datos.barras” “F_simulado” “numerador”<br />
-[13] “conteo_delitos” “p.val” “denominador”<br />
-[16] “mis.datos” “calidad_alimentos” “i”<br />
-[19] “tiros” “modelo.lineal” “rr_neg”<br />
-[22] “n_muestra” “cuartil1” “rango_alimentos”<br />
-[25] “datos.coches” “cuartil3” “datos_a_predecir”
-[28] “razon.momios” “conteo.dia” “F_empirica”<br />
-[31] “conteo_tipo” “jesimo.dato” “densidad_kernel”<br />
-[34] “mtcars” “x” “y”<br />
-[37] “z” “x.barra” “rango_servicio”<br />
-[40] “elevar.cuadrado” “iqr” “n.longitud”<br />
-[43] “moda” “plano” “soles”<br />
-[46] “datos” “calidad_servicio” “dats”<br />
-[49] “datos_restaurante” “vector.ejemplo.1” “vector.ejemplo.2”
-[52] “experimento” “fumadores” “Example1”<br />
-[55] “lim.inf” “Fgorro” “rr”<br />
-[58] “calif” “lim.sup”</p>
+<p>[1] “x” “y” “z” “Example1”</p>
 <p>Podemos probar sumar nuestras variables y todo funciona súper:
 [1] 300</p>
 <p>Limpiemos el ambiente. El comando equivalente al <code>clear all</code> en <code>R</code> es un poco más complicado de memorizar:</p>
@@ -620,7 +535,7 @@ Figure A.16: Réplica de la Z3, la primer computadora con punto flotante (1941).
 </div>
 <div id="instalación-de-paquetes" class="section level2">
 <h2><span class="header-section-number">A.10</span> Instalación de paquetes</h2>
-<p>Un paquete de <code>R</code> es un conjunto de funciones adicionales elaboradas por los usuarios, las cuales permiten hacer cosas adicionales en <code>R</code>. Para instalarlos requieres de una conexión a Internet (o bien puedes instalarlos a partir de un archivo, por ejemplo, mediante una <code>USB</code>). El comando de instalación es <code>install.packages</code> seguido del nombre del paquete. Por ejemplo (y por ocio) descarguemos el paquete <code>beepr</code> para hacer reproducir sonidos en la computadora<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>. Para ello:</p>
+<p>Un paquete de <code>R</code> es un conjunto de funciones adicionales elaboradas por los usuarios, las cuales permiten hacer cosas adicionales en <code>R</code>. Para instalarlos requieres de una conexión a Internet (o bien puedes instalarlos a partir de un archivo, por ejemplo, mediante una <code>USB</code>). El comando de instalación es <code>install.packages</code> seguido del nombre del paquete. Por ejemplo (y por ocio) descarguemos el paquete <code>beepr</code> para hacer reproducir sonidos en la computadora<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. Para ello:</p>
 <pre><code>[...]
 * DONE (beepr)
 
@@ -636,13 +551,13 @@ The downloaded source packages are in
 <li>Instala los paquetes <code>tidyverse</code> en <code>R</code>.</li>
 <li>De <code>tidyverse</code> haz lo necesario para que el siguiente bloque de código te arroje una gráfica:</li>
 </ol>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-219-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-81-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p><strong>NIVEL 3</strong></p>
 <ol style="list-style-type: decimal">
 <li>Instala el paquete <code>devtools</code> (para hacerlo probablemente necesites instalar más cosas en tu computadora; averigua cuáles)</li>
 <li>Usa <code>devtools</code> para instalar el paquete <a href="https://github.com/dill/emoGG"><code>emoGG</code></a> desde Github.</li>
 <li>Verifica que tu instalación fue correcta haciendo la siguiente gráfica:
-<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-220-1.png" width="384" style="display: block; margin: auto;" /></li>
+<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-82-1.png" width="384" style="display: block; margin: auto;" /></li>
 </ol>
 </div>
 </div>
@@ -657,7 +572,7 @@ The downloaded source packages are in
 <li><p>No utilices un nombre demasiado similar para cosas diferentes.</p></li>
 <li><p>Comenta:</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-226"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-88"></span>
 <img src="images/tweet1.jpg" alt="Trad: Un periodista se acerca a un programador a preguntarle ¿qué hace que un código sea malo? -Sin comentarios." width="360" />
 <p class="caption">
 Figure A.17: Trad: Un periodista se acerca a un programador a preguntarle ¿qué hace que un código sea malo? -Sin comentarios.
@@ -668,7 +583,7 @@ Figure A.17: Trad: Un periodista se acerca a un programador a preguntarle ¿qué
 </ol>
 <p>Código limpio y legible:</p>
 <p>es siempre preferible a código escrito <em>con prisas</em> :</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-228"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-90"></span>
 <img src="images/Grandma-Finds-The-Internet.jpg" alt="Yo, leyendo mi código no comentado y con mala edición 6 meses después de haberlo hecho." width="320" />
 <p class="caption">
 Figure A.18: Yo, leyendo mi código no comentado y con mala edición 6 meses después de haberlo hecho.
@@ -679,19 +594,19 @@ Figure A.18: Yo, leyendo mi código no comentado y con mala edición 6 meses des
 </div>
 <div class="footnotes">
 <hr />
-<ol start="2">
-<li id="fn2"><p>Modelos de simulación más avanzados suelen hacerse en <code>C</code>, <code>C++</code> o <code>Fortran</code> por su velocidad; empero, es necesario conocer más de programación.<a href="programación-en-r.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>La práctica hace al maestro<a href="programación-en-r.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>De ahí que se llame <code>R</code> porque la <code>R</code> es una mejor letra que la <code>S</code> (todos lo sabemos)
--Atte. Rodrigo, el autor de este documento.<a href="programación-en-r.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>Mejor conocidos ahora como AT&amp;T, la compañía celular que nunca tiene señal.<a href="programación-en-r.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>Sus nombres empiezan con la letra <code>R</code> ¿coincidencia?<a href="programación-en-r.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>Si decidiste no instalar RStudio salta al final de esta sección.<a href="programación-en-r.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>Recuerda que un logaritmo base <span class="math inline">\(a\)</span> te dice a qué potencia <span class="math inline">\(b\)</span> tuve que elevar <span class="math inline">\(a\)</span> para llegar a <span class="math inline">\(b\)</span>. Por ejemplo <span class="math inline">\(\log_{10}(100) = 2\)</span> te dice que para llegar al <span class="math inline">\(100\)</span> tuviste que hacer <span class="math inline">\(10^2\)</span>.<a href="programación-en-r.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>Puede ser <code>float</code>, <code>int</code>, <code>double</code> pero no nos preocuparemos por eso.<a href="programación-en-r.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>En <code>R</code> el comando <code>abs</code> toma el valor absoluto.<a href="programación-en-r.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>Windows usa backslash. Y hay <a href="https://www.howtogeek.com/181774/why-windows-uses-backslashes-and-everything-else-uses-forward-slashes/">toda una historia detrás de ello</a><a href="programación-en-r.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>En los siguientes capítulos descargaremos paquetes más interesantes; pero no desprecies la utilidad de <code>beepr</code> yo lo he usado en múltiples ocasiones para que la computadora me avise que ya terminó de correr un código.<a href="programación-en-r.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<ol start="1">
+<li id="fn1"><p>Modelos de simulación más avanzados suelen hacerse en <code>C</code>, <code>C++</code> o <code>Fortran</code> por su velocidad; empero, es necesario conocer más de programación.<a href="programación-en-r.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>La práctica hace al maestro<a href="programación-en-r.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>De ahí que se llame <code>R</code> porque la <code>R</code> es una mejor letra que la <code>S</code> (todos lo sabemos)
+-Atte. Rodrigo, el autor de este documento.<a href="programación-en-r.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Mejor conocidos ahora como AT&amp;T, la compañía celular que nunca tiene señal.<a href="programación-en-r.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Sus nombres empiezan con la letra <code>R</code> ¿coincidencia?<a href="programación-en-r.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Si decidiste no instalar RStudio salta al final de esta sección.<a href="programación-en-r.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Recuerda que un logaritmo base <span class="math inline">\(a\)</span> te dice a qué potencia <span class="math inline">\(b\)</span> tuve que elevar <span class="math inline">\(a\)</span> para llegar a <span class="math inline">\(b\)</span>. Por ejemplo <span class="math inline">\(\log_{10}(100) = 2\)</span> te dice que para llegar al <span class="math inline">\(100\)</span> tuviste que hacer <span class="math inline">\(10^2\)</span>.<a href="programación-en-r.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Puede ser <code>float</code>, <code>int</code>, <code>double</code> pero no nos preocuparemos por eso.<a href="programación-en-r.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>En <code>R</code> el comando <code>abs</code> toma el valor absoluto.<a href="programación-en-r.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Windows usa backslash. Y hay <a href="https://www.howtogeek.com/181774/why-windows-uses-backslashes-and-everything-else-uses-forward-slashes/">toda una historia detrás de ello</a><a href="programación-en-r.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>En los siguientes capítulos descargaremos paquetes más interesantes; pero no desprecies la utilidad de <code>beepr</code> yo lo he usado en múltiples ocasiones para que la computadora me avise que ya terminó de correr un código.<a href="programación-en-r.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
