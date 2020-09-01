@@ -1,6 +1,6 @@
 # Análisis Exploratorio de Datos
 
-```{r setup, include=FALSE, message = FALSE}
+```{r, include=FALSE, message = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(latex2exp)
 library(kableExtra)
@@ -184,7 +184,7 @@ y que:
 $$
 \bar{\theta} = \text{atan2}(\bar{s}/\bar{c}) = \begin{cases}
 \text{atan}(\bar{s}/\bar{c}) & \text{ si } \bar{c} \geq 0\\
-\text{atan}(\bar{s}/\bar{c}) + \pi & \text{ si } \bar{c} > 0\\
+\text{atan}(\bar{s}/\bar{c}) + \pi & \text{ si } \bar{c} < 0\\
 \end{cases}
 $$
 donde el caso $\bar{c} = 0$ se interpreta como el límite por la derecha (respectivamente por la izquierda) de la arcotangente de acuerdo con el signo de $\bar{s}$. 
@@ -292,7 +292,7 @@ ggplot() +
 
 Las siguientes dos definiciones son con base en conceptos de proba. ¿Los recuerdas?
 
-**5. Coeficiente de asimetría** Dado un vector de datos numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ definimos el coeficiente de asimetría de Pearson (_skewness_) como:
+**5. Coeficiente de asimetría** Dado un vector de datos numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ definimos el coeficiente de asimetría de Fisher (_skewness_) como:
 $$
 \text{Skewness}_{\vec{x}} = \frac{1}{n \sigma^3_{\vec{x}} } \sum\limits_{i = 1}^{n} (x_i - \bar{x})^3
 $$

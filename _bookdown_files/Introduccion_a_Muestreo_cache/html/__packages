@@ -21,3 +21,7 @@ moments
 lubridate
 ggcorrplot
 ks
+ggforce
+knitr
+reshape2
+data.tree
