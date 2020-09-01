@@ -242,15 +242,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Dado un conjunto <span class="math inline">\(A\)</span> definimos la función indicadora de <span class="math inline">\(A\)</span> como sigue:
 <span class="math display">\[
 \mathbb{I}_A (x)= \begin{cases}
-1 &amp; \text{ si } x \in A\
+1 &amp; \text{ si } x \in A \\
 0 &amp; \text{ si } x \not\in A
 \end{cases}
 \]</span></p>
 <p>La función indicadora cumple las siguientes propiedades:</p>
-<p>Sean <span class="math inline">\(A,B\)</span> conjuntos; luego:
-1. <span class="math inline">\(\mathbb{I}_{A \cap B}(x) = \mathbb{I}_{A}(x) \cdot \mathbb{I}_{B}(x)\)</span>
-2. <span class="math inline">\(\mathbb{I}_{A \cup B}(x) = \mathbb{I}_{A}(x) + \mathbb{I}_{B}(x) - \mathbb{I}_{A}(x) \cdot \mathbb{I}_{B}(x)\)</span>
-3. <span class="math inline">\(\mathbb{E}_X[\mathbb{I}_A(X)] = \mathbb{P}(X\in A)\)</span></p>
+<p>Sean <span class="math inline">\(A,B\)</span> conjuntos; luego:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\mathbb{I}_{A \cap B}(x) = \mathbb{I}_{A}(x) \cdot \mathbb{I}_{B}(x)\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{I}_{A \cup B}(x) = \mathbb{I}_{A}(x) + \mathbb{I}_{B}(x) - \mathbb{I}_{A}(x) \cdot \mathbb{I}_{B}(x)\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{E}_X[\mathbb{I}_A(X)] = \mathbb{P}(X\in A)\)</span></p></li>
+</ol>
 <p><em>Demostración</em>:
 1. Si <span class="math inline">\(x\in A \cap B\)</span> pasa que <span class="math inline">\(\mathbb{I}_{A \cap B}(x) = 1\)</span>; además, por hipótesis <span class="math inline">\(x\in A\)</span> y <span class="math inline">\(x \in B\)</span> lo que implica que <span class="math inline">\(\mathbb{I}_{A}(x) = 1\)</span> y <span class="math inline">\(\mathbb{I}_{B}(x) = 1\)</span>; en caso contrario <span class="math inline">\(\mathbb{I}_{A \cap B}(x) = 1\)</span> y como no está en el conjunto al menos uno <span class="math inline">\(\mathbb{I}_{A}(x)\)</span> ó <span class="math inline">\(\mathbb{I}_{B}(x)\)</span> es cero. Esto concluye la prueba.
 2. Demostración es similar

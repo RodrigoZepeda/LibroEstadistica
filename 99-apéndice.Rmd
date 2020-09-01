@@ -989,7 +989,7 @@ Siempre escribe tu código pensando que alguien más ([y ese alguien más puedes
 Dado un conjunto $A$ definimos la función indicadora de $A$ como sigue:
 $$
 \mathbb{I}_A (x)= \begin{cases}
-1 & \text{ si } x \in A\
+1 & \text{ si } x \in A \\
 0 & \text{ si } x \not\in A
 \end{cases}
 $$
@@ -997,8 +997,11 @@ $$
 La función indicadora cumple las siguientes propiedades:
 
 Sean $A,B$ conjuntos; luego:
+
 1. $\mathbb{I}_{A \cap B}(x) =  \mathbb{I}_{A}(x) \cdot \mathbb{I}_{B}(x)$
+
 2. $\mathbb{I}_{A \cup B}(x) =   \mathbb{I}_{A}(x) +  \mathbb{I}_{B}(x) - \mathbb{I}_{A}(x) \cdot \mathbb{I}_{B}(x)$
+
 3. $\mathbb{E}_X[\mathbb{I}_A(X)] = \mathbb{P}(X\in A)$
 
 _Demostración_:
