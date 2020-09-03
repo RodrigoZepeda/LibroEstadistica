@@ -1617,6 +1617,25 @@ ggplot(datos.coches) +
 1. Generaliza el proceso de estimación para cuando se tiene un polinomio $y = \beta_0 + \beta_1 x + \beta_2 x^2$
 2. Utiliza los datos confirmados de COVID-19 a nivel nacional (sólo los confirmados) disponibles en [este link](https://datos.gob.mx/busca/dataset/informacion-referente-a-casos-covid-19-en-mexico). Ajusta un modelo cuadrático (en el `lm` la fórmula ahora es del estilo de `y ~ poly(x,2)` ) y predice cuántos casos confirmados habrá el 29 de junio. Grafica tu ajuste así como tu predicción en la misma gráfica. 
 
+
+**9. Ajuste general**
+Podemos generalizar el ajuste de mínimos cuadrados planteando el modelo $y = f(x, \vec{\beta})$ donde $x$ puede ser una matriz y $\vec{\beta}$ es un vector de parámetros. Supondremos que $f$ es diferenciable en $\vec{\beta}$.
+
+Como ejemplo, en el caso del ajuste lineal:
+$$
+y = f(x, \vec{\beta}) = \beta_0 + \beta_1 x \qquad \text{con} \qquad \vec{\beta}= (\beta_0,\beta_1)^T.
+$$
+o bien podríamos pensar en un ajuste polinomial:
+$$
+y = f(x, \vec{\beta}) = \sum\limits_{i = 0}^n \beta_i x^i \qquad \text{con} \qquad \vec{\beta}= (\beta_0,\beta_1, \dots, \beta_n)^T.
+$$
+No tiene que ser un polinomio, $f$ puede ser lo que ella quiera ser siempre y cuando sea diferenciable en los parámetros:
+$$
+y = f(x, \vec{\beta}) = \Bigg[\cos(\beta_0 + x) + \int\limits_{0}^{\beta_1 x} e^{-t^2} dx \Bigg] \cdot \beta_2 \ln(x) \qquad \text{con} \qquad \vec{\beta}= (\beta_0,\beta_1, \beta_3)^T.
+$$
+
+
+
 <!--**8. Ajuste polinomial local**
 PRÓXIMAMENTE
 **9. Ajuste LOWESS**

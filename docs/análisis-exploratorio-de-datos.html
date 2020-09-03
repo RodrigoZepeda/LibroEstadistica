@@ -24,7 +24,7 @@
 <meta name="author" content="Rodrigo Zepeda-Tello" />
 
 
-<meta name="date" content="2020-09-01" />
+<meta name="date" content="2020-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1471,6 +1471,20 @@ por lo cual:
 <li>Generaliza el proceso de estimación para cuando se tiene un polinomio <span class="math inline">\(y = \beta_0 + \beta_1 x + \beta_2 x^2\)</span></li>
 <li>Utiliza los datos confirmados de COVID-19 a nivel nacional (sólo los confirmados) disponibles en <a href="https://datos.gob.mx/busca/dataset/informacion-referente-a-casos-covid-19-en-mexico">este link</a>. Ajusta un modelo cuadrático (en el <code>lm</code> la fórmula ahora es del estilo de <code>y ~ poly(x,2)</code> ) y predice cuántos casos confirmados habrá el 29 de junio. Grafica tu ajuste así como tu predicción en la misma gráfica.</li>
 </ol>
+<p><strong>9. Ajuste general</strong>
+Podemos generalizar el ajuste de mínimos cuadrados planteando el modelo <span class="math inline">\(y = f(x, \vec{\beta})\)</span> donde <span class="math inline">\(x\)</span> puede ser una matriz y <span class="math inline">\(\vec{\beta}\)</span> es un vector de parámetros. Supondremos que <span class="math inline">\(f\)</span> es diferenciable en <span class="math inline">\(\vec{\beta}\)</span>.</p>
+<p>Como ejemplo, en el caso del ajuste lineal:
+<span class="math display">\[
+y = f(x, \vec{\beta}) = \beta_0 + \beta_1 x \qquad \text{con} \qquad \vec{\beta}= (\beta_0,\beta_1)^T.
+\]</span>
+o bien podríamos pensar en un ajuste polinomial:
+<span class="math display">\[
+y = f(x, \vec{\beta}) = \sum\limits_{i = 0}^n \beta_i x^i \qquad \text{con} \qquad \vec{\beta}= (\beta_0,\beta_1, \dots, \beta_n)^T.
+\]</span>
+No tiene que ser un polinomio, <span class="math inline">\(f\)</span> puede ser lo que ella quiera ser siempre y cuando sea diferenciable en los parámetros:
+<span class="math display">\[
+y = f(x, \vec{\beta}) = \Bigg[\cos(\beta_0 + x) + \int\limits_{0}^{\beta_1 x} e^{-t^2} dx \Bigg] \cdot \beta_2 \ln(x) \qquad \text{con} \qquad \vec{\beta}= (\beta_0,\beta_1, \beta_3)^T.
+\]</span></p>
 <!--**8. Ajuste polinomial local**
 PRÓXIMAMENTE
 **9. Ajuste LOWESS**
