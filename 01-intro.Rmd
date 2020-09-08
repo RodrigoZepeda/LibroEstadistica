@@ -386,7 +386,7 @@ median(conteo_delitos$n)
 
 **8. Cuantil** Dado un vector de valores numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ el $\alpha$-ésimo cuantil está dado por:
 $$
-\text{Cuantil}_{\vec{x}}(\alpha) = \dfrac{x_{x_{(\lfloor \alpha\cdot (n+1) \rfloor)}} + x_{(\lceil \alpha\cdot (n+1)\rceil)}}{2} 
+\text{Cuantil}_{\vec{x}}(\alpha) = \dfrac{x_{(\lfloor \alpha\cdot (n+1) \rfloor)} + x_{(\lceil \alpha\cdot (n+1)\rceil)}}{2} 
 $$
 donde $x_{(0)} = x_{(n+1)} = 0$. `R` no calcula los cuantiles de manera exacta sino que por velocidad los aproxima mediante la función `quantile`. Por ejemplo en el cálculo de los cuantiles $\alpha = 0.1$ y $\alpha = 0.66$:
 

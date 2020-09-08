@@ -1817,5 +1817,84 @@ A rellenarse pronto
 A rellenarse pronto
 
 
+### Programación en `R` del teorema del límite central con variables aleatorias independientes idénticamente distribuidas
 
+Lo que programaremos (por facilidad) en esta sección corresponde a ejemplos del teorema de proba 2: dadas variables aleatorias independientes idénticamente $\{X_i\}$ distribuidas con media $\mu$ y varianza finita $\sigma^2$ tenemos que:
+
+$$
+Z =\lim_{n \to \infty} \sqrt{\dfrac{n}{\sigma^2}} \cdot  \Big( \frac{1}{n}\sum_{i = 1}^n X_i - \mu\Big) \sim \textrm{Normal}(0,1)
+$$
+donde el símbolo $\sim$ se lee "se distribuye". En este caso la interpretación va a ser que para $n$ muy grande tendremos que 
+$$
+\sqrt{\dfrac{n}{\sigma^2}} \cdot  \Big( \frac{1}{n}\sum_{i = 1}^n X_i - \mu\Big) \mathrel{\dot\sim} \textrm{Normal}(0,1)
+$$
+
+donde $\mathrel{\dot\sim}$ se lee como "se distribuye aproximadamente". Programaremos una función en `R` que para $n$ grande muestre eso:
+
+```{r}
+TeoremaCentralLimite <- function(numero_simulaciones = 1000, 
+                                 n = c(10,100,1000,10000), 
+                                 distribucion = rpois, mu = 1, sigma = 1, 
+                                 bins = 50, 
+                                 ncol = 2, distname = "Poisson(1)", 
+                                 rcolor = sample(rainbow(100),1), ...){
+  #Creamos
+  plot_list <- list()
+  
+  for (k in n){
+    
+    #Guardamos las Zi en un vector
+    Z <- rep(NA, numero_simulaciones)
+    
+    #Simulamos todas las simulaciones
+    for (i in 1:numero_simulaciones){
+      simulaciones_X <- distribucion(n = k, ...)
+      Z[i]         <- sqrt(k)*(sum(simulaciones_X/k) - mu)
+    }
+    
+    #Graficación
+    x <- seq(min(Z)-1, max(Z) + 1, length.out = 1000)
+    y <- dnorm(x, sd = sigma)
+    plot_list <- list.append(
+      plot_list, 
+      ggplot() + 
+      geom_histogram(aes(x = Z, y = ..density..), bins = bins, fill = rcolor, 
+                     data = data.frame(Z = Z)) +
+      geom_line(aes_string(x = x, y = y), color = "black", data = data.frame(x = x, y = y)) +
+      ggtitle(paste0("Simulaciones con ", distname,"\nn = ", k)) +
+      xlab("Z") + ylab("Densidad de Z") +
+      theme_bw()
+    )
+  }
+  do.call("grid.arrange", c(plot_list, ncol = ncol))
+}
+```
+
+donde podemos ver la aproximación normal si tomamos, por ejemplo, las $X_i$ siguen una distribución Gamma:
+
+```{r}
+TeoremaCentralLimite(distribucion = rgamma, mu = 1, sigma = 0.5, shape = 2, 
+                     scale = 0.5, distname = "Gama(2,1/2)")
+```
+La binomial se ve así:
+```{r}
+TeoremaCentralLimite(distribucion = rbinom, mu = 4.5, sigma = 2.475, size = 10, 
+                     prob = 0.45, distname = "Binomial(10,0.45)")
+```
+
+Poisson:
+```{r}
+TeoremaCentralLimite(lambda = 1, distname = "Poisson(1)")
+```
+
+E inclusive uniformes:
+```{r}
+TeoremaCentralLimite(distribucion = runif, mu = 1/2, sigma = 1/12, 
+                     distname = "Uniforme(0,1)")
+```
+
+Experimenta con otras distribuciones ¿puedes encontrar alguna para la que no funcione?
+
+### Ejercicio
+Repite la programación del teorema del límite central pero ahora tomando las $X_k$ con distintas distribuciones siempre y cuando $X_k$ tenga media $\mu_k$ finita y las variables aleatorias satisfagan la [condición de Lindberg](https://en.wikipedia.org/wiki/Lindeberg%27s_condition) (una forma de hacerlo es teniendo varianzas finitas que no incrementan con la $k$). 
 

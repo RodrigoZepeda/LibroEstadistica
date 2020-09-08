@@ -25,3 +25,6 @@ ggforce
 knitr
 reshape2
 data.tree
+magrittr
+imager
+rlist

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 5 Ejercicios | Estadística I: Análisis exploratorio de datos y muestreo</title>
+  <meta name="description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 5 Ejercicios | Estadística I: Análisis exploratorio de datos y muestreo" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 5 Ejercicios | Estadística I: Análisis exploratorio de datos y muestreo" />
+  
+  <meta name="twitter:description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
+  
+
+<meta name="author" content="Rodrigo Zepeda-Tello" />
+
+
+<meta name="date" content="2020-09-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="muestreo-aleatorio-simple-ponderado-masp.html"/>
+<link rel="next" href="referencias.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Historia y conceptos</a></li>
+<li class="chapter" data-level="2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>2</b> Análisis Exploratorio de Datos</a><ul>
+<li class="chapter" data-level="2.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#inicio"><i class="fa fa-check"></i><b>2.1</b> Inicio</a></li>
+<li class="chapter" data-level="2.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#librerías"><i class="fa fa-check"></i><b>2.2</b> Librerías</a></li>
+<li class="chapter" data-level="2.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#base-a-analizar"><i class="fa fa-check"></i><b>2.3</b> Base a analizar</a></li>
+<li class="chapter" data-level="2.4" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#definiciones-y-notación"><i class="fa fa-check"></i><b>2.4</b> Definiciones y notación</a></li>
+<li class="chapter" data-level="2.5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-univariados"><i class="fa fa-check"></i><b>2.5</b> Estadísticos univariados</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#definición-estadístico"><i class="fa fa-check"></i><b>2.5.1</b> Definición [Estadístico]</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio"><i class="fa fa-check"></i><b>2.6</b> Ejercicio</a></li>
+<li class="chapter" data-level="2.7" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>2.7</b> Ejercicios</a></li>
+<li class="chapter" data-level="2.8" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-univariadas"><i class="fa fa-check"></i><b>2.8</b> Gráficas univariadas</a></li>
+<li class="chapter" data-level="2.9" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-bivariadas"><i class="fa fa-check"></i><b>2.9</b> Gráficas bivariadas</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-1"><i class="fa fa-check"></i><b>2.9.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-bivariados"><i class="fa fa-check"></i><b>2.10</b> Estadísticos bivariados</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-2"><i class="fa fa-check"></i><b>2.10.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-3"><i class="fa fa-check"></i><b>2.11</b> Ejercicio</a></li>
+<li class="chapter" data-level="2.12" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ajuste-funcional"><i class="fa fa-check"></i><b>2.12</b> Ajuste funcional</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-4"><i class="fa fa-check"></i><b>2.12.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="2.12.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-sugerido"><i class="fa fa-check"></i><b>2.12.2</b> Ejercicio sugerido</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios-del-capítulo"><i class="fa fa-check"></i><b>2.13</b> Ejercicios del capítulo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html"><i class="fa fa-check"></i><b>3</b> Muestreo Aleatorio Simple</a><ul>
+<li class="chapter" data-level="3.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#inicio"><i class="fa fa-check"></i><b>3.1</b> Inicio</a></li>
+<li class="chapter" data-level="3.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#librerías"><i class="fa fa-check"></i><b>3.2</b> Librerías</a></li>
+<li class="chapter" data-level="3.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#notación"><i class="fa fa-check"></i><b>3.3</b> Notación</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo"><i class="fa fa-check"></i><b>3.3.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="3.3.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio"><i class="fa fa-check"></i><b>3.3.2</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#definición"><i class="fa fa-check"></i><b>3.4</b> Definición</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-1"><i class="fa fa-check"></i><b>3.4.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#teorema-del-límite-central-aplicación"><i class="fa fa-check"></i><b>3.5</b> Teorema del Límite Central (Aplicación)</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#programación-en-r-del-teorema-del-límite-central-con-variables-aleatorias-independientes-idénticamente-distribuidas"><i class="fa fa-check"></i><b>3.5.1</b> Programación en <code>R</code> del teorema del límite central con variables aleatorias independientes idénticamente distribuidas</a></li>
+<li class="chapter" data-level="3.5.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-2"><i class="fa fa-check"></i><b>3.5.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.5.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#estimación-de-intervalos-de-confianza-para-el-total"><i class="fa fa-check"></i><b>3.5.3</b> Estimación de intervalos de confianza para el total</a></li>
+<li class="chapter" data-level="3.5.4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-con-simulación"><i class="fa fa-check"></i><b>3.5.4</b> Ejemplo con simulación:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-de-una-proporción-bajo-muestreo-aleatorio-simple-sin-reemplazo"><i class="fa fa-check"></i><b>3.6</b> Ejemplo Resumen: Estimación de una proporción bajo muestreo aleatorio simple sin reemplazo</a></li>
+<li class="chapter" data-level="3.7" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-del-total-de-individuos-en-una-fotografía"><i class="fa fa-check"></i><b>3.7</b> Ejemplo Resumen: Estimación del total de individuos en una fotografía</a></li>
+<li class="chapter" data-level="3.8" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-3"><i class="fa fa-check"></i><b>3.8</b> Ejercicio:</a></li>
+<li class="chapter" data-level="3.9" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-de-una-región-crítica"><i class="fa fa-check"></i><b>3.9</b> Ejemplo Resumen: Estimación de una región crítica</a></li>
+<li class="chapter" data-level="3.10" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-del-total-de-una-población"><i class="fa fa-check"></i><b>3.10</b> Ejemplo Resumen: Estimación del total de una población</a></li>
+<li class="chapter" data-level="3.11" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#demostración-del-teorema-del-límite-central-para-muestras-finitas"><i class="fa fa-check"></i><b>3.11</b> Demostración del Teorema del Límite Central para Muestras Finitas</a></li>
+<li class="chapter" data-level="3.12" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-bernoulli-be"><i class="fa fa-check"></i><b>3.12</b> Muestreo Aleatorio Simple Bernoulli (BE)</a><ul>
+<li class="chapter" data-level="3.12.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-4"><i class="fa fa-check"></i><b>3.12.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.12.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-1"><i class="fa fa-check"></i><b>3.12.2</b> Ejemplo</a></li>
+<li class="chapter" data-level="3.12.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#un-mejor-estimador-el-proporcional-al-tamaño"><i class="fa fa-check"></i><b>3.12.3</b> Un mejor estimador: el proporcional al tamaño</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-aduana"><i class="fa fa-check"></i><b>3.13</b> Ejemplo Resumen: Aduana</a></li>
+<li class="chapter" data-level="3.14" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-con-reemplazo-mascr"><i class="fa fa-check"></i><b>3.14</b> Muestreo Aleatorio Simple con Reemplazo (MAS/cR)</a></li>
+<li class="chapter" data-level="3.15" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-proporción-de-trabajadores-enfermos-con-o-sin-reemplazo"><i class="fa fa-check"></i><b>3.15</b> Ejemplo Resumen: Proporción de trabajadores enfermos con o sin reemplazo</a></li>
+<li class="chapter" data-level="3.16" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-captura-recaptura-con-reemplazo"><i class="fa fa-check"></i><b>3.16</b> Ejemplo Resumen: Captura-Recaptura con reemplazo</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="muestreo-aleatorio-simple-ponderado-masp.html"><a href="muestreo-aleatorio-simple-ponderado-masp.html"><i class="fa fa-check"></i><b>4</b> Muestreo Aleatorio Simple Ponderado (MAS/P)</a></li>
+<li class="chapter" data-level="5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>5</b> Ejercicios</a></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="appendix"><span><b>Apéndice</b></span></li>
+<li class="chapter" data-level="A" data-path="programación-en-r.html"><a href="programación-en-r.html"><i class="fa fa-check"></i><b>A</b> Programación en <code>R</code></a><ul>
+<li class="chapter" data-level="A.1" data-path="programación-en-r.html"><a href="programación-en-r.html#algunas-ventajas-de-r-y-cosas-no-tan-padres"><i class="fa fa-check"></i><b>A.1</b> Algunas ventajas de <code>R</code> y cosas no tan padres</a><ul>
+<li class="chapter" data-level="A.1.1" data-path="programación-en-r.html"><a href="programación-en-r.html#puntos-a-favor-de-r"><i class="fa fa-check"></i><b>A.1.1</b> Puntos a favor de <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="programación-en-r.html"><a href="programación-en-r.html#bienvenidx-a-r-taking-off-again-sí-así-se-llama-esta-versión"><i class="fa fa-check"></i><b>A.2</b> Bienvenidx a <code>R</code>, Taking Off Again (sí, así se llama esta versión)</a></li>
+<li class="chapter" data-level="A.3" data-path="programación-en-r.html"><a href="programación-en-r.html#instalando-cosas"><i class="fa fa-check"></i><b>A.3</b> Instalando cosas</a><ul>
+<li class="chapter" data-level="A.3.1" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-r"><i class="fa fa-check"></i><b>A.3.1</b> Instalación de <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-rstudio"><i class="fa fa-check"></i><b>A.4</b> Instalación de <code>RStudio</code></a></li>
+<li class="chapter" data-level="A.5" data-path="programación-en-r.html"><a href="programación-en-r.html#primeros-pasos-en-r-usando-rstudio"><i class="fa fa-check"></i><b>A.5</b> Primeros pasos en <code>R</code> usando <code>RStudio</code></a></li>
+<li class="chapter" data-level="A.6" data-path="programación-en-r.html"><a href="programación-en-r.html#cálculos-numéricos"><i class="fa fa-check"></i><b>A.6</b> Cálculos numéricos</a><ul>
+<li class="chapter" data-level="A.6.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio"><i class="fa fa-check"></i><b>A.6.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="A.6.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-1"><i class="fa fa-check"></i><b>A.6.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="A.6.3" data-path="programación-en-r.html"><a href="programación-en-r.html#respuestas"><i class="fa fa-check"></i><b>A.6.3</b> Respuestas</a></li>
+</ul></li>
+<li class="chapter" data-level="A.7" data-path="programación-en-r.html"><a href="programación-en-r.html#variables"><i class="fa fa-check"></i><b>A.7</b> Variables</a><ul>
+<li class="chapter" data-level="A.7.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>A.7.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="A.7.2" data-path="programación-en-r.html"><a href="programación-en-r.html#nivel-3"><i class="fa fa-check"></i><b>A.7.2</b> NIVEL 3</a></li>
+</ul></li>
+<li class="chapter" data-level="A.8" data-path="programación-en-r.html"><a href="programación-en-r.html#observaciones-sobre-la-aritmética-de-punto-flotante"><i class="fa fa-check"></i><b>A.8</b> Observaciones sobre la aritmética de punto flotante</a><ul>
+<li class="chapter" data-level="A.8.1" data-path="programación-en-r.html"><a href="programación-en-r.html#cómo-checar-un-if"><i class="fa fa-check"></i><b>A.8.1</b> ¿Cómo checar un if?</a></li>
+</ul></li>
+<li class="chapter" data-level="A.9" data-path="programación-en-r.html"><a href="programación-en-r.html#leer-y-almacenar-variables-en-r"><i class="fa fa-check"></i><b>A.9</b> Leer y almacenar variables en <code>R</code></a><ul>
+<li class="chapter" data-level="A.9.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-2"><i class="fa fa-check"></i><b>A.9.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="A.10" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-paquetes"><i class="fa fa-check"></i><b>A.10</b> Instalación de paquetes</a><ul>
+<li class="chapter" data-level="A.10.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicios-1"><i class="fa fa-check"></i><b>A.10.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="A.11" data-path="programación-en-r.html"><a href="programación-en-r.html#comentarios-adicionales-sobre-el-formato"><i class="fa fa-check"></i><b>A.11</b> Comentarios adicionales sobre el formato</a></li>
+<li class="chapter" data-level="A.12" data-path="programación-en-r.html"><a href="programación-en-r.html#funciones-indicadoras"><i class="fa fa-check"></i><b>A.12</b> Funciones indicadoras</a></li>
+<li class="chapter" data-level="A.13" data-path="programación-en-r.html"><a href="programación-en-r.html#conteo"><i class="fa fa-check"></i><b>A.13</b> Conteo</a></li>
+<li class="chapter" data-level="A.14" data-path="programación-en-r.html"><a href="programación-en-r.html#espacios-de-probabilidad"><i class="fa fa-check"></i><b>A.14</b> Espacios de probabilidad</a></li>
+<li class="chapter" data-level="A.15" data-path="programación-en-r.html"><a href="programación-en-r.html#probabilidad-condicional"><i class="fa fa-check"></i><b>A.15</b> Probabilidad condicional</a></li>
+<li class="chapter" data-level="A.16" data-path="programación-en-r.html"><a href="programación-en-r.html#independencia"><i class="fa fa-check"></i><b>A.16</b> Independencia</a></li>
+<li class="chapter" data-level="A.17" data-path="programación-en-r.html"><a href="programación-en-r.html#variables-aleatorias-y-función-de-distribución-acumulada"><i class="fa fa-check"></i><b>A.17</b> Variables aleatorias y función de distribución (acumulada)</a></li>
+<li class="chapter" data-level="A.18" data-path="programación-en-r.html"><a href="programación-en-r.html#funciones-de-masa-de-probabilidad"><i class="fa fa-check"></i><b>A.18</b> Funciones de masa de probabilidad</a></li>
+<li class="chapter" data-level="A.19" data-path="programación-en-r.html"><a href="programación-en-r.html#funciones-de-densidad"><i class="fa fa-check"></i><b>A.19</b> Funciones de densidad</a></li>
+<li class="chapter" data-level="A.20" data-path="programación-en-r.html"><a href="programación-en-r.html#teorema-de-cambio-de-variable-unidimensional"><i class="fa fa-check"></i><b>A.20</b> Teorema de cambio de variable unidimensional</a></li>
+<li class="chapter" data-level="A.21" data-path="programación-en-r.html"><a href="programación-en-r.html#probabilidad-multivariada"><i class="fa fa-check"></i><b>A.21</b> Probabilidad Multivariada</a></li>
+<li class="chapter" data-level="A.22" data-path="programación-en-r.html"><a href="programación-en-r.html#esperanza-varianza-y-covarianza"><i class="fa fa-check"></i><b>A.22</b> Esperanza, varianza y covarianza</a><ul>
+<li class="chapter" data-level="A.22.1" data-path="programación-en-r.html"><a href="programación-en-r.html#propiedades-de-valor-esperado-varianza-y-covarianza"><i class="fa fa-check"></i><b>A.22.1</b> Propiedades de valor esperado, varianza y covarianza</a></li>
+</ul></li>
+<li class="chapter" data-level="A.23" data-path="programación-en-r.html"><a href="programación-en-r.html#condicionamiento-por-otra-variable-aleatoria"><i class="fa fa-check"></i><b>A.23</b> Condicionamiento por otra variable aleatoria</a></li>
+<li class="chapter" data-level="A.24" data-path="programación-en-r.html"><a href="programación-en-r.html#funciones-características"><i class="fa fa-check"></i><b>A.24</b> Funciones características</a></li>
+<li class="chapter" data-level="A.25" data-path="programación-en-r.html"><a href="programación-en-r.html#convergencias"><i class="fa fa-check"></i><b>A.25</b> Convergencias</a><ul>
+<li class="chapter" data-level="A.25.1" data-path="programación-en-r.html"><a href="programación-en-r.html#teorema-de-continuidad-de-lévy"><i class="fa fa-check"></i><b>A.25.1</b> Teorema de continuidad de Lévy</a></li>
+</ul></li>
+<li class="chapter" data-level="A.26" data-path="programación-en-r.html"><a href="programación-en-r.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>A.26</b> Ley de los grandes números</a></li>
+<li class="chapter" data-level="A.27" data-path="programación-en-r.html"><a href="programación-en-r.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>A.27</b> Teorema del límite central</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Rodrigo Zepeda Tello</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ejercicios" class="section level1">
+<h1><span class="header-section-number">Capítulo 5</span> Ejercicios</h1>
+<ol style="list-style-type: decimal">
+<li>Bajo muestreo aleatorio Bernoulli se propone el siguiente estimador para el total:
+<span class="math display">\[
+\hat{t}_{\text{BE}} = \dfrac{N}{\mathbb{E}[n(\mathcal{S})]} \sum\limits_{i = 1}^{n(\mathcal{S})} x_i
+\]</span></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Demuestra que es insesgado</li>
+<li>Obtén su varianza</li>
+<li>Para el ejemplo del profesor con los exámenes ¿es <span class="math inline">\(\hat{t}_{\text{BE}}\)</span> una mejor opción que <span class="math inline">\(\hat{t}_{\text{Alt}}\)</span> ? Justifica calculando en <code>R</code> todos los posibles casos (desde que <span class="math inline">\(0\)</span> pasan hasta que los <span class="math inline">\(600\)</span> pasan el examen) y analizando cuántas de esas veces la varianza de <span class="math inline">\(\hat{t}_{\text{Alt}}\)</span> es menor que la de <span class="math inline">\(\hat{t}_{\text{BE}}\)</span>.</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>Se tiene una muestra aleatoria simple con reemplazo y se calcula la varianza del estimador de la media como sigue:</li>
+</ol>
+<p><span class="math display">\[
+\text{Var}(\bar{x}_{\mathcal{S}}) = \frac{1}{n}\sum\limits_{i = 1}^N x_i^2 \cdot \text{Var}(\mathbb{I}_{\mathcal{S}}(x_i)) =  \frac{1}{n}\sum\limits_{i = 1}^N x_i^2 \cdot \frac{1}{N}\Big(1 - \frac{1}{N}\Big) =  \frac{1}{N\cdot n}\sum\limits_{i = 1}^N x_i^2 \cdot \underbrace{\Big(1 - \frac{1}{N}\Big)}_{(N-1)/N}  = \frac{N-1}{N\cdot n} s^2_{\mathcal{U}}
+\]</span></p>
+<p>El resultado está bien pero el razonamiento tiene un error. Identifica los errores.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Sea <span class="math inline">\(\mathcal{S}\)</span> una muestra bajo diseño Bernoulli con parámetro <span class="math inline">\(\pi\)</span>. Sea <span class="math inline">\(n(\mathcal{S}) = \#\mathcal{S}\)</span> la variable aleatoria del tamaño de <span class="math inline">\(\mathcal{S}\)</span>. Demuestra que condicional en que <span class="math inline">\(n(\mathcal{S}) = n\)</span> la probabilidad de que <span class="math inline">\(\mathcal{S} = S\)</span> es la misma que bajo muestreo aleatorio simple.</p></li>
+<li><p>Encuentra un estimador insesgado de la varianza poblacional bajo muestreo aleatorio simple sin reemplazo. <em>Hint</em> Demuestra que:
+<span class="math display">\[
+\dfrac{1}{N} \sum\limits_{k = 1}^N (x_k - \bar{x}_{\mathcal{U}})^2 =\dfrac{1}{2N^2} \sum\limits_{k = 1}^N\sum\limits_{\substack{l = 1 \\ l \neq k}}^N (x_k - \bar{x}_{l})^2  
+\]</span></p></li>
+<li><p>Considera la población de la tabla :</p>
+<p>Se sabe que en una muestra aleatoria sin reemplazo que se obtenga de dicha población es dos veces más factible seleccionar a alguien de menos de <span class="math inline">\(20\)</span> años que a alguien de más de <span class="math inline">\(20\)</span> años.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Determina un estimador insesgado de la media de peso para dicha población.</li>
+<li>Se obtiene la muestra aleatoria simple de peso dada por <span class="math inline">\(S = \{50, 35, 85 \}\)</span>. Determina la probabilidad de haber obtenido dicha muestra.</li>
+<li>A partir de la muestra <span class="math inline">\(S\)</span> del inciso anterior, estima el peso total poblacional (la suma de los pesos) y da un intervalo asintótico de confianza de 75% para dicho total.</li>
+</ol></li>
+<li><p>De una población de <span class="math inline">\(N = 1000\)</span> personas se entrevistaron a <span class="math inline">\(n = 100\)</span>. Se les preguntó el tipo de música que preferían; <span class="math inline">\(30\)</span> personas respondieron <em>reguetón</em>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Estima el total de personas de la población que prefieren .</li>
+<li>Genera un intervalo de confianza asintótico de 50% para dicha estimación.</li>
+</ol></li>
+<li><p>Un estimador <span class="math inline">\(\hat{\theta}\)</span> de <span class="math inline">\(\theta\)</span> es Fisher consistente si cuando <span class="math inline">\(n = N\)</span> el estimador <span class="math inline">\(\hat{\theta} = \theta\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Demuestra que <span class="math inline">\(\bar{x}_{\mathcal{S}}\)</span> es Fisher consistente.</li>
+<li>Da un ejemplo de un estimador que no sea Fisher consistente.</li>
+</ol></li>
+<li><p>¿Cuál de los siguientes diseñois de muestreo simple sin reemplazo tiene la mayor precisión para estimar la media poblacional? Suponiendo que todas las poblaciones tienen la misma varianza <span class="math inline">\(\sigma^2\)</span>:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Tomar <span class="math inline">\(n = 400\)</span> de <span class="math inline">\(N = 4000\)</span></li>
+<li>Tomar <span class="math inline">\(n = 300\)</span> de <span class="math inline">\(N = 4000\)</span></li>
+<li>Tomar <span class="math inline">\(n = 3000\)</span> de <span class="math inline">\(N = 300,000,000\)</span></li>
+</ol></li>
+<li><p>En una ciudad hay <span class="math inline">\(10\)</span> millones de habitantes. Interesa saber el porcentaje de personas que utilizan bicicleta en dicha ciudad con un margen de error de <span class="math inline">\(4\)</span> puntos porcentuales y una confianza del <span class="math inline">\(75\%\)</span>. Determina el tamaño de muestra mínimo para hacer una encuesta de usuarios de bicicleta.</p></li>
+<li><p>Bajo <strong>muestreo Bernoulli</strong>, define el total de la población como <span class="math inline">\(t = \sum_{i=1}^{N} x_i\)</span>. Un estimador del total es:
+<span class="math display">\[
+\hat{t}_1 = \dfrac{1}{p} \sum_{k=1}^{N} x_k \mathbb{I}_{\mathcal{S}}(x_k)
+\]</span></p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Obtén <span class="math inline">\(\mathbb{E}[\hat{t}_1]\)</span></li>
+<li>Demuestra que <span class="math inline">\(\textrm{Var}[\hat{t}_1] = \big(\frac{1}{p}-1 \big) \sum_{k=1}^{N} x_k^2\)</span>.</li>
+<li>Obtén un estimador de <span class="math inline">\(\textrm{Var}[\hat{t}_1]\)</span>. ¿Es insesgado?</li>
+</ol>
+<ol start="10" style="list-style-type: decimal">
+<li>Un estimador distinto del total de la población (bajo Bernoulli) está dado por:
+<span class="math display">\[
+\hat{t}_2 = N \bar{x} 
+\]</span>
+donde <span class="math inline">\(\bar{x} = \frac{1}{\# S} \sum\limits_{k=1}^{N} x_k \mathbb{I}_k\)</span>.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Demuestra que <span class="math inline">\(\mathbb{E}[\hat{t}_2] = \big(1 - (1-p)^N\big) \cdot t\)</span> <em>Hint</em> Utiliza la propiedad de torre de proba 2: <span class="math inline">\(\mathbb{E}[X] = \mathbb{E}\big[\mathbb{E}[X| Y ]\big]\)</span> condicionando en el tamaño de la muestra.</li>
+<li>Demuestra que <span class="math inline">\(\textrm{Var}[\hat{t}_2] = \frac{N^3}{N-1} \Big[ H \sigma^2 + (1-p)^N \Big( 1 - (1 - p)^N \Big) \bar{x}^2 \Big]\)</span> donde <span class="math inline">\(H = \sum_{k=1}^{N} \frac{1}{k} \binom{N}{k} p^k (1-p)^{N-k} - \big(1 - (1-p)^N\big)/N\)</span>.</li>
+</ol>
+<ol start="11" style="list-style-type: decimal">
+<li><p>En muestreo aleatorio simple con reemplazo sea <span class="math inline">\(n_{\text{únicos}}\)</span> la cardinalidad del conjunto <span class="math inline">\(\{ x_k | x_k \in \mathcal{S}\}\)</span>; es decir, el número de valores únicos que se obtuvieron en dicho muestreo. Determina <span class="math inline">\(\mathbb{E}\big[n_{\text{únicos}}\big]\)</span></p></li>
+<li><p>En un esquema de muestreo Poisson (PO) se tiene una población de tamaño <span class="math inline">\(N\in\mathbb{N}\)</span> (constante) la cual se enlista de manera ordenada <span class="math inline">\(U = \{x_1,x_2,\dots,x_N\}\)</span>. Se recorre la lista de <span class="math inline">\(1\)</span> hasta <span class="math inline">\(N\)</span>. Cada elemento de la población, se selecciona y se mide con probabilidad <span class="math inline">\(\pi_k \in (0,1)\)</span> para <span class="math inline">\(k = 1,2,\dots, N\)</span> a fin de generar una muestra <span class="math inline">\(S = \{x_1, x_2, \dots, x_n\}\)</span> de tamaño <span class="math inline">\(\# S\)</span> (con <span class="math inline">\(0 \leq \# S \leq N\)</span>) donde en este caso la cardinalidad de <span class="math inline">\(S\)</span>, <span class="math inline">\(\# S\)</span>, es una variable aleatoria. En este caso se asume que <span class="math inline">\(\mathbb{I}_k\)</span> es independiente de <span class="math inline">\(\mathbb{I}_j\)</span> para <span class="math inline">\(k\neq j\)</span>. Responde los siguientes incisos considerando que la muestra <span class="math inline">\(S\)</span> fue generada por un esquema Poisson.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Demuestra que <span class="math inline">\(\mathbb{E}[\mathbb{I}_k] = \pi_k\)</span>. ¿Cuánto vale es <span class="math inline">\(\textrm{Cov}(\mathbb{I}_k, \mathbb{I}_j)\)</span>?</li>
+<li>Demuestra <span class="math inline">\(\mathbb{E}[\# S ] = \sum_{k=1}^N \pi_k\)</span> y <span class="math inline">\(\textrm{Var}[\# S ] = \sum_{k=1}^N \pi_k (1 - \pi_k)\)</span>.</li>
+<li>Define la media de la población como <span class="math inline">\(\mu_X = \frac{1}{N} \sum_{i=1}^{N} x_i\)</span>. Se propone un estimador de la media como:
+<span class="math display">\[
+\hat{\mu} =  \frac{1}{n} \sum_{k=1}^{n} \dfrac{x_k}{\pi_k} 
+\]</span></li>
+<li>Determina el sesgo de <span class="math inline">\(\hat{\mu}\)</span></li>
+<li>¿Es <span class="math inline">\(\hat{\mu}\)</span> Fisher-consistente?</li>
+<li>Obtén el error cuadrático medio de <span class="math inline">\(\hat{\mu}\)</span></li>
+<li>Demuestra que <span class="math inline">\(\widehat{\textrm{Var}}[\hat{\mu}] = \frac{1}{N^2} \sum_{i \in S} (1 - \pi_i) \pi_i^{-2} x_i^2\)</span> es estimador insesgado de la varianza <span class="math inline">\(\textrm{Var}[\hat{\mu}]\)</span>.</li>
+<li>Una aplicación de el muestreo Poisson es en estimación de cantidad de madera en un bosque. Los investigadores van al bosque y estiman a ojo de buen cubero el tamaño de un árbol en una de las categorías: , , . Una vez que a ojo se estimaron los tamaños se seleccionan los árboles pequeños con probabilidad <span class="math inline">\(p_1\)</span> para cada árbol, los medianos con probabilidad <span class="math inline">\(p_2\)</span> y los grandes con probabilidad <span class="math inline">\(p_3\)</span> (<span class="math inline">\(0 &lt; p_1 &lt; p_2 &lt; p_3 &lt; 1\)</span>). La selección de cada árbol es independiente de que otro haya sido seleccionado. Se busca estimar el total de madera midiendo los árboles (área de la base por altura). Supongamos que un bosque tiene <span class="math inline">\(N\)</span> árboles de los cuales <span class="math inline">\(N_1\)</span> son pequeños, <span class="math inline">\(N_2\)</span> son medianos y <span class="math inline">\(N_3\)</span> son grandes (<span class="math inline">\(\sum N_i = N\)</span>). Supongamos además que medir un árbol pequeño cuesta <span class="math inline">\(C_1\)</span>, un árbol mediano cuesta <span class="math inline">\(C_2\)</span> y un árbol grande cuesta <span class="math inline">\(C_3\)</span> (<span class="math inline">\(0 &lt; C_1 &lt; C_2 &lt; C_3\)</span>). Específicamente, supongamos que <span class="math inline">\(p_i = C_i / \sum_k C_k\)</span>. En promedio para <span class="math inline">\(N_1 = N_2 = 300\)</span> y <span class="math inline">\(N_3 = 400\)</span> y <span class="math inline">\(C_1 = 10\)</span>, <span class="math inline">\(C_2 = 20\)</span> y <span class="math inline">\(C_3 = 70\)</span> ¿es más barato un muestreo Poisson (parámetros <span class="math inline">\(p_i\)</span>) o un muestreo aleatorio simple sin reemplazo de los árboles del bosque de tamaño <span class="math inline">\(n = \lceil \sum_k n_k \pi_k \rceil\)</span>?</li>
+</ol></li>
+<li><p>Supongamos que se tienen dos muestras aleatorias simples sin reemplazo <span class="math inline">\(\mathcal{S}\)</span> para <span class="math inline">\(\mathcal{U}\)</span> y <span class="math inline">\(\mathcal{S}_{-}\)</span> para <span class="math inline">\(\mathcal{U}\setminus\mathcal{S}\)</span> (de tamaños <span class="math inline">\(n\)</span> y <span class="math inline">\(n_{-}\)</span>. Encuentra la covarianza entre <span class="math inline">\(\bar{x}_{\mathcal{S}}\)</span> y <span class="math inline">\(\bar{x}_{\mathcal{S}_{-}}\)</span>.</p></li>
+<li><p>Queremos estimar el área cultivada por granjas en una localidad. De <span class="math inline">\(N = 2010\)</span> granjas seleccionamos <span class="math inline">\(100\)</span> mediante muestreo aleatorio simple sin reemplazo. Medimos <span class="math inline">\(x_k\)</span> el área cultivada en hectáreas y obtenemos que:
+<span class="math display">\[
+\sum_{i = 1}^n x_k = 2907 \qquad \text{y} \qquad \sum_{i = 1}^n x_k^2= 154593
+\]</span>
+Estima el promedio de hectáreas cultivadas y da un intervalo al <span class="math inline">\(90\%\)</span>.</p></li>
+<li><p>Determina el tamaño de muestra bajo muestreo aleatorio simple para hallar con una precisión de al menos dos puntos porcentuales y un intervalo al <span class="math inline">\(95\%\)</span> la proporción de personas que usan lentes en una población de tamaño <span class="math inline">\(N\)</span></p></li>
+<li><p>De una población de 4000 individuos nos interesan dos proporciones: <span class="math inline">\(P_1\)</span> la proporción de individuos con lavadora y <span class="math inline">\(P_2\)</span> la proporción de individuos con laptop. Se sabe además de un estudio previo que que:
+<span class="math display">\[
+45\% \leq P_1 \leq 65\% \quad \text{y} \quad 5\% \leq P_2 \leq 10\%
+\]</span>
+De qué tamaño tiene que ser la muestra si queremos conocer <em>a la vez</em> <span class="math inline">\(P_1\)</span> con una precisión <span class="math inline">\(\pm 2\%\)</span> y <span class="math inline">\(P_2\)</span> con un error de <span class="math inline">\(1\%\)</span> y una confianza de <span class="math inline">\(95\%\)</span></p></li>
+<li><p>Nos interesa conocer el precio por litro en una población de <span class="math inline">\(10\)</span> gasolineras. Los precios para mayo y junio de las mismas aparecen en la tabla 2. En particular, queremos estimar la evolución del precio por litro entre dichos meses. Para ello se proponen dos métodos</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Muestrear <span class="math inline">\(n\)</span> estaciones en mayo y <span class="math inline">\(n\)</span> en junio de manera independiente y calcular la diferencia en precios.</li>
+<li>Muestrear <span class="math inline">\(n\)</span> estaciones en mayo e ir a verlas en junio de nuevo (a las mismas) y calcular la diferencia en precios.</li>
+</ol>
+<p>Determina cuál de los métodos es mejor (en términos de varianza)</p>
+
+<ol start="18" style="list-style-type: decimal">
+<li><p>En una población de tamaño <span class="math inline">\(N\)</span> consideramos <span class="math inline">\(n\)</span> individuos mediante muestreo aleatorio simple sin reemplazo. Consideremos <span class="math inline">\(D\)</span> una subpoblación de tamaño <span class="math inline">\(N_D\)</span> de donde <span class="math inline">\(n_D\)</span> es el tamaño de los muestreados que son elementos de <span class="math inline">\(D\)</span>. La muestra la podemos dividir en dos partes: <span class="math inline">\(\mathcal{S} = (\mathcal{S}_{D}, \mathcal{S}_{\bar{D}})^T\)</span> según se esté o no en <span class="math inline">\(D\)</span>. Encuentra la distribución de <span class="math inline">\(\mathcal{S}_{D}\)</span> condicional en <span class="math inline">\(n_D\)</span>:</p></li>
+<li><p>Dada una población <span class="math inline">\(\mathcal{U} = \{1,2,3\}\)</span> se tiene el diseño:
+<span class="math display">\[
+p(\{1,2\}) = 1/2, \quad p(\{1,3\}) = 1/4, \quad p(\{2,3\}) = 1/4
+\]</span>
+determina los <span class="math inline">\(\pi_k\)</span> los <span class="math inline">\(\pi_{k,l}\)</span> y los <span class="math inline">\(\Delta_{k,l}\)</span></p></li>
+</ol>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="muestreo-aleatorio-simple-ponderado-masp.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": ["night", "white", "sepia"],
+"family": "sans",
+"size": [2, 4]
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introduccion_a_Muestreo.pdf", "Introduccion_a_Muestreo.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
