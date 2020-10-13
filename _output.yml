@@ -1,0 +1,31 @@
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      collapse: subsection
+      scroll_highlight: yes
+      before: |
+        <li><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a></li>
+      after: |
+        <li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
+    toolbar:
+      position: fixed
+    edit : null
+    download: ["pdf", "epub"]
+    search: yes
+    fontsettings:
+      theme: ["night","white", "sepia"]
+      family: sans
+      size: [2, 4]
+    sharing:
+      facebook: no
+      github: yes
+      twitter: yes
+      linkedin: no
+      weibo: no
+      instapaper: no
+      vk: no
+    info: yes
+bookdown::pdf_book:
+  keep_tex: yes
+bookdown::epub_book: default

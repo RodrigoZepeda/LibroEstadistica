@@ -24,7 +24,7 @@
 <meta name="author" content="Rodrigo Zepeda-Tello" />
 
 
-<meta name="date" content="2020-09-08" />
+<meta name="date" content="2020-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="análisis-exploratorio-de-datos.html"/>
-<link rel="next" href="referencias.html"/>
+<link rel="next" href="muestreo-aleatorio-estratificado.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -193,6 +193,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.17" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-ponderado-masp"><i class="fa fa-check"></i><b>3.17</b> Muestreo Aleatorio Simple Ponderado (MAS/P)</a></li>
 <li class="chapter" data-level="3.18" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>3.18</b> Ejercicios</a></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html"><i class="fa fa-check"></i><b>4</b> Muestreo Aleatorio Estratificado</a><ul>
+<li class="chapter" data-level="4.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#introducción-a-muestreo-aleatorio-estratificado-mae"><i class="fa fa-check"></i><b>4.1</b> Introducción a Muestreo Aleatorio Estratificado (MAE)</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo"><i class="fa fa-check"></i><b>4.1.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="4.1.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-de-clase"><i class="fa fa-check"></i><b>4.1.2</b> Ejercicio de clase</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación"><i class="fa fa-check"></i><b>4.2</b> Alocación</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-proporcional-al-tamaño"><i class="fa fa-check"></i><b>4.2.1</b> Alocación proporcional al tamaño</a></li>
+<li class="chapter" data-level="4.2.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-óptima"><i class="fa fa-check"></i><b>4.2.2</b> Alocación óptima</a></li>
+<li class="chapter" data-level="4.2.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-1"><i class="fa fa-check"></i><b>4.2.3</b> Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-de-clase-1"><i class="fa fa-check"></i><b>4.3</b> Ejercicio de clase:</a></li>
+<li class="chapter" data-level="4.4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-en-r-tipo-control"><i class="fa fa-check"></i><b>4.4</b> Ejercicio en R tipo control</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
 <li class="appendix"><span><b>Apéndice</b></span></li>
 <li class="chapter" data-level="A" data-path="programación-en-r.html"><a href="programación-en-r.html"><i class="fa fa-check"></i><b>A</b> Programación en <code>R</code></a><ul>
@@ -251,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Rodrigo Zepeda Tello</a></li>
+<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
 
 </ul>
 
@@ -275,17 +288,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="inicio" class="section level2">
 <h2><span class="header-section-number">3.1</span> Inicio</h2>
 <p>Siempre que inicies un nuevo trabajo en <code>R</code> ¡no olvides borrar el historial!</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="muestreo-aleatorio-simple.html#cb155-1"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) <span class="co">#Clear all</span></span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="muestreo-aleatorio-simple.html#cb158-1"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) <span class="co">#Clear all</span></span></code></pre></div>
 </div>
 <div id="librerías" class="section level2">
 <h2><span class="header-section-number">3.2</span> Librerías</h2>
 <p>Para este análisis vamos a tener que llamar a las siguientes librerías previamente instaladas (por única vez) con <code>install.packages</code>:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="muestreo-aleatorio-simple.html#cb156-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb156-2"><a href="muestreo-aleatorio-simple.html#cb156-2"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb156-3"><a href="muestreo-aleatorio-simple.html#cb156-3"></a><span class="kw">library</span>(imager)</span>
-<span id="cb156-4"><a href="muestreo-aleatorio-simple.html#cb156-4"></a><span class="kw">library</span>(rlist)</span>
-<span id="cb156-5"><a href="muestreo-aleatorio-simple.html#cb156-5"></a><span class="kw">library</span>(gridExtra)</span>
-<span id="cb156-6"><a href="muestreo-aleatorio-simple.html#cb156-6"></a><span class="kw">library</span>(kableExtra)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="muestreo-aleatorio-simple.html#cb159-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb159-2"><a href="muestreo-aleatorio-simple.html#cb159-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb159-3"><a href="muestreo-aleatorio-simple.html#cb159-3"></a><span class="kw">library</span>(imager)</span>
+<span id="cb159-4"><a href="muestreo-aleatorio-simple.html#cb159-4"></a><span class="kw">library</span>(rlist)</span>
+<span id="cb159-5"><a href="muestreo-aleatorio-simple.html#cb159-5"></a><span class="kw">library</span>(gridExtra)</span>
+<span id="cb159-6"><a href="muestreo-aleatorio-simple.html#cb159-6"></a><span class="kw">library</span>(kableExtra)</span></code></pre></div>
 </div>
 <div id="notación" class="section level2">
 <h2><span class="header-section-number">3.3</span> Notación</h2>
@@ -367,7 +380,7 @@ Este último esquema, intuitivamente, corresponde a la selección aleatoria de u
 \]</span>
 Dado un elemento <span class="math inline">\(x_i\)</span> del universo, podemos preguntarnos por la probabilidad de que dicho <span class="math inline">\(x_i\)</span> esté en la muestra. Siguiendo el ejemplo anterior:
 <span class="math display">\[
-\mathbb{P}(\text{A} \in \mathcal{S}) = \mathbb{P}(\mathcal{S} = S^1) + \mathbb{P}(\mathcal{S} = S^4) + \mathbb{P}(\mathcal{S} = S^5) + \mathbb{P}(\mathcal{S} = S^7) = \frac{13}{16}.
+\mathbb{P}(\text{A} \in \mathcal{S}) = \mathbb{P}(\mathcal{S} = S^1) + \mathbb{P}(\mathcal{S} = S^4) + \mathbb{P}(\mathcal{S} = S^5) + \mathbb{P}(\mathcal{S} = S^7) = \frac{9}{16}.
 \]</span></p>
 <p>Como notación, para una población <span class="math inline">\(U = (x_1, x_2, \dots, x_N)^T\)</span> y una muestra aleatoria <span class="math inline">\(\mathcal{S}\)</span> denotamos la probabilidad de que <span class="math inline">\(x_k\)</span> esté en la muestra como:
 <span class="math display">\[
@@ -447,11 +460,11 @@ Si queremos tomar una muestra de <span class="math inline">\(3\)</span> personas
 <li><p><span class="math inline">\(\Big( \text{Carlos}, \text{Diana}, \text{Enriqueta}\Big)^T\)</span></p></li>
 </ol>
 <p>Obtener una muestra aleatoria se puede hacer en <code>R</code> con un vector mediante <code>sample</code>:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="muestreo-aleatorio-simple.html#cb157-1"></a><span class="co">#Vector de nombres</span></span>
-<span id="cb157-2"><a href="muestreo-aleatorio-simple.html#cb157-2"></a>nombres &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Ana&quot;</span>,<span class="st">&quot;Beto&quot;</span>,<span class="st">&quot;Carlos&quot;</span>,<span class="st">&quot;Diana&quot;</span>,<span class="st">&quot;Enriqueta&quot;</span>)</span>
-<span id="cb157-3"><a href="muestreo-aleatorio-simple.html#cb157-3"></a></span>
-<span id="cb157-4"><a href="muestreo-aleatorio-simple.html#cb157-4"></a><span class="co">#Muestra</span></span>
-<span id="cb157-5"><a href="muestreo-aleatorio-simple.html#cb157-5"></a><span class="kw">sample</span>(nombres, <span class="dv">3</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="muestreo-aleatorio-simple.html#cb160-1"></a><span class="co">#Vector de nombres</span></span>
+<span id="cb160-2"><a href="muestreo-aleatorio-simple.html#cb160-2"></a>nombres &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Ana&quot;</span>,<span class="st">&quot;Beto&quot;</span>,<span class="st">&quot;Carlos&quot;</span>,<span class="st">&quot;Diana&quot;</span>,<span class="st">&quot;Enriqueta&quot;</span>)</span>
+<span id="cb160-3"><a href="muestreo-aleatorio-simple.html#cb160-3"></a></span>
+<span id="cb160-4"><a href="muestreo-aleatorio-simple.html#cb160-4"></a><span class="co">#Muestra</span></span>
+<span id="cb160-5"><a href="muestreo-aleatorio-simple.html#cb160-5"></a><span class="kw">sample</span>(nombres, <span class="dv">3</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Beto&quot;  &quot;Ana&quot;   &quot;Diana&quot;</code></pre>
 <p>Formalmente, un esquema de muestreo es <strong>aleatorio simple sin reemplazo</strong> si dada una constante <span class="math inline">\(n \in \mathbb{N}\)</span> (con <span class="math inline">\(0 &lt; n \leq N\)</span>) se tiene:</p>
 <p><span class="math display">\[
@@ -475,7 +488,7 @@ t = \sum\limits_{i=1}^N x_i
 \]</span>
 bajo <em>MAS/sR</em> podemos tomar:
 <span class="math display">\[
-\hat{t} = N \cdot \bar{x}_{\mathcal{S}} = N \frac{1}{n} \sum\limits_{i = 1}^n x_k =  \sum\limits_{i = 1}^n \dfrac{x_k}{n/N} =  
+\hat{t} = N \cdot \bar{x}_{\mathcal{S}} = N \frac{1}{n} \sum\limits_{k = 1}^n x_k=  \sum\limits_{k = 1}^n \dfrac{x_k}{n/N} =  
 \sum\limits_{k=1}^N \frac{x_k}{\pi_k} \cdot \mathbb{I}_{\mathcal{S}}(x_k)
 \]</span>
 Notamos entonces que el estimador <span class="math inline">\(\hat{t}\)</span> es una variable aleatoria pues depende de las indicadoras de la muestra. En particular:
@@ -489,28 +502,28 @@ de donde se sigue que en promedio el estimador <span class="math inline">\(\hat{
 \]</span>
 En nuestro caso <span class="math inline">\(\hat{t}\)</span> es <em>insesgado</em>. En general, la cantidad <span class="math inline">\(\mathbb{E}\big[ \hat{\theta} - \theta]\)</span> se conoce como <em>el sesgo</em> .</p>
 <p>De manera numérica, podemos simular la estimación del total en <code>1000</code> simulaciones como sigue:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="muestreo-aleatorio-simple.html#cb159-1"></a>nsim &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb159-2"><a href="muestreo-aleatorio-simple.html#cb159-2"></a>N    &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb159-3"><a href="muestreo-aleatorio-simple.html#cb159-3"></a>n    &lt;-<span class="st"> </span><span class="dv">100</span> </span>
-<span id="cb159-4"><a href="muestreo-aleatorio-simple.html#cb159-4"></a>base.completa &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">rnorm</span>(N))</span>
-<span id="cb159-5"><a href="muestreo-aleatorio-simple.html#cb159-5"></a>total         &lt;-<span class="st"> </span><span class="kw">sum</span>(base.completa<span class="op">$</span>x)</span>
-<span id="cb159-6"><a href="muestreo-aleatorio-simple.html#cb159-6"></a>total.muestra &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
-<span id="cb159-7"><a href="muestreo-aleatorio-simple.html#cb159-7"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nsim){</span>
-<span id="cb159-8"><a href="muestreo-aleatorio-simple.html#cb159-8"></a>  muestra          &lt;-<span class="st"> </span><span class="kw">sample</span>(base.completa<span class="op">$</span>x, n)</span>
-<span id="cb159-9"><a href="muestreo-aleatorio-simple.html#cb159-9"></a>  total.muestra[i] &lt;-<span class="st"> </span>N<span class="op">*</span><span class="kw">mean</span>(muestra)</span>
-<span id="cb159-10"><a href="muestreo-aleatorio-simple.html#cb159-10"></a>}</span>
-<span id="cb159-11"><a href="muestreo-aleatorio-simple.html#cb159-11"></a><span class="kw">mean</span>(total.muestra)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="muestreo-aleatorio-simple.html#cb162-1"></a>nsim &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb162-2"><a href="muestreo-aleatorio-simple.html#cb162-2"></a>N    &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb162-3"><a href="muestreo-aleatorio-simple.html#cb162-3"></a>n    &lt;-<span class="st"> </span><span class="dv">100</span> </span>
+<span id="cb162-4"><a href="muestreo-aleatorio-simple.html#cb162-4"></a>base.completa &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">rnorm</span>(N))</span>
+<span id="cb162-5"><a href="muestreo-aleatorio-simple.html#cb162-5"></a>total         &lt;-<span class="st"> </span><span class="kw">sum</span>(base.completa<span class="op">$</span>x)</span>
+<span id="cb162-6"><a href="muestreo-aleatorio-simple.html#cb162-6"></a>total.muestra &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
+<span id="cb162-7"><a href="muestreo-aleatorio-simple.html#cb162-7"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nsim){</span>
+<span id="cb162-8"><a href="muestreo-aleatorio-simple.html#cb162-8"></a>  muestra          &lt;-<span class="st"> </span><span class="kw">sample</span>(base.completa<span class="op">$</span>x, n)</span>
+<span id="cb162-9"><a href="muestreo-aleatorio-simple.html#cb162-9"></a>  total.muestra[i] &lt;-<span class="st"> </span>N<span class="op">*</span><span class="kw">mean</span>(muestra)</span>
+<span id="cb162-10"><a href="muestreo-aleatorio-simple.html#cb162-10"></a>}</span>
+<span id="cb162-11"><a href="muestreo-aleatorio-simple.html#cb162-11"></a><span class="kw">mean</span>(total.muestra)</span></code></pre></div>
 <pre><code>## [1] -78.75412</code></pre>
 <p>Podemos ver las simulaciones como sigue:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="muestreo-aleatorio-simple.html#cb161-1"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
-<span id="cb161-2"><a href="muestreo-aleatorio-simple.html#cb161-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> total.muestra, <span class="dt">y =</span> ..density..), <span class="dt">fill =</span> <span class="st">&quot;#008B8B&quot;</span>, </span>
-<span id="cb161-3"><a href="muestreo-aleatorio-simple.html#cb161-3"></a>                 <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">binwidth =</span> <span class="dv">40</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb161-4"><a href="muestreo-aleatorio-simple.html#cb161-4"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> total), <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></span>
-<span id="cb161-5"><a href="muestreo-aleatorio-simple.html#cb161-5"></a><span class="st">  </span><span class="kw">theme_classic</span>() </span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="muestreo-aleatorio-simple.html#cb164-1"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb164-2"><a href="muestreo-aleatorio-simple.html#cb164-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> total.muestra, <span class="dt">y =</span> ..density..), <span class="dt">fill =</span> <span class="st">&quot;#008B8B&quot;</span>, </span>
+<span id="cb164-3"><a href="muestreo-aleatorio-simple.html#cb164-3"></a>                 <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">binwidth =</span> <span class="dv">40</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb164-4"><a href="muestreo-aleatorio-simple.html#cb164-4"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> total), <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></span>
+<span id="cb164-5"><a href="muestreo-aleatorio-simple.html#cb164-5"></a><span class="st">  </span><span class="kw">theme_classic</span>() </span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-150-1.png" width="672" /></p>
 <p>Como podrás notar la <span class="math inline">\(\hat{t}\)</span> es una variable aleatoria y por tanto tiene varianza. De hecho:
 <span class="math display">\[
-\textrm{Var}(\hat{t}) = \sum\limits_{k = 1}^N \sum\limits_{l = 1}^k \Delta_{k,l} \frac{x_k}{\pi_k} \frac{x_l}{\pi_l}
+\textrm{Var}(\hat{t}) = \sum\limits_{k = 1}^N \sum\limits_{l = 1}^N \Delta_{k,l} \frac{x_k}{\pi_k} \frac{x_l}{\pi_l}
 \]</span>
 Para demostrarlo seguimos las igualdades:
 <span class="math display">\[\begin{equation}\nonumber
@@ -522,12 +535,12 @@ Para demostrarlo seguimos las igualdades:
 \end{aligned}
 \end{equation}\]</span></p>
 <p>Numéricamente, en el ejemplo anterior la varianza (simulada) de <span class="math inline">\(\hat{t}\)</span> es:</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="muestreo-aleatorio-simple.html#cb162-1"></a><span class="kw">var</span>(total.muestra)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="muestreo-aleatorio-simple.html#cb165-1"></a><span class="kw">var</span>(total.muestra)</span></code></pre></div>
 <pre><code>## [1] 8515.982</code></pre>
 <p>mientras que la <em>real</em> está dada por (ver ejercicio más adelante):</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="muestreo-aleatorio-simple.html#cb164-1"></a>f        &lt;-<span class="st"> </span>n<span class="op">/</span>N</span>
-<span id="cb164-2"><a href="muestreo-aleatorio-simple.html#cb164-2"></a>varianza &lt;-<span class="st"> </span>N<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>f)<span class="op">/</span>n<span class="op">*</span><span class="kw">var</span>(base.completa<span class="op">$</span>x)</span>
-<span id="cb164-3"><a href="muestreo-aleatorio-simple.html#cb164-3"></a><span class="kw">print</span>(varianza)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="muestreo-aleatorio-simple.html#cb167-1"></a>f        &lt;-<span class="st"> </span>n<span class="op">/</span>N</span>
+<span id="cb167-2"><a href="muestreo-aleatorio-simple.html#cb167-2"></a>varianza &lt;-<span class="st"> </span>N<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>f)<span class="op">/</span>n<span class="op">*</span><span class="kw">var</span>(base.completa<span class="op">$</span>x)</span>
+<span id="cb167-3"><a href="muestreo-aleatorio-simple.html#cb167-3"></a><span class="kw">print</span>(varianza)</span></code></pre></div>
 <pre><code>## [1] 8278.693</code></pre>
 <p>Nota que tenemos un problema: para estimar <span class="math inline">\(\textrm{Var}(\hat{t})\)</span> necesitamos conocer todas las <span class="math inline">\(x_k\)</span> de la población ¡lo cual es imposible! Entonces necesitamos un estimador de la varianza de <span class="math inline">\(\hat{t}\)</span> para lo cual proponemos:</p>
 <p><span class="math display">\[
@@ -559,9 +572,9 @@ donde notamos que:</p>
 \end{aligned}
 \end{equation}\]</span></p>
 <p>Podemos calcular la varianza estimada para una muestra aleatoria simple sin reemplazo como sigue (ver ejercicio):</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="muestreo-aleatorio-simple.html#cb166-1"></a>f        &lt;-<span class="st"> </span>n<span class="op">/</span>N</span>
-<span id="cb166-2"><a href="muestreo-aleatorio-simple.html#cb166-2"></a>varianza &lt;-<span class="st"> </span>N<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>f)<span class="op">/</span>n<span class="op">*</span><span class="kw">var</span>(muestra)</span>
-<span id="cb166-3"><a href="muestreo-aleatorio-simple.html#cb166-3"></a><span class="kw">print</span>(varianza)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="muestreo-aleatorio-simple.html#cb169-1"></a>f        &lt;-<span class="st"> </span>n<span class="op">/</span>N</span>
+<span id="cb169-2"><a href="muestreo-aleatorio-simple.html#cb169-2"></a>varianza &lt;-<span class="st"> </span>N<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>f)<span class="op">/</span>n<span class="op">*</span><span class="kw">var</span>(muestra)</span>
+<span id="cb169-3"><a href="muestreo-aleatorio-simple.html#cb169-3"></a><span class="kw">print</span>(varianza)</span></code></pre></div>
 <pre><code>## [1] 7811.204</code></pre>
 <p><em>Observaciones</em></p>
 <ol style="list-style-type: decimal">
@@ -645,43 +658,43 @@ de manera concisa muchas veces los escribimos como:
 <div id="ejemplo-con-simulación" class="section level3">
 <h3><span class="header-section-number">3.5.2</span> Ejemplo con simulación:</h3>
 <p>Veamos cómo se ven múltiples intervalos simulados con confianza del <span class="math inline">\(90\%\)</span> y suponiendo la varianza es conocida</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="muestreo-aleatorio-simple.html#cb168-1"></a>nsim &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb168-2"><a href="muestreo-aleatorio-simple.html#cb168-2"></a>n    &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb168-3"><a href="muestreo-aleatorio-simple.html#cb168-3"></a></span>
-<span id="cb168-4"><a href="muestreo-aleatorio-simple.html#cb168-4"></a>total.muestra  &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
-<span id="cb168-5"><a href="muestreo-aleatorio-simple.html#cb168-5"></a>confianza.bajo &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
-<span id="cb168-6"><a href="muestreo-aleatorio-simple.html#cb168-6"></a>confianza.alto &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
-<span id="cb168-7"><a href="muestreo-aleatorio-simple.html#cb168-7"></a>f &lt;-<span class="st"> </span>n<span class="op">/</span>N</span>
-<span id="cb168-8"><a href="muestreo-aleatorio-simple.html#cb168-8"></a>z &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.1</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb168-9"><a href="muestreo-aleatorio-simple.html#cb168-9"></a></span>
-<span id="cb168-10"><a href="muestreo-aleatorio-simple.html#cb168-10"></a>var.total      &lt;-<span class="st"> </span>N<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>f)<span class="op">/</span>n<span class="op">*</span><span class="kw">var</span>(base.completa<span class="op">$</span>x)</span>
-<span id="cb168-11"><a href="muestreo-aleatorio-simple.html#cb168-11"></a></span>
-<span id="cb168-12"><a href="muestreo-aleatorio-simple.html#cb168-12"></a>  </span>
-<span id="cb168-13"><a href="muestreo-aleatorio-simple.html#cb168-13"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nsim){</span>
-<span id="cb168-14"><a href="muestreo-aleatorio-simple.html#cb168-14"></a>  muestra           &lt;-<span class="st"> </span><span class="kw">sample</span>(base.completa<span class="op">$</span>x, n, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb168-15"><a href="muestreo-aleatorio-simple.html#cb168-15"></a>  total.muestra[i]  &lt;-<span class="st"> </span>N<span class="op">*</span><span class="kw">mean</span>(muestra)</span>
-<span id="cb168-16"><a href="muestreo-aleatorio-simple.html#cb168-16"></a>  <span class="co">#var.total[i]    &lt;- N^2*(1 - f)/n*var(muestra)</span></span>
-<span id="cb168-17"><a href="muestreo-aleatorio-simple.html#cb168-17"></a>  confianza.bajo[i] &lt;-<span class="st"> </span>total.muestra[i] <span class="op">-</span><span class="st"> </span>z<span class="op">*</span><span class="kw">sqrt</span>(var.total)</span>
-<span id="cb168-18"><a href="muestreo-aleatorio-simple.html#cb168-18"></a>  confianza.alto[i] &lt;-<span class="st"> </span>total.muestra[i] <span class="op">+</span><span class="st"> </span>z<span class="op">*</span><span class="kw">sqrt</span>(var.total)</span>
-<span id="cb168-19"><a href="muestreo-aleatorio-simple.html#cb168-19"></a>}</span>
-<span id="cb168-20"><a href="muestreo-aleatorio-simple.html#cb168-20"></a></span>
-<span id="cb168-21"><a href="muestreo-aleatorio-simple.html#cb168-21"></a>intervalos.simulados &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb168-22"><a href="muestreo-aleatorio-simple.html#cb168-22"></a>  <span class="dt">Simulacion =</span> <span class="dv">1</span><span class="op">:</span>nsim,</span>
-<span id="cb168-23"><a href="muestreo-aleatorio-simple.html#cb168-23"></a>  <span class="dt">Intervalo.Bajo =</span> confianza.bajo,</span>
-<span id="cb168-24"><a href="muestreo-aleatorio-simple.html#cb168-24"></a>  <span class="dt">Total.Estimado =</span> total.muestra,</span>
-<span id="cb168-25"><a href="muestreo-aleatorio-simple.html#cb168-25"></a>  <span class="dt">Intervalo.Alto =</span> confianza.alto</span>
-<span id="cb168-26"><a href="muestreo-aleatorio-simple.html#cb168-26"></a>)</span>
-<span id="cb168-27"><a href="muestreo-aleatorio-simple.html#cb168-27"></a></span>
-<span id="cb168-28"><a href="muestreo-aleatorio-simple.html#cb168-28"></a><span class="kw">ggplot</span>(intervalos.simulados) <span class="op">+</span></span>
-<span id="cb168-29"><a href="muestreo-aleatorio-simple.html#cb168-29"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Simulacion, <span class="dt">y =</span> Total.Estimado)) <span class="op">+</span></span>
-<span id="cb168-30"><a href="muestreo-aleatorio-simple.html#cb168-30"></a><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Simulacion, <span class="dt">ymin =</span> Intervalo.Bajo, </span>
-<span id="cb168-31"><a href="muestreo-aleatorio-simple.html#cb168-31"></a>                    <span class="dt">ymax =</span> Intervalo.Alto)) <span class="op">+</span></span>
-<span id="cb168-32"><a href="muestreo-aleatorio-simple.html#cb168-32"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> <span class="kw">sum</span>(base.completa<span class="op">$</span>x)), </span>
-<span id="cb168-33"><a href="muestreo-aleatorio-simple.html#cb168-33"></a>             <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>,</span>
-<span id="cb168-34"><a href="muestreo-aleatorio-simple.html#cb168-34"></a>             <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb168-35"><a href="muestreo-aleatorio-simple.html#cb168-35"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb168-36"><a href="muestreo-aleatorio-simple.html#cb168-36"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Simulación de intervalos de confianza&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="muestreo-aleatorio-simple.html#cb171-1"></a>nsim &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb171-2"><a href="muestreo-aleatorio-simple.html#cb171-2"></a>n    &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb171-3"><a href="muestreo-aleatorio-simple.html#cb171-3"></a></span>
+<span id="cb171-4"><a href="muestreo-aleatorio-simple.html#cb171-4"></a>total.muestra  &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
+<span id="cb171-5"><a href="muestreo-aleatorio-simple.html#cb171-5"></a>confianza.bajo &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
+<span id="cb171-6"><a href="muestreo-aleatorio-simple.html#cb171-6"></a>confianza.alto &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
+<span id="cb171-7"><a href="muestreo-aleatorio-simple.html#cb171-7"></a>f &lt;-<span class="st"> </span>n<span class="op">/</span>N</span>
+<span id="cb171-8"><a href="muestreo-aleatorio-simple.html#cb171-8"></a>z &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.1</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb171-9"><a href="muestreo-aleatorio-simple.html#cb171-9"></a></span>
+<span id="cb171-10"><a href="muestreo-aleatorio-simple.html#cb171-10"></a>var.total      &lt;-<span class="st"> </span>N<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>f)<span class="op">/</span>n<span class="op">*</span><span class="kw">var</span>(base.completa<span class="op">$</span>x)</span>
+<span id="cb171-11"><a href="muestreo-aleatorio-simple.html#cb171-11"></a></span>
+<span id="cb171-12"><a href="muestreo-aleatorio-simple.html#cb171-12"></a>  </span>
+<span id="cb171-13"><a href="muestreo-aleatorio-simple.html#cb171-13"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nsim){</span>
+<span id="cb171-14"><a href="muestreo-aleatorio-simple.html#cb171-14"></a>  muestra           &lt;-<span class="st"> </span><span class="kw">sample</span>(base.completa<span class="op">$</span>x, n, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb171-15"><a href="muestreo-aleatorio-simple.html#cb171-15"></a>  total.muestra[i]  &lt;-<span class="st"> </span>N<span class="op">*</span><span class="kw">mean</span>(muestra)</span>
+<span id="cb171-16"><a href="muestreo-aleatorio-simple.html#cb171-16"></a>  <span class="co">#var.total[i]    &lt;- N^2*(1 - f)/n*var(muestra)</span></span>
+<span id="cb171-17"><a href="muestreo-aleatorio-simple.html#cb171-17"></a>  confianza.bajo[i] &lt;-<span class="st"> </span>total.muestra[i] <span class="op">-</span><span class="st"> </span>z<span class="op">*</span><span class="kw">sqrt</span>(var.total)</span>
+<span id="cb171-18"><a href="muestreo-aleatorio-simple.html#cb171-18"></a>  confianza.alto[i] &lt;-<span class="st"> </span>total.muestra[i] <span class="op">+</span><span class="st"> </span>z<span class="op">*</span><span class="kw">sqrt</span>(var.total)</span>
+<span id="cb171-19"><a href="muestreo-aleatorio-simple.html#cb171-19"></a>}</span>
+<span id="cb171-20"><a href="muestreo-aleatorio-simple.html#cb171-20"></a></span>
+<span id="cb171-21"><a href="muestreo-aleatorio-simple.html#cb171-21"></a>intervalos.simulados &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb171-22"><a href="muestreo-aleatorio-simple.html#cb171-22"></a>  <span class="dt">Simulacion =</span> <span class="dv">1</span><span class="op">:</span>nsim,</span>
+<span id="cb171-23"><a href="muestreo-aleatorio-simple.html#cb171-23"></a>  <span class="dt">Intervalo.Bajo =</span> confianza.bajo,</span>
+<span id="cb171-24"><a href="muestreo-aleatorio-simple.html#cb171-24"></a>  <span class="dt">Total.Estimado =</span> total.muestra,</span>
+<span id="cb171-25"><a href="muestreo-aleatorio-simple.html#cb171-25"></a>  <span class="dt">Intervalo.Alto =</span> confianza.alto</span>
+<span id="cb171-26"><a href="muestreo-aleatorio-simple.html#cb171-26"></a>)</span>
+<span id="cb171-27"><a href="muestreo-aleatorio-simple.html#cb171-27"></a></span>
+<span id="cb171-28"><a href="muestreo-aleatorio-simple.html#cb171-28"></a><span class="kw">ggplot</span>(intervalos.simulados) <span class="op">+</span></span>
+<span id="cb171-29"><a href="muestreo-aleatorio-simple.html#cb171-29"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Simulacion, <span class="dt">y =</span> Total.Estimado)) <span class="op">+</span></span>
+<span id="cb171-30"><a href="muestreo-aleatorio-simple.html#cb171-30"></a><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Simulacion, <span class="dt">ymin =</span> Intervalo.Bajo, </span>
+<span id="cb171-31"><a href="muestreo-aleatorio-simple.html#cb171-31"></a>                    <span class="dt">ymax =</span> Intervalo.Alto)) <span class="op">+</span></span>
+<span id="cb171-32"><a href="muestreo-aleatorio-simple.html#cb171-32"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> <span class="kw">sum</span>(base.completa<span class="op">$</span>x)), </span>
+<span id="cb171-33"><a href="muestreo-aleatorio-simple.html#cb171-33"></a>             <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>,</span>
+<span id="cb171-34"><a href="muestreo-aleatorio-simple.html#cb171-34"></a>             <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb171-35"><a href="muestreo-aleatorio-simple.html#cb171-35"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb171-36"><a href="muestreo-aleatorio-simple.html#cb171-36"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Simulación de intervalos de confianza&quot;</span>)</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
 <p>Nota que estos intervalos son aproximados y no siempre van a funcionar. (¿Puedes hallar un ejemplo donde no sirvan a pesar de que <span class="math inline">\(n\)</span> y <span class="math inline">\(N\)</span> sean grandes?) Luego veremos correcciones a esto; por ahora, supondremos que la aproximación es buena.</p>
 </div>
 </div>
@@ -764,20 +777,20 @@ de donde se sigue que <span class="math inline">\(\hat{p} = \frac{1}{2}\)</span>
 n = \left\lceil \dfrac{m}{1 + \frac{m-1}{N}} \right\rceil
 \]</span>
 donde <span class="math inline">\(m = \dfrac{1}{4}\frac{z^2_{\alpha/2}}{\epsilon^2}\)</span>. En el caso particular de este ejercicio, <span class="math inline">\(N = 5000\)</span>, <span class="math inline">\(\epsilon = 0.05\)</span>, <span class="math inline">\(\alpha = 0.01\)</span> y <span class="math inline">\(z^2_{\alpha/2} \approx\)</span> <code>qnorm(0.9)</code>. Luego podemos calcular:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="muestreo-aleatorio-simple.html#cb169-1"></a>alpha   &lt;-<span class="st"> </span><span class="fl">0.01</span></span>
-<span id="cb169-2"><a href="muestreo-aleatorio-simple.html#cb169-2"></a>z       &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>alpha<span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb169-3"><a href="muestreo-aleatorio-simple.html#cb169-3"></a>epsilon &lt;-<span class="st"> </span><span class="fl">0.05</span></span>
-<span id="cb169-4"><a href="muestreo-aleatorio-simple.html#cb169-4"></a>m       &lt;-<span class="st"> </span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>)<span class="op">*</span>(z<span class="op">/</span>epsilon)<span class="op">^</span><span class="dv">2</span></span>
-<span id="cb169-5"><a href="muestreo-aleatorio-simple.html#cb169-5"></a>N       &lt;-<span class="st"> </span><span class="dv">5000</span></span>
-<span id="cb169-6"><a href="muestreo-aleatorio-simple.html#cb169-6"></a>n       &lt;-<span class="st"> </span><span class="kw">ceiling</span>(m<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(m<span class="dv">-1</span>)<span class="op">/</span>N))</span>
-<span id="cb169-7"><a href="muestreo-aleatorio-simple.html#cb169-7"></a></span>
-<span id="cb169-8"><a href="muestreo-aleatorio-simple.html#cb169-8"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El tamaño de muestra es &quot;</span>, n))</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="muestreo-aleatorio-simple.html#cb172-1"></a>alpha   &lt;-<span class="st"> </span><span class="fl">0.01</span></span>
+<span id="cb172-2"><a href="muestreo-aleatorio-simple.html#cb172-2"></a>z       &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>alpha<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb172-3"><a href="muestreo-aleatorio-simple.html#cb172-3"></a>epsilon &lt;-<span class="st"> </span><span class="fl">0.05</span></span>
+<span id="cb172-4"><a href="muestreo-aleatorio-simple.html#cb172-4"></a>m       &lt;-<span class="st"> </span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>)<span class="op">*</span>(z<span class="op">/</span>epsilon)<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb172-5"><a href="muestreo-aleatorio-simple.html#cb172-5"></a>N       &lt;-<span class="st"> </span><span class="dv">5000</span></span>
+<span id="cb172-6"><a href="muestreo-aleatorio-simple.html#cb172-6"></a>n       &lt;-<span class="st"> </span><span class="kw">ceiling</span>(m<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(m<span class="dv">-1</span>)<span class="op">/</span>N))</span>
+<span id="cb172-7"><a href="muestreo-aleatorio-simple.html#cb172-7"></a></span>
+<span id="cb172-8"><a href="muestreo-aleatorio-simple.html#cb172-8"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El tamaño de muestra es &quot;</span>, n))</span></code></pre></div>
 <pre><code>## [1] &quot;El tamaño de muestra es 586&quot;</code></pre>
 </div>
 <div id="ejemplo-resumen-estimación-del-total-de-individuos-en-una-fotografía" class="section level2">
 <h2><span class="header-section-number">3.7</span> Ejemplo Resumen: Estimación del total de individuos en una fotografía</h2>
 <p>En este ejercicio vamos a determinar cuánta gente aparece en la siguiente foto:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-150"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-156"></span>
 <img src="images/concierto.jpg" alt="Imagen de un concierto extraída de https://www.youtube.com/watch?v=pJ1YKwyH5bk" width="75%" />
 <p class="caption">
 Figure 3.1: Imagen de un concierto extraída de <a href="https://www.youtube.com/watch?v=pJ1YKwyH5bk" class="uri">https://www.youtube.com/watch?v=pJ1YKwyH5bk</a>
@@ -820,59 +833,59 @@ Donde podemos aproximar la varianza mediante <span class="math inline">\(\wideha
 n = \left\lceil \dfrac{(z_{1-\alpha/2} s_{x,\mathcal{S}} N)^2} {\epsilon^2 + z_{1-\alpha/2}^2 s^2_{x,\mathcal{S}} N}\right\rceil  = \left\lceil \dfrac{(1.95\cdot \sqrt{1.02} \cdot 100)^2} {50^2 + 1.95^2\cdot 1.02 \cdot 100}\right\rceil
 \]</span>
 Podemos calcular en <code>R</code>:</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="muestreo-aleatorio-simple.html#cb171-1"></a>n &lt;-<span class="st"> </span><span class="kw">ceiling</span>((<span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span><span class="kw">sqrt</span>(<span class="fl">1.02</span>)<span class="op">*</span><span class="dv">100</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span>(<span class="dv">50</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span><span class="op">*</span><span class="fl">1.02</span><span class="op">*</span><span class="dv">100</span>)))</span>
-<span id="cb171-2"><a href="muestreo-aleatorio-simple.html#cb171-2"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El tamaño de muestra es &quot;</span>, n))</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="muestreo-aleatorio-simple.html#cb174-1"></a>n &lt;-<span class="st"> </span><span class="kw">ceiling</span>((<span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span><span class="kw">sqrt</span>(<span class="fl">1.02</span>)<span class="op">*</span><span class="dv">100</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span>(<span class="dv">50</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span><span class="op">*</span><span class="fl">1.02</span><span class="op">*</span><span class="dv">100</span>)))</span>
+<span id="cb174-2"><a href="muestreo-aleatorio-simple.html#cb174-2"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El tamaño de muestra es &quot;</span>, n))</span></code></pre></div>
 <pre><code>## [1] &quot;El tamaño de muestra es 14&quot;</code></pre>
 <p>Podemos proceder a dividir la foto en los <span class="math inline">\(N = 100\)</span> pedazos:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="muestreo-aleatorio-simple.html#cb173-1"></a><span class="co">#División con base en el siguiente link:</span></span>
-<span id="cb173-2"><a href="muestreo-aleatorio-simple.html#cb173-2"></a><span class="co">#https://rpubs.com/issactoast/cutimage</span></span>
-<span id="cb173-3"><a href="muestreo-aleatorio-simple.html#cb173-3"></a><span class="kw">library</span>(imager)</span>
-<span id="cb173-4"><a href="muestreo-aleatorio-simple.html#cb173-4"></a></span>
-<span id="cb173-5"><a href="muestreo-aleatorio-simple.html#cb173-5"></a><span class="co">#Cargamos la imagen</span></span>
-<span id="cb173-6"><a href="muestreo-aleatorio-simple.html#cb173-6"></a>img &lt;-<span class="st"> </span><span class="kw">load.image</span>(<span class="st">&quot;images/concierto.jpg&quot;</span>)</span>
-<span id="cb173-7"><a href="muestreo-aleatorio-simple.html#cb173-7"></a></span>
-<span id="cb173-8"><a href="muestreo-aleatorio-simple.html#cb173-8"></a><span class="co">#Función auxiliar del link superior</span></span>
-<span id="cb173-9"><a href="muestreo-aleatorio-simple.html#cb173-9"></a>make.vr &lt;-<span class="st"> </span><span class="cf">function</span>( x, name ){</span>
-<span id="cb173-10"><a href="muestreo-aleatorio-simple.html#cb173-10"></a>  <span class="kw">assign</span>( name, x, <span class="dt">envir =</span> .GlobalEnv)</span>
-<span id="cb173-11"><a href="muestreo-aleatorio-simple.html#cb173-11"></a>}</span>
-<span id="cb173-12"><a href="muestreo-aleatorio-simple.html#cb173-12"></a></span>
-<span id="cb173-13"><a href="muestreo-aleatorio-simple.html#cb173-13"></a><span class="co">#División en N</span></span>
-<span id="cb173-14"><a href="muestreo-aleatorio-simple.html#cb173-14"></a>N &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb173-15"><a href="muestreo-aleatorio-simple.html#cb173-15"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="kw">sqrt</span>(N),<span class="kw">sqrt</span>(N)), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>))</span>
-<span id="cb173-16"><a href="muestreo-aleatorio-simple.html#cb173-16"></a>k &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb173-17"><a href="muestreo-aleatorio-simple.html#cb173-17"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">sqrt</span>(N)){</span>
-<span id="cb173-18"><a href="muestreo-aleatorio-simple.html#cb173-18"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">sqrt</span>(N)){</span>
-<span id="cb173-19"><a href="muestreo-aleatorio-simple.html#cb173-19"></a>    vr.name &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;sub&quot;</span>, k)</span>
-<span id="cb173-20"><a href="muestreo-aleatorio-simple.html#cb173-20"></a>    k       &lt;-<span class="st"> </span>k <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb173-21"><a href="muestreo-aleatorio-simple.html#cb173-21"></a>    <span class="kw">imsub</span>(img, (width<span class="op">/</span><span class="kw">sqrt</span>(N))<span class="op">*</span>(i<span class="dv">-1</span>) <span class="op">&lt;</span><span class="st"> </span>x <span class="op">&amp;</span><span class="st"> </span>x <span class="op">&lt;</span><span class="st">  </span>i <span class="op">*</span><span class="st"> </span>(width<span class="op">/</span><span class="kw">sqrt</span>(N)),</span>
-<span id="cb173-22"><a href="muestreo-aleatorio-simple.html#cb173-22"></a>          (height<span class="op">/</span><span class="kw">sqrt</span>(N))<span class="op">*</span>(j<span class="dv">-1</span>) <span class="op">&lt;</span><span class="st"> </span>y <span class="op">&amp;</span><span class="st"> </span>y <span class="op">&lt;</span><span class="st">  </span>j <span class="op">*</span><span class="st"> </span>(height<span class="op">/</span><span class="kw">sqrt</span>(N))) <span class="op">%&gt;%</span></span>
-<span id="cb173-23"><a href="muestreo-aleatorio-simple.html#cb173-23"></a><span class="st">      </span><span class="kw">make.vr</span>(<span class="dt">name =</span> vr.name) <span class="op">%&gt;%</span></span>
-<span id="cb173-24"><a href="muestreo-aleatorio-simple.html#cb173-24"></a><span class="st">      </span><span class="co"># save.image( file = paste0(vr.name,&quot;.jpg&quot;)) %&gt;%</span></span>
-<span id="cb173-25"><a href="muestreo-aleatorio-simple.html#cb173-25"></a><span class="st">      </span><span class="kw">plot</span>(<span class="dt">axes =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb173-26"><a href="muestreo-aleatorio-simple.html#cb173-26"></a>           <span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>, <span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>, </span>
-<span id="cb173-27"><a href="muestreo-aleatorio-simple.html#cb173-27"></a>           <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ann =</span> <span class="ot">FALSE</span> )    </span>
-<span id="cb173-28"><a href="muestreo-aleatorio-simple.html#cb173-28"></a>  }</span>
-<span id="cb173-29"><a href="muestreo-aleatorio-simple.html#cb173-29"></a>}</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-152-1.png" width="672" /></p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="muestreo-aleatorio-simple.html#cb176-1"></a><span class="co">#División con base en el siguiente link:</span></span>
+<span id="cb176-2"><a href="muestreo-aleatorio-simple.html#cb176-2"></a><span class="co">#https://rpubs.com/issactoast/cutimage</span></span>
+<span id="cb176-3"><a href="muestreo-aleatorio-simple.html#cb176-3"></a><span class="kw">library</span>(imager)</span>
+<span id="cb176-4"><a href="muestreo-aleatorio-simple.html#cb176-4"></a></span>
+<span id="cb176-5"><a href="muestreo-aleatorio-simple.html#cb176-5"></a><span class="co">#Cargamos la imagen</span></span>
+<span id="cb176-6"><a href="muestreo-aleatorio-simple.html#cb176-6"></a>img &lt;-<span class="st"> </span><span class="kw">load.image</span>(<span class="st">&quot;images/concierto.jpg&quot;</span>)</span>
+<span id="cb176-7"><a href="muestreo-aleatorio-simple.html#cb176-7"></a></span>
+<span id="cb176-8"><a href="muestreo-aleatorio-simple.html#cb176-8"></a><span class="co">#Función auxiliar del link superior</span></span>
+<span id="cb176-9"><a href="muestreo-aleatorio-simple.html#cb176-9"></a>make.vr &lt;-<span class="st"> </span><span class="cf">function</span>( x, name ){</span>
+<span id="cb176-10"><a href="muestreo-aleatorio-simple.html#cb176-10"></a>  <span class="kw">assign</span>( name, x, <span class="dt">envir =</span> .GlobalEnv)</span>
+<span id="cb176-11"><a href="muestreo-aleatorio-simple.html#cb176-11"></a>}</span>
+<span id="cb176-12"><a href="muestreo-aleatorio-simple.html#cb176-12"></a></span>
+<span id="cb176-13"><a href="muestreo-aleatorio-simple.html#cb176-13"></a><span class="co">#División en N</span></span>
+<span id="cb176-14"><a href="muestreo-aleatorio-simple.html#cb176-14"></a>N &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb176-15"><a href="muestreo-aleatorio-simple.html#cb176-15"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="kw">sqrt</span>(N),<span class="kw">sqrt</span>(N)), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>))</span>
+<span id="cb176-16"><a href="muestreo-aleatorio-simple.html#cb176-16"></a>k &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb176-17"><a href="muestreo-aleatorio-simple.html#cb176-17"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">sqrt</span>(N)){</span>
+<span id="cb176-18"><a href="muestreo-aleatorio-simple.html#cb176-18"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">sqrt</span>(N)){</span>
+<span id="cb176-19"><a href="muestreo-aleatorio-simple.html#cb176-19"></a>    vr.name &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;sub&quot;</span>, k)</span>
+<span id="cb176-20"><a href="muestreo-aleatorio-simple.html#cb176-20"></a>    k       &lt;-<span class="st"> </span>k <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb176-21"><a href="muestreo-aleatorio-simple.html#cb176-21"></a>    <span class="kw">imsub</span>(img, (width<span class="op">/</span><span class="kw">sqrt</span>(N))<span class="op">*</span>(i<span class="dv">-1</span>) <span class="op">&lt;</span><span class="st"> </span>x <span class="op">&amp;</span><span class="st"> </span>x <span class="op">&lt;</span><span class="st">  </span>i <span class="op">*</span><span class="st"> </span>(width<span class="op">/</span><span class="kw">sqrt</span>(N)),</span>
+<span id="cb176-22"><a href="muestreo-aleatorio-simple.html#cb176-22"></a>          (height<span class="op">/</span><span class="kw">sqrt</span>(N))<span class="op">*</span>(j<span class="dv">-1</span>) <span class="op">&lt;</span><span class="st"> </span>y <span class="op">&amp;</span><span class="st"> </span>y <span class="op">&lt;</span><span class="st">  </span>j <span class="op">*</span><span class="st"> </span>(height<span class="op">/</span><span class="kw">sqrt</span>(N))) <span class="op">%&gt;%</span></span>
+<span id="cb176-23"><a href="muestreo-aleatorio-simple.html#cb176-23"></a><span class="st">      </span><span class="kw">make.vr</span>(<span class="dt">name =</span> vr.name) <span class="op">%&gt;%</span></span>
+<span id="cb176-24"><a href="muestreo-aleatorio-simple.html#cb176-24"></a><span class="st">      </span><span class="co"># save.image( file = paste0(vr.name,&quot;.jpg&quot;)) %&gt;%</span></span>
+<span id="cb176-25"><a href="muestreo-aleatorio-simple.html#cb176-25"></a><span class="st">      </span><span class="kw">plot</span>(<span class="dt">axes =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb176-26"><a href="muestreo-aleatorio-simple.html#cb176-26"></a>           <span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>, <span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>, </span>
+<span id="cb176-27"><a href="muestreo-aleatorio-simple.html#cb176-27"></a>           <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ann =</span> <span class="ot">FALSE</span> )    </span>
+<span id="cb176-28"><a href="muestreo-aleatorio-simple.html#cb176-28"></a>  }</span>
+<span id="cb176-29"><a href="muestreo-aleatorio-simple.html#cb176-29"></a>}</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-158-1.png" width="672" /></p>
 <p>Podemos acceder a cada una de las imágenes que se tienen a través de su nombre (<code>sub</code> seguido de un número entre <span class="math inline">\(0\)</span> y <span class="math inline">\(100\)</span>). Muestreamos entonces los nombres de las 15 imágenes:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="muestreo-aleatorio-simple.html#cb174-1"></a><span class="co">#Obtenemos los dígitos a muestrear</span></span>
-<span id="cb174-2"><a href="muestreo-aleatorio-simple.html#cb174-2"></a>imagenes.muestreadas &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, n, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb174-3"><a href="muestreo-aleatorio-simple.html#cb174-3"></a></span>
-<span id="cb174-4"><a href="muestreo-aleatorio-simple.html#cb174-4"></a><span class="co">#Agregamos el prefijo sub</span></span>
-<span id="cb174-5"><a href="muestreo-aleatorio-simple.html#cb174-5"></a>imagenes.muestreadas &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;sub&quot;</span>, imagenes.muestreadas)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="muestreo-aleatorio-simple.html#cb177-1"></a><span class="co">#Obtenemos los dígitos a muestrear</span></span>
+<span id="cb177-2"><a href="muestreo-aleatorio-simple.html#cb177-2"></a>imagenes.muestreadas &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, n, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb177-3"><a href="muestreo-aleatorio-simple.html#cb177-3"></a></span>
+<span id="cb177-4"><a href="muestreo-aleatorio-simple.html#cb177-4"></a><span class="co">#Agregamos el prefijo sub</span></span>
+<span id="cb177-5"><a href="muestreo-aleatorio-simple.html#cb177-5"></a>imagenes.muestreadas &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;sub&quot;</span>, imagenes.muestreadas)</span></code></pre></div>
 <p>Y graficamos cada una de ellas:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="muestreo-aleatorio-simple.html#cb175-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb175-2"><a href="muestreo-aleatorio-simple.html#cb175-2"></a></span>
-<span id="cb175-3"><a href="muestreo-aleatorio-simple.html#cb175-3"></a><span class="cf">for</span> (imagen <span class="cf">in</span> imagenes.muestreadas){</span>
-<span id="cb175-4"><a href="muestreo-aleatorio-simple.html#cb175-4"></a>  <span class="kw">plot</span>(<span class="kw">get</span>(imagen),  <span class="dt">main =</span> imagen, <span class="dt">axes =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb175-5"><a href="muestreo-aleatorio-simple.html#cb175-5"></a>}</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-1.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-2.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-3.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-4.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-5.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-6.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-7.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-8.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-9.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-10.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-11.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-12.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-13.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-14.png" width="50%" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="muestreo-aleatorio-simple.html#cb178-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb178-2"><a href="muestreo-aleatorio-simple.html#cb178-2"></a></span>
+<span id="cb178-3"><a href="muestreo-aleatorio-simple.html#cb178-3"></a><span class="cf">for</span> (imagen <span class="cf">in</span> imagenes.muestreadas){</span>
+<span id="cb178-4"><a href="muestreo-aleatorio-simple.html#cb178-4"></a>  <span class="kw">plot</span>(<span class="kw">get</span>(imagen),  <span class="dt">main =</span> imagen, <span class="dt">axes =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb178-5"><a href="muestreo-aleatorio-simple.html#cb178-5"></a>}</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-1.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-2.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-3.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-4.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-5.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-6.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-7.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-8.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-9.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-10.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-11.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-12.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-13.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-14.png" width="50%" style="display: block; margin: auto;" />
 Para cada una de las imágenes contamos las cabecitas que aparecen:</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="muestreo-aleatorio-simple.html#cb176-1"></a>datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb176-2"><a href="muestreo-aleatorio-simple.html#cb176-2"></a>  <span class="dt">Imagen =</span> imagenes.muestreadas,</span>
-<span id="cb176-3"><a href="muestreo-aleatorio-simple.html#cb176-3"></a>  <span class="dt">Conteo =</span> <span class="kw">c</span>(<span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">9</span>, <span class="dv">14</span>, <span class="dv">9</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">22</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">17</span>, <span class="dv">16</span>)</span>
-<span id="cb176-4"><a href="muestreo-aleatorio-simple.html#cb176-4"></a>)</span>
-<span id="cb176-5"><a href="muestreo-aleatorio-simple.html#cb176-5"></a><span class="kw">kable</span>(datos) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>(<span class="dt">latex_options =</span> <span class="st">&quot;striped&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="muestreo-aleatorio-simple.html#cb179-1"></a>datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb179-2"><a href="muestreo-aleatorio-simple.html#cb179-2"></a>  <span class="dt">Imagen =</span> imagenes.muestreadas,</span>
+<span id="cb179-3"><a href="muestreo-aleatorio-simple.html#cb179-3"></a>  <span class="dt">Conteo =</span> <span class="kw">c</span>(<span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">9</span>, <span class="dv">14</span>, <span class="dv">9</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">22</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">17</span>, <span class="dv">16</span>)</span>
+<span id="cb179-4"><a href="muestreo-aleatorio-simple.html#cb179-4"></a>)</span>
+<span id="cb179-5"><a href="muestreo-aleatorio-simple.html#cb179-5"></a><span class="kw">kable</span>(datos) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>(<span class="dt">latex_options =</span> <span class="st">&quot;striped&quot;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1000,17 +1013,17 @@ sub16
 </tbody>
 </table>
 <p>Tenemos entonces que la estimación del total <span class="math inline">\(\hat{t}\)</span> es: 1200, por otro lado la varianza muestral es <span class="math inline">\(s_{x,\mathcal{S}}\)</span> está dada por: 25.2307692. Podemos entonces establecer un intervalo de confianza para el total:</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="muestreo-aleatorio-simple.html#cb177-1"></a>x  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">9</span>, <span class="dv">14</span>, <span class="dv">9</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">22</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">17</span>, <span class="dv">16</span>, <span class="dv">10</span>)</span>
-<span id="cb177-2"><a href="muestreo-aleatorio-simple.html#cb177-2"></a>s2            &lt;-<span class="st"> </span><span class="kw">var</span>(x)</span>
-<span id="cb177-3"><a href="muestreo-aleatorio-simple.html#cb177-3"></a>N             &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb177-4"><a href="muestreo-aleatorio-simple.html#cb177-4"></a>n             &lt;-<span class="st"> </span><span class="dv">15</span></span>
-<span id="cb177-5"><a href="muestreo-aleatorio-simple.html#cb177-5"></a>total.muestra &lt;-<span class="st"> </span>N<span class="op">*</span><span class="kw">mean</span>(x)</span>
-<span id="cb177-6"><a href="muestreo-aleatorio-simple.html#cb177-6"></a>ci            &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span><span class="kw">sqrt</span>(N<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>n<span class="op">/</span>N)<span class="op">/</span>n<span class="op">*</span>s2)</span>
-<span id="cb177-7"><a href="muestreo-aleatorio-simple.html#cb177-7"></a>ci_low        &lt;-<span class="st"> </span><span class="kw">round</span>(total.muestra <span class="op">-</span><span class="st"> </span>ci,<span class="dv">2</span>)</span>
-<span id="cb177-8"><a href="muestreo-aleatorio-simple.html#cb177-8"></a>ci_up         &lt;-<span class="st"> </span><span class="kw">round</span>(total.muestra <span class="op">+</span><span class="st"> </span>ci,<span class="dv">2</span>)</span>
-<span id="cb177-9"><a href="muestreo-aleatorio-simple.html#cb177-9"></a></span>
-<span id="cb177-10"><a href="muestreo-aleatorio-simple.html#cb177-10"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;Se estiman &quot;</span>, <span class="kw">round</span>(total.muestra,<span class="dv">2</span>), <span class="st">&quot; personas con intervalo de &quot;</span>,</span>
-<span id="cb177-11"><a href="muestreo-aleatorio-simple.html#cb177-11"></a>             <span class="st">&quot;confianza al 95% de [&quot;</span>, ci_low, <span class="st">&quot; ,&quot;</span>, ci_up,<span class="st">&quot;]&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="muestreo-aleatorio-simple.html#cb180-1"></a>x  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">9</span>, <span class="dv">14</span>, <span class="dv">9</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">22</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">17</span>, <span class="dv">16</span>, <span class="dv">10</span>)</span>
+<span id="cb180-2"><a href="muestreo-aleatorio-simple.html#cb180-2"></a>s2            &lt;-<span class="st"> </span><span class="kw">var</span>(x)</span>
+<span id="cb180-3"><a href="muestreo-aleatorio-simple.html#cb180-3"></a>N             &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb180-4"><a href="muestreo-aleatorio-simple.html#cb180-4"></a>n             &lt;-<span class="st"> </span><span class="dv">15</span></span>
+<span id="cb180-5"><a href="muestreo-aleatorio-simple.html#cb180-5"></a>total.muestra &lt;-<span class="st"> </span>N<span class="op">*</span><span class="kw">mean</span>(x)</span>
+<span id="cb180-6"><a href="muestreo-aleatorio-simple.html#cb180-6"></a>ci            &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span><span class="kw">sqrt</span>(N<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>n<span class="op">/</span>N)<span class="op">/</span>n<span class="op">*</span>s2)</span>
+<span id="cb180-7"><a href="muestreo-aleatorio-simple.html#cb180-7"></a>ci_low        &lt;-<span class="st"> </span><span class="kw">round</span>(total.muestra <span class="op">-</span><span class="st"> </span>ci,<span class="dv">2</span>)</span>
+<span id="cb180-8"><a href="muestreo-aleatorio-simple.html#cb180-8"></a>ci_up         &lt;-<span class="st"> </span><span class="kw">round</span>(total.muestra <span class="op">+</span><span class="st"> </span>ci,<span class="dv">2</span>)</span>
+<span id="cb180-9"><a href="muestreo-aleatorio-simple.html#cb180-9"></a></span>
+<span id="cb180-10"><a href="muestreo-aleatorio-simple.html#cb180-10"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;Se estiman &quot;</span>, <span class="kw">round</span>(total.muestra,<span class="dv">2</span>), <span class="st">&quot; personas con intervalo de &quot;</span>,</span>
+<span id="cb180-11"><a href="muestreo-aleatorio-simple.html#cb180-11"></a>             <span class="st">&quot;confianza al 95% de [&quot;</span>, ci_low, <span class="st">&quot; ,&quot;</span>, ci_up,<span class="st">&quot;]&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;Se estiman 1186.67 personas con intervalo de confianza al 95% de [959.55 ,1413.78]&quot;</code></pre>
 </div>
 <div id="ejercicio-2" class="section level2">
@@ -1132,13 +1145,13 @@ de donde se sigue que:
 <p>Por otro lado el cálculo de la varianza:
 <span class="math display">\[\begin{equation}\nonumber
 \begin{aligned}
- \text{Var}\big[K | K &gt; 0\big] &amp; =\mathbb{E}\big[K^2 | K &gt; 0] - \mathbb{E}\big[K^2 | K &gt; 0]^2\\
+ \text{Var}\big[K | K &gt; 0\big] &amp; =\mathbb{E}\big[K^2 | K &gt; 0] - \mathbb{E}\big[K | K &gt; 0]^2\\
  &amp; =  \dfrac{\mathbb{E}\big[K^2]}{\mathbb{P}(K &gt; 0)} - \mu^2 \\
  &amp; =  \dfrac{\text{Var}[K] + \mathbb{E}[K]^2}{1 - \mathbb{P}(K = 0)} - \mu^2 \\
- &amp; = \dfrac{\text{Var}[K] + \Big(n\frac{M}{N}\Big)^2}{1 - \mathbb{P}(K = 0)} - \mu^2\\
- &amp; = \dfrac{\frac{n\ell}{N} \cdot \frac{(N-\ell)}{N} \cdot \Big( \frac{N-n}{N-1} \Big) + \Big(n\frac{M}{N}\Big)^2}{1 - \mathbb{P}(K = 0)} - \mu^2 \\
- &amp; = \dfrac{\frac{n\ell}{N} \cdot \frac{(N-\ell)}{N} \cdot \Big( \frac{N-n}{N-1} \Big) + \Big(n\frac{M}{N}\Big)^2}{1 -  \frac{\binom{N-\ell}{n}}{\binom{N}{n}}} - \mu^2 \\
- &amp; = \binom{N}{n} \dfrac{\frac{n\ell}{N} \cdot \frac{(N-\ell)}{N} \cdot \Big( \frac{N-n}{N-1} \Big) + \Big(n\frac{M}{N}\Big)^2}{\binom{N}{n} -  \binom{N-\ell}{n}}- \mu^2 &amp; = \sigma^2\\
+ &amp; = \dfrac{\text{Var}[K] + \Big(n\frac{\ell}{N}\Big)^2}{1 - \mathbb{P}(K = 0)} - \mu^2\\
+ &amp; = \dfrac{\frac{n\ell}{N} \cdot \frac{(N-\ell)}{N} \cdot \Big( \frac{N-n}{N-1} \Big) + \Big(n\frac{\ell}{N}\Big)^2}{1 - \mathbb{P}(K = 0)} - \mu^2 \\
+ &amp; = \dfrac{\frac{n\ell}{N} \cdot \frac{(N-\ell)}{N} \cdot \Big( \frac{N-n}{N-1} \Big) + \Big(n\frac{\ell}{N}\Big)^2}{1 -  \frac{\binom{N-\ell}{n}}{\binom{N}{n}}} - \mu^2 \\
+ &amp; = \binom{N}{n} \dfrac{\frac{n\ell}{N} \cdot \frac{(N-\ell)}{N} \cdot \Big( \frac{N-n}{N-1} \Big) + \Big(n\frac{\ell}{N}\Big)^2}{\binom{N}{n} -  \binom{N-\ell}{n}}- \mu^2 &amp; = \sigma^2\\
 \end{aligned}
 \end{equation}\]</span></p>
 <p>Donde se tiene entonces que:
@@ -1316,16 +1329,16 @@ con media y varianza dadas por:
 \mathbb{E}\Big[ n(\mathcal{S})\Big] = N\pi \quad \text{ y } \quad \text{Var}\Big[ n(\mathcal{S})\Big] = N\pi(1 - \pi)
 \]</span>
 Una forma de muestrear de un muestreo Bernoulli es recorrer uno a uno los elementos de la muestra y generar una variable aleatoria <span class="math inline">\(B_i \sim \textrm{Bernoulli}(\pi)\)</span> de tal forma que si <span class="math inline">\(B_i = 1\)</span> se incluye el elemento en la muestra. Este esquema está programado en <code>R</code> como sigue:</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="muestreo-aleatorio-simple.html#cb179-1"></a>datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Edad =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">14</span>),</span>
-<span id="cb179-2"><a href="muestreo-aleatorio-simple.html#cb179-2"></a>                    <span class="dt">Raza =</span> <span class="kw">c</span>(<span class="st">&quot;Labrador&quot;</span>, <span class="st">&quot;Pomeranio&quot;</span>,<span class="st">&quot;Labrador&quot;</span>,</span>
-<span id="cb179-3"><a href="muestreo-aleatorio-simple.html#cb179-3"></a>                             <span class="st">&quot;Pastor Alemán&quot;</span>, <span class="st">&quot;Bulldog&quot;</span>,<span class="st">&quot;Bulldog&quot;</span>, <span class="st">&quot;Chihuahua&quot;</span>))</span>
-<span id="cb179-4"><a href="muestreo-aleatorio-simple.html#cb179-4"></a>datos<span class="op">$</span>en_muestra &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb179-5"><a href="muestreo-aleatorio-simple.html#cb179-5"></a>proba   &lt;-<span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">4</span></span>
-<span id="cb179-6"><a href="muestreo-aleatorio-simple.html#cb179-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(datos)){</span>
-<span id="cb179-7"><a href="muestreo-aleatorio-simple.html#cb179-7"></a>  Bi &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dv">1</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>proba, proba))</span>
-<span id="cb179-8"><a href="muestreo-aleatorio-simple.html#cb179-8"></a>  datos<span class="op">$</span>en_muestra[i] &lt;-<span class="st"> </span>Bi</span>
-<span id="cb179-9"><a href="muestreo-aleatorio-simple.html#cb179-9"></a>}</span>
-<span id="cb179-10"><a href="muestreo-aleatorio-simple.html#cb179-10"></a>muestra &lt;-<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(en_muestra <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="muestreo-aleatorio-simple.html#cb182-1"></a>datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Edad =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">14</span>),</span>
+<span id="cb182-2"><a href="muestreo-aleatorio-simple.html#cb182-2"></a>                    <span class="dt">Raza =</span> <span class="kw">c</span>(<span class="st">&quot;Labrador&quot;</span>, <span class="st">&quot;Pomeranio&quot;</span>,<span class="st">&quot;Labrador&quot;</span>,</span>
+<span id="cb182-3"><a href="muestreo-aleatorio-simple.html#cb182-3"></a>                             <span class="st">&quot;Pastor Alemán&quot;</span>, <span class="st">&quot;Bulldog&quot;</span>,<span class="st">&quot;Bulldog&quot;</span>, <span class="st">&quot;Chihuahua&quot;</span>))</span>
+<span id="cb182-4"><a href="muestreo-aleatorio-simple.html#cb182-4"></a>datos<span class="op">$</span>en_muestra &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb182-5"><a href="muestreo-aleatorio-simple.html#cb182-5"></a>proba   &lt;-<span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">4</span></span>
+<span id="cb182-6"><a href="muestreo-aleatorio-simple.html#cb182-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(datos)){</span>
+<span id="cb182-7"><a href="muestreo-aleatorio-simple.html#cb182-7"></a>  Bi &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dv">1</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>proba, proba))</span>
+<span id="cb182-8"><a href="muestreo-aleatorio-simple.html#cb182-8"></a>  datos<span class="op">$</span>en_muestra[i] &lt;-<span class="st"> </span>Bi</span>
+<span id="cb182-9"><a href="muestreo-aleatorio-simple.html#cb182-9"></a>}</span>
+<span id="cb182-10"><a href="muestreo-aleatorio-simple.html#cb182-10"></a>muestra &lt;-<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(en_muestra <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
 <p>Bajo este esquema se tiene que:
 <span class="math display">\[
 \pi_k = \mathbb{P}(x_k \in \mathcal{S}) = \pi \qquad \forall k
@@ -1344,11 +1357,11 @@ El cual es insesgado pues usando indicadoras reescribimos <span class="math inli
 \]</span>
 por otro lado su varianza está dada por:
 <span class="math display">\[
-\textrm{Var}_{\text{BE}}(\hat{t}_{\pi}) = \Big( \frac{1}{\pi} - 1\Big)\sum\limits_{i = 1}^N x_k^2
+\textrm{Var}_{\text{BE}}(\hat{t}_{\pi}) = \Big( \frac{1}{\pi} - 1\Big)\sum\limits_{i = 1}^N x_i^2
 \]</span>
 la cual puede estimarse de manera insesgada mediante:
 <span class="math display">\[
-\widehat{\textrm{Var}}_{\text{BE}}(\hat{t}_{\pi}) = \frac{1}{\pi}\Big( \frac{1}{\pi} - 1\Big)\sum\limits_{i = 1}^{n(\mathcal{S})} x_k^2
+\widehat{\textrm{Var}}_{\text{BE}}(\hat{t}_{\pi}) = \frac{1}{\pi}\Big( \frac{1}{\pi} - 1\Big)\sum\limits_{i = 1}^{n(\mathcal{S})} x_i^2
 \]</span></p>
 <div id="ejercicio-3" class="section level3">
 <h3><span class="header-section-number">3.12.1</span> Ejercicio</h3>
@@ -1361,7 +1374,7 @@ la cual puede estimarse de manera insesgada mediante:
 <h3><span class="header-section-number">3.12.2</span> Ejemplo</h3>
 <p>Consideraremos un ejemplo presentado por <em>Särndal et al</em>. Un profesor corrige 600 exámenes. Quiere tener un estimado de la calificación de sus alumnos y para ello cada que aparece un examen tira un dado justo de <span class="math inline">\(6\)</span> caras y si sale un <span class="math inline">\(6\)</span> corrige dicho examen; en caso contrario lo deja pasar. Al final del análisis el profe obtiene una muestra de <span class="math inline">\(90\)</span> estudiantes de los cuales <span class="math inline">\(60\)</span> pasaron. Asignamos <span class="math inline">\(x_i = 0\)</span> si un alumno no pasó y <span class="math inline">\(x_i = 1\)</span> si pasó; de esta forma la estimación de la cantidad de alumnos que pasaron es un total dado por:
 <span class="math display">\[
-\hat{t} = \frac{1}{\pi} \sum\limits_{i = 1}^{90} x_k = \dfrac{1}{\frac{1}{6}} 60 = 360
+\hat{t} = \frac{1}{\pi} \sum\limits_{i = 1}^{90} x_i = \dfrac{1}{\frac{1}{6}} 60 = 360
 \]</span>
 El profe, después de pensarlo un rato se le ocurre otra manera de estimar la proporción de los alumnos que pasaron. Si pasaron <span class="math inline">\(60/90\)</span> se tiene entonces que <span class="math inline">\(2/3\)</span> de los alumnos pasan; aplicando el <span class="math inline">\(2/3\)</span> a los <span class="math inline">\(600\)</span> alumnos que tiene un estimador alternativo del total sería:
 <span class="math display">\[
@@ -1467,21 +1480,21 @@ En particular, notamos que del lado izquierdo tenemos a la función de distribuc
 F_B(200; 1000, p) = 0.75 \quad \text{ donde } B \sim \text{Binomial}(1000,p)
 \]</span>
 Podemos graficar la función de distribución acumulada como función de <span class="math inline">\(p\)</span>:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="muestreo-aleatorio-simple.html#cb180-1"></a>p.val &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dt">length.out =</span> <span class="dv">100</span>)</span>
-<span id="cb180-2"><a href="muestreo-aleatorio-simple.html#cb180-2"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
-<span id="cb180-3"><a href="muestreo-aleatorio-simple.html#cb180-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x =</span> p.val, <span class="dt">y =</span> <span class="kw">pbinom</span>(<span class="dv">200</span>, <span class="dv">1000</span>, p.val))) <span class="op">+</span></span>
-<span id="cb180-4"><a href="muestreo-aleatorio-simple.html#cb180-4"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb180-5"><a href="muestreo-aleatorio-simple.html#cb180-5"></a><span class="st">  </span><span class="kw">labs</span>(</span>
-<span id="cb180-6"><a href="muestreo-aleatorio-simple.html#cb180-6"></a>    <span class="dt">x =</span> <span class="st">&quot;p&quot;</span>,</span>
-<span id="cb180-7"><a href="muestreo-aleatorio-simple.html#cb180-7"></a>    <span class="dt">y =</span> <span class="st">&quot;F(200;1000,p)&quot;</span>,</span>
-<span id="cb180-8"><a href="muestreo-aleatorio-simple.html#cb180-8"></a>    <span class="dt">title =</span> <span class="st">&quot;Función de distribución acumulada como función de p&quot;</span>,</span>
-<span id="cb180-9"><a href="muestreo-aleatorio-simple.html#cb180-9"></a>    <span class="dt">subtitle =</span> <span class="st">&quot;Modelo Binomial(1000,p) evaluado en x = 200&quot;</span></span>
-<span id="cb180-10"><a href="muestreo-aleatorio-simple.html#cb180-10"></a>  ) </span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-159-1.png" width="672" />
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="muestreo-aleatorio-simple.html#cb183-1"></a>p.val &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dt">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb183-2"><a href="muestreo-aleatorio-simple.html#cb183-2"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb183-3"><a href="muestreo-aleatorio-simple.html#cb183-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x =</span> p.val, <span class="dt">y =</span> <span class="kw">pbinom</span>(<span class="dv">200</span>, <span class="dv">1000</span>, p.val))) <span class="op">+</span></span>
+<span id="cb183-4"><a href="muestreo-aleatorio-simple.html#cb183-4"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb183-5"><a href="muestreo-aleatorio-simple.html#cb183-5"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb183-6"><a href="muestreo-aleatorio-simple.html#cb183-6"></a>    <span class="dt">x =</span> <span class="st">&quot;p&quot;</span>,</span>
+<span id="cb183-7"><a href="muestreo-aleatorio-simple.html#cb183-7"></a>    <span class="dt">y =</span> <span class="st">&quot;F(200;1000,p)&quot;</span>,</span>
+<span id="cb183-8"><a href="muestreo-aleatorio-simple.html#cb183-8"></a>    <span class="dt">title =</span> <span class="st">&quot;Función de distribución acumulada como función de p&quot;</span>,</span>
+<span id="cb183-9"><a href="muestreo-aleatorio-simple.html#cb183-9"></a>    <span class="dt">subtitle =</span> <span class="st">&quot;Modelo Binomial(1000,p) evaluado en x = 200&quot;</span></span>
+<span id="cb183-10"><a href="muestreo-aleatorio-simple.html#cb183-10"></a>  ) </span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-165-1.png" width="672" />
 Notamos entonces que lo que necesitamos es hallar la <span class="math inline">\(p\)</span> donde la función de distribución acumulada (como función de <span class="math inline">\(p\)</span>) toca al <span class="math inline">\(0.75\)</span>. Para ello, como no podemos despejar, utilizamos un método numérico a través de <code>uniroot</code> para encontrar el <span class="math inline">\(0\)</span> de la función <span class="math inline">\(g(p) = F_B(200; 1000, p) - 0.75\)</span> (pues la <span class="math inline">\(p^*\)</span> tal que <span class="math inline">\(g(p^*)=0\)</span> es la respuesta):</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="muestreo-aleatorio-simple.html#cb181-1"></a>g.fun &lt;-<span class="st"> </span><span class="cf">function</span>(p){<span class="kw">pbinom</span>(<span class="dv">200</span>, <span class="dv">1000</span>, p) <span class="op">-</span><span class="st"> </span><span class="fl">0.75</span>}</span>
-<span id="cb181-2"><a href="muestreo-aleatorio-simple.html#cb181-2"></a>raiz  &lt;-<span class="st"> </span><span class="kw">uniroot</span>(g.fun, <span class="dt">lower =</span> <span class="dv">0</span>, <span class="dt">upper =</span> <span class="fl">0.5</span>)</span>
-<span id="cb181-3"><a href="muestreo-aleatorio-simple.html#cb181-3"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El valor de p es &quot;</span>, raiz<span class="op">$</span>root))</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="muestreo-aleatorio-simple.html#cb184-1"></a>g.fun &lt;-<span class="st"> </span><span class="cf">function</span>(p){<span class="kw">pbinom</span>(<span class="dv">200</span>, <span class="dv">1000</span>, p) <span class="op">-</span><span class="st"> </span><span class="fl">0.75</span>}</span>
+<span id="cb184-2"><a href="muestreo-aleatorio-simple.html#cb184-2"></a>raiz  &lt;-<span class="st"> </span><span class="kw">uniroot</span>(g.fun, <span class="dt">lower =</span> <span class="dv">0</span>, <span class="dt">upper =</span> <span class="fl">0.5</span>)</span>
+<span id="cb184-3"><a href="muestreo-aleatorio-simple.html#cb184-3"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El valor de p es &quot;</span>, raiz<span class="op">$</span>root))</span></code></pre></div>
 <pre><code>## [1] &quot;El valor de p es 0.192159774829166&quot;</code></pre>
 <p>De donde obtenemos el <span class="math inline">\(p\)</span> necesario.</p>
 </div>
@@ -1512,7 +1525,7 @@ lo cual se calcula por el complemento. Por otro lado, la probabilidad conjunta <
 \pi_{k,l} = 1 - \underbrace{\Big( 1 - \frac{1}{N}\Big)^m}_{\text{No está }x_k} - \underbrace{\Big( 1 - \frac{1}{N}\Big)^m}_{\text{No está }x_l} + \underbrace{\Big( 1 - \frac{2}{N}\Big)^m}_{\text{No está ni }x_k\text{ ni }x_l}
 \]</span></p>
 <p>En <code>R</code> puedes obtener un muestreo aleatorio simple con reemplazo cambiando en <code>sample</code> el <code>replace</code>:</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="muestreo-aleatorio-simple.html#cb183-1"></a><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="muestreo-aleatorio-simple.html#cb186-1"></a><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;B&quot; &quot;A&quot; &quot;C&quot; &quot;A&quot; &quot;C&quot; &quot;B&quot; &quot;B&quot; &quot;A&quot; &quot;A&quot; &quot;C&quot;</code></pre>
 <p>Una observación es bastante relevante aquí:
 <span class="math display">\[\begin{align*}
@@ -1605,8 +1618,8 @@ donde sustituimos:
 \frac{1}{3}(1 - \frac{1}{3})\cdot \Bigg(\dfrac{Z_{1 - \alpha/2}}{0.01}\Bigg)^2\cdot \dfrac{N-1}{N} \leq  n
 \]</span></p>
 <p>Concluimos que:</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="muestreo-aleatorio-simple.html#cb185-1"></a>n &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)<span class="op">*</span>(<span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">/</span><span class="fl">0.01</span>)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1500</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)<span class="op">/</span><span class="dv">1500</span>)</span>
-<span id="cb185-2"><a href="muestreo-aleatorio-simple.html#cb185-2"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;n = &quot;</span>, n))</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="muestreo-aleatorio-simple.html#cb188-1"></a>n &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)<span class="op">*</span>(<span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">/</span><span class="fl">0.01</span>)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1500</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)<span class="op">/</span><span class="dv">1500</span>)</span>
+<span id="cb188-2"><a href="muestreo-aleatorio-simple.html#cb188-2"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;n = &quot;</span>, n))</span></code></pre></div>
 <pre><code>## [1] &quot;n = 8531&quot;</code></pre>
 <p>Lo cual es un sinsentido estadístico: ¿para qué muestrear más de lo que se tiene en población total? En este ejercicio lo mejor sería hacer un censo.</p>
 <blockquote>
@@ -1645,17 +1658,17 @@ de donde se sigue que:
 \sum\limits_{i = 0}^{r-1} \dfrac{N}{N-i} = m
 \]</span>
 La cual es una ecuación no lineal que se puede resolver mediante <code>uniroot</code> como la pasada.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="muestreo-aleatorio-simple.html#cb187-1"></a>m.val &lt;-<span class="st"> </span><span class="cf">function</span>(N){</span>
-<span id="cb187-2"><a href="muestreo-aleatorio-simple.html#cb187-2"></a>  r &lt;-<span class="st"> </span><span class="dv">42</span></span>
-<span id="cb187-3"><a href="muestreo-aleatorio-simple.html#cb187-3"></a>  m &lt;-<span class="st"> </span><span class="dv">50</span></span>
-<span id="cb187-4"><a href="muestreo-aleatorio-simple.html#cb187-4"></a>  suma &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb187-5"><a href="muestreo-aleatorio-simple.html#cb187-5"></a>  N    &lt;-<span class="st"> </span><span class="kw">floor</span>(N) <span class="co">#Esto es para garantizar sale un entero; no es la mejor opción de optimizar</span></span>
-<span id="cb187-6"><a href="muestreo-aleatorio-simple.html#cb187-6"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>r){</span>
-<span id="cb187-7"><a href="muestreo-aleatorio-simple.html#cb187-7"></a>    suma &lt;-<span class="st"> </span>suma <span class="op">+</span><span class="st"> </span>N<span class="op">/</span>(N <span class="op">-</span><span class="st"> </span>(i <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))</span>
-<span id="cb187-8"><a href="muestreo-aleatorio-simple.html#cb187-8"></a>  }</span>
-<span id="cb187-9"><a href="muestreo-aleatorio-simple.html#cb187-9"></a>  <span class="kw">return</span>(suma <span class="op">-</span><span class="st"> </span>m)</span>
-<span id="cb187-10"><a href="muestreo-aleatorio-simple.html#cb187-10"></a>}</span>
-<span id="cb187-11"><a href="muestreo-aleatorio-simple.html#cb187-11"></a><span class="kw">floor</span>(<span class="kw">uniroot</span>(m.val, <span class="dt">lower =</span> <span class="dv">100</span>, <span class="dt">upper =</span> <span class="dv">200</span>)<span class="op">$</span>root)</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="muestreo-aleatorio-simple.html#cb190-1"></a>m.val &lt;-<span class="st"> </span><span class="cf">function</span>(N){</span>
+<span id="cb190-2"><a href="muestreo-aleatorio-simple.html#cb190-2"></a>  r &lt;-<span class="st"> </span><span class="dv">42</span></span>
+<span id="cb190-3"><a href="muestreo-aleatorio-simple.html#cb190-3"></a>  m &lt;-<span class="st"> </span><span class="dv">50</span></span>
+<span id="cb190-4"><a href="muestreo-aleatorio-simple.html#cb190-4"></a>  suma &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb190-5"><a href="muestreo-aleatorio-simple.html#cb190-5"></a>  N    &lt;-<span class="st"> </span><span class="kw">floor</span>(N) <span class="co">#Esto es para garantizar sale un entero; no es la mejor opción de optimizar</span></span>
+<span id="cb190-6"><a href="muestreo-aleatorio-simple.html#cb190-6"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>r){</span>
+<span id="cb190-7"><a href="muestreo-aleatorio-simple.html#cb190-7"></a>    suma &lt;-<span class="st"> </span>suma <span class="op">+</span><span class="st"> </span>N<span class="op">/</span>(N <span class="op">-</span><span class="st"> </span>(i <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))</span>
+<span id="cb190-8"><a href="muestreo-aleatorio-simple.html#cb190-8"></a>  }</span>
+<span id="cb190-9"><a href="muestreo-aleatorio-simple.html#cb190-9"></a>  <span class="kw">return</span>(suma <span class="op">-</span><span class="st"> </span>m)</span>
+<span id="cb190-10"><a href="muestreo-aleatorio-simple.html#cb190-10"></a>}</span>
+<span id="cb190-11"><a href="muestreo-aleatorio-simple.html#cb190-11"></a><span class="kw">floor</span>(<span class="kw">uniroot</span>(m.val, <span class="dt">lower =</span> <span class="dv">100</span>, <span class="dt">upper =</span> <span class="dv">200</span>)<span class="op">$</span>root)</span></code></pre></div>
 <pre><code>## [1] 136</code></pre>
 </div>
 <div id="muestreo-aleatorio-simple-ponderado-masp" class="section level2">
@@ -1802,7 +1815,7 @@ determina los <span class="math inline">\(\pi_k\)</span> los <span class="math i
         </div>
       </div>
 <a href="análisis-exploratorio-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="muestreo-aleatorio-estratificado.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

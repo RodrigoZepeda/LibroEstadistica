@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Muestreo Aleatorio Estratificado | Estadística I: Análisis exploratorio de datos y muestreo</title>
+  <title>Capítulo 4 Muestreo Aleatorio Estratificado | Estadística I: Análisis exploratorio de datos y muestreo</title>
   <meta name="description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Muestreo Aleatorio Estratificado | Estadística I: Análisis exploratorio de datos y muestreo" />
+  <meta property="og:title" content="Capítulo 4 Muestreo Aleatorio Estratificado | Estadística I: Análisis exploratorio de datos y muestreo" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Muestreo Aleatorio Estratificado | Estadística I: Análisis exploratorio de datos y muestreo" />
+  <meta name="twitter:title" content="Capítulo 4 Muestreo Aleatorio Estratificado | Estadística I: Análisis exploratorio de datos y muestreo" />
   
   <meta name="twitter:description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
   
@@ -120,6 +120,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -132,6 +133,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Historia y conceptos</a></li>
 <li class="chapter" data-level="2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>2</b> Análisis Exploratorio de Datos</a><ul>
 <li class="chapter" data-level="2.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#inicio"><i class="fa fa-check"></i><b>2.1</b> Inicio</a></li>
@@ -259,6 +263,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B.16.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-3"><i class="fa fa-check"></i><b>B.16.2</b> Ejercicio</a></li>
 </ul></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
+
 </ul>
 
       </nav>
@@ -277,7 +284,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="muestreo-aleatorio-estratificado" class="section level1">
-<h1><span class="header-section-number">4</span> Muestreo Aleatorio Estratificado</h1>
+<h1><span class="header-section-number">Capítulo 4</span> Muestreo Aleatorio Estratificado</h1>
 <div id="introducción-a-muestreo-aleatorio-estratificado-mae" class="section level2">
 <h2><span class="header-section-number">4.1</span> Introducción a Muestreo Aleatorio Estratificado (MAE)</h2>
 <p>Vamos a considerar una población <span class="math inline">\(\mathcal{U}\)</span> la cual suponemos podemos particionar en una cantidad finita (no vacía) de subpoblaciones: <span class="math inline">\(\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_H\)</span> de tamaños <span class="math inline">\(N_1, N_2, \dots, N_H\)</span> con <span class="math inline">\(\bigcup\limits_{h=1}^H \mathcal{U}_h = \mathcal{U}\)</span> (lo que se traduce en <span class="math inline">\(\sum_{h = 1}^H N_h = N\)</span>). Lo que busca el muestreo aleatorio estratificado es <em>estimar</em> en cada uno de los estratos así como de manera global. Por ejemplo, puede interesarnos conocer la estatura en hombres y mujeres, las ganancias en empresas agrícolas, ganaderas, de servicios y de transformación, la cantidad de enfermos que hay en cada entidad federativa, etc. En cada uno de estos casos estamos hablando de estratos de en los cuales interesa realizar la estimación. Un punto importante aquí es que <em>los estratos son conocidos y decididos por la investigadora</em>. La extracción en cada uno de los estratos se realiza de manera independiente obteniéndose muestras <span class="math inline">\(\mathcal{S}_1, \mathcal{S}_2, \dots, \mathcal{S}_H\)</span> de tamaños <span class="math inline">\(n_1, n_2, \dots, n_H\)</span> para cada uno de ellos.</p>
@@ -17849,8 +17856,8 @@ Zacatecas
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
+"github": true,
+"facebook": false,
 "twitter": true,
 "linkedin": false,
 "weibo": false,
@@ -17859,14 +17866,11 @@ gitbook.start({
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "white",
+"theme": ["night", "white", "sepia"],
 "family": "sans",
-"size": 2
+"size": [2, 4]
 },
-"edit": {
-"link": null,
-"text": null
-},
+"edit": null,
 "history": {
 "link": null,
 "text": null
@@ -17875,10 +17879,16 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["Introduccion_a_Muestreo.pdf", "Introduccion_a_Muestreo.epub"],
 "toc": {
-"collapse": "subsection"
-}
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
 });
 });
 </script>

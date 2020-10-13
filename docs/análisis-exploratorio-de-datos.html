@@ -24,7 +24,7 @@
 <meta name="author" content="Rodrigo Zepeda-Tello" />
 
 
-<meta name="date" content="2020-09-08" />
+<meta name="date" content="2020-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -193,6 +193,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.17" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-ponderado-masp"><i class="fa fa-check"></i><b>3.17</b> Muestreo Aleatorio Simple Ponderado (MAS/P)</a></li>
 <li class="chapter" data-level="3.18" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>3.18</b> Ejercicios</a></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html"><i class="fa fa-check"></i><b>4</b> Muestreo Aleatorio Estratificado</a><ul>
+<li class="chapter" data-level="4.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#introducción-a-muestreo-aleatorio-estratificado-mae"><i class="fa fa-check"></i><b>4.1</b> Introducción a Muestreo Aleatorio Estratificado (MAE)</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo"><i class="fa fa-check"></i><b>4.1.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="4.1.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-de-clase"><i class="fa fa-check"></i><b>4.1.2</b> Ejercicio de clase</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación"><i class="fa fa-check"></i><b>4.2</b> Alocación</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-proporcional-al-tamaño"><i class="fa fa-check"></i><b>4.2.1</b> Alocación proporcional al tamaño</a></li>
+<li class="chapter" data-level="4.2.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-óptima"><i class="fa fa-check"></i><b>4.2.2</b> Alocación óptima</a></li>
+<li class="chapter" data-level="4.2.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-1"><i class="fa fa-check"></i><b>4.2.3</b> Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-de-clase-1"><i class="fa fa-check"></i><b>4.3</b> Ejercicio de clase:</a></li>
+<li class="chapter" data-level="4.4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-en-r-tipo-control"><i class="fa fa-check"></i><b>4.4</b> Ejercicio en R tipo control</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
 <li class="appendix"><span><b>Apéndice</b></span></li>
 <li class="chapter" data-level="A" data-path="programación-en-r.html"><a href="programación-en-r.html"><i class="fa fa-check"></i><b>A</b> Programación en <code>R</code></a><ul>
@@ -251,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Rodrigo Zepeda Tello</a></li>
+<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
 
 </ul>
 
@@ -301,7 +314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="definiciones-y-notación" class="section level2">
 <h2><span class="header-section-number">2.4</span> Definiciones y notación</h2>
-<p>Siguiendo la definición de <span class="citation">Gelman et al. (<a href="#ref-gelman2013bayesian" role="doc-biblioref">2013</a>)</span> , denotamos el conjunto de datos observados como la matriz (<em>base de datos</em>) de <span class="math inline">\(\ell \times n\)</span>
+<p>Siguiendo la definición de <span class="citation">Gelman et al. (<a href="#ref-gelman2013bayesian" role="doc-biblioref">2013</a>)</span> , denotamos el conjunto de datos observados como la matriz (<em>base de datos</em>) de <span class="math inline">\(n \times \ell\)</span>
 <span class="math display">\[
 Z = \begin{pmatrix} 
 z_1 \Big| z_2 \Big| \dots \Big| z_{\ell}
@@ -586,9 +599,9 @@ En el caso de las carpetas podemos calcular la asimetría que no se encuentra pr
 <p><span class="math display">\[
 \text{Curtosis}_{\vec{x}} = \frac{1}{n \sigma^4_{\vec{x}} } \sum\limits_{i = 1}^{n} (x_i - \bar{x})^4
 \]</span></p>
-<p>La interpretación de la curtosis es similar a la que hizimos de la varianza en el sentido que el elevar a la cuarta va a magnificar los efectos de aquellos valores que estén a más de <span class="math inline">\(\sigma\)</span> de distancia de la media pues podemos reescribir la suma como:</p>
+<p>La interpretación de la curtosis es similar a la que hicimos de la varianza en el sentido que el elevar a la cuarta va a magnificar los efectos de aquellos valores que estén a más de <span class="math inline">\(\sigma\)</span> de distancia de la media pues podemos reescribir la suma como:</p>
 <p><span class="math display">\[
-\frac{1}{n \sigma^4_{\vec{x}} } \sum\limits_{i = 1}^{n} (x_i - \bar{x})^4  = \frac{1}{n \sigma^4_{\vec{x}} }  \underbrace{\sum\limits_{\substack{i = 1 \\ \\ | x_i - \bar{x}| &lt; \sigma}}^{n} (x_i - \bar{x})^4}_{\text{A}} + \frac{1}{n \sigma^4_{\vec{x}} }  \underbrace{\sum\limits_{\substack{i = 1 \\ \\ | x_i - \bar{x}| &gt; \sigma}}^{n} (x_i - \bar{x})^3}_{\text{B}} 
+\frac{1}{n \sigma^4_{\vec{x}} } \sum\limits_{i = 1}^{n} (x_i - \bar{x})^4  = \frac{1}{n \sigma^4_{\vec{x}} }  \underbrace{\sum\limits_{\substack{i = 1 \\ \\ | x_i - \bar{x}| &lt; \sigma}}^{n} (x_i - \bar{x})^4}_{\text{A}} + \frac{1}{n \sigma^4_{\vec{x}} }  \underbrace{\sum\limits_{\substack{i = 1 \\ \\ | x_i - \bar{x}| &gt; \sigma}}^{n} (x_i - \bar{x})^4}_{\text{B}} 
 \]</span>
 Notamos que la única parte importante que apota a la curtosis es la dada por <strong>B</strong> que es la que capta las <em>colas</em> de la distribución (pues ese lado es <span class="math inline">\(\gg 1\)</span>) . De ahí que podamos decir que, entre dos vectores de datos, uno tiene colas más pesadas que el otro si su curtosis es mayor. En este caso podemos analizar la <code>latitud</code> y <code>longitud</code> de los datos a través de la curtosis:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="análisis-exploratorio-de-datos.html#cb32-1"></a>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">kurtosis</span>(latitud, <span class="dt">na.rm =</span> T), <span class="kw">kurtosis</span>(longitud, <span class="dt">na.rm =</span> T))</span></code></pre></div>
@@ -1036,10 +1049,10 @@ Libro
 </tr>
 </tbody>
 </table>
-<p>En este sentido el vector es <span class="math inline">\(\vec{x} = (\text{Rojo},\text{Azul},\text{Verde},\text{Rojo},\text{Verde})^T\)</span> mientras que el conjunto de valores únicos asociados está dado por <span class="math inline">\(\mathcal{X} = \{ \text{Rojo},\text{Azul},\text{Verde} \}\)</span>. En este sentido (siguiendo el conjunto) se tiene que <span class="math inline">\(a_{1,x} = \text{Rojo}\)</span>, <span class="math inline">\(a_{2,x} = \text{Azul}\)</span> y <span class="math inline">\(a_{3,x } = \text{Verde}\)</span> mientras que (siguiendo el vector) se observa <span class="math inline">\(x_1 = \text{Rojo}\)</span>, <span class="math inline">\(x_2 = \text{Azul}\)</span>, <span class="math inline">\(x_3 = \text{Verde}\)</span>, <span class="math inline">\(x_4 = \text{Rojo}\)</span>, <span class="math inline">\(x_5 = \text{Verde}\)</span>. Finalmente notamos que el conteo de veces que aparece cada cosa es: <span class="math inline">\(n_{1,x} = 2\)</span> (aparece el <span class="math inline">\(a_{1, x}\)</span> que es rojo tres veces), <span class="math inline">\(n_{2,x} = 1\)</span> y <span class="math inline">\(n_{3,x } = 2\)</span> (el azul y verde dados por <span class="math inline">\(a_{2,x}\)</span> y <span class="math inline">\(a_{3,x}\)</span> respectivamente aparecen una vez para azul y dos veces para verde). Por otro lado, <span class="math inline">\(\vec{y} = (\text{Coche},\text{Taza},\text{Árbol},\text{Taza},\text{Libro})^T\)</span> con su conjunto de valores únicos <span class="math inline">\(\mathcal{Y} = \{ \text{Coche},\text{Taza},\text{Árbol}, \text{Libro} \}\)</span>. Para el caso de <span class="math inline">\(\vec{y}\)</span> se tiene que <span class="math inline">\(y_1 = \text{Coche}\)</span>, <span class="math inline">\(y_2 = \text{Taza}\)</span>, <span class="math inline">\(y_3 = \text{Árbol}\)</span>, <span class="math inline">\(y_4 = \text{Taza}\)</span>, <span class="math inline">\(y_5 = \text{Libro}\)</span> mientras que en el caso de valores únicos <span class="math inline">\(a_{y, 1} = \text{Coche}\)</span>, <span class="math inline">\(a_{y, 2} = \text{Taza}\)</span>, <span class="math inline">\(a_{y, 3} = \text{Árbol}\)</span>, <span class="math inline">\(a_{\cdot, 4} = \text{Libro}\)</span>. Los conteos asociados son: <span class="math inline">\(n_{y,1} = n_{y,3} = n_{y,4} = 1\)</span> (aparecen el coche, el árbol y el libro una vez) mientras que <span class="math inline">\(n_{y,2} = 2\)</span> representa que la taza está dos veces.</p>
+<p>En este sentido el vector es <span class="math inline">\(\vec{x} = (\text{Rojo},\text{Azul},\text{Verde},\text{Rojo},\text{Verde})^T\)</span> mientras que el conjunto de valores únicos asociados está dado por <span class="math inline">\(\mathcal{X} = \{ \text{Rojo},\text{Azul},\text{Verde} \}\)</span>. En este sentido (siguiendo el conjunto) se tiene que <span class="math inline">\(a_{1,x} = \text{Rojo}\)</span>, <span class="math inline">\(a_{2,x} = \text{Azul}\)</span> y <span class="math inline">\(a_{3,x } = \text{Verde}\)</span> mientras que (siguiendo el vector) se observa <span class="math inline">\(x_1 = \text{Rojo}\)</span>, <span class="math inline">\(x_2 = \text{Azul}\)</span>, <span class="math inline">\(x_3 = \text{Verde}\)</span>, <span class="math inline">\(x_4 = \text{Rojo}\)</span>, <span class="math inline">\(x_5 = \text{Verde}\)</span>. Finalmente notamos que el conteo de veces que aparece cada cosa es: <span class="math inline">\(n_{1,x} = 2\)</span> (aparece el <span class="math inline">\(a_{1, x}\)</span> que es rojo dos veces), <span class="math inline">\(n_{2,x} = 1\)</span> y <span class="math inline">\(n_{3,x } = 2\)</span> (el azul y verde dados por <span class="math inline">\(a_{2,x}\)</span> y <span class="math inline">\(a_{3,x}\)</span> respectivamente aparecen una vez para azul y dos veces para verde). Por otro lado, <span class="math inline">\(\vec{y} = (\text{Coche},\text{Taza},\text{Árbol},\text{Taza},\text{Libro})^T\)</span> con su conjunto de valores únicos <span class="math inline">\(\mathcal{Y} = \{ \text{Coche},\text{Taza},\text{Árbol}, \text{Libro} \}\)</span>. Para el caso de <span class="math inline">\(\vec{y}\)</span> se tiene que <span class="math inline">\(y_1 = \text{Coche}\)</span>, <span class="math inline">\(y_2 = \text{Taza}\)</span>, <span class="math inline">\(y_3 = \text{Árbol}\)</span>, <span class="math inline">\(y_4 = \text{Taza}\)</span>, <span class="math inline">\(y_5 = \text{Libro}\)</span> mientras que en el caso de valores únicos <span class="math inline">\(a_{y, 1} = \text{Coche}\)</span>, <span class="math inline">\(a_{y, 2} = \text{Taza}\)</span>, <span class="math inline">\(a_{y, 3} = \text{Árbol}\)</span>, <span class="math inline">\(a_{\cdot, 4} = \text{Libro}\)</span>. Los conteos asociados son: <span class="math inline">\(n_{y,1} = n_{y,3} = n_{y,4} = 1\)</span> (aparecen el coche, el árbol y el libro una vez) mientras que <span class="math inline">\(n_{y,2} = 2\)</span> representa que la taza está dos veces.</p>
 </blockquote>
 <p>Por otro lado denotamos a la submatriz de <span class="math inline">\(Z\)</span> compuesta solamente por las columnas <span class="math inline">\(\vec{x}\)</span> y <span class="math inline">\(\vec{y}\)</span> como:</p>
-<span class="math display">\[
+<p><span class="math display">\[
 Z_{(x,y)} = 
 \begin{pmatrix}
 x_1 &amp; y_1 \\
@@ -1052,10 +1065,135 @@ Sea <span class="math inline">\(\mathcal{X}\times\mathcal{Y} = \{ a_{i,j} = (x_i
 <span class="math display">\[
 n_{i,j} = \sum\limits_{k = 1}^{n}  \mathbb{I}_{\{ a_{i,j} \}}\big( (x_k, y_k) \big)
 \]</span>
-Lo anterior puede representarse en la tabla :
+<!--Lo anterior puede representarse en la tabla \eqref{tab:resumen}:
+\begin{table}[!htb]
+\centering
+\begin{tabular}{l||r|cccc|r}
+                   & \multicolumn{1}{l}{} & \multicolumn{5}{c}{$\vec{y}$}                                                                               \\
+                   \hline
+                   \hline
+\multirow{6}{*}{$\vec{x}$} & \multicolumn{1}{l}{} & $a_{y,1}$      & $a_{y,2}$      & $\dots$  & $a_{y,\ell_y}$      & \multicolumn{1}{c}{Total (fila)} \\
+\hline
 
-En el ejemplo anterior, la tabla se vería como la .
-
+                   & $a_{1,x}$            & $n_{1,1}$      & $n_{1,2}$      & $\dots$  & $n_{1,\ell_y}$      & $n_{1,x}$                        \\
+                   & $a_{2,x}$            & $n_{2,1}$      & $n_{2,2}$      & $\dots$  & $n_{2,\ell_y}$      & $n_{2,x}$                        \\
+                   & $\vdots$             & $\vdots$       & $\vdots$       & $\ddots$ & $\vdots$            & $n_{3,x}$                        \\
+                   & $a_{\ell_x,x}$       & $n_{\ell_x,1}$ & $n_{\ell_x,2}$ & $\dots$  & $n_{\ell_x,\ell_y}$ & $n_{\ell_x,x}$                   \\
+                   \hline
+                   & Total (columna)      & $n_{y,1}$      & $n_{y,2}$      & $\dots$  & $n_{y,\ell_y}$      & \multicolumn{1}{l}{$n$}       \\   
+                   \hline
+                   \hline
+\end{tabular}
+\caption{Tabla resumen}
+\label{tab:resumen}
+\end{table}-->
+En el ejemplo anterior, la tabla se vería:</p>
+<pre><code>## Warning: Setting row names on a tibble is deprecated.</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Coche
+</th>
+<th style="text-align:right;">
+Taza
+</th>
+<th style="text-align:right;">
+Árbol
+</th>
+<th style="text-align:right;">
+Libro
+</th>
+<th style="text-align:right;">
+Total (fila)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Rojo
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Azul
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Verde
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total (columna)
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
 <p>Una excelente referencia para esta sección es el capítulo 4 de <span class="citation">Peck, Olsen, and Devore (<a href="#ref-peck2015introduction" role="doc-biblioref">2015</a>)</span>.</p>
 <p><strong>1. Tabla de contingencia </strong>
 Para <span class="math inline">\(\vec{x}\)</span>, <span class="math inline">\(\vec{y}\)</span> definidas como al inicio de la sección (y siguiendo la notación anterior), definimos una tabla de contingencia como la matriz <span class="math inline">\(N_{x,y}\)</span> dada por:
@@ -1069,7 +1207,7 @@ n_{\ell_x,1} &amp; n_{\ell_x,2} &amp; \dots &amp; n_{\ell_x, \ell_y} \\
 \]</span>
 Al vector <span class="math inline">\(n_x = (n_{1,x}, n_{2,x}, \dots, n_{\ell_x,x})^T\)</span> se le conoce como <strong>distribución frecuencial (observada) marginal</strong> de <span class="math inline">\(\vec{x}\)</span> mientras que <span class="math inline">\(n_y = (n_{y,1}, n_{y,2}, \dots, n_{y,\ell_y})^T\)</span> es la <strong>distribución frecuencial (observada) marginal</strong> de <span class="math inline">\(\vec{y}\)</span>.</p>
 <p>Una tabla de contingencia representa el conteo de observaciones de una variable ajustado por la otra. Para crear una tabla de contingencia en <code>R</code> podemos usar el mismo comando <code>table</code> que ya usamos antes pero esta vez introduciendo dos vectores como en el siguiente ejemplo donde notamos alcaldía contra año del registo:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="análisis-exploratorio-de-datos.html#cb89-1"></a><span class="kw">table</span>(datos<span class="op">$</span>alcaldia_hechos, datos<span class="op">$</span>ao_inicio)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="análisis-exploratorio-de-datos.html#cb90-1"></a><span class="kw">table</span>(datos<span class="op">$</span>alcaldia_hechos, datos<span class="op">$</span>ao_inicio)</span></code></pre></div>
 <pre><code>##             
 ##              2018 2019
 ##   VERACRUZ      0    1
@@ -1079,7 +1217,7 @@ Al vector <span class="math inline">\(n_x = (n_{1,x}, n_{2,x}, \dots, n_{\ell_x,
 ##   XOCHITEPEC    1    0
 ##   ZACATECAS     0    2</code></pre>
 <p>Para agregar las distribuciones frecuenciales marginales a la tabla podemos usar el comando <code>addmargins</code>:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="análisis-exploratorio-de-datos.html#cb91-1"></a><span class="kw">addmargins</span>(<span class="kw">table</span>(datos<span class="op">$</span>alcaldia_hechos, datos<span class="op">$</span>ao_inicio))</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="análisis-exploratorio-de-datos.html#cb92-1"></a><span class="kw">addmargins</span>(<span class="kw">table</span>(datos<span class="op">$</span>alcaldia_hechos, datos<span class="op">$</span>ao_inicio))</span></code></pre></div>
 <pre><code>##             
 ##               2018  2019   Sum
 ##   VILLAGRAN      1     0     1
@@ -1100,7 +1238,7 @@ f_{\ell_x,1} &amp; f_{\ell_x,2} &amp; \dots &amp; f_{\ell_x, \ell_y} \\
 \]</span></p>
 <p>donde <span class="math inline">\(f_{i,j} = \frac{n_{i,j}}{n}\)</span> representa la frecuencia relativa de la observación de <span class="math inline">\((a_{i,x}, a_{y,j})\)</span> <em>i.e.</em> cuánto representa del total. Al vector <span class="math inline">\(f_{x} = (f_{1,x}, f_{2,x}, \dots, f_{\ell_x,x})^T\)</span> se le conoce como <strong>la distribución frecuencial marginal relativa</strong> de <span class="math inline">\(\vec{x}\)</span>. Análogamente para <span class="math inline">\(y\)</span> se tiene <strong>la distribución frecuencial marginal relativa</strong> de <span class="math inline">\(\vec{y}\)</span> dada por: <span class="math inline">\(f_{y} = (f_{y,1}, f_{y,2}, \dots, f_{y,\ell_y})^T\)</span>. Las entradas de dichos vectores son de la forma <span class="math inline">\(f_{i,x} = n_{i,x}/n\)</span> y <span class="math inline">\(f_{y,j} = n_{y,j}/n\)</span>.</p>
 <p>En <code>R</code> podemos obtener las frecuencias mediante <code>prop.table</code>:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="análisis-exploratorio-de-datos.html#cb93-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(datos<span class="op">$</span>alcaldia_hechos, datos<span class="op">$</span>ao_inicio))</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="análisis-exploratorio-de-datos.html#cb94-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(datos<span class="op">$</span>alcaldia_hechos, datos<span class="op">$</span>ao_inicio))</span></code></pre></div>
 <pre><code>##             
 ##                      2018         2019
 ##   VERACRUZ   0.000000e+00 5.038291e-05
@@ -1110,7 +1248,7 @@ f_{\ell_x,1} &amp; f_{\ell_x,2} &amp; \dots &amp; f_{\ell_x, \ell_y} \\
 ##   XOCHITEPEC 5.038291e-05 0.000000e+00
 ##   ZACATECAS  0.000000e+00 1.007658e-04</code></pre>
 <p>Así mismo, podemos agregar las marginales:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="análisis-exploratorio-de-datos.html#cb95-1"></a><span class="kw">addmargins</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(datos<span class="op">$</span>alcaldia_hechos, datos<span class="op">$</span>ao_inicio)))</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="análisis-exploratorio-de-datos.html#cb96-1"></a><span class="kw">addmargins</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(datos<span class="op">$</span>alcaldia_hechos, datos<span class="op">$</span>ao_inicio)))</span></code></pre></div>
 <pre><code>##             
 ##                      2018         2019          Sum
 ##   VILLAGRAN  5.038291e-05 0.000000e+00 5.038291e-05
@@ -1121,8 +1259,46 @@ f_{\ell_x,1} &amp; f_{\ell_x,2} &amp; \dots &amp; f_{\ell_x, \ell_y} \\
 ##   Sum        8.037082e-01 1.962918e-01 1.000000e+00</code></pre>
 <p><strong>3. Riesgo Relativo (discreto)</strong>
 Para definir Riesgo Relativo empezaremos por un ejemplo. Tomamos la tabla  donde se guardó un registro de personas según si fumaban o no así como si dichas personas desarrollaron o no enfisema pulmonar.</p>
-
-Si quisiéramos analizar la hipótesis de que FUMAR está asociado con ENFISEMA tendríamos que ver, dentro de la población de fumadores (FUMAR = SÍ) cuántos hay (proporcionalmente) con ENFISEMA. La hipótesis es que si no hubiera relación, saldría que las proporciones de fumadores con y sin enfisema serían <span class="math inline">\(50\%\)</span> cada una. La proporción de fumadores con enfisema está dada por <span class="math inline">\(100/130\)</span> mientras que la de no fumadores con enfisema es <span class="math inline">\(40/90\)</span>. El riesgo relativo (intuitivamente). se define como la división entre ambas proporciones:
+<pre><code>## Warning: Setting row names on a tibble is deprecated.</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+FUMA
+</th>
+<th style="text-align:right;">
+NO FUMA
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Con enfisema
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sin enfisema
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+</tbody>
+</table>
+<p>Si quisiéramos analizar la hipótesis de que FUMAR está asociado con ENFISEMA tendríamos que ver, dentro de la población de fumadores (FUMAR = SÍ) cuántos hay (proporcionalmente) con ENFISEMA. La hipótesis es que si no hubiera relación, saldría que las proporciones de fumadores con y sin enfisema serían <span class="math inline">\(50\%\)</span> cada una. La proporción de fumadores con enfisema está dada por <span class="math inline">\(100/130\)</span> mientras que la de no fumadores con enfisema es <span class="math inline">\(40/90\)</span>. El riesgo relativo (intuitivamente). se define como la división entre ambas proporciones:
 <span class="math display">\[
 \text{Riesgo Relativo de Enfisema} = \dfrac{\frac{\text{Expuestos enfermos}}{\text{Total de expuestos}}}{\frac{\text{No Expuestos enfermos}}{\text{Total de no expuestos}}} =  \dfrac{100/130}{40/90} \approx 1.73
 \]</span>
@@ -1130,8 +1306,46 @@ Lo que se interpreta como que los fumadores tienen <span class="math inline">\(1
 <span class="math display">\[
 \frac{\text{Expuestos enfermos}}{\text{Total de expuestos}}   \approx 1.73 \times \frac{\text{No Expuestos enfermos}}{\text{Total de no expuestos}}
 \]</span>
-De manera general, dadas dos vectores lógicos <span class="math inline">\(\vec{x}\)</span> (interpretada como el resultado) y <span class="math inline">\(\vec{y}\)</span> (interpretada como la exposición) con una tabla de contingencia y frecuencias marginales dadas por la tabla ,
-
+De manera general, dadas dos vectores lógicos <span class="math inline">\(\vec{x}\)</span> (interpretada como el resultado) y <span class="math inline">\(\vec{y}\)</span> (interpretada como la exposición) con una tabla de contingencia y frecuencias marginales dadas por la tabla:</p>
+<pre><code>## Warning: Setting row names on a tibble is deprecated.</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Expuesto (y)
+</th>
+<th style="text-align:left;">
+NO expuesto (y)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Resultado (x)
+</td>
+<td style="text-align:left;">
+a
+</td>
+<td style="text-align:left;">
+b
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sin resultado (x)
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+d
+</td>
+</tr>
+</tbody>
+</table>
 <p>definimos el riesgo relativo de <span class="math inline">\(\vec{x}\)</span> dado <span class="math inline">\(\vec{y}\)</span> como:
 <span class="math display">\[
 RR(\vec{x}|\vec{y}) = \dfrac{\frac{a}{a + c}}{\frac{b}{b + d}}
@@ -1141,27 +1355,27 @@ Mientras que el riesgo relativo de no <span class="math inline">\(\vec{x}\)</spa
 RR(\neg \vec{x}|\vec{y}) = \dfrac{\frac{c}{a + c}}{\frac{d}{b + d}}
 \]</span></p>
 <p>La base de datos de los delitos no contiene información suficiente para poder calcular un riesgo relativo pero podemos crear la base de datos correspondiente a la tabla  como sigue:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="análisis-exploratorio-de-datos.html#cb97-1"></a>fumadores &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">SI_FUMA =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">30</span>), <span class="dt">NO_FUMA =</span><span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">50</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="análisis-exploratorio-de-datos.html#cb100-1"></a>fumadores &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">SI_FUMA =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">30</span>), <span class="dt">NO_FUMA =</span><span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">50</span>))</span></code></pre></div>
 <p>Podemos agregar nombres a las filas para tener la base de datos mejor:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="análisis-exploratorio-de-datos.html#cb98-1"></a><span class="kw">rownames</span>(fumadores) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ENFISEMA&quot;</span>,<span class="st">&quot;NO_ENFISEMA&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="análisis-exploratorio-de-datos.html#cb101-1"></a><span class="kw">rownames</span>(fumadores) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ENFISEMA&quot;</span>,<span class="st">&quot;NO_ENFISEMA&quot;</span>)</span></code></pre></div>
 <p>La tabla se ve así:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="análisis-exploratorio-de-datos.html#cb99-1"></a>fumadores</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="análisis-exploratorio-de-datos.html#cb102-1"></a>fumadores</span></code></pre></div>
 <pre><code>##             SI_FUMA NO_FUMA
 ## ENFISEMA        100      40
 ## NO_ENFISEMA      30      50</code></pre>
 <p>Luego el riesgo relativo de ENFISEMA está dado por:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="análisis-exploratorio-de-datos.html#cb101-1"></a>numerador   &lt;-<span class="st"> </span>fumadores[<span class="st">&quot;ENFISEMA&quot;</span>,<span class="st">&quot;SI_FUMA&quot;</span>]<span class="op">/</span><span class="kw">sum</span>(fumadores<span class="op">$</span>SI_FUMA)</span>
-<span id="cb101-2"><a href="análisis-exploratorio-de-datos.html#cb101-2"></a>denominador &lt;-<span class="st"> </span>fumadores[<span class="st">&quot;ENFISEMA&quot;</span>,<span class="st">&quot;NO_FUMA&quot;</span>]<span class="op">/</span><span class="kw">sum</span>(fumadores<span class="op">$</span>NO_FUMA)</span>
-<span id="cb101-3"><a href="análisis-exploratorio-de-datos.html#cb101-3"></a></span>
-<span id="cb101-4"><a href="análisis-exploratorio-de-datos.html#cb101-4"></a>rr &lt;-<span class="st"> </span>numerador<span class="op">/</span>denominador <span class="co">#El riesgo relativo</span></span>
-<span id="cb101-5"><a href="análisis-exploratorio-de-datos.html#cb101-5"></a>rr</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="análisis-exploratorio-de-datos.html#cb104-1"></a>numerador   &lt;-<span class="st"> </span>fumadores[<span class="st">&quot;ENFISEMA&quot;</span>,<span class="st">&quot;SI_FUMA&quot;</span>]<span class="op">/</span><span class="kw">sum</span>(fumadores<span class="op">$</span>SI_FUMA)</span>
+<span id="cb104-2"><a href="análisis-exploratorio-de-datos.html#cb104-2"></a>denominador &lt;-<span class="st"> </span>fumadores[<span class="st">&quot;ENFISEMA&quot;</span>,<span class="st">&quot;NO_FUMA&quot;</span>]<span class="op">/</span><span class="kw">sum</span>(fumadores<span class="op">$</span>NO_FUMA)</span>
+<span id="cb104-3"><a href="análisis-exploratorio-de-datos.html#cb104-3"></a></span>
+<span id="cb104-4"><a href="análisis-exploratorio-de-datos.html#cb104-4"></a>rr &lt;-<span class="st"> </span>numerador<span class="op">/</span>denominador <span class="co">#El riesgo relativo</span></span>
+<span id="cb104-5"><a href="análisis-exploratorio-de-datos.html#cb104-5"></a>rr</span></code></pre></div>
 <pre><code>## [1] 1.730769</code></pre>
 <p>Por otro lado, el riesgo relativo de no enfisema es:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="análisis-exploratorio-de-datos.html#cb103-1"></a>numerador   &lt;-<span class="st"> </span>fumadores[<span class="st">&quot;NO_ENFISEMA&quot;</span>,<span class="st">&quot;SI_FUMA&quot;</span>]<span class="op">/</span><span class="kw">sum</span>(fumadores<span class="op">$</span>SI_FUMA)</span>
-<span id="cb103-2"><a href="análisis-exploratorio-de-datos.html#cb103-2"></a>denominador &lt;-<span class="st"> </span>fumadores[<span class="st">&quot;NO_ENFISEMA&quot;</span>,<span class="st">&quot;NO_FUMA&quot;</span>]<span class="op">/</span><span class="kw">sum</span>(fumadores<span class="op">$</span>NO_FUMA)</span>
-<span id="cb103-3"><a href="análisis-exploratorio-de-datos.html#cb103-3"></a></span>
-<span id="cb103-4"><a href="análisis-exploratorio-de-datos.html#cb103-4"></a>rr_neg &lt;-<span class="st"> </span>numerador<span class="op">/</span>denominador <span class="co">#El riesgo relativo</span></span>
-<span id="cb103-5"><a href="análisis-exploratorio-de-datos.html#cb103-5"></a>rr_neg</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="análisis-exploratorio-de-datos.html#cb106-1"></a>numerador   &lt;-<span class="st"> </span>fumadores[<span class="st">&quot;NO_ENFISEMA&quot;</span>,<span class="st">&quot;SI_FUMA&quot;</span>]<span class="op">/</span><span class="kw">sum</span>(fumadores<span class="op">$</span>SI_FUMA)</span>
+<span id="cb106-2"><a href="análisis-exploratorio-de-datos.html#cb106-2"></a>denominador &lt;-<span class="st"> </span>fumadores[<span class="st">&quot;NO_ENFISEMA&quot;</span>,<span class="st">&quot;NO_FUMA&quot;</span>]<span class="op">/</span><span class="kw">sum</span>(fumadores<span class="op">$</span>NO_FUMA)</span>
+<span id="cb106-3"><a href="análisis-exploratorio-de-datos.html#cb106-3"></a></span>
+<span id="cb106-4"><a href="análisis-exploratorio-de-datos.html#cb106-4"></a>rr_neg &lt;-<span class="st"> </span>numerador<span class="op">/</span>denominador <span class="co">#El riesgo relativo</span></span>
+<span id="cb106-5"><a href="análisis-exploratorio-de-datos.html#cb106-5"></a>rr_neg</span></code></pre></div>
 <pre><code>## [1] 0.4153846</code></pre>
 <p>Éste último se interpreta como si la proporción de individuos sin enfisema es <span class="math inline">\(0.41\)</span> veces más pequeña entre fumadores que no fumadores.</p>
 <p><strong>4. Razón de momios (discreto)</strong>
@@ -1170,7 +1384,7 @@ Para dos vectores lógicos <span class="math inline">\(\vec{x}\)</span> y <span 
 \textrm{OR}(\vec{x}|\vec{y}) =\dfrac{RR(\vec{x}|\vec{y})}{RR(\neg\vec{x}|\vec{y})} 
 \]</span>
 Podemos calcular en <code>R</code> la razón de momios a partir de los datos:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="análisis-exploratorio-de-datos.html#cb105-1"></a>razon.momios &lt;-<span class="st"> </span>rr<span class="op">/</span>rr_neg</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="análisis-exploratorio-de-datos.html#cb108-1"></a>razon.momios &lt;-<span class="st"> </span>rr<span class="op">/</span>rr_neg</span></code></pre></div>
 <p>donde la razón de momios de 4.17 se interpreta como “si un individuo tiene enfisema, la factibilidad de que dicho individuo sea fumador es 4.17 veces más alta”. Esta interpretación se obtiene a partir de un despeje y sustitución:
 <span class="math display">\[\begin{equation}\nonumber
 \begin{aligned}
@@ -1204,20 +1418,20 @@ Por tanto la correlación también puede medirse como:
 \]</span>
 Donde notamos (<strong>demuestra</strong>) que <span class="math inline">\(\rho(z_i, z_i) = 1\)</span>.</p>
 <p>Podemos usar la base <code>mtcars</code> precargada en <code>R</code> para analizar las correlaciones:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="análisis-exploratorio-de-datos.html#cb106-1"></a><span class="kw">data</span>(mtcars)</span>
-<span id="cb106-2"><a href="análisis-exploratorio-de-datos.html#cb106-2"></a>datos.coches &lt;-<span class="st"> </span>mtcars</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="análisis-exploratorio-de-datos.html#cb109-1"></a><span class="kw">data</span>(mtcars)</span>
+<span id="cb109-2"><a href="análisis-exploratorio-de-datos.html#cb109-2"></a>datos.coches &lt;-<span class="st"> </span>mtcars</span></code></pre></div>
 <p>La base está explicada en la ayuda de <code>R</code>:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="análisis-exploratorio-de-datos.html#cb107-1"></a>?mtcars</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="análisis-exploratorio-de-datos.html#cb110-1"></a>?mtcars</span></code></pre></div>
 <p>Podemos obtener la correlación entre el número de millas por galón <code>mpg</code> y el peso del automóvil <code>wt</code> haciendo:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="análisis-exploratorio-de-datos.html#cb108-1"></a><span class="kw">cor</span>(datos.coches<span class="op">$</span>mpg, datos.coches<span class="op">$</span>wt, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="análisis-exploratorio-de-datos.html#cb111-1"></a><span class="kw">cor</span>(datos.coches<span class="op">$</span>mpg, datos.coches<span class="op">$</span>wt, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] -0.8676594</code></pre>
 <p>Esta correlación se interpreta como que por cada aumento en el peso corresponde una disminución en las millas por galón. Podemos ver gráficamente que esto es así:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="análisis-exploratorio-de-datos.html#cb110-1"></a><span class="kw">ggplot</span>(datos.coches) <span class="op">+</span></span>
-<span id="cb110-2"><a href="análisis-exploratorio-de-datos.html#cb110-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> wt, <span class="dt">y =</span> mpg), <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
-<span id="cb110-3"><a href="análisis-exploratorio-de-datos.html#cb110-3"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-95-1.png" width="672" />
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="análisis-exploratorio-de-datos.html#cb113-1"></a><span class="kw">ggplot</span>(datos.coches) <span class="op">+</span></span>
+<span id="cb113-2"><a href="análisis-exploratorio-de-datos.html#cb113-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> wt, <span class="dt">y =</span> mpg), <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
+<span id="cb113-3"><a href="análisis-exploratorio-de-datos.html#cb113-3"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-98-1.png" width="672" />
 Para obtener toda la matriz de correlaciones de la base podemos tomar <code>cor</code> aplicado a toda la base de datos:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="análisis-exploratorio-de-datos.html#cb111-1"></a><span class="kw">cor</span>(datos.coches, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="análisis-exploratorio-de-datos.html#cb114-1"></a><span class="kw">cor</span>(datos.coches, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>##             mpg        cyl       disp         hp        drat         wt
 ## mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
 ## cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
@@ -1243,29 +1457,29 @@ Para obtener toda la matriz de correlaciones de la base podemos tomar <code>cor<
 ## gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
 ## carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
 <p>Finalmente, el paquete <code>ggcorrplot</code> puede ayudarnos a visualizar gráficamente dicha matriz:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="análisis-exploratorio-de-datos.html#cb113-1"></a><span class="kw">ggcorrplot</span>(<span class="kw">cor</span>(datos.coches, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>), </span>
-<span id="cb113-2"><a href="análisis-exploratorio-de-datos.html#cb113-2"></a>           <span class="dt">lab =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb113-3"><a href="análisis-exploratorio-de-datos.html#cb113-3"></a>           <span class="dt">type =</span> <span class="st">&quot;upper&quot;</span>) <span class="op">+</span></span>
-<span id="cb113-4"><a href="análisis-exploratorio-de-datos.html#cb113-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Matriz de Correlaciones&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="análisis-exploratorio-de-datos.html#cb116-1"></a><span class="kw">ggcorrplot</span>(<span class="kw">cor</span>(datos.coches, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>), </span>
+<span id="cb116-2"><a href="análisis-exploratorio-de-datos.html#cb116-2"></a>           <span class="dt">lab =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb116-3"><a href="análisis-exploratorio-de-datos.html#cb116-3"></a>           <span class="dt">type =</span> <span class="st">&quot;upper&quot;</span>) <span class="op">+</span></span>
+<span id="cb116-4"><a href="análisis-exploratorio-de-datos.html#cb116-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Matriz de Correlaciones&quot;</span>)</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
 <blockquote>
 <p>Una correlación de Pearson igual a <span class="math inline">\(1\)</span> ó <span class="math inline">\(-1\)</span> se interpreta como que hay una relación lineal perfecta mientras que una correlación igual a <span class="math inline">\(0\)</span> se interpreta como que no hay relación lineal (aunque puede existir de otro tipo)</p>
 </blockquote>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="análisis-exploratorio-de-datos.html#cb114-1"></a><span class="co">#Ejemplo de correlación lineal perfecta</span></span>
-<span id="cb114-2"><a href="análisis-exploratorio-de-datos.html#cb114-2"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">4</span>, <span class="dt">length.out =</span> <span class="dv">9</span>)</span>
-<span id="cb114-3"><a href="análisis-exploratorio-de-datos.html#cb114-3"></a>y &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">*</span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="análisis-exploratorio-de-datos.html#cb117-1"></a><span class="co">#Ejemplo de correlación lineal perfecta</span></span>
+<span id="cb117-2"><a href="análisis-exploratorio-de-datos.html#cb117-2"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">4</span>, <span class="dt">length.out =</span> <span class="dv">9</span>)</span>
+<span id="cb117-3"><a href="análisis-exploratorio-de-datos.html#cb117-3"></a>y &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">*</span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span></code></pre></div>
 <p>Gráficamente:</p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
 <p>El valor en este caso de la correlación es:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="análisis-exploratorio-de-datos.html#cb115-1"></a><span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="análisis-exploratorio-de-datos.html#cb118-1"></a><span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>Mientras que por otro lado podemos tener variables relacionadas pero <em>sin correlación</em> :</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="análisis-exploratorio-de-datos.html#cb117-1"></a><span class="co">#Ejemplo sin correlación lineal pero con variables relacionadas</span></span>
-<span id="cb117-2"><a href="análisis-exploratorio-de-datos.html#cb117-2"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>,<span class="dt">length.out =</span> <span class="dv">9</span>)</span>
-<span id="cb117-3"><a href="análisis-exploratorio-de-datos.html#cb117-3"></a>y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></span>
-<span id="cb117-4"><a href="análisis-exploratorio-de-datos.html#cb117-4"></a><span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="análisis-exploratorio-de-datos.html#cb120-1"></a><span class="co">#Ejemplo sin correlación lineal pero con variables relacionadas</span></span>
+<span id="cb120-2"><a href="análisis-exploratorio-de-datos.html#cb120-2"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>,<span class="dt">length.out =</span> <span class="dv">9</span>)</span>
+<span id="cb120-3"><a href="análisis-exploratorio-de-datos.html#cb120-3"></a>y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb120-4"><a href="análisis-exploratorio-de-datos.html#cb120-4"></a><span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
 <p><strong>6. Correlación de rango de Spearman</strong> Para hablar de la correlación de rango de Spearman es necesario definir una variable como <strong>ordinal</strong>.</p>
 <p>Un vector <span class="math inline">\(\vec{x} = (x_1, x_2, \dots, x_n)^T\)</span> de variables numéricas o categóricas es <strong>ordinal</strong> si existe una relación <span class="math inline">\(\leq\)</span> de <a href="https://en.wikipedia.org/wiki/Total_order">orden total</a> sobre los elementos del vector tal que:</p>
 <ol style="list-style-type: decimal">
@@ -1289,15 +1503,15 @@ R(\vec{x}) = \big( R(x_1), R(x_2), \dots, R(x_n) )^T
 <blockquote>
 <p>Mientras que la correlación de Pearson mide linealidad; la de Spearman mide monotonicidad (que si una aumenta la otra también; que si una disminuye la otra también).</p>
 </blockquote>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="análisis-exploratorio-de-datos.html#cb119-1"></a><span class="co">#Comparativo de correlaciones: la de Pearson no encuentra mucha línea</span></span>
-<span id="cb119-2"><a href="análisis-exploratorio-de-datos.html#cb119-2"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dt">length.out =</span> <span class="dv">25</span>)</span>
-<span id="cb119-3"><a href="análisis-exploratorio-de-datos.html#cb119-3"></a>y &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="dv">1</span><span class="op">/</span>x<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="análisis-exploratorio-de-datos.html#cb122-1"></a><span class="co">#Comparativo de correlaciones: la de Pearson no encuentra mucha línea</span></span>
+<span id="cb122-2"><a href="análisis-exploratorio-de-datos.html#cb122-2"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dt">length.out =</span> <span class="dv">25</span>)</span>
+<span id="cb122-3"><a href="análisis-exploratorio-de-datos.html#cb122-3"></a>y &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="dv">1</span><span class="op">/</span>x<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
 <p>En este caso la correlación de Pearson es muy mala:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="análisis-exploratorio-de-datos.html#cb120-1"></a><span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="análisis-exploratorio-de-datos.html#cb123-1"></a><span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] -0.3396831</code></pre>
 <p>Mientras que la de Spearman sí muestra la relación:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="análisis-exploratorio-de-datos.html#cb122-1"></a><span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="análisis-exploratorio-de-datos.html#cb125-1"></a><span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] -1</code></pre>
 <p><strong>7. <span class="math inline">\(\tau\)</span> de Kendall</strong> Consideremos <span class="math inline">\(\vec{x}\)</span> y <span class="math inline">\(\vec{y}\)</span> dos vectores columna ordinales de una matriz de datos <span class="math inline">\(Z\)</span>. Para cualquier par de observaciones <span class="math inline">\((x_i, y_i)\)</span> y <span class="math inline">\((x_j, y_j)\)</span> con <span class="math inline">\(i &lt; j\)</span> decimos que dos observaciones son <strong>concordantes (<span class="math inline">\(c\)</span>)</strong> si los rangos de ambas <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span> coinciden; es decir si se cumple una de las siguientes:</p>
 <ol style="list-style-type: decimal">
@@ -1391,23 +1605,23 @@ Bueno
 </tbody>
 </table>
 <p>Para ello codificamos las variables como <code>factor</code> diciéndole que son variables ordinales <code>order = TRUE</code> e indicando el orden de los niveles:</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="análisis-exploratorio-de-datos.html#cb124-1"></a>calidad_alimentos &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Malo&quot;</span>,<span class="st">&quot;Bueno&quot;</span>,<span class="st">&quot;Bueno&quot;</span>,<span class="st">&quot;Regular&quot;</span>,<span class="st">&quot;Bueno&quot;</span>,<span class="st">&quot;Bueno&quot;</span>),</span>
-<span id="cb124-2"><a href="análisis-exploratorio-de-datos.html#cb124-2"></a>                            <span class="dt">order =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb124-3"><a href="análisis-exploratorio-de-datos.html#cb124-3"></a>                            <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Malo&quot;</span>,<span class="st">&quot;Regular&quot;</span>,<span class="st">&quot;Bueno&quot;</span>))</span>
-<span id="cb124-4"><a href="análisis-exploratorio-de-datos.html#cb124-4"></a>calidad_servicio &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;1 estrella&quot;</span>, <span class="st">&quot;4 estrellas&quot;</span>,  <span class="st">&quot;5 estrellas&quot;</span>, </span>
-<span id="cb124-5"><a href="análisis-exploratorio-de-datos.html#cb124-5"></a>                             <span class="st">&quot;2 estrellas&quot;</span>, <span class="st">&quot;5 estrellas&quot;</span>,<span class="st">&quot;4 estrellas&quot;</span>),</span>
-<span id="cb124-6"><a href="análisis-exploratorio-de-datos.html#cb124-6"></a>                            <span class="dt">order =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb124-7"><a href="análisis-exploratorio-de-datos.html#cb124-7"></a>                            <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;1 estrella&quot;</span>,<span class="st">&quot;2 estrellas&quot;</span>,<span class="st">&quot;3 estrellas&quot;</span>,</span>
-<span id="cb124-8"><a href="análisis-exploratorio-de-datos.html#cb124-8"></a>                                       <span class="st">&quot;4 estrellas&quot;</span>,<span class="st">&quot;5 estrellas&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="análisis-exploratorio-de-datos.html#cb127-1"></a>calidad_alimentos &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Malo&quot;</span>,<span class="st">&quot;Bueno&quot;</span>,<span class="st">&quot;Bueno&quot;</span>,<span class="st">&quot;Regular&quot;</span>,<span class="st">&quot;Bueno&quot;</span>,<span class="st">&quot;Bueno&quot;</span>),</span>
+<span id="cb127-2"><a href="análisis-exploratorio-de-datos.html#cb127-2"></a>                            <span class="dt">order =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb127-3"><a href="análisis-exploratorio-de-datos.html#cb127-3"></a>                            <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Malo&quot;</span>,<span class="st">&quot;Regular&quot;</span>,<span class="st">&quot;Bueno&quot;</span>))</span>
+<span id="cb127-4"><a href="análisis-exploratorio-de-datos.html#cb127-4"></a>calidad_servicio &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;1 estrella&quot;</span>, <span class="st">&quot;4 estrellas&quot;</span>,  <span class="st">&quot;5 estrellas&quot;</span>, </span>
+<span id="cb127-5"><a href="análisis-exploratorio-de-datos.html#cb127-5"></a>                             <span class="st">&quot;2 estrellas&quot;</span>, <span class="st">&quot;5 estrellas&quot;</span>,<span class="st">&quot;4 estrellas&quot;</span>),</span>
+<span id="cb127-6"><a href="análisis-exploratorio-de-datos.html#cb127-6"></a>                            <span class="dt">order =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb127-7"><a href="análisis-exploratorio-de-datos.html#cb127-7"></a>                            <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;1 estrella&quot;</span>,<span class="st">&quot;2 estrellas&quot;</span>,<span class="st">&quot;3 estrellas&quot;</span>,</span>
+<span id="cb127-8"><a href="análisis-exploratorio-de-datos.html#cb127-8"></a>                                       <span class="st">&quot;4 estrellas&quot;</span>,<span class="st">&quot;5 estrellas&quot;</span>))</span></code></pre></div>
 <p>Esto de las variables ordinales permite hacer comparaciones ordinales, por ejemplo:</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="análisis-exploratorio-de-datos.html#cb125-1"></a>calidad_alimentos[<span class="dv">2</span>] <span class="op">&gt;</span><span class="st"> </span>calidad_alimentos[<span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="análisis-exploratorio-de-datos.html#cb128-1"></a>calidad_alimentos[<span class="dv">2</span>] <span class="op">&gt;</span><span class="st"> </span>calidad_alimentos[<span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Los datos se ven así:</p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
 <p>Finalmente, calculamos la <span class="math inline">\(\tau\)</span> de Kendall, para ello es necesario obtener el rango de nuestras variables ordinales:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="análisis-exploratorio-de-datos.html#cb127-1"></a>rango_alimentos &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(calidad_alimentos)</span>
-<span id="cb127-2"><a href="análisis-exploratorio-de-datos.html#cb127-2"></a>rango_servicio  &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(calidad_servicio)</span>
-<span id="cb127-3"><a href="análisis-exploratorio-de-datos.html#cb127-3"></a><span class="kw">cor</span>(rango_alimentos, rango_servicio, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="análisis-exploratorio-de-datos.html#cb130-1"></a>rango_alimentos &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(calidad_alimentos)</span>
+<span id="cb130-2"><a href="análisis-exploratorio-de-datos.html#cb130-2"></a>rango_servicio  &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(calidad_servicio)</span>
+<span id="cb130-3"><a href="análisis-exploratorio-de-datos.html#cb130-3"></a><span class="kw">cor</span>(rango_alimentos, rango_servicio, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 0.8320503</code></pre>
 <p>Lo cual indica que hay una relación entre la calificación de calidad de alimentos y la del servicio.</p>
 <p><strong>8. Ajuste de modelo lineal</strong></p>
@@ -1425,7 +1639,7 @@ Podemos entonces trazar la línea <span class="math inline">\(y = \beta_0 + \bet
 \]</span></p>
 <p>El nombre de <em>SSR</em> es por ( <em>Sum of Squared Residuals</em> ) dado que en estadística se define un residual como <span class="math inline">\(r_i = (y_i - \hat{y}_i)\)</span>
 Gráficamente:</p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
 <p>Lo que se busca entonces es minimizar el error respecto a las constantes a determinar: <span class="math inline">\(\beta_0\)</span> y <span class="math inline">\(\beta_1\)</span>. Para ello buscamos un punto de inflexión derivando:
 <span class="math display">\[
 \dfrac{\partial\textrm{SSR}}{\partial \beta_0} = \sum\limits_{i=1}^{n} 2\big(y_i - (\beta_1 x_i + \beta_0 ) \big) = 0
@@ -1446,7 +1660,7 @@ Gráficamente:</p>
 <span class="math display">\[\begin{equation}\nonumber
 \begin{aligned}
 0 &amp; = - \sum\limits_{i=1}^n \Big( x_i y_i - \beta_1  x_i^2 - \underbrace{\beta_0}_{\bar{y} - \beta_1 \bar{x}} x_i \Big)  \\
-&amp; = \sum\limits_{i=1}^n \Big( x_i y_i - \beta_1  x_i^2 - \bar{y}x_i - \beta_1 \bar{x} x_i \Big) \\
+&amp; = \sum\limits_{i=1}^n \Big( x_i y_i - \beta_1  x_i^2 - \bar{y}x_i + \beta_1 \bar{x} x_i \Big) \\
 &amp; = \sum\limits_{i=1}^n \Big( y_i + \beta_1  x_i - \bar{y} - \beta_1 \bar{x} \Big) x_i \\
 &amp; = \sum\limits_{i=1}^n \Big( y_i  - \bar{y} \Big) x_i - \beta_1  \sum\limits_{i=1}^n\Big(   x_i -   \bar{x} \Big) x_i
 \end{aligned}
@@ -1467,37 +1681,37 @@ por lo cual:
 \dfrac{\sum_{i=1}^n \Big( y_i  - \bar{y} \Big) x_i}{\sum_{i=1}^n\Big(   x_i -   \bar{x} \Big)x_i} = \dfrac{\sum_{i=1}^n \Big( y_i  - \bar{y} \Big)\Big(   x_i -   \bar{x} \Big)}{\sum_{i=1}^n\Big(   x_i -   \bar{x} \Big)^2} 
 \]</span></p>
 <p>En <code>R</code> podemos ajustar un modelo lineal para dos variables de una base de datos con <code>lm</code>:</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="análisis-exploratorio-de-datos.html#cb129-1"></a>modelo.lineal &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, <span class="dt">data =</span> datos.coches)</span>
-<span id="cb129-2"><a href="análisis-exploratorio-de-datos.html#cb129-2"></a><span class="kw">coef</span>(modelo.lineal)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="análisis-exploratorio-de-datos.html#cb132-1"></a>modelo.lineal &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, <span class="dt">data =</span> datos.coches)</span>
+<span id="cb132-2"><a href="análisis-exploratorio-de-datos.html#cb132-2"></a><span class="kw">coef</span>(modelo.lineal)</span></code></pre></div>
 <pre><code>## (Intercept)          wt 
 ##   37.285126   -5.344472</code></pre>
 <p>Gráficamente podemos ver el modelo:</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="análisis-exploratorio-de-datos.html#cb131-1"></a><span class="kw">ggplot</span>(datos.coches) <span class="op">+</span></span>
-<span id="cb131-2"><a href="análisis-exploratorio-de-datos.html#cb131-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> mpg, <span class="dt">x =</span> wt)) <span class="op">+</span></span>
-<span id="cb131-3"><a href="análisis-exploratorio-de-datos.html#cb131-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">y =</span> mpg, <span class="dt">x =</span> wt), <span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, </span>
-<span id="cb131-4"><a href="análisis-exploratorio-de-datos.html#cb131-4"></a>              <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
-<span id="cb131-5"><a href="análisis-exploratorio-de-datos.html#cb131-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="análisis-exploratorio-de-datos.html#cb134-1"></a><span class="kw">ggplot</span>(datos.coches) <span class="op">+</span></span>
+<span id="cb134-2"><a href="análisis-exploratorio-de-datos.html#cb134-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> mpg, <span class="dt">x =</span> wt)) <span class="op">+</span></span>
+<span id="cb134-3"><a href="análisis-exploratorio-de-datos.html#cb134-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">y =</span> mpg, <span class="dt">x =</span> wt), <span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, </span>
+<span id="cb134-4"><a href="análisis-exploratorio-de-datos.html#cb134-4"></a>              <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb134-5"><a href="análisis-exploratorio-de-datos.html#cb134-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
 <p>Para predecir, dada una nueva observación, cuál debe haber sido el valor de <span class="math inline">\(\hat{y}\)</span> para una nueva observación <span class="math inline">\(x_*\)</span> (o varias nuevas observaciones) puede usarse la función <code>predict</code></p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="análisis-exploratorio-de-datos.html#cb132-1"></a>datos_a_predecir &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">wt =</span> <span class="kw">c</span>(<span class="fl">5.5</span>, <span class="dv">6</span>, <span class="fl">6.5</span>))</span>
-<span id="cb132-2"><a href="análisis-exploratorio-de-datos.html#cb132-2"></a><span class="kw">predict</span>(modelo.lineal, datos_a_predecir)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="análisis-exploratorio-de-datos.html#cb135-1"></a>datos_a_predecir &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">wt =</span> <span class="kw">c</span>(<span class="fl">5.5</span>, <span class="dv">6</span>, <span class="fl">6.5</span>))</span>
+<span id="cb135-2"><a href="análisis-exploratorio-de-datos.html#cb135-2"></a><span class="kw">predict</span>(modelo.lineal, datos_a_predecir)</span></code></pre></div>
 <pre><code>##        1        2        3 
 ## 7.890533 5.218297 2.546061</code></pre>
 <p>Hay que tener mucho cuidado con la generalización de un modelo lineal como los siguientes valores muestran:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="análisis-exploratorio-de-datos.html#cb134-1"></a>datos_a_predecir &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">wt =</span> <span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>))</span>
-<span id="cb134-2"><a href="análisis-exploratorio-de-datos.html#cb134-2"></a><span class="kw">predict</span>(modelo.lineal, datos_a_predecir)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="análisis-exploratorio-de-datos.html#cb137-1"></a>datos_a_predecir &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">wt =</span> <span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>))</span>
+<span id="cb137-2"><a href="análisis-exploratorio-de-datos.html#cb137-2"></a><span class="kw">predict</span>(modelo.lineal, datos_a_predecir)</span></code></pre></div>
 <pre><code>##           1           2           3 
 ##  -0.1261748  -5.4706464 -10.8151180</code></pre>
 <p>O bien el siguiente <a href="https://xkcd.com/605/">comic de xkcd</a>:</p>
 <p><img src="images/extrapolating.png" width="230" /></p>
 <p>Para hacer la extrapolación gráfica podemos agregar un <code>fullrange = TRUE</code> combinado con un <code>xlim</code></p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="análisis-exploratorio-de-datos.html#cb136-1"></a><span class="kw">ggplot</span>(datos.coches) <span class="op">+</span></span>
-<span id="cb136-2"><a href="análisis-exploratorio-de-datos.html#cb136-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> mpg, <span class="dt">x =</span> wt)) <span class="op">+</span></span>
-<span id="cb136-3"><a href="análisis-exploratorio-de-datos.html#cb136-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">y =</span> mpg, <span class="dt">x =</span> wt), <span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, </span>
-<span id="cb136-4"><a href="análisis-exploratorio-de-datos.html#cb136-4"></a>              <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">fullrange=</span><span class="ot">TRUE</span>) <span class="op">+</span></span>
-<span id="cb136-5"><a href="análisis-exploratorio-de-datos.html#cb136-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
-<span id="cb136-6"><a href="análisis-exploratorio-de-datos.html#cb136-6"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="fl">6.5</span>))</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="análisis-exploratorio-de-datos.html#cb139-1"></a><span class="kw">ggplot</span>(datos.coches) <span class="op">+</span></span>
+<span id="cb139-2"><a href="análisis-exploratorio-de-datos.html#cb139-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> mpg, <span class="dt">x =</span> wt)) <span class="op">+</span></span>
+<span id="cb139-3"><a href="análisis-exploratorio-de-datos.html#cb139-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">y =</span> mpg, <span class="dt">x =</span> wt), <span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, </span>
+<span id="cb139-4"><a href="análisis-exploratorio-de-datos.html#cb139-4"></a>              <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">fullrange=</span><span class="ot">TRUE</span>) <span class="op">+</span></span>
+<span id="cb139-5"><a href="análisis-exploratorio-de-datos.html#cb139-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
+<span id="cb139-6"><a href="análisis-exploratorio-de-datos.html#cb139-6"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="fl">6.5</span>))</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
 </div>
 </div>
 <div id="ejercicio-3" class="section level2">
@@ -1532,7 +1746,7 @@ PRÓXIMAMENTE
 <h2><span class="header-section-number">2.12</span> Ajuste funcional</h2>
 <p>Hacemos una apuesta por teléfono. Yo voy a tirar una moneda <span class="math inline">\(10\)</span> veces y si salen más <code>Soles</code> que <code>Águilas</code> yo gano 50 pesos. Si salen más <code>Águilas</code> que <code>Soles</code> tú ganas la misma cantidad. Al realizar el ejercicio yo te comunico que salieron en total <span class="math inline">\(10\)</span> <code>Soles</code> y por tanto me debes el dinero. <em>¿Sospecharías algo de mí?</em></p>
 <p>Si no hablamos de probabilidad no hay forma en la que se pueda justificar que <em>aparentemente</em> hay algo raro con la moneda. Claro, siempre puede ser un caso improbable (<a href="https://www.youtube.com/watch?v=rwvIGNXY21Y">hay gente que lo ha hecho</a>) pero es <em>raro</em> que me hayan salido tantos <code>Soles</code>. Para cuantificar qué tan raro es el evento podemos suponer que las monedas siguen un modelo Binomial con parámetro <span class="math inline">\(p = 1/2\)</span> y en este caso <span class="math inline">\(n = 10\)</span> (fueron 10 tiros). La probabilidad de que haya obtenido <span class="math inline">\(10\)</span> soles bajo este modelo es de:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="análisis-exploratorio-de-datos.html#cb137-1"></a><span class="kw">dbinom</span>(<span class="dv">10</span>,<span class="dv">10</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="análisis-exploratorio-de-datos.html#cb140-1"></a><span class="kw">dbinom</span>(<span class="dv">10</span>,<span class="dv">10</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.0009765625</code></pre>
 <p>¡Rarísimo! Este resultado te haría sospechar que quizá mi moneda no es <em>justa</em> y no se obtienen la misma cantidad de <code>Águilas</code> que <code>Soles</code> cuando la tiro. Esto porque, aparentemente, en mi moneda la probabilidad de <code>Sol</code> debería de ser <span class="math inline">\(p = 1\)</span> (por tu triste experiencia). Si por ejemplo en el onceavo tiro saliera un <code>Águila</code>, concluirías que, en mi moneda, aparentemente, la probabilidad de <code>Sol</code> es <span class="math inline">\(p = \frac{10}{11}\)</span>. Por supuesto, entre más tiros y más información obtienes, mejor podrás caracterizar la moneda y con mayor sustento tendrás sospechas (o no) de que mi moneda es tramposa.</p>
 <p>Formalmente, en el ejemplo anterior, lo que se hace es suponer que existe una variable aleatoria <span class="math inline">\(X \in\{ \text{Águila}, \text{Sol}\}\)</span> (el resultado de la moneda) de la cual observamos <span class="math inline">\(n = 11\)</span> realizaciones codificadas en el siguiente vector:</p>
@@ -1565,39 +1779,39 @@ es una variable aleatoria (al ser suma de variables aleatorias). Podemos entonce
 \mathbb{E}\big[\hat{p}\big] = \mathbb{E}\bigg[\dfrac{1}{n}\sum\limits_{i=1}^n \mathbb{I}_{\{\text{Sol}\}}(X_i)\bigg] = \dfrac{1}{n}\sum\limits_{i=1}^n \mathbb{E}\big[ \mathbb{I}_{\{\text{Sol}\}}(X_i)\big] = \dfrac{1}{n}\sum\limits_{i=1}^n p = \dfrac{1}{n}\cdot np = p
 \]</span>
 Es decir, que en promedio el estimador <span class="math inline">\(\hat{p}\)</span> va a atinarle al verdadero valor <span class="math inline">\(p\)</span>. Esto lo podemos ver si hacemos <code>nsim</code><span class="math inline">\(= 1000\)</span> simulaciones de <span class="math inline">\(100\)</span> <code>tiros</code> de una moneda con probabilidad <code>p</code><span class="math inline">\(= 8/10\)</span> de sol.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="análisis-exploratorio-de-datos.html#cb139-1"></a>nsim  &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb139-2"><a href="análisis-exploratorio-de-datos.html#cb139-2"></a>tiros &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb139-3"><a href="análisis-exploratorio-de-datos.html#cb139-3"></a>p.val &lt;-<span class="st"> </span><span class="dv">8</span><span class="op">/</span><span class="dv">10</span></span>
-<span id="cb139-4"><a href="análisis-exploratorio-de-datos.html#cb139-4"></a></span>
-<span id="cb139-5"><a href="análisis-exploratorio-de-datos.html#cb139-5"></a><span class="co">#Creamos un vector para guardar los valores de p gorro</span></span>
-<span id="cb139-6"><a href="análisis-exploratorio-de-datos.html#cb139-6"></a>p.gorro &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
-<span id="cb139-7"><a href="análisis-exploratorio-de-datos.html#cb139-7"></a></span>
-<span id="cb139-8"><a href="análisis-exploratorio-de-datos.html#cb139-8"></a><span class="co">#Loop recorriendo cada una de las nsim simulaciones</span></span>
-<span id="cb139-9"><a href="análisis-exploratorio-de-datos.html#cb139-9"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nsim){</span>
-<span id="cb139-10"><a href="análisis-exploratorio-de-datos.html#cb139-10"></a>  experimento &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Sol&quot;</span>,<span class="st">&quot;Águila&quot;</span>), tiros, <span class="dt">replace =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb139-11"><a href="análisis-exploratorio-de-datos.html#cb139-11"></a>                        <span class="dt">prob =</span> <span class="kw">c</span>(p.val, <span class="dv">1</span> <span class="op">-</span><span class="st"> </span>p.val))</span>
-<span id="cb139-12"><a href="análisis-exploratorio-de-datos.html#cb139-12"></a>  soles       &lt;-<span class="st"> </span><span class="kw">table</span>(experimento)[<span class="st">&quot;Sol&quot;</span>]</span>
-<span id="cb139-13"><a href="análisis-exploratorio-de-datos.html#cb139-13"></a>  p.gorro[i]  &lt;-<span class="st"> </span>soles<span class="op">/</span>tiros</span>
-<span id="cb139-14"><a href="análisis-exploratorio-de-datos.html#cb139-14"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="análisis-exploratorio-de-datos.html#cb142-1"></a>nsim  &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb142-2"><a href="análisis-exploratorio-de-datos.html#cb142-2"></a>tiros &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb142-3"><a href="análisis-exploratorio-de-datos.html#cb142-3"></a>p.val &lt;-<span class="st"> </span><span class="dv">8</span><span class="op">/</span><span class="dv">10</span></span>
+<span id="cb142-4"><a href="análisis-exploratorio-de-datos.html#cb142-4"></a></span>
+<span id="cb142-5"><a href="análisis-exploratorio-de-datos.html#cb142-5"></a><span class="co">#Creamos un vector para guardar los valores de p gorro</span></span>
+<span id="cb142-6"><a href="análisis-exploratorio-de-datos.html#cb142-6"></a>p.gorro &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
+<span id="cb142-7"><a href="análisis-exploratorio-de-datos.html#cb142-7"></a></span>
+<span id="cb142-8"><a href="análisis-exploratorio-de-datos.html#cb142-8"></a><span class="co">#Loop recorriendo cada una de las nsim simulaciones</span></span>
+<span id="cb142-9"><a href="análisis-exploratorio-de-datos.html#cb142-9"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nsim){</span>
+<span id="cb142-10"><a href="análisis-exploratorio-de-datos.html#cb142-10"></a>  experimento &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Sol&quot;</span>,<span class="st">&quot;Águila&quot;</span>), tiros, <span class="dt">replace =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb142-11"><a href="análisis-exploratorio-de-datos.html#cb142-11"></a>                        <span class="dt">prob =</span> <span class="kw">c</span>(p.val, <span class="dv">1</span> <span class="op">-</span><span class="st"> </span>p.val))</span>
+<span id="cb142-12"><a href="análisis-exploratorio-de-datos.html#cb142-12"></a>  soles       &lt;-<span class="st"> </span><span class="kw">table</span>(experimento)[<span class="st">&quot;Sol&quot;</span>]</span>
+<span id="cb142-13"><a href="análisis-exploratorio-de-datos.html#cb142-13"></a>  p.gorro[i]  &lt;-<span class="st"> </span>soles<span class="op">/</span>tiros</span>
+<span id="cb142-14"><a href="análisis-exploratorio-de-datos.html#cb142-14"></a>}</span></code></pre></div>
 <p>Podemos ver que en promedio le atinamos al valor verdadero:</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="análisis-exploratorio-de-datos.html#cb140-1"></a><span class="co">#Vemos que en promedio le atina:</span></span>
-<span id="cb140-2"><a href="análisis-exploratorio-de-datos.html#cb140-2"></a><span class="kw">mean</span>(p.gorro)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="análisis-exploratorio-de-datos.html#cb143-1"></a><span class="co">#Vemos que en promedio le atina:</span></span>
+<span id="cb143-2"><a href="análisis-exploratorio-de-datos.html#cb143-2"></a><span class="kw">mean</span>(p.gorro)</span></code></pre></div>
 <pre><code>## [1] 0.80131</code></pre>
 <p>Lo mismo podemos verlo gráficamente:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="análisis-exploratorio-de-datos.html#cb142-1"></a><span class="co">#Graficamos</span></span>
-<span id="cb142-2"><a href="análisis-exploratorio-de-datos.html#cb142-2"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
-<span id="cb142-3"><a href="análisis-exploratorio-de-datos.html#cb142-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span>nsim, <span class="dt">y =</span> p.gorro, <span class="dt">color =</span> <span class="kw">as.character</span>(p.gorro)), </span>
-<span id="cb142-4"><a href="análisis-exploratorio-de-datos.html#cb142-4"></a>             <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
-<span id="cb142-5"><a href="análisis-exploratorio-de-datos.html#cb142-5"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> p.val), <span class="dt">size =</span> <span class="fl">1.5</span>, <span class="dt">linetype =</span> <span class="st">&quot;solid&quot;</span>) <span class="op">+</span></span>
-<span id="cb142-6"><a href="análisis-exploratorio-de-datos.html#cb142-6"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
-<span id="cb142-7"><a href="análisis-exploratorio-de-datos.html#cb142-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb142-8"><a href="análisis-exploratorio-de-datos.html#cb142-8"></a><span class="st">  </span><span class="kw">labs</span>(</span>
-<span id="cb142-9"><a href="análisis-exploratorio-de-datos.html#cb142-9"></a>    <span class="dt">x =</span> <span class="st">&quot;Simulaciones&quot;</span>,</span>
-<span id="cb142-10"><a href="análisis-exploratorio-de-datos.html#cb142-10"></a>    <span class="dt">y =</span> <span class="st">&quot;Estimación de p&quot;</span>,</span>
-<span id="cb142-11"><a href="análisis-exploratorio-de-datos.html#cb142-11"></a>    <span class="dt">title =</span> <span class="st">&quot;Simulación de proceso de estimación\nde que una moneda caiga Sol&quot;</span></span>
-<span id="cb142-12"><a href="análisis-exploratorio-de-datos.html#cb142-12"></a>  ) <span class="op">+</span></span>
-<span id="cb142-13"><a href="análisis-exploratorio-de-datos.html#cb142-13"></a><span class="st">  </span><span class="kw">geom_label</span>(<span class="kw">aes</span>(<span class="dt">x =</span> nsim<span class="op">/</span><span class="dv">2</span>, <span class="dt">y =</span> p.val), <span class="dt">label =</span> <span class="st">&quot;Verdadero valor de p&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="análisis-exploratorio-de-datos.html#cb145-1"></a><span class="co">#Graficamos</span></span>
+<span id="cb145-2"><a href="análisis-exploratorio-de-datos.html#cb145-2"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb145-3"><a href="análisis-exploratorio-de-datos.html#cb145-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span>nsim, <span class="dt">y =</span> p.gorro, <span class="dt">color =</span> <span class="kw">as.character</span>(p.gorro)), </span>
+<span id="cb145-4"><a href="análisis-exploratorio-de-datos.html#cb145-4"></a>             <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
+<span id="cb145-5"><a href="análisis-exploratorio-de-datos.html#cb145-5"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> p.val), <span class="dt">size =</span> <span class="fl">1.5</span>, <span class="dt">linetype =</span> <span class="st">&quot;solid&quot;</span>) <span class="op">+</span></span>
+<span id="cb145-6"><a href="análisis-exploratorio-de-datos.html#cb145-6"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb145-7"><a href="análisis-exploratorio-de-datos.html#cb145-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb145-8"><a href="análisis-exploratorio-de-datos.html#cb145-8"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb145-9"><a href="análisis-exploratorio-de-datos.html#cb145-9"></a>    <span class="dt">x =</span> <span class="st">&quot;Simulaciones&quot;</span>,</span>
+<span id="cb145-10"><a href="análisis-exploratorio-de-datos.html#cb145-10"></a>    <span class="dt">y =</span> <span class="st">&quot;Estimación de p&quot;</span>,</span>
+<span id="cb145-11"><a href="análisis-exploratorio-de-datos.html#cb145-11"></a>    <span class="dt">title =</span> <span class="st">&quot;Simulación de proceso de estimación\nde que una moneda caiga Sol&quot;</span></span>
+<span id="cb145-12"><a href="análisis-exploratorio-de-datos.html#cb145-12"></a>  ) <span class="op">+</span></span>
+<span id="cb145-13"><a href="análisis-exploratorio-de-datos.html#cb145-13"></a><span class="st">  </span><span class="kw">geom_label</span>(<span class="kw">aes</span>(<span class="dt">x =</span> nsim<span class="op">/</span><span class="dv">2</span>, <span class="dt">y =</span> p.val), <span class="dt">label =</span> <span class="st">&quot;Verdadero valor de p&quot;</span>)</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
 <p><em>¿Qué significa esto?</em> El que en promedio <span class="math inline">\(\hat{p}\)</span> sea <span class="math inline">\(p\)</span> (formalmente, que <span class="math inline">\(\mathbb{E}\big[\hat{p}\big] = p\)</span>) significa que, si yo hago muchísimos experimentos (o procesos de muestreo) de la misma cosa, mi <span class="math inline">\(\hat{p}\)</span> es un buen estimador porque en promedio le va a atinar. Empero, esto no dice nada de qué tan bueno es mi estimador <span class="math inline">\(\hat{p}\)</span> para mi caso (mi muestra o mi experimento) específico. Puedes pensarlo con los exámenes: que alguien tenga un promedio de <em>8</em> dice que en general le ha ido bien en los exámenes, pero no dice nada respecto al primer examen de cálculo que hizo (donde pudo tener <span class="math inline">\(10\)</span> ó <span class="math inline">\(5\)</span> para llegar a ese promedio de <span class="math inline">\(8\)</span> <em>pero no podemos saber de manera específica cuánto fue</em> ). Esto es igual: en promedio el estimador <span class="math inline">\(\hat{p}\)</span> será <span class="math inline">\(p\)</span> pero para un análisis específico <em>no sabemos</em>.</p>
 <blockquote>
 <p><strong>OJO</strong> Los datos observados no son variables aleatorias: esos ya son fijos, ya los viste. Los <em>posibles</em> datos observados sí son variables aleatorias ya que ellos, consisten en las variables que se <em>pudieron</em> haber observado y te permiten calcular las probabilidades de tus datos observados bajo algún modelo. En el caso de la moneda, los datos observados son <span class="math inline">\(\vec{x} = \big( \text{Sol}, \text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Sol},\text{Águila}\big)^T\)</span> pero los que se <em>pudieron</em> haber observado son todas las <span class="math inline">\(\binom{n}{2}\)</span> formas en las que la moneda pudo haber salido.</p>
@@ -1623,17 +1837,17 @@ Formalmente, para una variable aleatoria discreta <span class="math inline">\(X\
 \hat{p}(A) = \dfrac{1}{n}\sum\limits_{i=1}^{n} \mathbb{I}_A (x_i).
 \]</span></p>
 <p>Podemos graficar para la base de datos <code>conteo_delitos</code> la probabilidad de que, dado que se cometió un delito, éste haya ocurrido en el dia <span class="math inline">\(d_i\)</span> de diciembre. Para ello usamos un <code>geom_col</code>:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="análisis-exploratorio-de-datos.html#cb143-1"></a><span class="kw">ggplot</span>(conteo_delitos) <span class="op">+</span></span>
-<span id="cb143-2"><a href="análisis-exploratorio-de-datos.html#cb143-2"></a><span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="dt">x =</span> fecha, <span class="dt">y =</span> n<span class="op">/</span><span class="kw">sum</span>(n), <span class="dt">fill =</span> n)) <span class="op">+</span></span>
-<span id="cb143-3"><a href="análisis-exploratorio-de-datos.html#cb143-3"></a><span class="st">  </span><span class="kw">scale_fill_gradient</span>(<span class="st">&quot;Delito&quot;</span>, <span class="dt">low =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb143-4"><a href="análisis-exploratorio-de-datos.html#cb143-4"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb143-5"><a href="análisis-exploratorio-de-datos.html#cb143-5"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
-<span id="cb143-6"><a href="análisis-exploratorio-de-datos.html#cb143-6"></a><span class="st">  </span><span class="kw">labs</span>(</span>
-<span id="cb143-7"><a href="análisis-exploratorio-de-datos.html#cb143-7"></a>    <span class="dt">y =</span> <span class="st">&quot;p(x)&quot;</span>,</span>
-<span id="cb143-8"><a href="análisis-exploratorio-de-datos.html#cb143-8"></a>    <span class="dt">x =</span> <span class="st">&quot;x&quot;</span>,</span>
-<span id="cb143-9"><a href="análisis-exploratorio-de-datos.html#cb143-9"></a>    <span class="dt">title =</span> <span class="st">&quot;Aproximación a p(x)&quot;</span></span>
-<span id="cb143-10"><a href="análisis-exploratorio-de-datos.html#cb143-10"></a>  )</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="análisis-exploratorio-de-datos.html#cb146-1"></a><span class="kw">ggplot</span>(conteo_delitos) <span class="op">+</span></span>
+<span id="cb146-2"><a href="análisis-exploratorio-de-datos.html#cb146-2"></a><span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="dt">x =</span> fecha, <span class="dt">y =</span> n<span class="op">/</span><span class="kw">sum</span>(n), <span class="dt">fill =</span> n)) <span class="op">+</span></span>
+<span id="cb146-3"><a href="análisis-exploratorio-de-datos.html#cb146-3"></a><span class="st">  </span><span class="kw">scale_fill_gradient</span>(<span class="st">&quot;Delito&quot;</span>, <span class="dt">low =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb146-4"><a href="análisis-exploratorio-de-datos.html#cb146-4"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb146-5"><a href="análisis-exploratorio-de-datos.html#cb146-5"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb146-6"><a href="análisis-exploratorio-de-datos.html#cb146-6"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb146-7"><a href="análisis-exploratorio-de-datos.html#cb146-7"></a>    <span class="dt">y =</span> <span class="st">&quot;p(x)&quot;</span>,</span>
+<span id="cb146-8"><a href="análisis-exploratorio-de-datos.html#cb146-8"></a>    <span class="dt">x =</span> <span class="st">&quot;x&quot;</span>,</span>
+<span id="cb146-9"><a href="análisis-exploratorio-de-datos.html#cb146-9"></a>    <span class="dt">title =</span> <span class="st">&quot;Aproximación a p(x)&quot;</span></span>
+<span id="cb146-10"><a href="análisis-exploratorio-de-datos.html#cb146-10"></a>  )</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
 <p>Una propiedad interesante de la función de masa de probabilidad es que, en promedio, le atina al verdadero valor (lo que comentábamos antes de que <span class="math inline">\(\hat{p} = p\)</span>). Es decir, suponiendo que <span class="math inline">\(X\)</span> tiene una función de masa dada por:</p>
 <p><span class="math display">\[
 p(x) = \begin{cases}
@@ -1698,58 +1912,58 @@ pues <span class="math inline">\(\mathbb{I}_{(-\infty, x]}(X_i) = 1\)</span> si 
 \mathbb{E}\big[ \hat{F}(x) \big] = \mathbb{E}\Big[ \dfrac{1}{n} \sum\limits_{i=1}^{n} \mathbb{I}_{(-\infty, x]}(X_i) \Big] = \dfrac{1}{n}\sum\limits_{i=1}^{n} \mathbb{E}\big[  \mathbb{I}_{(-\infty, x]}(X_i)\big] = \dfrac{1}{n} n \cdot F(x) = F(x)
 \]</span></p>
 <p>En <code>R</code> podemos calcular la función de distribución empírica con el comando <code>ecdf</code> el cual cuenta la cantidad de observaciones y regresa una función. Así, para la base de datos <code>conteo_delitos</code> podemos calcular la función de distribución empírica <code>ecdf</code> asociada a la cantidad de delitos que se cometen en un día mediante:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="análisis-exploratorio-de-datos.html#cb144-1"></a>Fgorro &lt;-<span class="st"> </span><span class="kw">ecdf</span>(conteo_delitos<span class="op">$</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="análisis-exploratorio-de-datos.html#cb147-1"></a>Fgorro &lt;-<span class="st"> </span><span class="kw">ecdf</span>(conteo_delitos<span class="op">$</span>n)</span></code></pre></div>
 <p>De esta forma podemos calcular la probabilidad de que en un día se cometan menos de 500 delitos:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="análisis-exploratorio-de-datos.html#cb145-1"></a><span class="kw">Fgorro</span>(<span class="dv">500</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="análisis-exploratorio-de-datos.html#cb148-1"></a><span class="kw">Fgorro</span>(<span class="dv">500</span>)</span></code></pre></div>
 <pre><code>## [1] 0.09677419</code></pre>
 <p>O bien podemos graficar la función:</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="análisis-exploratorio-de-datos.html#cb147-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">300</span>, <span class="dv">1000</span>, <span class="dt">length.out =</span> <span class="dv">100</span>)</span>
-<span id="cb147-2"><a href="análisis-exploratorio-de-datos.html#cb147-2"></a>y &lt;-<span class="st"> </span><span class="kw">Fgorro</span>(x)</span>
-<span id="cb147-3"><a href="análisis-exploratorio-de-datos.html#cb147-3"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
-<span id="cb147-4"><a href="análisis-exploratorio-de-datos.html#cb147-4"></a><span class="st">  </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb147-5"><a href="análisis-exploratorio-de-datos.html#cb147-5"></a><span class="st">  </span><span class="kw">labs</span>(</span>
-<span id="cb147-6"><a href="análisis-exploratorio-de-datos.html#cb147-6"></a>    <span class="dt">x =</span> <span class="st">&quot;Número de carpetas de investigación (x)&quot;</span>,</span>
-<span id="cb147-7"><a href="análisis-exploratorio-de-datos.html#cb147-7"></a>    <span class="dt">y =</span> <span class="st">&quot;Probabilidad de que en un día</span><span class="ch">\n</span><span class="st">se abran menos de x carpetas&quot;</span>,</span>
-<span id="cb147-8"><a href="análisis-exploratorio-de-datos.html#cb147-8"></a>    <span class="dt">title =</span> <span class="st">&quot;Distribución acumulada de carpetas de investigación en CDMX&quot;</span></span>
-<span id="cb147-9"><a href="análisis-exploratorio-de-datos.html#cb147-9"></a>  ) <span class="op">+</span></span>
-<span id="cb147-10"><a href="análisis-exploratorio-de-datos.html#cb147-10"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="análisis-exploratorio-de-datos.html#cb150-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">300</span>, <span class="dv">1000</span>, <span class="dt">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb150-2"><a href="análisis-exploratorio-de-datos.html#cb150-2"></a>y &lt;-<span class="st"> </span><span class="kw">Fgorro</span>(x)</span>
+<span id="cb150-3"><a href="análisis-exploratorio-de-datos.html#cb150-3"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb150-4"><a href="análisis-exploratorio-de-datos.html#cb150-4"></a><span class="st">  </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb150-5"><a href="análisis-exploratorio-de-datos.html#cb150-5"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb150-6"><a href="análisis-exploratorio-de-datos.html#cb150-6"></a>    <span class="dt">x =</span> <span class="st">&quot;Número de carpetas de investigación (x)&quot;</span>,</span>
+<span id="cb150-7"><a href="análisis-exploratorio-de-datos.html#cb150-7"></a>    <span class="dt">y =</span> <span class="st">&quot;Probabilidad de que en un día</span><span class="ch">\n</span><span class="st">se abran menos de x carpetas&quot;</span>,</span>
+<span id="cb150-8"><a href="análisis-exploratorio-de-datos.html#cb150-8"></a>    <span class="dt">title =</span> <span class="st">&quot;Distribución acumulada de carpetas de investigación en CDMX&quot;</span></span>
+<span id="cb150-9"><a href="análisis-exploratorio-de-datos.html#cb150-9"></a>  ) <span class="op">+</span></span>
+<span id="cb150-10"><a href="análisis-exploratorio-de-datos.html#cb150-10"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-129-1.png" width="672" /></p>
 <p>Mediante simulaciones, podemos observar que <span class="math inline">\(\hat{F}\)</span> realmente le atina a <span class="math inline">\(F\)</span> como sigue:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="análisis-exploratorio-de-datos.html#cb148-1"></a><span class="co">#Cantidad de simulaciones</span></span>
-<span id="cb148-2"><a href="análisis-exploratorio-de-datos.html#cb148-2"></a>nsim       &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb148-3"><a href="análisis-exploratorio-de-datos.html#cb148-3"></a></span>
-<span id="cb148-4"><a href="análisis-exploratorio-de-datos.html#cb148-4"></a><span class="co">#Tamaño de la muestra en cada simulacion</span></span>
-<span id="cb148-5"><a href="análisis-exploratorio-de-datos.html#cb148-5"></a>n_muestra  &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb148-6"><a href="análisis-exploratorio-de-datos.html#cb148-6"></a></span>
-<span id="cb148-7"><a href="análisis-exploratorio-de-datos.html#cb148-7"></a><span class="co">#Valores a evaluar la función</span></span>
-<span id="cb148-8"><a href="análisis-exploratorio-de-datos.html#cb148-8"></a>x          &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dt">length.out =</span> <span class="dv">200</span>)</span>
-<span id="cb148-9"><a href="análisis-exploratorio-de-datos.html#cb148-9"></a></span>
-<span id="cb148-10"><a href="análisis-exploratorio-de-datos.html#cb148-10"></a><span class="co">#Base de datos para guardar resultados de simulaciones</span></span>
-<span id="cb148-11"><a href="análisis-exploratorio-de-datos.html#cb148-11"></a>F_simulado &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">ncol =</span> nsim, <span class="dt">nrow =</span> <span class="kw">length</span>(x)))</span>
-<span id="cb148-12"><a href="análisis-exploratorio-de-datos.html#cb148-12"></a></span>
-<span id="cb148-13"><a href="análisis-exploratorio-de-datos.html#cb148-13"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nsim){</span>
-<span id="cb148-14"><a href="análisis-exploratorio-de-datos.html#cb148-14"></a>  valores_simulados &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n_muestra)</span>
-<span id="cb148-15"><a href="análisis-exploratorio-de-datos.html#cb148-15"></a>  F_empirica        &lt;-<span class="st"> </span><span class="kw">ecdf</span>(valores_simulados)</span>
-<span id="cb148-16"><a href="análisis-exploratorio-de-datos.html#cb148-16"></a>  F_simulado[,i]    &lt;-<span class="st"> </span><span class="kw">F_empirica</span>(x)</span>
-<span id="cb148-17"><a href="análisis-exploratorio-de-datos.html#cb148-17"></a>}</span>
-<span id="cb148-18"><a href="análisis-exploratorio-de-datos.html#cb148-18"></a></span>
-<span id="cb148-19"><a href="análisis-exploratorio-de-datos.html#cb148-19"></a>F_simulado<span class="op">$</span>Valor_x &lt;-<span class="st"> </span>x</span>
-<span id="cb148-20"><a href="análisis-exploratorio-de-datos.html#cb148-20"></a></span>
-<span id="cb148-21"><a href="análisis-exploratorio-de-datos.html#cb148-21"></a><span class="co">#Cambiamos el formato de la base para graficar</span></span>
-<span id="cb148-22"><a href="análisis-exploratorio-de-datos.html#cb148-22"></a>F_simulado &lt;-<span class="st"> </span>F_simulado <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="op">-</span>Valor_x)</span>
-<span id="cb148-23"><a href="análisis-exploratorio-de-datos.html#cb148-23"></a></span>
-<span id="cb148-24"><a href="análisis-exploratorio-de-datos.html#cb148-24"></a><span class="kw">ggplot</span>(F_simulado) <span class="op">+</span></span>
-<span id="cb148-25"><a href="análisis-exploratorio-de-datos.html#cb148-25"></a><span class="st">  </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Valor_x, <span class="dt">y =</span> value, <span class="dt">color =</span> name), <span class="dt">alpha =</span> <span class="fl">0.1</span>) <span class="op">+</span></span>
-<span id="cb148-26"><a href="análisis-exploratorio-de-datos.html#cb148-26"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Valor_x, <span class="dt">y =</span> <span class="kw">pnorm</span>(Valor_x)), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
-<span id="cb148-27"><a href="análisis-exploratorio-de-datos.html#cb148-27"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
-<span id="cb148-28"><a href="análisis-exploratorio-de-datos.html#cb148-28"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
-<span id="cb148-29"><a href="análisis-exploratorio-de-datos.html#cb148-29"></a><span class="st">  </span><span class="kw">labs</span>(</span>
-<span id="cb148-30"><a href="análisis-exploratorio-de-datos.html#cb148-30"></a>    <span class="dt">x =</span> <span class="st">&quot;x&quot;</span>,</span>
-<span id="cb148-31"><a href="análisis-exploratorio-de-datos.html#cb148-31"></a>    <span class="dt">y =</span> <span class="st">&quot;F(x)&quot;</span>,</span>
-<span id="cb148-32"><a href="análisis-exploratorio-de-datos.html#cb148-32"></a>    <span class="dt">title =</span> <span class="st">&quot;Simulaciones de funciones de distribuciones acumuladas empíricas&quot;</span>,</span>
-<span id="cb148-33"><a href="análisis-exploratorio-de-datos.html#cb148-33"></a>    <span class="dt">subtitle =</span> <span class="st">&quot;Para X ~ Normal(0,1)&quot;</span></span>
-<span id="cb148-34"><a href="análisis-exploratorio-de-datos.html#cb148-34"></a>  )</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="análisis-exploratorio-de-datos.html#cb151-1"></a><span class="co">#Cantidad de simulaciones</span></span>
+<span id="cb151-2"><a href="análisis-exploratorio-de-datos.html#cb151-2"></a>nsim       &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb151-3"><a href="análisis-exploratorio-de-datos.html#cb151-3"></a></span>
+<span id="cb151-4"><a href="análisis-exploratorio-de-datos.html#cb151-4"></a><span class="co">#Tamaño de la muestra en cada simulacion</span></span>
+<span id="cb151-5"><a href="análisis-exploratorio-de-datos.html#cb151-5"></a>n_muestra  &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb151-6"><a href="análisis-exploratorio-de-datos.html#cb151-6"></a></span>
+<span id="cb151-7"><a href="análisis-exploratorio-de-datos.html#cb151-7"></a><span class="co">#Valores a evaluar la función</span></span>
+<span id="cb151-8"><a href="análisis-exploratorio-de-datos.html#cb151-8"></a>x          &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dt">length.out =</span> <span class="dv">200</span>)</span>
+<span id="cb151-9"><a href="análisis-exploratorio-de-datos.html#cb151-9"></a></span>
+<span id="cb151-10"><a href="análisis-exploratorio-de-datos.html#cb151-10"></a><span class="co">#Base de datos para guardar resultados de simulaciones</span></span>
+<span id="cb151-11"><a href="análisis-exploratorio-de-datos.html#cb151-11"></a>F_simulado &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">ncol =</span> nsim, <span class="dt">nrow =</span> <span class="kw">length</span>(x)))</span>
+<span id="cb151-12"><a href="análisis-exploratorio-de-datos.html#cb151-12"></a></span>
+<span id="cb151-13"><a href="análisis-exploratorio-de-datos.html#cb151-13"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nsim){</span>
+<span id="cb151-14"><a href="análisis-exploratorio-de-datos.html#cb151-14"></a>  valores_simulados &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n_muestra)</span>
+<span id="cb151-15"><a href="análisis-exploratorio-de-datos.html#cb151-15"></a>  F_empirica        &lt;-<span class="st"> </span><span class="kw">ecdf</span>(valores_simulados)</span>
+<span id="cb151-16"><a href="análisis-exploratorio-de-datos.html#cb151-16"></a>  F_simulado[,i]    &lt;-<span class="st"> </span><span class="kw">F_empirica</span>(x)</span>
+<span id="cb151-17"><a href="análisis-exploratorio-de-datos.html#cb151-17"></a>}</span>
+<span id="cb151-18"><a href="análisis-exploratorio-de-datos.html#cb151-18"></a></span>
+<span id="cb151-19"><a href="análisis-exploratorio-de-datos.html#cb151-19"></a>F_simulado<span class="op">$</span>Valor_x &lt;-<span class="st"> </span>x</span>
+<span id="cb151-20"><a href="análisis-exploratorio-de-datos.html#cb151-20"></a></span>
+<span id="cb151-21"><a href="análisis-exploratorio-de-datos.html#cb151-21"></a><span class="co">#Cambiamos el formato de la base para graficar</span></span>
+<span id="cb151-22"><a href="análisis-exploratorio-de-datos.html#cb151-22"></a>F_simulado &lt;-<span class="st"> </span>F_simulado <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="op">-</span>Valor_x)</span>
+<span id="cb151-23"><a href="análisis-exploratorio-de-datos.html#cb151-23"></a></span>
+<span id="cb151-24"><a href="análisis-exploratorio-de-datos.html#cb151-24"></a><span class="kw">ggplot</span>(F_simulado) <span class="op">+</span></span>
+<span id="cb151-25"><a href="análisis-exploratorio-de-datos.html#cb151-25"></a><span class="st">  </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Valor_x, <span class="dt">y =</span> value, <span class="dt">color =</span> name), <span class="dt">alpha =</span> <span class="fl">0.1</span>) <span class="op">+</span></span>
+<span id="cb151-26"><a href="análisis-exploratorio-de-datos.html#cb151-26"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Valor_x, <span class="dt">y =</span> <span class="kw">pnorm</span>(Valor_x)), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
+<span id="cb151-27"><a href="análisis-exploratorio-de-datos.html#cb151-27"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb151-28"><a href="análisis-exploratorio-de-datos.html#cb151-28"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb151-29"><a href="análisis-exploratorio-de-datos.html#cb151-29"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb151-30"><a href="análisis-exploratorio-de-datos.html#cb151-30"></a>    <span class="dt">x =</span> <span class="st">&quot;x&quot;</span>,</span>
+<span id="cb151-31"><a href="análisis-exploratorio-de-datos.html#cb151-31"></a>    <span class="dt">y =</span> <span class="st">&quot;F(x)&quot;</span>,</span>
+<span id="cb151-32"><a href="análisis-exploratorio-de-datos.html#cb151-32"></a>    <span class="dt">title =</span> <span class="st">&quot;Simulaciones de funciones de distribuciones acumuladas empíricas&quot;</span>,</span>
+<span id="cb151-33"><a href="análisis-exploratorio-de-datos.html#cb151-33"></a>    <span class="dt">subtitle =</span> <span class="st">&quot;Para X ~ Normal(0,1)&quot;</span></span>
+<span id="cb151-34"><a href="análisis-exploratorio-de-datos.html#cb151-34"></a>  )</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-130-1.png" width="672" /></p>
 <p><strong>2. Histograma</strong>
 Para una variable aleatoria continua, la aproximación <span class="math inline">\(\hat{p}\)</span> que hicimos no funciona (la masa siempre es <span class="math inline">\(0\)</span>). Por lo que es necesario analizar alternativas para estudiar la densidad si suponemos que los datos pueden modelarse mediante algo continuo. Para construir un histograma consideremos <span class="math inline">\(\vec{x} = (x_1, x_2, \dots, x_n)^T\)</span> y una constante <span class="math inline">\(h &gt; 0\)</span> llamada el <strong>ancho de banda (binwidth)</strong>. Sea <span class="math inline">\(\{ I_j \}\)</span> una colección de intervalos no vacíos de <span class="math inline">\(\mathbb{R}\)</span> tal que <span class="math inline">\(\cup_{j=1} I_j = \mathbb{R}\)</span> e <span class="math inline">\(I_j \cap I_k = \emptyset\)</span> (<em>i.e.</em> los <span class="math inline">\(\{ I_j \}\)</span> forman una partición de <span class="math inline">\(\mathbb{R}\)</span>). Supongamos, además, los <span class="math inline">\(I_j\)</span> son de la forma:
 <span class="math display">\[
@@ -1778,36 +1992,36 @@ donde la última igualdad se da pues las <span class="math inline">\(X_i\)</span
 \]</span>
 Es decir, el valor esperado del área bajo un histograma en un intervalo <span class="math inline">\(I_j\)</span> coincide con la probabilidad de que <span class="math inline">\(X\)</span> pertenezca a dicho intervalo.</p>
 <p>Gráficamente:</p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-128-1.png" width="672" />
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-131-1.png" width="672" />
 En <code>R</code> podemos hacer un histograma a través de <code>geom_histogram</code>. En este caso lo haremos de la latitud:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="análisis-exploratorio-de-datos.html#cb149-1"></a><span class="co">#En este caso binwidth = h y kappa = boundary</span></span>
-<span id="cb149-2"><a href="análisis-exploratorio-de-datos.html#cb149-2"></a><span class="kw">ggplot</span>(datos) <span class="op">+</span></span>
-<span id="cb149-3"><a href="análisis-exploratorio-de-datos.html#cb149-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> latitud, <span class="dt">y =</span> ..density..), </span>
-<span id="cb149-4"><a href="análisis-exploratorio-de-datos.html#cb149-4"></a>                 <span class="dt">binwidth =</span> <span class="fl">0.02</span>, <span class="dt">boundary =</span> <span class="dv">-99</span>,</span>
-<span id="cb149-5"><a href="análisis-exploratorio-de-datos.html#cb149-5"></a>                 <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
-<span id="cb149-6"><a href="análisis-exploratorio-de-datos.html#cb149-6"></a><span class="st">  </span><span class="kw">theme_light</span>() </span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-129-1.png" width="672" /></p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="análisis-exploratorio-de-datos.html#cb152-1"></a><span class="co">#En este caso binwidth = h y kappa = boundary</span></span>
+<span id="cb152-2"><a href="análisis-exploratorio-de-datos.html#cb152-2"></a><span class="kw">ggplot</span>(datos) <span class="op">+</span></span>
+<span id="cb152-3"><a href="análisis-exploratorio-de-datos.html#cb152-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> latitud, <span class="dt">y =</span> ..density..), </span>
+<span id="cb152-4"><a href="análisis-exploratorio-de-datos.html#cb152-4"></a>                 <span class="dt">binwidth =</span> <span class="fl">0.02</span>, <span class="dt">boundary =</span> <span class="dv">-99</span>,</span>
+<span id="cb152-5"><a href="análisis-exploratorio-de-datos.html#cb152-5"></a>                 <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
+<span id="cb152-6"><a href="análisis-exploratorio-de-datos.html#cb152-6"></a><span class="st">  </span><span class="kw">theme_light</span>() </span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 <div id="ejercicio-4" class="section level3">
 <h3><span class="header-section-number">2.12.1</span> Ejercicio</h3>
 <p>Considera la siguiente base de datos (obtenida de <a href="https://stats.stackexchange.com/questions/51718/assessing-approximate-distribution-of-data-based-on-a-histogram">Cross Validated</a>):</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="análisis-exploratorio-de-datos.html#cb150-1"></a>mis.datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb150-2"><a href="análisis-exploratorio-de-datos.html#cb150-2"></a>  <span class="dt">A =</span>  <span class="kw">c</span>(<span class="fl">3.15</span>, <span class="fl">5.46</span>, <span class="fl">3.28</span>, <span class="fl">4.20</span>, <span class="fl">1.98</span>, <span class="fl">2.28</span>, <span class="fl">3.12</span>, <span class="fl">4.10</span>, <span class="fl">3.42</span>, <span class="fl">3.91</span>, </span>
-<span id="cb150-3"><a href="análisis-exploratorio-de-datos.html#cb150-3"></a>         <span class="fl">2.06</span>, <span class="fl">5.53</span>, <span class="fl">5.19</span>, <span class="fl">2.39</span>, <span class="fl">1.88</span>, <span class="fl">3.43</span>, <span class="fl">5.51</span>, <span class="fl">2.54</span>, <span class="fl">3.64</span>, <span class="fl">4.33</span>, </span>
-<span id="cb150-4"><a href="análisis-exploratorio-de-datos.html#cb150-4"></a>         <span class="fl">4.85</span>, <span class="fl">5.56</span>, <span class="fl">1.89</span>, <span class="fl">4.84</span>, <span class="fl">5.74</span>, <span class="fl">3.22</span>, <span class="fl">5.52</span>, <span class="fl">1.84</span>, <span class="fl">4.31</span>, <span class="fl">2.01</span>, </span>
-<span id="cb150-5"><a href="análisis-exploratorio-de-datos.html#cb150-5"></a>         <span class="fl">4.01</span>, <span class="fl">5.31</span>, <span class="fl">2.56</span>, <span class="fl">5.11</span>, <span class="fl">2.58</span>, <span class="fl">4.43</span>, <span class="fl">4.96</span>, <span class="fl">1.90</span>, <span class="fl">5.60</span>, <span class="fl">1.92</span>),</span>
-<span id="cb150-6"><a href="análisis-exploratorio-de-datos.html#cb150-6"></a>  <span class="dt">B =</span>  <span class="kw">c</span>(<span class="fl">2.90</span>, <span class="fl">5.21</span>, <span class="fl">3.03</span>, <span class="fl">3.95</span>, <span class="fl">1.73</span>, <span class="fl">2.03</span>, <span class="fl">2.87</span>, <span class="fl">3.85</span>, <span class="fl">3.17</span>, <span class="fl">3.66</span>,</span>
-<span id="cb150-7"><a href="análisis-exploratorio-de-datos.html#cb150-7"></a>         <span class="fl">1.81</span>, <span class="fl">5.28</span>, <span class="fl">4.94</span>, <span class="fl">2.14</span>, <span class="fl">1.63</span>, <span class="fl">3.18</span>, <span class="fl">5.26</span>, <span class="fl">2.29</span>, <span class="fl">3.39</span>, <span class="fl">4.08</span>,</span>
-<span id="cb150-8"><a href="análisis-exploratorio-de-datos.html#cb150-8"></a>         <span class="fl">4.60</span>, <span class="fl">5.31</span>, <span class="fl">1.64</span>, <span class="fl">4.59</span>, <span class="fl">5.49</span>, <span class="fl">2.97</span>, <span class="fl">5.27</span>, <span class="fl">1.59</span>, <span class="fl">4.06</span>, <span class="fl">1.76</span>, </span>
-<span id="cb150-9"><a href="análisis-exploratorio-de-datos.html#cb150-9"></a>         <span class="fl">3.76</span>, <span class="fl">5.06</span>, <span class="fl">2.31</span>, <span class="fl">4.86</span>, <span class="fl">2.33</span>, <span class="fl">4.18</span>, <span class="fl">4.71</span>, <span class="fl">1.65</span>, <span class="fl">5.35</span>, <span class="fl">1.67</span>),</span>
-<span id="cb150-10"><a href="análisis-exploratorio-de-datos.html#cb150-10"></a>  <span class="dt">C =</span>  <span class="kw">c</span>(<span class="fl">2.65</span>, <span class="fl">4.96</span>, <span class="fl">2.78</span>, <span class="fl">3.70</span>, <span class="fl">1.48</span>, <span class="fl">1.78</span>, <span class="fl">2.62</span>, <span class="fl">3.60</span>, <span class="fl">2.92</span>, <span class="fl">3.41</span>,</span>
-<span id="cb150-11"><a href="análisis-exploratorio-de-datos.html#cb150-11"></a>         <span class="fl">1.56</span>, <span class="fl">5.03</span>, <span class="fl">4.69</span>, <span class="fl">1.89</span>, <span class="fl">1.38</span>, <span class="fl">2.93</span>, <span class="fl">5.01</span>, <span class="fl">2.04</span>, <span class="fl">3.14</span>, <span class="fl">3.83</span>,</span>
-<span id="cb150-12"><a href="análisis-exploratorio-de-datos.html#cb150-12"></a>         <span class="fl">4.35</span>, <span class="fl">5.06</span>, <span class="fl">1.39</span>, <span class="fl">4.34</span>, <span class="fl">5.24</span>, <span class="fl">2.72</span>, <span class="fl">5.02</span>, <span class="fl">1.34</span>, <span class="fl">3.81</span>, <span class="fl">1.51</span>, </span>
-<span id="cb150-13"><a href="análisis-exploratorio-de-datos.html#cb150-13"></a>         <span class="fl">3.51</span>, <span class="fl">4.81</span>, <span class="fl">2.06</span>, <span class="fl">4.61</span>, <span class="fl">2.08</span>, <span class="fl">3.93</span>, <span class="fl">4.46</span>, <span class="fl">1.4</span>, <span class="fl">5.1</span>, <span class="fl">1.42</span>),</span>
-<span id="cb150-14"><a href="análisis-exploratorio-de-datos.html#cb150-14"></a>  <span class="dt">D =</span>  <span class="kw">c</span>(<span class="fl">2.40</span>, <span class="fl">4.71</span>, <span class="fl">2.53</span>, <span class="fl">3.45</span>, <span class="fl">1.23</span>, <span class="fl">1.53</span>, <span class="fl">2.37</span>, <span class="fl">3.35</span>, <span class="fl">2.67</span>, <span class="fl">3.16</span>,</span>
-<span id="cb150-15"><a href="análisis-exploratorio-de-datos.html#cb150-15"></a>         <span class="fl">1.31</span>, <span class="fl">4.78</span>, <span class="fl">4.44</span>, <span class="fl">1.64</span>, <span class="fl">1.13</span>, <span class="fl">2.68</span>, <span class="fl">4.76</span>, <span class="fl">1.79</span>, <span class="fl">2.89</span>, <span class="fl">3.58</span>,</span>
-<span id="cb150-16"><a href="análisis-exploratorio-de-datos.html#cb150-16"></a>         <span class="fl">4.10</span>, <span class="fl">4.81</span>, <span class="fl">1.14</span>, <span class="fl">4.09</span>, <span class="fl">4.99</span>, <span class="fl">2.47</span>, <span class="fl">4.77</span>, <span class="fl">1.09</span>, <span class="fl">3.56</span>, <span class="fl">1.26</span>, </span>
-<span id="cb150-17"><a href="análisis-exploratorio-de-datos.html#cb150-17"></a>         <span class="fl">3.26</span>, <span class="fl">4.56</span>, <span class="fl">1.81</span>, <span class="fl">4.36</span>, <span class="fl">1.83</span>, <span class="fl">3.68</span>, <span class="fl">4.21</span>, <span class="fl">1.15</span>, <span class="fl">4.85</span>, <span class="fl">1.17</span>)</span>
-<span id="cb150-18"><a href="análisis-exploratorio-de-datos.html#cb150-18"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="análisis-exploratorio-de-datos.html#cb153-1"></a>mis.datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb153-2"><a href="análisis-exploratorio-de-datos.html#cb153-2"></a>  <span class="dt">A =</span>  <span class="kw">c</span>(<span class="fl">3.15</span>, <span class="fl">5.46</span>, <span class="fl">3.28</span>, <span class="fl">4.20</span>, <span class="fl">1.98</span>, <span class="fl">2.28</span>, <span class="fl">3.12</span>, <span class="fl">4.10</span>, <span class="fl">3.42</span>, <span class="fl">3.91</span>, </span>
+<span id="cb153-3"><a href="análisis-exploratorio-de-datos.html#cb153-3"></a>         <span class="fl">2.06</span>, <span class="fl">5.53</span>, <span class="fl">5.19</span>, <span class="fl">2.39</span>, <span class="fl">1.88</span>, <span class="fl">3.43</span>, <span class="fl">5.51</span>, <span class="fl">2.54</span>, <span class="fl">3.64</span>, <span class="fl">4.33</span>, </span>
+<span id="cb153-4"><a href="análisis-exploratorio-de-datos.html#cb153-4"></a>         <span class="fl">4.85</span>, <span class="fl">5.56</span>, <span class="fl">1.89</span>, <span class="fl">4.84</span>, <span class="fl">5.74</span>, <span class="fl">3.22</span>, <span class="fl">5.52</span>, <span class="fl">1.84</span>, <span class="fl">4.31</span>, <span class="fl">2.01</span>, </span>
+<span id="cb153-5"><a href="análisis-exploratorio-de-datos.html#cb153-5"></a>         <span class="fl">4.01</span>, <span class="fl">5.31</span>, <span class="fl">2.56</span>, <span class="fl">5.11</span>, <span class="fl">2.58</span>, <span class="fl">4.43</span>, <span class="fl">4.96</span>, <span class="fl">1.90</span>, <span class="fl">5.60</span>, <span class="fl">1.92</span>),</span>
+<span id="cb153-6"><a href="análisis-exploratorio-de-datos.html#cb153-6"></a>  <span class="dt">B =</span>  <span class="kw">c</span>(<span class="fl">2.90</span>, <span class="fl">5.21</span>, <span class="fl">3.03</span>, <span class="fl">3.95</span>, <span class="fl">1.73</span>, <span class="fl">2.03</span>, <span class="fl">2.87</span>, <span class="fl">3.85</span>, <span class="fl">3.17</span>, <span class="fl">3.66</span>,</span>
+<span id="cb153-7"><a href="análisis-exploratorio-de-datos.html#cb153-7"></a>         <span class="fl">1.81</span>, <span class="fl">5.28</span>, <span class="fl">4.94</span>, <span class="fl">2.14</span>, <span class="fl">1.63</span>, <span class="fl">3.18</span>, <span class="fl">5.26</span>, <span class="fl">2.29</span>, <span class="fl">3.39</span>, <span class="fl">4.08</span>,</span>
+<span id="cb153-8"><a href="análisis-exploratorio-de-datos.html#cb153-8"></a>         <span class="fl">4.60</span>, <span class="fl">5.31</span>, <span class="fl">1.64</span>, <span class="fl">4.59</span>, <span class="fl">5.49</span>, <span class="fl">2.97</span>, <span class="fl">5.27</span>, <span class="fl">1.59</span>, <span class="fl">4.06</span>, <span class="fl">1.76</span>, </span>
+<span id="cb153-9"><a href="análisis-exploratorio-de-datos.html#cb153-9"></a>         <span class="fl">3.76</span>, <span class="fl">5.06</span>, <span class="fl">2.31</span>, <span class="fl">4.86</span>, <span class="fl">2.33</span>, <span class="fl">4.18</span>, <span class="fl">4.71</span>, <span class="fl">1.65</span>, <span class="fl">5.35</span>, <span class="fl">1.67</span>),</span>
+<span id="cb153-10"><a href="análisis-exploratorio-de-datos.html#cb153-10"></a>  <span class="dt">C =</span>  <span class="kw">c</span>(<span class="fl">2.65</span>, <span class="fl">4.96</span>, <span class="fl">2.78</span>, <span class="fl">3.70</span>, <span class="fl">1.48</span>, <span class="fl">1.78</span>, <span class="fl">2.62</span>, <span class="fl">3.60</span>, <span class="fl">2.92</span>, <span class="fl">3.41</span>,</span>
+<span id="cb153-11"><a href="análisis-exploratorio-de-datos.html#cb153-11"></a>         <span class="fl">1.56</span>, <span class="fl">5.03</span>, <span class="fl">4.69</span>, <span class="fl">1.89</span>, <span class="fl">1.38</span>, <span class="fl">2.93</span>, <span class="fl">5.01</span>, <span class="fl">2.04</span>, <span class="fl">3.14</span>, <span class="fl">3.83</span>,</span>
+<span id="cb153-12"><a href="análisis-exploratorio-de-datos.html#cb153-12"></a>         <span class="fl">4.35</span>, <span class="fl">5.06</span>, <span class="fl">1.39</span>, <span class="fl">4.34</span>, <span class="fl">5.24</span>, <span class="fl">2.72</span>, <span class="fl">5.02</span>, <span class="fl">1.34</span>, <span class="fl">3.81</span>, <span class="fl">1.51</span>, </span>
+<span id="cb153-13"><a href="análisis-exploratorio-de-datos.html#cb153-13"></a>         <span class="fl">3.51</span>, <span class="fl">4.81</span>, <span class="fl">2.06</span>, <span class="fl">4.61</span>, <span class="fl">2.08</span>, <span class="fl">3.93</span>, <span class="fl">4.46</span>, <span class="fl">1.4</span>, <span class="fl">5.1</span>, <span class="fl">1.42</span>),</span>
+<span id="cb153-14"><a href="análisis-exploratorio-de-datos.html#cb153-14"></a>  <span class="dt">D =</span>  <span class="kw">c</span>(<span class="fl">2.40</span>, <span class="fl">4.71</span>, <span class="fl">2.53</span>, <span class="fl">3.45</span>, <span class="fl">1.23</span>, <span class="fl">1.53</span>, <span class="fl">2.37</span>, <span class="fl">3.35</span>, <span class="fl">2.67</span>, <span class="fl">3.16</span>,</span>
+<span id="cb153-15"><a href="análisis-exploratorio-de-datos.html#cb153-15"></a>         <span class="fl">1.31</span>, <span class="fl">4.78</span>, <span class="fl">4.44</span>, <span class="fl">1.64</span>, <span class="fl">1.13</span>, <span class="fl">2.68</span>, <span class="fl">4.76</span>, <span class="fl">1.79</span>, <span class="fl">2.89</span>, <span class="fl">3.58</span>,</span>
+<span id="cb153-16"><a href="análisis-exploratorio-de-datos.html#cb153-16"></a>         <span class="fl">4.10</span>, <span class="fl">4.81</span>, <span class="fl">1.14</span>, <span class="fl">4.09</span>, <span class="fl">4.99</span>, <span class="fl">2.47</span>, <span class="fl">4.77</span>, <span class="fl">1.09</span>, <span class="fl">3.56</span>, <span class="fl">1.26</span>, </span>
+<span id="cb153-17"><a href="análisis-exploratorio-de-datos.html#cb153-17"></a>         <span class="fl">3.26</span>, <span class="fl">4.56</span>, <span class="fl">1.81</span>, <span class="fl">4.36</span>, <span class="fl">1.83</span>, <span class="fl">3.68</span>, <span class="fl">4.21</span>, <span class="fl">1.15</span>, <span class="fl">4.85</span>, <span class="fl">1.17</span>)</span>
+<span id="cb153-18"><a href="análisis-exploratorio-de-datos.html#cb153-18"></a>)</span></code></pre></div>
 <p>Grafica un histograma de las variables <code>A</code>, <code>B</code>, <code>C</code> y <code>D</code> de dicha base con un ancho de banda (binwidth) igual a <code>1</code>.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>¿Podemos concluir la forma de la distribución a partir del histograma? Es decir ¿hay distribuciones sesgadas a la izquierda, a la derecha, uniformes, centradas o con colas pesadas?</p></li>
@@ -1851,27 +2065,27 @@ K(u) = \frac{1}{2} \mathbb{I}_{(-1, 1]}(u)
 <p><strong>OJO</strong> No confundir el Kernel <span class="math inline">\(K\)</span> (que es una función que integra a <span class="math inline">\(1\)</span>) con <em>función de densidad kernel</em> que es una función de los datos que utiliza un kernel y es una densidad por sí misma.</p>
 </blockquote>
 <p>En <code>R</code> podemos calcular la densidad <code>kernel</code> en <code>n</code> puntos con relativa facilidad mediante <code>density</code>:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="análisis-exploratorio-de-datos.html#cb151-1"></a>densidad_kernel &lt;-<span class="st"> </span><span class="kw">density</span>(datos<span class="op">$</span>latitud, <span class="dt">kernel =</span> <span class="st">&quot;gaussian&quot;</span>, <span class="dt">n =</span> <span class="dv">700</span>,</span>
-<span id="cb151-2"><a href="análisis-exploratorio-de-datos.html#cb151-2"></a>                           <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="análisis-exploratorio-de-datos.html#cb154-1"></a>densidad_kernel &lt;-<span class="st"> </span><span class="kw">density</span>(datos<span class="op">$</span>latitud, <span class="dt">kernel =</span> <span class="st">&quot;gaussian&quot;</span>, <span class="dt">n =</span> <span class="dv">700</span>,</span>
+<span id="cb154-2"><a href="análisis-exploratorio-de-datos.html#cb154-2"></a>                           <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>Nota que <code>R</code> en automático preselecciona los valores de <code>h</code> mediante un criterio preprogramado de optimización. Podemos ver dicha densidad gráficamente (y compararla con un histograma):</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="análisis-exploratorio-de-datos.html#cb152-1"></a><span class="kw">ggplot</span>(datos) <span class="op">+</span></span>
-<span id="cb152-2"><a href="análisis-exploratorio-de-datos.html#cb152-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> latitud, <span class="dt">y =</span> ..density..), </span>
-<span id="cb152-3"><a href="análisis-exploratorio-de-datos.html#cb152-3"></a>                 <span class="dt">binwidth =</span> <span class="fl">0.01</span>, <span class="dt">boundary =</span> <span class="dv">19</span>,</span>
-<span id="cb152-4"><a href="análisis-exploratorio-de-datos.html#cb152-4"></a>                 <span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></span>
-<span id="cb152-5"><a href="análisis-exploratorio-de-datos.html#cb152-5"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">x =</span> latitud), <span class="dt">kernel =</span> <span class="st">&quot;gaussian&quot;</span>, <span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span></span>
-<span id="cb152-6"><a href="análisis-exploratorio-de-datos.html#cb152-6"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="análisis-exploratorio-de-datos.html#cb155-1"></a><span class="kw">ggplot</span>(datos) <span class="op">+</span></span>
+<span id="cb155-2"><a href="análisis-exploratorio-de-datos.html#cb155-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> latitud, <span class="dt">y =</span> ..density..), </span>
+<span id="cb155-3"><a href="análisis-exploratorio-de-datos.html#cb155-3"></a>                 <span class="dt">binwidth =</span> <span class="fl">0.01</span>, <span class="dt">boundary =</span> <span class="dv">19</span>,</span>
+<span id="cb155-4"><a href="análisis-exploratorio-de-datos.html#cb155-4"></a>                 <span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></span>
+<span id="cb155-5"><a href="análisis-exploratorio-de-datos.html#cb155-5"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">x =</span> latitud), <span class="dt">kernel =</span> <span class="st">&quot;gaussian&quot;</span>, <span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span></span>
+<span id="cb155-6"><a href="análisis-exploratorio-de-datos.html#cb155-6"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
 <p>Esto no se queda ahí, podemos generalizar el concepto de kernel a dos dimensiones para aproximar una función de densidad <span class="math inline">\(f(x,y)\)</span> de dos variables aleatorias sí tenemos dos vectores <span class="math inline">\(\vec{x}\)</span> y <span class="math inline">\(\vec{y}\)</span> y calculamos:</p>
 <p><span class="math display">\[
 \hat{f}(x,y) =\dfrac{1}{nh^2} \sum\limits_{i = 1}^n K \Big( \frac{x_i - x}{h}\Big) K \Big( \frac{y_i - y}{h}\Big)
 \]</span></p>
 <p>En particular esto nos permite generar una densidad en <code>R</code> para saber en qué coordenadas de latitud y longitud ocurren más los delitos:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="análisis-exploratorio-de-datos.html#cb153-1"></a><span class="kw">ggplot</span>(datos) <span class="op">+</span></span>
-<span id="cb153-2"><a href="análisis-exploratorio-de-datos.html#cb153-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> longitud, <span class="dt">y =</span> latitud), <span class="dt">alpha =</span> <span class="fl">0.025</span>) <span class="op">+</span></span>
-<span id="cb153-3"><a href="análisis-exploratorio-de-datos.html#cb153-3"></a><span class="st">  </span><span class="kw">geom_density_2d_filled</span>(<span class="kw">aes</span>(<span class="dt">x =</span> longitud, <span class="dt">y =</span> latitud), <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></span>
-<span id="cb153-4"><a href="análisis-exploratorio-de-datos.html#cb153-4"></a><span class="st">  </span><span class="kw">geom_density2d</span>(<span class="kw">aes</span>(<span class="dt">x =</span> longitud, <span class="dt">y =</span> latitud)) <span class="op">+</span></span>
-<span id="cb153-5"><a href="análisis-exploratorio-de-datos.html#cb153-5"></a><span class="st">  </span><span class="kw">theme_void</span>()</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="análisis-exploratorio-de-datos.html#cb156-1"></a><span class="kw">ggplot</span>(datos) <span class="op">+</span></span>
+<span id="cb156-2"><a href="análisis-exploratorio-de-datos.html#cb156-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> longitud, <span class="dt">y =</span> latitud), <span class="dt">alpha =</span> <span class="fl">0.025</span>) <span class="op">+</span></span>
+<span id="cb156-3"><a href="análisis-exploratorio-de-datos.html#cb156-3"></a><span class="st">  </span><span class="kw">geom_density_2d_filled</span>(<span class="kw">aes</span>(<span class="dt">x =</span> longitud, <span class="dt">y =</span> latitud), <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></span>
+<span id="cb156-4"><a href="análisis-exploratorio-de-datos.html#cb156-4"></a><span class="st">  </span><span class="kw">geom_density2d</span>(<span class="kw">aes</span>(<span class="dt">x =</span> longitud, <span class="dt">y =</span> latitud)) <span class="op">+</span></span>
+<span id="cb156-5"><a href="análisis-exploratorio-de-datos.html#cb156-5"></a><span class="st">  </span><span class="kw">theme_void</span>()</span></code></pre></div>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
 </div>
 <div id="ejercicio-sugerido" class="section level3">
 <h3><span class="header-section-number">2.12.2</span> Ejercicio sugerido</h3>
@@ -1997,9 +2211,69 @@ Malo
 <li><p>Realiza una tabla de contingencia de <span class="math inline">\(\vec{w}\)</span> y <span class="math inline">\(\vec{z}\)</span>.</p></li>
 <li><p>Determina la distribución frecuencial (observada) marginal de <span class="math inline">\(\vec{w}\)</span>.</p></li>
 <li><p>Realiza una tabla de frecuencias de <span class="math inline">\(\vec{w}\)</span> y <span class="math inline">\(\vec{z}\)</span>.</p></li>
-<li><p>Calcula el riesgo relativo de estar en un choque dado que manejas en CDMX a partir de los datos en la tabla :</p></li>
+<li><p>Calcula el riesgo relativo de estar en un choque dado que manejas en CDMX a partir de los datos en la tabla:</p></li>
 </ol>
-
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+CDMX
+</th>
+<th style="text-align:right;">
+MTY
+</th>
+<th style="text-align:right;">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Chocó
+</td>
+<td style="text-align:right;">
+1100
+</td>
+<td style="text-align:right;">
+4000
+</td>
+<td style="text-align:right;">
+5100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+No Chocó
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:right;">
+5080
+</td>
+<td style="text-align:right;">
+5200
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+1220
+</td>
+<td style="text-align:right;">
+9080
+</td>
+<td style="text-align:right;">
+10300
+</td>
+</tr>
+</tbody>
+</table>
 <p>Interpreta tu resultado.</p>
 <ol start="16" style="list-style-type: decimal">
 <li><p>De la tabla anterior calcula la razón de momios asociada a chocar dado que manejas en CDMX. Interprétala.</p></li>
@@ -2029,12 +2303,12 @@ Malo
 <li>Este cálculo de  para una S dada como vector numérico:</li>
 </ol></li>
 </ol>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="análisis-exploratorio-de-datos.html#cb154-1"></a><span class="co">#x es la muestra; x &lt;- c(x1,x2, ..., xn)</span></span>
-<span id="cb154-2"><a href="análisis-exploratorio-de-datos.html#cb154-2"></a>datos_nuevos &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
-<span id="cb154-3"><a href="análisis-exploratorio-de-datos.html#cb154-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)){</span>
-<span id="cb154-4"><a href="análisis-exploratorio-de-datos.html#cb154-4"></a>    datos_nuevos &lt;-<span class="st"> </span><span class="kw">c</span>(datos_nuevos, x[i]<span class="op">^</span>i)</span>
-<span id="cb154-5"><a href="análisis-exploratorio-de-datos.html#cb154-5"></a>}</span>
-<span id="cb154-6"><a href="análisis-exploratorio-de-datos.html#cb154-6"></a><span class="kw">mean</span>(datos_nuevos) <span class="co">#Este valor es el que me interesa</span></span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="análisis-exploratorio-de-datos.html#cb157-1"></a><span class="co">#x es la muestra; x &lt;- c(x1,x2, ..., xn)</span></span>
+<span id="cb157-2"><a href="análisis-exploratorio-de-datos.html#cb157-2"></a>datos_nuevos &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb157-3"><a href="análisis-exploratorio-de-datos.html#cb157-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)){</span>
+<span id="cb157-4"><a href="análisis-exploratorio-de-datos.html#cb157-4"></a>    datos_nuevos &lt;-<span class="st"> </span><span class="kw">c</span>(datos_nuevos, x[i]<span class="op">^</span>i)</span>
+<span id="cb157-5"><a href="análisis-exploratorio-de-datos.html#cb157-5"></a>}</span>
+<span id="cb157-6"><a href="análisis-exploratorio-de-datos.html#cb157-6"></a><span class="kw">mean</span>(datos_nuevos) <span class="co">#Este valor es el que me interesa</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Demuestra que:
 <span class="math display">\[
@@ -2072,8 +2346,56 @@ Malo
 <li><span class="math inline">\(\lim_{x \to x_0^-} \hat{F} (x)\)</span> existe</li>
 <li><span class="math inline">\(F_n (x)\)</span> es no decreciente.</li>
 </ol></li>
-<li><p>La tabla  muestra datos observados del PIB de un país en billones de dólares:</p>
-<p>Ajusta una parábola <span class="math inline">\(q (x) = a \cdot x^2 + b\cdot x + c\)</span> para obtener la mejor parábola que ajuste esos puntos. ¿Qué valor de PIB se espera para el 2020 bajo este modelo?</p></li>
+<li><p>La tabla  muestra datos observados del PIB de un país en billones de dólares:</p></li>
+</ol>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+Año
+</th>
+<th style="text-align:right;">
+PIB
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2000
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2005
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ajusta una parábola <span class="math inline">\(q (x) = a \cdot x^2 + b\cdot x + c\)</span> para obtener la mejor parábola que ajuste esos puntos. ¿Qué valor de PIB se espera para el 2020 bajo este modelo?</p>
+<ol start="10" style="list-style-type: decimal">
 <li><p>Demuestra que si <span class="math inline">\(\vec{x} = -\vec{y}\)</span> (dos vectores numéricos) la correlación de Spearman entre ambos es <span class="math inline">\(-1\)</span>.</p></li>
 <li><p>Para una variable aleatoria <span class="math inline">\(T\)</span> que representa un tiempo, se define una función de supervivencia como la probabilidad de que <span class="math inline">\(T\)</span> dure más que un cierto tiempo <span class="math inline">\(t\)</span>; es decir:
 <span class="math display">\[\begin{equation}\nonumber
@@ -2102,7 +2424,54 @@ para algunas constantes <span class="math inline">\(K_1, K_2, K_3, K_4\)</span>;
 <li>Demuestra que <span class="math inline">\(\mathbb{E}\big[ \sigma_{\vec{X}}^2 \big] \neq \sigma^2\)</span> ¿Qué te dice esto de <span class="math inline">\(\sigma_{\vec{x}}^2\)</span>?
 Donde <span class="math inline">\(\sigma_{\vec{X}}^2 = \frac{1}{n}\sum_{i=1}^n \big( X_i - \bar{X}\big)^2\)</span>. Hint: usa el ejercicio 2 de esta sección.</li>
 </ol></li>
-<li><p>Quiénes son <span class="math inline">\(\vec{x}, \vec{y}\)</span> si su tabla de contingencia es la dada por Cuadro :</p></li>
+<li><p>Quiénes son <span class="math inline">\(\vec{x}, \vec{y}\)</span> si su tabla de contingencia es la dada por Cuadro :</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+<p>Consomé</p>
+</th>
+<th style="text-align:right;">
+<p>Taco</p>
+</th>
+<th style="text-align:right;">
+<p>Postre</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<p>Tacos el Güero</p>
+</td>
+<td style="text-align:right;">
+<p>1</p>
+</td>
+<td style="text-align:right;">
+<p>3</p>
+</td>
+<td style="text-align:right;">
+<p>2</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>Tacos la Güera</p>
+</td>
+<td style="text-align:right;">
+<p>4</p>
+</td>
+<td style="text-align:right;">
+<p>2</p>
+</td>
+<td style="text-align:right;">
+<p>1</p>
+</td>
+</tr>
+</tbody>
+</table></li>
 <li><p>Da un ejemplo de vectores <span class="math inline">\(\vec{x}\)</span> y <span class="math inline">\(\vec{y}\)</span> de tamaño <span class="math inline">\(10\)</span> cuya <span class="math inline">\(\tau\)</span> de Kendall sea <span class="math inline">\(0\)</span> pero estén completamente relacionados; es decir exista una función <span class="math inline">\(g\)</span> tal que <span class="math inline">\(\vec{y} = g(\vec{x})\)</span>.</p></li>
 <li><p>Construye una función <code>function</code> en <code>R</code> que dado un vector <code>x &lt;- c(x_1, x_2, ..., x_n)</code> regrese la densidad kernel (bajo kernel gaussiano) asociada a <code>x</code> y evaluada en los puntos dados por el vector <code>t &lt;- c(t_1, t_2, ..., t_m)</code>.</p></li>
 <li><p>Considera la siguiente base de datos de calificaciones. Calcula la mediana de calificaciones, media, varianza y el IQR.</p></li>
@@ -2172,7 +2541,7 @@ Cantidad de alumnos
 <ol start="26" style="list-style-type: decimal">
 <li>A partir de la siguiente gráfica determina si los incisos son verdaderos o falsos o no se puede determinar:</li>
 </ol>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-137-1.png" width="672" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-143-1.png" width="672" /></p>
 <ol style="list-style-type: lower-alpha">
 <li>La correlación de Pearson de <span class="math inline">\(\vec{x}\)</span> y <span class="math inline">\(\vec{y}\)</span> es <span class="math inline">\(-1\)</span>
 <ul>
@@ -2197,7 +2566,7 @@ Cantidad de alumnos
 <ol start="27" style="list-style-type: decimal">
 <li>A partir de la siguiente gráfica determina si los incisos son verdaderos o falsos o no se puede determinar:</li>
 </ol>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-138-1.png" width="672" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
 <ol style="list-style-type: lower-alpha">
 <li>El coeficiente de asimetría de <span class="math inline">\(\vec{x}\)</span> es positivo.
 <ul>

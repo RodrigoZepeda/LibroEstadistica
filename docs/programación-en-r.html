@@ -24,7 +24,7 @@
 <meta name="author" content="Rodrigo Zepeda-Tello" />
 
 
-<meta name="date" content="2020-09-08" />
+<meta name="date" content="2020-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -193,6 +193,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.17" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-ponderado-masp"><i class="fa fa-check"></i><b>3.17</b> Muestreo Aleatorio Simple Ponderado (MAS/P)</a></li>
 <li class="chapter" data-level="3.18" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>3.18</b> Ejercicios</a></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html"><i class="fa fa-check"></i><b>4</b> Muestreo Aleatorio Estratificado</a><ul>
+<li class="chapter" data-level="4.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#introducción-a-muestreo-aleatorio-estratificado-mae"><i class="fa fa-check"></i><b>4.1</b> Introducción a Muestreo Aleatorio Estratificado (MAE)</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo"><i class="fa fa-check"></i><b>4.1.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="4.1.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-de-clase"><i class="fa fa-check"></i><b>4.1.2</b> Ejercicio de clase</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación"><i class="fa fa-check"></i><b>4.2</b> Alocación</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-proporcional-al-tamaño"><i class="fa fa-check"></i><b>4.2.1</b> Alocación proporcional al tamaño</a></li>
+<li class="chapter" data-level="4.2.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-óptima"><i class="fa fa-check"></i><b>4.2.2</b> Alocación óptima</a></li>
+<li class="chapter" data-level="4.2.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-1"><i class="fa fa-check"></i><b>4.2.3</b> Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-de-clase-1"><i class="fa fa-check"></i><b>4.3</b> Ejercicio de clase:</a></li>
+<li class="chapter" data-level="4.4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-en-r-tipo-control"><i class="fa fa-check"></i><b>4.4</b> Ejercicio en R tipo control</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
 <li class="appendix"><span><b>Apéndice</b></span></li>
 <li class="chapter" data-level="A" data-path="programación-en-r.html"><a href="programación-en-r.html"><i class="fa fa-check"></i><b>A</b> Programación en <code>R</code></a><ul>
@@ -251,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Rodrigo Zepeda Tello</a></li>
+<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
 
 </ul>
 
@@ -272,7 +285,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="programación-en-r" class="section level1">
 <h1><span class="header-section-number">A</span> Programación en <code>R</code></h1>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-165"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-193"></span>
 <img src="images/rlogo.png" alt="`R` es un programa chido de estadística. FIN." width="150px" />
 <p class="caption">
 Figure A.1: <code>R</code> es un programa chido de estadística. FIN.
@@ -294,10 +307,10 @@ Figure A.1: <code>R</code> es un programa chido de estadística. FIN.
 <li><p>En <code>R</code> puedes hacer libros o notas ¡como este! donde guardes todo tu trabajo, reportes automatizados e incluso <a href="https://gallery.shinyapps.io/086-bus-dashboard/">documentos interactivos</a> para facilitar el análisis de datos.</p></li>
 <li><p><code>R</code> puede hacer gráficas bonitas:</p></li>
 </ul>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-166-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-194-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Por supuesto, no todo es miel sobre hojuelas con <code>R</code>. Particularmente, algunos de los problemas con el lenguaje:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-167"></span>
-<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-167-1.png" alt="La curva de aprendizaje de `R` es más empinada pero después de un rato vale la pena" width="528" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-195"></span>
+<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-195-1.png" alt="La curva de aprendizaje de `R` es más empinada pero después de un rato vale la pena" width="528" />
 <p class="caption">
 Figure A.2: La curva de aprendizaje de <code>R</code> es más empinada pero después de un rato vale la pena
 </p>
@@ -306,7 +319,7 @@ Figure A.2: La curva de aprendizaje de <code>R</code> es más empinada pero desp
 <li><p>La curva de aprendizaje es mucho más empinada que para otros programas estadísticos (como <code>Stata</code>, <code>SAS</code> o <code>SPSS</code>) ¡particularmente si es tu primera vez programando!</p></li>
 <li><p>La mayor parte de las personas que trabajan en <code>R</code> no son programadores de verdad. Gran parte del código que te puedes encontrar <strong>en el mundo real</strong> está escrito <a href="https://nsaunders.wordpress.com/2014/05/14/this-is-why-code-written-by-scientists-gets-ugly/">con prisa para salir del aprieto</a> sin mucha planeación, con pocos comentarios, falta de control de versiones y pocas herramientas de revisión. ¡Internet está lleno de <a href="https://codegolf.stackexchange.com/a/4011">creaturas espantosas escritas en <code>R</code></a>!</p></li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-168"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-196"></span>
 <img src="images/compiling.png" alt="`R` puede ser muy lento pero eso te da oportunidad de hacer otras cosas ;) ." width="206" />
 <p class="caption">
 Figure A.3: <code>R</code> puede ser muy lento pero eso te da oportunidad de hacer otras cosas ;) .
@@ -332,7 +345,7 @@ Figure A.3: <code>R</code> puede ser muy lento pero eso te da oportunidad de hac
 <h2><span class="header-section-number">A.3</span> Instalando cosas</h2>
 <div id="instalación-de-r" class="section level3">
 <h3><span class="header-section-number">A.3.1</span> Instalación de <code>R</code></h3>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-169"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-197"></span>
 <img src="images/CRAN1.png" alt="Oficialmente, la página de `R` es de las páginas más feas del mundo. ¡No te dejes llevar por las apariencias!" width="1440" />
 <p class="caption">
 Figure A.4: Oficialmente, la página de <code>R</code> es de las páginas más feas del mundo. ¡No te dejes llevar por las apariencias!
@@ -363,7 +376,7 @@ Da enter, cierra la <code>Terminal</code> y reinicia <code>R</code>.</p>
 </div>
 <div id="instalación-de-rstudio" class="section level2">
 <h2><span class="header-section-number">A.4</span> Instalación de <code>RStudio</code></h2>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-170"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-198"></span>
 <img src="images/rstudio.png" alt="RStudio es una empresa que se dedica a hacer cosas para R." width="1767" />
 <p class="caption">
 Figure A.5: RStudio es una empresa que se dedica a hacer cosas para R.
@@ -385,15 +398,15 @@ Figure A.6: La primera vez que abres RStudio
 </p>
 </div>
 <p>Si tu RStudio tiene sólo 3 páneles, como en mi caso, ve a la esquina superior izquierda (signo de hoja+) y elige un nuevo <code>R Script</code></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-171"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-199"></span>
 <img src="images/RStudio2.png" alt="Elige hoja+ para crear un nuevo archivo" width="1440" />
 <p class="caption">
 Figure A.7: Elige hoja+ para crear un nuevo archivo
 </p>
 </div>
 <p>Tendrás, entonces, 4 páneles como se ve a continuación:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-172"></span>
-<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-172-1.png" alt="RStudio &lt;3" width="384" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-200"></span>
+<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-200-1.png" alt="RStudio &lt;3" width="384" />
 <p class="caption">
 Figure A.8: RStudio &lt;3
 </p>
@@ -401,7 +414,7 @@ Figure A.8: RStudio &lt;3
 <ol style="list-style-type: decimal">
 <li>El primer panel (esquina inferior izquierda) es la <code>Consola</code>. Aquí es donde se ejecutan las acciones. Prueba escribir <code>2 + 3</code> en él y presiona enter. Aparece el resultado de la suma. Definitivamente, <code>R</code> es la calculadora que más trabajo cuesta instalar.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-173"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-201"></span>
 <img src="images/RStudio4.png" alt="La consola de `R` es la calculadora más difícil de instalar que existe." width="1440" />
 <p class="caption">
 Figure A.9: La consola de <code>R</code> es la calculadora más difícil de instalar que existe.
@@ -410,7 +423,7 @@ Figure A.9: La consola de <code>R</code> es la calculadora más difícil de inst
 <ol start="2" style="list-style-type: decimal">
 <li>El segundo panel (esquina superior izquierda) es el panel con el <code>Script</code>. Aquí se escribe el programa pero no <em>se ejecuta</em>. Prueba escribir <code>10 + 9</code>. ¿Ves que no pasa nada? Lo que acabas de hacer es crear un programa que, cuando se ejecute, hará la suma de <code>10 + 9</code>. ¡Qué programa más aburrido! Sin embargo, no todo está perdido: presiona <code>CTRL+Enter</code> (<code>Cmd+Enter</code> en Mac) al final de la línea o bien da clic en <code>Run</code> y verás que, en la consola, aparece la instrucción y el resultado de la misma. El <code>Script</code> es una excelente fuente para tener un historial de lo que estás haciendo.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-174"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-202"></span>
 <img src="images/RStudio5.png" alt="El `Script` sirve para salvar las instrucciones en el orden en que las vas a ejecutar." width="1440" />
 <p class="caption">
 Figure A.10: El <code>Script</code> sirve para salvar las instrucciones en el orden en que las vas a ejecutar.
@@ -419,7 +432,7 @@ Figure A.10: El <code>Script</code> sirve para salvar las instrucciones en el or
 <ol start="3" style="list-style-type: decimal">
 <li>El tercer panel contiene el ambiente. Aquí aparecerán las variables que vayamos creando. Por ahora, para poner un ejemplo, importaremos el archivo <code>Example1.csv</code> (con valores simulados) <a href="https://github.com/RodrigoZepeda/LibroEstadistica/tree/master/datasets">disponible en Github</a> dando clic en <code>Import Dataset</code> y <code>From Text (base)</code>. Selecciona el archivo y elige las opciones en la ventana de previsualización que hagan que se vea bien. Nota que una vez realizada la importación aparece en el panel derecho <code>Example1.</code> Al dar clic podrás ver la base de datos. Las bases de datos y variables que utilices durante tus análisis aparecerán en esa sección.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-176"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-204"></span>
 <img src="images/RStudio6.png" alt="El `Ambiente` muestra las variables (incluyendo bases de datos) que estás utilizando en este momento. A diferencia de otros programas estadísticos (o sea `Stata`) en `R` es posible tener múltiples bases de datos abiertas a la vez." width="1440" />
 <p class="caption">
 Figure A.11: El <code>Ambiente</code> muestra las variables (incluyendo bases de datos) que estás utilizando en este momento. A diferencia de otros programas estadísticos (o sea <code>Stata</code>) en <code>R</code> es posible tener múltiples bases de datos abiertas a la vez.
@@ -428,13 +441,13 @@ Figure A.11: El <code>Ambiente</code> muestra las variables (incluyendo bases de
 <ol start="4" style="list-style-type: decimal">
 <li>Para entender mejor lo que ocurre en el último de los páneles, lo mejor es trabajar con nuestra base. Escribe en la consola <code>plot(Example1)</code> . En el cuarto pánel aparecerá una gráfica. El cuarto de los páneles para nosotros tendrá esa utilidad: mostrará las gráficas que hagamos así como la ayuda. Para ver la ayuda para las instrucciones de <code>R</code> puedes escribir <code>?</code>. Prueba teclear <code>?plot</code> en la consola. El signo de interrogación es un <code>help()</code> que muestra las instrucciones para usar una función.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-177"></span>
-<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-177-1.png" alt="La gráfica que aparece de hacer un `plot` de la base de datos de ejemplo." width="384" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-205"></span>
+<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-205-1.png" alt="La gráfica que aparece de hacer un `plot` de la base de datos de ejemplo." width="384" />
 <p class="caption">
 Figure A.12: La gráfica que aparece de hacer un <code>plot</code> de la base de datos de ejemplo.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-178"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-206"></span>
 <img src="images/RStudio7.png" alt="El cuarto panel muestra respectivamente las gráficas y la ayuda." width="1440" />
 <p class="caption">
 Figure A.13: El cuarto panel muestra respectivamente las gráficas y la ayuda.
@@ -452,7 +465,7 @@ Figure A.13: El cuarto panel muestra respectivamente las gráficas y la ayuda.
 <h2><span class="header-section-number">A.6</span> Cálculos numéricos</h2>
 <p><code>R</code> sirve como calculadora para las operaciones usuales. En él puedes hacer sumas,</p>
 <p>[1] 43</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-184"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-212"></span>
 <img src="images/ada_lovelace.jpg" alt="Ada Lovelace (1815-1852), la primera en diseñar un algoritmo computacional ¡y sin tener computadoras!" width="512" />
 <p class="caption">
 Figure A.14: Ada Lovelace (1815-1852), la primera en diseñar un algoritmo computacional ¡y sin tener computadoras!
@@ -509,7 +522,7 @@ Perímetro = 31.4159265358979</p>
 <p>[1] “Hola”</p>
 <p>Un número (por ejemplo <code>2</code> tiene clase <code>numeric</code>)<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>. Hay que tener mucho cuidado con combinar floats con <code>Strings</code>:</p>
 <p>[1] 6</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-200"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-228"></span>
 <img src="images/algorithm_lovelace.jpg" alt="El algoritmo diseñado por Ada Lovelace." width="960" />
 <p class="caption">
 Figure A.15: El algoritmo diseñado por Ada Lovelace.
@@ -562,7 +575,7 @@ Figure A.15: El algoritmo diseñado por Ada Lovelace.
 [1] 0.3
 [1] 0.3</p>
 <p>Aparentemente no hay nada malo ¿qué rayos le pasa a <code>R</code>? La respuesta está <a href="https://www.youtube.com/watch?v=PZRI1IfStY0">en la aritmética de punto flotante</a>. Podemos pedirle a <code>R</code> que nos muestre los primeros 100 dígitos de la suma <code>0.1 + 0.1 + 0.1</code>:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-220"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-248"></span>
 <img src="images/Z3_Deutsches_Museum.jpeg" alt="Réplica de la Z3, la primer computadora con punto flotante (1941)." width="800" />
 <p class="caption">
 Figure A.16: Réplica de la Z3, la primer computadora con punto flotante (1941).
@@ -607,53 +620,58 @@ Figure A.16: Réplica de la Z3, la primer computadora con punto flotante (1941).
 </blockquote>
 <p>Probemos guardar unas variables en un archivo dentro de nuestro directorio. Para ello utilizaremos el comando <code>save</code>.</p>
 <p>Si vas a tu directorio, notarás que el archivo <code>MisVariables.rda</code> acaba de ser creado. De esta forma <code>R</code> puede almacenar objetos creados en <code>R</code> que sólo <code>R</code> puede leer (más adelante veremos cómo exportar bases de datos y gráficas). Observa que en tu ambiente (si estás en <code>RStudio</code> puedes verlas en el panel 3) deben aparecer las variables que hemos usado hasta ahora:</p>
-<p>[1] “sub60” “sub61” “total”<br />
-[4] “sub62” “ci_up” “sub63”<br />
-[7] “sub64” “nombres” “sub65”<br />
-[10] “sub66” “img” “sub67”<br />
-[13] “sub68” “confianza.bajo” “sub69”<br />
-[16] “p.val” “sub70” “sub71”<br />
-[19] “sub72” “sub73” “ci_low”<br />
-[22] “sub74” “sub75” “imagenes.muestreadas”
-[25] “sub76” “sub77” “sub78”<br />
-[28] “sub79” “ci” “g.fun”<br />
-[31] “proba” “sub80” “sub81”<br />
-[34] “sub82” “sub83” “sub84”<br />
-[37] “sub85” “sub86” “datos”<br />
-[40] “sub87” “sub88” “Example1”<br />
-[43] “sub89” “imagen” “sub90”<br />
-[46] “sub91” “sub92” “sub93”<br />
-[49] “sub94” “sub95” “alpha”<br />
-[52] “sub96” “sub97” “nsim”<br />
-[55] “sub98” “sub99” “raiz”<br />
-[58] “make.vr” “s2” “vr.name”<br />
-[61] “varianza” “N” “sub10”<br />
-[64] “sub11” “sub12” “sub13”<br />
-[67] “sub14” “sub15” “sub16”<br />
-[70] “sub17” “sub18” “sub19”<br />
-[73] “intervalos.simulados” “f” “sub20”<br />
-[76] “i” “sub21” “j”<br />
-[79] “sub22” “var.total” “k”<br />
-[82] “sub23” “sub24” “m”<br />
-[85] “sub25” “n” “sub26”<br />
-[88] “sub27” “confianza.alto” “sub28”<br />
-[91] “sub29” “m.val” “x”<br />
-[94] “sub30” “y” “sub31”<br />
-[97] “z” “sub32” “sub33”<br />
-[100] “sub34” “sub35” “sub36”<br />
-[103] “total.muestra” “sub37” “sub1”<br />
-[106] “sub38” “sub2” “sub100”<br />
-[109] “sub39” “sub3” “sub4”<br />
-[112] “sub5” “sub6” “sub7”<br />
-[115] “sub8” “epsilon” “sub9”<br />
-[118] “sub40” “sub41” “sub42”<br />
-[121] “sub43” “sub44” “sub45”<br />
-[124] “sub46” “sub47” “sub48”<br />
-[127] “sub49” “sub50” “muestra”<br />
-[130] “base.completa” “sub51” “sub52”<br />
-[133] “sub53” “sub54” “sub55”<br />
-[136] “sub56” “sub57” “sub58”<br />
-[139] “sub59” “Bi”</p>
+<p>[1] “sub10” “sub11” “sub12”<br />
+[4] “sub13” “sub14” “sub15”<br />
+[7] “var.x” “sub16” “sub17”<br />
+[10] “nsim” “sub18” “sub19”<br />
+[13] “imagen” “muestra” “sub20”<br />
+[16] “sub21” “sub22” “sub23”<br />
+[19] “base.costos” “sub24” “sub25”<br />
+[22] “sub26” “sub27” “sub28”<br />
+[25] “sub29” “varianza” “zalpha”<br />
+[28] “total” “sub30” “sub31”<br />
+[31] “sub32” “sub33” “sub34”<br />
+[34] “proba” “sub35” “sub36”<br />
+[37] “sub37” “sub38” “sub39”<br />
+[40] “sub40” “confianza.alto” “sub41”<br />
+[43] “sub42” “sub43” “sub44”<br />
+[46] “sub45” “sub46” “sub47”<br />
+[49] “raiz” “sumaAh” “sub48”<br />
+[52] “sub49” “B” “sub50”<br />
+[55] “sub51” “sub52” “sub53”<br />
+[58] “sub54” “imagenes.muestreadas” “img”<br />
+[61] “sub55” “sub56” “sub57”<br />
+[64] “sub58” “sub59” “var.total”<br />
+[67] “N” “sub60” “sub61”<br />
+[70] “sub62” “sub63” “epsilon”<br />
+[73] “sub64” “sub65” “sub66”<br />
+[76] “sub67” “sub68” “sub69”<br />
+[79] “promedios.muestra” “sub100” “ci”<br />
+[82] “s2” “sub70” “sub71”<br />
+[85] “sub72” “f” “sub73”<br />
+[88] “sub74” “ci_low” “varianza.est”<br />
+[91] “sub75” “i” “sub76”<br />
+[94] “j” “sub77” “k”<br />
+[97] “sub78” “p.val” “sub79”<br />
+[100] “m” “n” “m.val”<br />
+[103] “alpha” “sub80” “sub81”<br />
+[106] “sub82” “sub83” “sub84”<br />
+[109] “x” “sub85” “y”<br />
+[112] “sub86” “z” “sub87”<br />
+[115] “sub88” “sub89” “g.fun”<br />
+[118] “sub90” “sub91” “sub92”<br />
+[121] “sub1” “sub93” “sub2”<br />
+[124] “sub94” “sub3” “sub95”<br />
+[127] “sub4” “sub96” “sub5”<br />
+[130] “sub97” “sub6” “sub98”<br />
+[133] “sub7” “sub99” “sub8”<br />
+[136] “sub9” “confianza.bajo” “ci_up”<br />
+[139] “vr.name” “eps.error” “Ntotal”<br />
+[142] “base.completa” “edad” “Bi”<br />
+[145] “base.datos” “costo” “total.muestra”<br />
+[148] “nombres” “Example1” “make.vr”<br />
+[151] “datos” “intervalos.simulados” “dats”<br />
+[154] “base.nh” “xbarra”</p>
 <p>Podemos probar sumar nuestras variables y todo funciona súper:
 [1] 300</p>
 <p>Limpiemos el ambiente. El comando equivalente al <code>clear all</code> en <code>R</code> es un poco más complicado de memorizar:</p>
@@ -698,13 +716,13 @@ The downloaded source packages are in
 <li>Instala los paquetes <code>tidyverse</code> en <code>R</code>.</li>
 <li>De <code>tidyverse</code> haz lo necesario para que el siguiente bloque de código te arroje una gráfica:</li>
 </ol>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-243-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-271-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p><strong>NIVEL 3</strong></p>
 <ol style="list-style-type: decimal">
 <li>Instala el paquete <code>devtools</code> (para hacerlo probablemente necesites instalar más cosas en tu computadora; averigua cuáles)</li>
 <li>Usa <code>devtools</code> para instalar el paquete <a href="https://github.com/dill/emoGG"><code>emoGG</code></a> desde Github.</li>
 <li>Verifica que tu instalación fue correcta haciendo la siguiente gráfica:
-<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-244-1.png" width="384" style="display: block; margin: auto;" /></li>
+<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-272-1.png" width="384" style="display: block; margin: auto;" /></li>
 </ol>
 </div>
 </div>
@@ -719,7 +737,7 @@ The downloaded source packages are in
 <li><p>No utilices un nombre demasiado similar para cosas diferentes.</p></li>
 <li><p>Comenta:</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-250"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-278"></span>
 <img src="images/tweet1.jpg" alt="Trad: Un periodista se acerca a un programador a preguntarle ¿qué hace que un código sea malo? -Sin comentarios." width="360" />
 <p class="caption">
 Figure A.17: Trad: Un periodista se acerca a un programador a preguntarle ¿qué hace que un código sea malo? -Sin comentarios.
@@ -730,7 +748,7 @@ Figure A.17: Trad: Un periodista se acerca a un programador a preguntarle ¿qué
 </ol>
 <p>Código limpio y legible:</p>
 <p>es siempre preferible a código escrito <em>con prisas</em> :</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-252"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-280"></span>
 <img src="images/Grandma-Finds-The-Internet.jpg" alt="Yo, leyendo mi código no comentado y con mala edición 6 meses después de haberlo hecho." width="320" />
 <p class="caption">
 Figure A.18: Yo, leyendo mi código no comentado y con mala edición 6 meses después de haberlo hecho.
