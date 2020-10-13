@@ -1718,7 +1718,7 @@ donde $p(x_j)$ es la masa de $X_j$ (es decir $p(x_j) = \mathbb{P}(X_j = x_j)$. E
 \begin{cases}
 \int\limits_{-\infty}^{\infty} \int_{-\infty}^{\infty}  g(x_1, x_2) f_{X_1}(x_1) f_{X_2}(x_2) dx_1 dx_2  & \text{ ambas continuas,} \\ \\
 \sum\limits_{x \in \text{Supp}(X_1)} \sum\limits_{x \in \text{Supp}(X_2)}   g(x_1, x_2) p(x_1) p(x_2)  & \text{ ambas discretas,} \\ \\
-\int_{-\infty}^{\infty} \sum\limits_{x \in \text{Supp}(X_1)}    g(x_1, x_2) p(x_1) p(x_2)  & X_1 \text{ discreta, } X_2 \text{ continua.}  \\
+\int_{-\infty}^{\infty} \sum\limits_{x \in \text{Supp}(X_1)}    g(x_1, x_2) p(x_1) f(x_2)  dx_2 & X_1 \text{ discreta, } X_2 \text{ continua.}  \\
 \end{cases}
 \end{aligned}
 \end{equation}

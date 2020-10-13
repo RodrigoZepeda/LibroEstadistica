@@ -47,7 +47,7 @@ datos <- read.csv("datasets/carpetas-de-investigacion-pgj-cdmx.csv")
 ```
 
 ## Definiciones y notación
-Siguiendo la definición de @gelman2013bayesian , denotamos el conjunto de datos observados como la matriz (_base de datos_) de $\ell \times n$
+Siguiendo la definición de @gelman2013bayesian , denotamos el conjunto de datos observados como la matriz (_base de datos_) de $n \times \ell$
 $$
 Z = \begin{pmatrix} 
 z_1 \Big| z_2 \Big| \dots \Big| z_{\ell}
@@ -356,10 +356,10 @@ $$
 \text{Curtosis}_{\vec{x}} = \frac{1}{n \sigma^4_{\vec{x}} } \sum\limits_{i = 1}^{n} (x_i - \bar{x})^4
 $$
 
-La interpretación de la curtosis es similar a la que hizimos de la varianza en el sentido que el elevar a la cuarta va a magnificar los efectos de aquellos valores que estén a más de $\sigma$ de distancia de la media pues podemos reescribir la suma como:
+La interpretación de la curtosis es similar a la que hicimos de la varianza en el sentido que el elevar a la cuarta va a magnificar los efectos de aquellos valores que estén a más de $\sigma$ de distancia de la media pues podemos reescribir la suma como:
 
 $$
-\frac{1}{n \sigma^4_{\vec{x}} } \sum\limits_{i = 1}^{n} (x_i - \bar{x})^4  = \frac{1}{n \sigma^4_{\vec{x}} }  \underbrace{\sum\limits_{\substack{i = 1 \\ \\ | x_i - \bar{x}| < \sigma}}^{n} (x_i - \bar{x})^4}_{\text{A}} + \frac{1}{n \sigma^4_{\vec{x}} }  \underbrace{\sum\limits_{\substack{i = 1 \\ \\ | x_i - \bar{x}| > \sigma}}^{n} (x_i - \bar{x})^3}_{\text{B}} 
+\frac{1}{n \sigma^4_{\vec{x}} } \sum\limits_{i = 1}^{n} (x_i - \bar{x})^4  = \frac{1}{n \sigma^4_{\vec{x}} }  \underbrace{\sum\limits_{\substack{i = 1 \\ \\ | x_i - \bar{x}| < \sigma}}^{n} (x_i - \bar{x})^4}_{\text{A}} + \frac{1}{n \sigma^4_{\vec{x}} }  \underbrace{\sum\limits_{\substack{i = 1 \\ \\ | x_i - \bar{x}| > \sigma}}^{n} (x_i - \bar{x})^4}_{\text{B}} 
 $$
 Notamos que la única parte importante que apota a la curtosis es la dada por **B** que es la que capta las _colas_ de la distribución (pues ese lado es $\gg 1$) . De ahí que podamos decir que, entre dos vectores de datos, uno tiene colas más pesadas que el otro si su curtosis es mayor. En este caso podemos analizar la `latitud` y `longitud` de los datos a través de la curtosis:
 ```{r}
@@ -974,7 +974,7 @@ dats <- data.frame(x = c("Rojo","Azul","Verde","Rojo","Verde"),
                    y = c("Coche","Taza","Árbol","Taza","Libro"))
 kable(dats) %>% kable_styling(latex_options = "striped")
 ```
-En este sentido el vector es $\vec{x} = (\text{Rojo},\text{Azul},\text{Verde},\text{Rojo},\text{Verde})^T$ mientras que el conjunto de valores únicos asociados está dado por $\mathcal{X} = \{ \text{Rojo},\text{Azul},\text{Verde} \}$. En este sentido (siguiendo el conjunto) se tiene que $a_{1,x} = \text{Rojo}$, $a_{2,x} = \text{Azul}$ y $a_{3,x } = \text{Verde}$ mientras que (siguiendo el vector) se observa $x_1 = \text{Rojo}$, $x_2 = \text{Azul}$, $x_3 = \text{Verde}$, $x_4 = \text{Rojo}$, $x_5 = \text{Verde}$. Finalmente notamos que el conteo de veces que aparece cada cosa es: $n_{1,x} = 2$ (aparece el $a_{1, x}$ que es rojo tres veces), $n_{2,x} = 1$ y $n_{3,x } = 2$ (el azul y verde dados por $a_{2,x}$ y $a_{3,x}$ respectivamente aparecen una vez para azul y dos veces para verde). Por otro lado, $\vec{y} = (\text{Coche},\text{Taza},\text{Árbol},\text{Taza},\text{Libro})^T$ con su conjunto  de valores únicos $\mathcal{Y} = \{ \text{Coche},\text{Taza},\text{Árbol}, \text{Libro} \}$. Para el caso de $\vec{y}$ se tiene que $y_1 = \text{Coche}$, $y_2 = \text{Taza}$, $y_3 = \text{Árbol}$, $y_4 = \text{Taza}$, $y_5 = \text{Libro}$ mientras que en el caso de valores únicos $a_{y, 1} = \text{Coche}$, $a_{y, 2} = \text{Taza}$, $a_{y, 3} = \text{Árbol}$, $a_{\cdot, 4} = \text{Libro}$. Los conteos asociados son:  $n_{y,1} =  n_{y,3} = n_{y,4} = 1$ (aparecen el coche, el árbol y el libro una vez) mientras que $n_{y,2} = 2$ representa que la taza está dos veces. 
+En este sentido el vector es $\vec{x} = (\text{Rojo},\text{Azul},\text{Verde},\text{Rojo},\text{Verde})^T$ mientras que el conjunto de valores únicos asociados está dado por $\mathcal{X} = \{ \text{Rojo},\text{Azul},\text{Verde} \}$. En este sentido (siguiendo el conjunto) se tiene que $a_{1,x} = \text{Rojo}$, $a_{2,x} = \text{Azul}$ y $a_{3,x } = \text{Verde}$ mientras que (siguiendo el vector) se observa $x_1 = \text{Rojo}$, $x_2 = \text{Azul}$, $x_3 = \text{Verde}$, $x_4 = \text{Rojo}$, $x_5 = \text{Verde}$. Finalmente notamos que el conteo de veces que aparece cada cosa es: $n_{1,x} = 2$ (aparece el $a_{1, x}$ que es rojo dos veces), $n_{2,x} = 1$ y $n_{3,x } = 2$ (el azul y verde dados por $a_{2,x}$ y $a_{3,x}$ respectivamente aparecen una vez para azul y dos veces para verde). Por otro lado, $\vec{y} = (\text{Coche},\text{Taza},\text{Árbol},\text{Taza},\text{Libro})^T$ con su conjunto  de valores únicos $\mathcal{Y} = \{ \text{Coche},\text{Taza},\text{Árbol}, \text{Libro} \}$. Para el caso de $\vec{y}$ se tiene que $y_1 = \text{Coche}$, $y_2 = \text{Taza}$, $y_3 = \text{Árbol}$, $y_4 = \text{Taza}$, $y_5 = \text{Libro}$ mientras que en el caso de valores únicos $a_{y, 1} = \text{Coche}$, $a_{y, 2} = \text{Taza}$, $a_{y, 3} = \text{Árbol}$, $a_{\cdot, 4} = \text{Libro}$. Los conteos asociados son:  $n_{y,1} =  n_{y,3} = n_{y,4} = 1$ (aparecen el coche, el árbol y el libro una vez) mientras que $n_{y,2} = 2$ representa que la taza está dos veces. 
 
 Por otro lado denotamos a la submatriz de $Z$ compuesta solamente por las columnas $\vec{x}$ y $\vec{y}$ como: 
 
@@ -991,7 +991,7 @@ Sea $\mathcal{X}\times\mathcal{Y} = \{ a_{i,j} = (x_i,y_j) | x_i \in \mathcal{X}
 $$
 n_{i,j} = \sum\limits_{k = 1}^{n}  \mathbb{I}_{\{ a_{i,j} \}}\big( (x_k, y_k) \big)
 $$
-Lo anterior puede representarse en la tabla \eqref{tab:resumen}:
+<!--Lo anterior puede representarse en la tabla \eqref{tab:resumen}:
 \begin{table}[!htb]
 \centering
 \begin{tabular}{l||r|cccc|r}
@@ -1012,27 +1012,13 @@ Lo anterior puede representarse en la tabla \eqref{tab:resumen}:
 \end{tabular}
 \caption{Tabla resumen}
 \label{tab:resumen}
-\end{table}
-En el ejemplo anterior, la tabla se vería como la \eqref{tab:ej}. 
-\begin{table}[!htb]
-\centering
-\begin{tabular}{l||c|cccc|c}
-  & \multicolumn{1}{l}{} & \multicolumn{5}{c}{$\vec{y}$}                       \\
-  \hline
-  \hline
-$\vec{x}$ &                      & Coche & Taza & Árbol & Libro & Total (fila) \\
-\hline
-  & Rojo                 & 1     & 1    & 0     & 0     & 2            \\
-  & Azul                 & 0     & 1    & 0     & 0     & 1            \\
-  & Verde                & 0     & 0    & 1     & 1     & 2            \\
-  \hline
-  & Total (columna)      & 1     & 2    & 1     & 1     & 5 \\
- \hline
- \hline
-\end{tabular}
-\caption{Tabla de los datos en el ejemplo}
-\label{tab:ej}
-\end{table}
+\end{table}-->
+En el ejemplo anterior, la tabla se vería:
+```{r, echo = FALSE, message = FALSE}
+dats <- tibble(Coche = c(1,0,0,1), Taza = c(1,1,0,2), Árbol = c(0,0,1,1), Libro = c(0,0,1,1), `Total (fila)` = c(2,1,2,5))
+rownames(dats) <- c("Rojo","Azul","Verde","Total (columna)")
+kable(dats) %>% kable_styling(latex_options = "striped")
+```
 
 Una excelente referencia para esta sección es el capítulo 4 de @peck2015introduction. 
 
@@ -1102,24 +1088,11 @@ tail(addmargins(prop.table(table(datos$alcaldia_hechos, datos$ao_inicio))))
 **3. Riesgo Relativo (discreto)**
 Para definir Riesgo Relativo empezaremos por un ejemplo. Tomamos la  tabla \eqref{fumador} donde se guardó un registro de personas según si fumaban o no así como si dichas personas desarrollaron o no enfisema pulmonar.
 
-\begin{table}[!htb]
-\centering
-\begin{tabular}{l||c|cc|r}
-                          & \multicolumn{1}{c}{} & \multicolumn{3}{c}{FUMA} \\
-                          \hline
-                          \hline
-                          &                      & SÍ     & NO    & Total   \\
-                          \hline
-\multirow{3}{*}{ENFISEMA} & SÍ                   & 100    & 40    & 140     \\
-                          & NO                   & 30     & 50    & 80      \\
-                          \hline
-                          & Total                & 130    & 90    & 220  \\  
-                          \hline
-                          \hline
-\end{tabular}
-\caption{Tabla de fumadores}
-\label{fumador}
-\end{table}
+```{r, echo = FALSE, message = FALSE}
+dats <- tibble("FUMA" = c(100, 30), "NO FUMA" = c(40, 50))
+rownames(dats) <- c("Con enfisema","Sin enfisema")
+kable(dats) %>% kable_styling(latex_options = "striped")
+```
 
 Si quisiéramos analizar la hipótesis de que FUMAR está asociado con ENFISEMA tendríamos que ver, dentro de la población de fumadores (FUMAR = SÍ) cuántos hay (proporcionalmente) con ENFISEMA. La hipótesis es que si no hubiera relación, saldría que las proporciones de fumadores con y sin enfisema serían $50\%$ cada una. La proporción de fumadores con enfisema está dada por $100/130$ mientras que la de no fumadores con enfisema es $40/90$. El riesgo relativo (intuitivamente). se define como la división entre ambas proporciones:
 $$
@@ -1129,25 +1102,15 @@ Lo que se interpreta como que los fumadores tienen $1.73$ veces más riesgo de d
 $$
 \frac{\text{Expuestos enfermos}}{\text{Total de expuestos}}   \approx 1.73 \times \frac{\text{No Expuestos enfermos}}{\text{Total de no expuestos}}
 $$
-De manera general, dadas dos vectores lógicos $\vec{x}$ (interpretada como el resultado) y $\vec{y}$ (interpretada como la exposición) con una tabla de contingencia y frecuencias marginales dadas por la tabla \ref{tablabivariada}, 
-\begin{table}[!htb]
-\centering
-\begin{tabular}{l||c|cc|r}
-                          & \multicolumn{1}{c}{} & \multicolumn{3}{c}{$\vec{y}$} \\
-                          \hline
-                          \hline
-                          &                      & \texttt{TRUE}     & \texttt{FALSE}    & Total   \\
-                          \hline
-\multirow{3}{*}{$\vec{x}$} & \texttt{TRUE}                   & a    & b    & a + b     \\
-                          & \texttt{FALSE}                   & c     & d    & c + d      \\
-                          \hline
-                          & Total                & a + c    & b + d    & a + b + c + d  \\  
-                          \hline
-                          \hline
-\end{tabular}
-\caption{Tabla de contingencia de dos lógicas}
-\label{tablabivariada}
-\end{table}
+De manera general, dadas dos vectores lógicos $\vec{x}$ (interpretada como el resultado) y $\vec{y}$ (interpretada como la exposición) con una tabla de contingencia y frecuencias marginales dadas por la tabla:
+
+```{r, echo = FALSE, message = FALSE}
+dats <- tibble("Expuesto (y)" = c("a", "c"), "NO expuesto (y)" = c("b", "d"))
+rownames(dats) <- c("Resultado (x)","Sin resultado (x)")
+kable(dats) %>% kable_styling(latex_options = "striped")
+```
+
+
 definimos el riesgo relativo de $\vec{x}$ dado $\vec{y}$ como:
 $$
 RR(\vec{x}|\vec{y}) = \dfrac{\frac{a}{a + c}}{\frac{b}{b + d}}
@@ -1542,7 +1505,7 @@ De donde se sigue (si suponemos que existe al menos un $x_i \neq 0$):
 \begin{equation}\nonumber
 \begin{aligned}
 0 & = - \sum\limits_{i=1}^n \Big( x_i y_i - \beta_1  x_i^2 - \underbrace{\beta_0}_{\bar{y} - \beta_1 \bar{x}} x_i \Big)  \\
-& = \sum\limits_{i=1}^n \Big( x_i y_i - \beta_1  x_i^2 - \bar{y}x_i - \beta_1 \bar{x} x_i \Big) \\
+& = \sum\limits_{i=1}^n \Big( x_i y_i - \beta_1  x_i^2 - \bar{y}x_i + \beta_1 \bar{x} x_i \Big) \\
 & = \sum\limits_{i=1}^n \Big( y_i + \beta_1  x_i - \bar{y} - \beta_1 \bar{x} \Big) x_i \\
 & = \sum\limits_{i=1}^n \Big( y_i  - \bar{y} \Big) x_i - \beta_1  \sum\limits_{i=1}^n\Big(   x_i -   \bar{x} \Big) x_i
 \end{aligned}
@@ -2156,26 +2119,15 @@ Calcula **a mano** (es decir puedes usar calculadora pero no lo calcules en `R`)
   
   14. Realiza una tabla de frecuencias de $\vec{w}$ y $\vec{z}$. 
   
-  15. Calcula el riesgo relativo de estar en un choque dado que manejas en CDMX a partir de los datos en la tabla \ref{conduce}:
+  15. Calcula el riesgo relativo de estar en un choque dado que manejas en CDMX a partir de los datos en la tabla:
   
-\begin{table}[!htb]
-\centering
-\begin{tabular}{l||c|cc|r}
-                          & \multicolumn{1}{c}{} & \multicolumn{3}{c}{LUGAR DONDE MANEJA} \\
-                          \hline
-                          \hline
-                          &                      & CDMX     & MONTERREY    & Total   \\
-                          \hline
-\multirow{3}{*}{CHOCÓ} & SÍ                      & 1100    & 4000    & 5100     \\
-                          & NO                   & 120     & 5080    & 5200      \\
-                          \hline
-                          & Total                & 1220    & 9080    & 10300  \\  
-                          \hline
-                          \hline
-\end{tabular}
-\caption{Tabla de conductores}
-\label{conduce}
-\end{table}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+dats <- tibble(CDMX = c(1100,120, 1220),MTY = c(4000, 5080, 9080), Total = c(5100, 5200, 10300))
+rownames(dats) <- c("Chocó","No Chocó","Total")
+kable(dats) %>% kable_styling(latex_options="striped")
+```
+  
+
 
   Interpreta tu resultado. 
   
@@ -2259,23 +2211,15 @@ $$
     e. $F_n (x)$ es no decreciente.
 
 9.  La tabla \ref{tab:my_label} muestra datos observados del PIB de un país en billones de dólares:
-    \begin{table}[!htb]
-        \centering
-        \begin{tabular}{cc}
-           \bf Año  & \bf PIB  \\
-           \hline
-           \hline
-            2000 & 0.5 \\
-            2005 & 1.2 \\
-            2010 & 1.5 \\
-            2015 & 2.1 \\
-            \hline
-            \hline
-        \end{tabular}
-        \caption{Los datos observados}
-        \label{tab:my_label}
-    \end{table}
-    Ajusta una parábola $q (x) = a \cdot x^2 + b\cdot x + c$ para obtener la mejor parábola que ajuste esos puntos. ¿Qué valor de PIB se espera para el 2020 bajo este modelo? 
+
+```{r, echo=FALSE}
+dats <- tibble(Año = c(2000, 2005, 2010, 2015),
+               PIB = c(0.5, 1.2, 1.5, 2.1))
+kable(dats) %>% kable_styling(latex_options = "striped")
+```
+
+Ajusta una parábola $q (x) = a \cdot x^2 + b\cdot x + c$ para obtener la mejor parábola que ajuste esos puntos. ¿Qué valor de PIB se espera para el 2020 bajo este modelo? 
+
 10. Demuestra que si $\vec{x} = -\vec{y}$ (dos vectores numéricos) la correlación de Spearman entre ambos es $-1$. 
 
 11. Para una variable aleatoria $T$ que representa un tiempo, se define una función de supervivencia como la probabilidad de que $T$ dure más que un cierto tiempo $t$; es decir:
@@ -2315,23 +2259,12 @@ para algunas constantes $K_1, K_2, K_3, K_4$; donde, además, $\rho$ es la corre
 Donde $\sigma_{\vec{X}}^2 = \frac{1}{n}\sum_{i=1}^n \big( X_i - \bar{X}\big)^2$. Hint: usa el ejercicio 2 de esta sección.
 
 22. Quiénes son $\vec{x}, \vec{y}$ si su tabla de contingencia es la dada por Cuadro \ref{contingencia}:
-\begin{table}[!htb]
-\centering
-\begin{tabular}{l||c|ccc}
-                          & \multicolumn{1}{c}{} & \multicolumn{3}{c}{$\vec{y}$} \\
-                          \hline
-                          \hline
-                          &                      & Consomé     & Taco    & Postre   \\
-                          \hline
-\multirow{3}{*}{$\vec{x}$} & Tacos el Güero                    & 1    & 3    & 2     \\
-                          & Tacos la Güera                  & 4     & 2    & 1      \\
-                          \hline
-                          \hline
-                          \hline
-\end{tabular}
-\caption{Tabla de conductores}
-\label{contingencia}
-\end{table}
+```{r, message = FALSE, warning = FALSE, echo = FALSE}
+dats <- tibble(Consomé = c(1,4), Taco = c(3,2), Postre = c(2,1))
+rownames(dats) <- c("Tacos el Güero","Tacos la Güera")
+kable(dats) %>% kable_styling(latex_options = "striped")
+```
+
 
 23. Da un ejemplo de vectores $\vec{x}$ y $\vec{y}$ de tamaño $10$ cuya $\tau$ de Kendall sea $0$ pero estén completamente relacionados; es decir exista una función $g$ tal que $\vec{y} = g(\vec{x})$. 
 
