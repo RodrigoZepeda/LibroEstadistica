@@ -1542,44 +1542,47 @@ k &amp; \text{ si } x_i  \in \mathcal{S} \quad k \textrm{ veces}
 \end{cases}
 \]</span>
 Observamos que la distribución de las <span class="math inline">\(a_i\)</span> es multinomial:
+<span class="math display">\[\begin{equation}
+\mathbb{P}\Big(\mathbb{A}_{\mathcal{S}}(x_1) = a_1,\mathbb{A}_{\mathcal{S}}(x_2) = a_2, \dots,\mathbb{A}_{\mathcal{S}}(x_N) =  a_N\Big) &amp; = 
+\\ &amp; = \binom{m}{a_1}\Big(\frac{1}{N}\Big)^{a_1} \cdot \binom{m - a_1}{a_2}\Big(\frac{1}{N}\Big)^{a_2}\cdot\binom{m - a_1 - a_2}{a_3}\Big(\frac{1}{N}\Big)^{a_3} \cdots \binom{m - \sum_{l = 1}^{N-1} a_l}{a_N}\Big(\frac{1}{N}\Big)^{a_N} \\
+&amp; = \dfrac{m!}{a_1!a_2!\cdots a_N!}\dfrac{1}{(m - \sum_{l= 1}^N a_l)!} \Big(\frac{1}{N}\Big)^{\sum_{l= 1}^N a_l} \\
+&amp; = \dfrac{m!}{a_1!a_2!\cdots a_N!} \Big(\frac{1}{N}\Big)^{m} \\
+\end{equation}\]</span></p>
+<p>donde tomamos que <span class="math inline">\(\sum\limits_{l = 1}^N a_l = m\)</span>. Al ser una distribución multinomial se tienen las marginales:
 <span class="math display">\[
-\mathbb{P}\Big(\mathbb{A}_{\mathcal{S}}(x_1) = a_1,\mathbb{A}_{\mathcal{S}}(x_2) = a_2, \dots,\mathbb{A}_{\mathcal{S}}(x_N) =  a_N\Big) = \dfrac{n!}{\prod_{i = 1}^n a_i}\dfrac{1}{N^n}
-\]</span></p>
-<p>con <span class="math inline">\(\sum\limits_{i = 1}^N a_i = n\)</span>. Al ser una distribución multinomial se tienen las marginales:
-<span class="math display">\[
-\mathbb{E}\Big[\mathbb{A}_{\mathcal{S}}(x_i) \Big] = \dfrac{n}{N}
+\mathbb{E}\Big[\mathbb{A}_{\mathcal{S}}(x_i) \Big] = \dfrac{m}{N}
 \]</span>
 y por otro lado:</p>
 <p><span class="math display">\[
-\textrm{Var}\Big[\mathbb{A}_{\mathcal{S}}(x_i) \Big] = \dfrac{n(N-1)}{N^2}
+\textrm{Var}\Big[\mathbb{A}_{\mathcal{S}}(x_i) \Big] = \dfrac{m(N-1)}{N^2}
 \]</span>
 con:
 <span class="math display">\[
-\textrm{Cov}\Big[\mathbb{A}_{\mathcal{S}}(x_i) ,\mathbb{A}_{\mathcal{S}}(x_j) \Big] = -\dfrac{n}{N^2}
+\textrm{Cov}\Big[\mathbb{A}_{\mathcal{S}}(x_i) ,\mathbb{A}_{\mathcal{S}}(x_j) \Big] = -\dfrac{m}{N^2}
 \]</span></p>
 <p>Un estimador de la media es la suma de los <span class="math inline">\(N\)</span> valores únicos en el universo (<em>i.e.</em> <span class="math inline">\(N = \# \mathcal{U}\)</span>) multiplicados por la cantidad de veces que aparecen en la muestra (las <span class="math inline">\(\mathbb{A}_{\mathcal{S}}(x_i)\)</span>):</p>
 <p><span class="math display">\[
-\bar{x}_{\mathcal{S}} = \frac{1}{n} \sum\limits_{i = 1}^n x_i = \frac{1}{n} \sum\limits_{i = 1}^N x_i\cdot \mathbb{A}_{\mathcal{S}}(x_i)
+\bar{x}_{\mathcal{S}} = \frac{1}{m} \sum\limits_{i = 1}^m x_i = \frac{1}{m} \sum\limits_{i = 1}^N x_i\cdot \mathbb{A}_{\mathcal{S}}(x_i)
 \]</span>
 en este caso se tiene que el estimador es insesgado:
 <span class="math display">\[
-\mathbb{E}\Big[\bar{x}_{\mathcal{S}}\Big] =  \frac{1}{n} \sum\limits_{i = 1}^N x_i\cdot \mathbb{E}\Big[ \mathbb{A}_{\mathcal{S}}(x_i)\Big] = \frac{1}{n}\sum\limits_{i = 1}^N x_i \dfrac{n}{N}= \bar{x}_{\mathcal{U}} 
+\mathbb{E}\Big[\bar{x}_{\mathcal{S}}\Big] =  \frac{1}{m} \sum\limits_{i = 1}^N x_i\cdot \mathbb{E}\Big[ \mathbb{A}_{\mathcal{S}}(x_i)\Big] = \frac{1}{m}\sum\limits_{i = 1}^N x_i \dfrac{m}{N}= \bar{x}_{\mathcal{U}} 
 \]</span>
 Su varianza está dada por lo siguiente:
 <span class="math display">\[\begin{align*}
-\textrm{Var}\Big[\bar{x}_{\mathcal{S}}\Big] &amp; = \frac{1}{n^2}\bigg( \sum\limits_{i = 1}^N x_i^2\text{Var}\Big[ \mathbb{A}_{\mathcal{S}}(x_i)\Big] + \sum\limits_{i= 1}^N \sum\limits_{\substack{j = 1 \\ j \neq i}}^N \textrm{Cov}\Big[\mathbb{A}_{\mathcal{S}}(x_i) ,\mathbb{A}_{\mathcal{S}}(x_j) \Big]  x_i x_k\bigg) 
-\\ &amp; = \frac{1}{n^2}\bigg( \frac{n(N-1)}{N^2} \sum\limits_{i = 1}^N x_i^2  - \frac{n}{N^2} \sum\limits_{i= 1}^N \sum\limits_{\substack{j = 1 \\ j \neq i}}^N x_i x_k\bigg)
-\\ &amp; = \frac{N-1}{nN}\bigg( \frac{1}{N} \sum\limits_{i = 1}^N x_i^2  - \frac{1}{N} \sum\limits_{i= 1}^N \sum\limits_{\substack{j = 1 \\ j \neq i}}^N x_i x_k\bigg)
-\\ &amp; = \frac{N-1}{nN}\Bigg( \frac{1}{N-1} \sum\limits_{i = 1}^N \bigg[ \frac{N-1}{N} x_i^2  - \frac{1}{N} x_i \sum\limits_{\substack{j = 1 \\ j \neq i}}^N x_k\bigg]\Bigg)
-\\ &amp; = \frac{N-1}{nN}\Bigg( \frac{1}{N-1} \sum\limits_{i = 1}^N \bigg[  x_i^2  - \frac{1}{N} x_i \sum\limits_{j = 1}^N x_k\bigg]\Bigg)
-\\ &amp; = \frac{N-1}{nN}\Bigg( \frac{1}{N-1} \bigg[  \sum\limits_{i = 1}^N  x_i^2  - \frac{1}{N}\sum\limits_{i = 1}^N  x_i \sum\limits_{j = 1}^N x_k\bigg]\Bigg)
-\\ &amp; = \frac{N-1}{nN}\Bigg( \frac{1}{N-1} \bigg[  \sum\limits_{i = 1}^N  x_i^2  - \Big(\sum\limits_{i = 1}^N  x_i\Big)^2\bigg]\Bigg)
-\\ &amp; = \frac{N-1}{nN} s^2_{\mathcal{U}}
+\textrm{Var}\Big[\bar{x}_{\mathcal{S}}\Big] &amp; = \frac{1}{m^2}\bigg( \sum\limits_{i = 1}^N x_i^2\text{Var}\Big[ \mathbb{A}_{\mathcal{S}}(x_i)\Big] + \sum\limits_{i= 1}^N \sum\limits_{\substack{j = 1 \\ j \neq i}}^N \textrm{Cov}\Big[\mathbb{A}_{\mathcal{S}}(x_i) ,\mathbb{A}_{\mathcal{S}}(x_j) \Big]  x_i x_k\bigg) 
+\\ &amp; = \frac{1}{m^2}\bigg( \frac{m(N-1)}{N^2} \sum\limits_{i = 1}^N x_i^2  - \frac{m}{N^2} \sum\limits_{i= 1}^N \sum\limits_{\substack{j = 1 \\ j \neq i}}^N x_i x_k\bigg)
+\\ &amp; = \frac{N-1}{mN}\bigg( \frac{1}{N} \sum\limits_{i = 1}^N x_i^2  - \frac{1}{N} \sum\limits_{i= 1}^N \sum\limits_{\substack{j = 1 \\ j \neq i}}^N x_i x_k\bigg)
+\\ &amp; = \frac{N-1}{mN}\Bigg( \frac{1}{N-1} \sum\limits_{i = 1}^N \bigg[ \frac{N-1}{N} x_i^2  - \frac{1}{N} x_i \sum\limits_{\substack{j = 1 \\ j \neq i}}^N x_k\bigg]\Bigg)
+\\ &amp; = \frac{N-1}{mN}\Bigg( \frac{1}{N-1} \sum\limits_{i = 1}^N \bigg[  x_i^2  - \frac{1}{N} x_i \sum\limits_{j = 1}^N x_k\bigg]\Bigg)
+\\ &amp; = \frac{N-1}{mN}\Bigg( \frac{1}{N-1} \bigg[  \sum\limits_{i = 1}^N  x_i^2  - \frac{1}{N}\sum\limits_{i = 1}^N  x_i \sum\limits_{j = 1}^N x_k\bigg]\Bigg)
+\\ &amp; = \frac{N-1}{mN}\Bigg( \frac{1}{N-1} \bigg[  \sum\limits_{i = 1}^N  x_i^2  - \Big(\sum\limits_{i = 1}^N  x_i\Big)^2\bigg]\Bigg)
+\\ &amp; = \frac{N-1}{mN} s^2_{\mathcal{U}}
 \end{align*}\]</span>
 Donde la última igualdad se sigue de la misma que se hizo con Bernoulli.
 Un estimador de la varianza es:
 <span class="math display">\[
-\widehat{\textrm{Var}}\Big[\bar{x}_{\mathcal{S}}\Big] = \frac{N-1}{nN} s^2_{\mathcal{S}}
+\widehat{\textrm{Var}}\Big[\bar{x}_{\mathcal{S}}\Big] = \frac{N-1}{mN} s^2_{\mathcal{S}}
 \]</span></p>
 </div>
 <div id="ejemplo-resumen-proporción-de-trabajadores-enfermos-con-o-sin-reemplazo" class="section level2">
@@ -1587,43 +1590,43 @@ Un estimador de la varianza es:
 <p>Nos interesa estimar la proporción de trabajadores <span class="math inline">\(P\)</span> afectados por una enfermedad en su trabajo en un negocio que emplea a 1500 personas. Además sabemos que en población general <span class="math inline">\(3\)</span> de cada <span class="math inline">\(10\)</span> personas enferman. Para ello obtenemos una muestra aleatoria con reemplazo donde además buscamos un intervalo de confianza al <span class="math inline">\(0.95\)</span> con un error a lo más de <span class="math inline">\(0.01\)</span>.</p>
 <p>Proponemos el estimador de la proporción dado por:
 <span class="math display">\[
-\bar{x}_n = \frac{1}{n}\sum\limits_{i = 1}^n x_i
+\bar{x}_m = \frac{1}{m}\sum\limits_{i = 1}^m x_i
 \]</span>
 donde <span class="math inline">\(x_i = 1\)</span> si el trabajador tiene la enfermedad (<span class="math inline">\(0\)</span> en otro caso). En este caso tenemos que la varianza está dada por:</p>
 <p><span class="math display">\[
-\widehat{\text{Var}}(\bar{x}_n) =\frac{N-1}{N\cdot n} s^2_{\mathcal{U}}
+\widehat{\text{Var}}(\bar{x}_m) =\frac{N-1}{N\cdot m} s^2_{\mathcal{U}}
 \]</span>
 Tenemos entonces que el error es:
 <span class="math display">\[
-0.01 \geq \epsilon = Z_{1 - \alpha/2} \sqrt{\widehat{\text{Var}}(\bar{x}_n)}
+0.01 \geq \epsilon = Z_{1 - \alpha/2} \sqrt{\widehat{\text{Var}}(\bar{x}_m)}
 \]</span>
 de donde se tiene:
 <span class="math display">\[
-\dfrac{0.01^2}{Z_{1 - \alpha/2}^2} \geq  \frac{N-1}{N\cdot n} s^2_{\mathcal{U}}
+\dfrac{0.01^2}{Z_{1 - \alpha/2}^2} \geq  \frac{N-1}{N\cdot m} s^2_{\mathcal{U}}
 \]</span>
 o de manera equivalente:
 <span class="math display">\[
-\dfrac{0.01^2}{Z_{1 - \alpha/2}^2\cdot s^2_{\mathcal{U}}}\dfrac{N}{N-1} \geq \frac{1}{n} 
+\dfrac{0.01^2}{Z_{1 - \alpha/2}^2\cdot s^2_{\mathcal{U}}}\dfrac{N}{N-1} \geq \frac{1}{m} 
 \]</span></p>
 <p>de donde se sigue que:</p>
 <p><span class="math display">\[
-\Big(\dfrac{Z_{1 - \alpha/2}s_{\mathcal{U}}}{0.01}\Big)^2\cdot \dfrac{N-1}{N} \leq  n
+\Big(\dfrac{Z_{1 - \alpha/2}s_{\mathcal{U}}}{0.01}\Big)^2\cdot \dfrac{N-1}{N} \leq  m
 \]</span>
-donde finalmente como sabemos que <span class="math inline">\(3\)</span> de cada <span class="math inline">\(10\)</span> personas lo padecen notamos que la probabilidad en el mundo real de obtener a una persona que lo tenga es <span class="math inline">\(p = \frac{1}{3}\)</span> y podemos modelar la variable ``estar enfermo’’ mediante una Bernoully y por tanto una buena aproximación a <span class="math inline">\(s^2_{\mathcal{U}}\)</span> es:
+donde finalmente como sabemos que <span class="math inline">\(3\)</span> de cada <span class="math inline">\(10\)</span> personas lo padecen notamos que la probabilidad en el mundo real de obtener a una persona que lo tenga es <span class="math inline">\(p = \frac{1}{3}\)</span> y podemos modelar la variable <code>estar enfermo</code> mediante una Bernoulli y por tanto una buena aproximación a <span class="math inline">\(s^2_{\mathcal{U}}\)</span> es:
 <span class="math display">\[
 s^2_{\mathcal{U}} \approx \underbrace{\frac{1}{3}\Big( 1 - \frac{1}{3}\Big)}_{p\cdot(1-p)}
 \]</span>
 donde sustituimos:
 <span class="math display">\[
-\frac{1}{3}(1 - \frac{1}{3})\cdot \Bigg(\dfrac{Z_{1 - \alpha/2}}{0.01}\Bigg)^2\cdot \dfrac{N-1}{N} \leq  n
+\frac{1}{3}(1 - \frac{1}{3})\cdot \Bigg(\dfrac{Z_{1 - \alpha/2}}{0.01}\Bigg)^2\cdot \dfrac{N-1}{N} \leq  m
 \]</span></p>
 <p>Concluimos que:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="muestreo-aleatorio-simple.html#cb188-1"></a>n &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)<span class="op">*</span>(<span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">/</span><span class="fl">0.01</span>)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1500</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)<span class="op">/</span><span class="dv">1500</span>)</span>
-<span id="cb188-2"><a href="muestreo-aleatorio-simple.html#cb188-2"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;n = &quot;</span>, n))</span></code></pre></div>
-<pre><code>## [1] &quot;n = 8531&quot;</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="muestreo-aleatorio-simple.html#cb188-1"></a>m &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)<span class="op">*</span>(<span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">/</span><span class="fl">0.01</span>)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1500</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)<span class="op">/</span><span class="dv">1500</span>)</span>
+<span id="cb188-2"><a href="muestreo-aleatorio-simple.html#cb188-2"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;m = &quot;</span>, m))</span></code></pre></div>
+<pre><code>## [1] &quot;m = 8531&quot;</code></pre>
 <p>Lo cual es un sinsentido estadístico: ¿para qué muestrear más de lo que se tiene en población total? En este ejercicio lo mejor sería hacer un censo.</p>
 <blockquote>
-<p><strong>Nota</strong> Si se repite el ejercicio con muestreo aleatorio simple sin reemplazo acabamos con <span class="math inline">\(n \approx 1300\)</span> lo cual sí tiene sentido como muestreo. En general la <span class="math inline">\(n\)</span> de muestreo con reemplazo es mayor que sin reemplazo (las varianzas son mayores).</p>
+<p><strong>Nota</strong> Si se repite el ejercicio con muestreo aleatorio simple sin reemplazo acabamos con <span class="math inline">\(n \approx 1300\)</span> lo cual sí tiene sentido como muestreo. En general la <span class="math inline">\(m\)</span> de muestreo con reemplazo es mayor que la <span class="math inline">\(n\)</span> de sin reemplazo (las varianzas son mayores). Intuitivamente esto tiene sentido pues si estás muestrando con la posibilidad de repetidos a fuerza necesitas muestrear más para obtener la misma cantidad de datos únicos.</p>
 </blockquote>
 </div>
 <div id="ejemplo-resumen-captura-recaptura-con-reemplazo" class="section level2">
