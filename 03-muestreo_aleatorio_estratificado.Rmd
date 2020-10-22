@@ -117,7 +117,7 @@ $$
 
 Notamos que la varianza del muestreo estratificado es mayor a la varianza del muestreo simple. Por lo que concluimos que **estratificar no necesariamente reduce la varianza**. 
 
-### Ejercicio de clase
+### Ejercicio sugerido
 De entre 7500 empleados de una compañía deseamos conocer la proporción $P$ que tiene un vehículo por lo menos. Se construyeron $3$ estratos para la población según el ingreso (bajo, medio, alto). Se tiene $N_h$ el total del estrato, $n_h$ el total muestreado y $p_h$
 el estimador del total de vehículos para cada estrato $h = 1,2,3$ según la muestra. 
 
@@ -216,21 +216,11 @@ $$
 ### Ejemplo
 Se quiere estimar las ventas promedio de una población de empresas. Las empresas se enlistan según tres clases: según sus ventas en la siguiente tabla:
 
-\begin{table}[!htb]
-    \centering
-    \begin{tabular}{ll}
-         \bf Ventas en millones & \bf Cantidad de negocios \\
-         \hline
-         \hline
-        0 a 1 & 1000 \\
-        1 a 10 & 100 \\
-        Más de 10 & 10\\
-         \hline
-         \hline
-    \end{tabular}
-    \caption{Tabla de datos de empresas}
-\end{table}
-
+```{r}
+tibble(`Ventas en millones` = c("0 a 1","1 a 10", "Más de 10"),
+       `Cantidad de negocios` = c(1000, 100, 10)) %>%
+  kable(booktabs = T) %>% kable_styling()
+```
 Se sabe que se quieren estimar $111$ empresas. Se supone, además que dentro de cada clase la distribución de ventas es uniforme. Obtén las varianzas de los estimadores cuando se toma alocación proporcional y cuando se toma óptima con costos constantes (Neyman). 
 
 **Solución** Como la distribución intra-clase es uniforme podemos completar la tabla recordando que la varianza de una variable uniforme es:
