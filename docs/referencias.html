@@ -24,14 +24,14 @@
 <meta name="author" content="Rodrigo Zepeda-Tello" />
 
 
-<meta name="date" content="2020-10-22" />
+<meta name="date" content="2020-10-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="muestreo-aleatorio-estratificado.html"/>
+<link rel="prev" href="intervalos-de-confianza-mediante-bootstrap.html"/>
 <link rel="next" href="programación-en-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -206,6 +206,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-de-clase"><i class="fa fa-check"></i><b>4.3</b> Ejercicio de clase:</a></li>
 <li class="chapter" data-level="4.4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-en-r-tipo-control"><i class="fa fa-check"></i><b>4.4</b> Ejercicio en R tipo control</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html"><i class="fa fa-check"></i><b>5</b> Intervalos de Confianza mediante bootstrap</a><ul>
+<li class="chapter" data-level="5.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#inicio-2"><i class="fa fa-check"></i><b>5.1</b> Inicio</a></li>
+<li class="chapter" data-level="5.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#intervalos-asintóticos"><i class="fa fa-check"></i><b>5.2</b> Intervalos asintóticos</a></li>
+<li class="chapter" data-level="5.3" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#muestreo-basado-en-modelos"><i class="fa fa-check"></i><b>5.3</b> Muestreo basado en modelos</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejemplo-poisson"><i class="fa fa-check"></i><b>5.3.1</b> Ejemplo Poisson</a></li>
+<li class="chapter" data-level="5.3.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejercicio-9"><i class="fa fa-check"></i><b>5.3.2</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#intervalos-bootstrap"><i class="fa fa-check"></i><b>5.4</b> Intervalos Bootstrap</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#boostrap-bajo-un-modelo"><i class="fa fa-check"></i><b>5.4.1</b> Boostrap bajo un modelo</a></li>
+<li class="chapter" data-level="5.4.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#boostrap-de-una-muestra"><i class="fa fa-check"></i><b>5.4.2</b> Boostrap de una muestra</a></li>
+<li class="chapter" data-level="5.4.3" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejemplo-4"><i class="fa fa-check"></i><b>5.4.3</b> Ejemplo</a></li>
+<li class="chapter" data-level="5.4.4" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejercicio-10"><i class="fa fa-check"></i><b>5.4.4</b> Ejercicio</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
 <li class="appendix"><span><b>Apéndice</b></span></li>
 <li class="chapter" data-level="A" data-path="programación-en-r.html"><a href="programación-en-r.html"><i class="fa fa-check"></i><b>A</b> Programación en <code>R</code></a><ul>
@@ -219,8 +233,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.4" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-rstudio"><i class="fa fa-check"></i><b>A.4</b> Instalación de <code>RStudio</code></a></li>
 <li class="chapter" data-level="A.5" data-path="programación-en-r.html"><a href="programación-en-r.html#primeros-pasos-en-r-usando-rstudio"><i class="fa fa-check"></i><b>A.5</b> Primeros pasos en <code>R</code> usando <code>RStudio</code></a></li>
 <li class="chapter" data-level="A.6" data-path="programación-en-r.html"><a href="programación-en-r.html#cálculos-numéricos"><i class="fa fa-check"></i><b>A.6</b> Cálculos numéricos</a><ul>
-<li class="chapter" data-level="A.6.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-9"><i class="fa fa-check"></i><b>A.6.1</b> Ejercicio</a></li>
-<li class="chapter" data-level="A.6.2" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-10"><i class="fa fa-check"></i><b>A.6.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="A.6.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-11"><i class="fa fa-check"></i><b>A.6.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="A.6.2" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-12"><i class="fa fa-check"></i><b>A.6.2</b> Ejercicio</a></li>
 <li class="chapter" data-level="A.6.3" data-path="programación-en-r.html"><a href="programación-en-r.html#respuestas"><i class="fa fa-check"></i><b>A.6.3</b> Respuestas</a></li>
 </ul></li>
 <li class="chapter" data-level="A.7" data-path="programación-en-r.html"><a href="programación-en-r.html#variables"><i class="fa fa-check"></i><b>A.7</b> Variables</a><ul>
@@ -231,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.8.1" data-path="programación-en-r.html"><a href="programación-en-r.html#cómo-checar-un-if"><i class="fa fa-check"></i><b>A.8.1</b> ¿Cómo checar un if?</a></li>
 </ul></li>
 <li class="chapter" data-level="A.9" data-path="programación-en-r.html"><a href="programación-en-r.html#leer-y-almacenar-variables-en-r"><i class="fa fa-check"></i><b>A.9</b> Leer y almacenar variables en <code>R</code></a><ul>
-<li class="chapter" data-level="A.9.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-11"><i class="fa fa-check"></i><b>A.9.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="A.9.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-13"><i class="fa fa-check"></i><b>A.9.1</b> Ejercicio</a></li>
 </ul></li>
 <li class="chapter" data-level="A.10" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-paquetes"><i class="fa fa-check"></i><b>A.10</b> Instalación de paquetes</a><ul>
 <li class="chapter" data-level="A.10.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicios-3"><i class="fa fa-check"></i><b>A.10.1</b> Ejercicios</a></li>
@@ -260,7 +274,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B.15" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>B.15</b> Ley de los grandes números</a></li>
 <li class="chapter" data-level="B.16" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>B.16</b> Teorema del límite central</a><ul>
 <li class="chapter" data-level="B.16.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#programación-en-r-del-teorema-del-límite-central-con-variables-aleatorias-independientes-idénticamente-distribuidas"><i class="fa fa-check"></i><b>B.16.1</b> Programación en <code>R</code> del teorema del límite central con variables aleatorias independientes idénticamente distribuidas</a></li>
-<li class="chapter" data-level="B.16.2" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#ejercicio-12"><i class="fa fa-check"></i><b>B.16.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="B.16.2" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#ejercicio-14"><i class="fa fa-check"></i><b>B.16.2</b> Ejercicio</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -295,7 +309,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="muestreo-aleatorio-estratificado.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intervalos-de-confianza-mediante-bootstrap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="programación-en-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

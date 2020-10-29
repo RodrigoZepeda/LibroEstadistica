@@ -1446,25 +1446,13 @@ $$
 \dfrac{1}{N} \sum\limits_{k = 1}^N (x_k - \bar{x}_{\mathcal{U}})^2 =\dfrac{1}{2N^2} \sum\limits_{k = 1}^N\sum\limits_{\substack{l = 1 \\ l \neq k}}^N (x_k - \bar{x}_{l})^2  
 $$
 
-5. Considera la población de la tabla \ref{tab:my_label}:
-\begin{table}[!htb]
-    \centering
-    \begin{tabular}{c|c}
-    Edad (años) &  Peso (kg) \\
-    \hline
-    \hline
-    15  &  50 \\
-    30  &  70 \\
-    5   &  20 \\
-    25  &  90 \\
-    10  &  35 \\
-    45  &  85 \\
-    \hline
-    \hline     
-    \end{tabular}
-    \caption{Población de $5$ personas}
-    \label{tab:my_label}
-\end{table}
+5. Considera la población de la tabla siguiente:
+```{r, echo = FALSE}
+bw <- data.frame(Edad = c(15, 30, 5, 25, 10, 45),
+           Peso = c(50, 70, 20, 90, 35, 85))
+kable(bw) %>% kable_styling()
+```
+
 Se sabe que en una muestra aleatoria sin reemplazo que se obtenga de dicha población es dos veces más factible seleccionar a alguien de menos de $20$ años que a alguien de más de $20$ años. 
     a. Determina un estimador insesgado de la media de peso para dicha población. 
     b. Se obtiene la muestra aleatoria simple de peso dada por $S = \{50, 35, 85 \}$. Determina la probabilidad de haber obtenido dicha muestra. 
@@ -1538,19 +1526,16 @@ De qué tamaño tiene que ser la muestra si queremos conocer _a la vez_ $P_1$ co
   
 Determina cuál de los métodos es mejor (en términos de varianza)
 
-\begin{table}[!htb]
-    \centering
-    \begin{tabular}{lllllllllll}
-         \bf Mes & \bf Gas 1  & \bf Gas 2  & \bf Gas 3  & \bf Gas 4  & \bf Gas 5  & \bf Gas 6  & \bf Gas 7  & \bf Gas 8  & \bf Gas 9  & \bf Gas 10 \\
-         \hline
-         \hline
-        Mayo  & 5.82 & 5.33 & 5.76 & 5.98 & 6.20 & 5.89 & 5.68 & 5.55 & 5.69 & 5.81 \\
-        Junio & 5.89 & 5.34 & 5.92 & 6.05 & 6.20 & 6.00 & 5.79 & 5.63 & 5.78 & 5.84\\
-         \hline
-         \hline
-    \end{tabular}
-    \caption{Tabla de datos de trabajadores}
-\end{table}
+```{r, echo = FALSE}
+r1 <- c("Mes",paste0("Gas", 1:10))
+r2 <- c("Mayo", 5.82 , 5.33 , 5.76 , 5.98 , 6.20 , 5.89 , 5.68 , 5.55 , 5.69 , 5.81)
+r3 <- c("Junio" , 5.89 , 5.34 , 5.92 , 6.05 , 6.20 , 6.00 , 5.79 , 5.63 , 5.78 , 5.84)
+
+kable(matrix(c(r1,r2,r3), nrow = 3, byrow = T)) %>%
+  kable_styling()
+
+```
+
 
 18. En una población de tamaño $N$ consideramos $n$ individuos mediante muestreo aleatorio simple sin reemplazo. Consideremos $D$ una subpoblación de tamaño $N_D$ de donde $n_D$ es el tamaño de los muestreados que son elementos de $D$. La muestra la podemos dividir en dos partes: $\mathcal{S} = (\mathcal{S}_{D}, \mathcal{S}_{\bar{D}})^T$ según se esté o no en $D$.  Encuentra la distribución de $\mathcal{S}_{D}$ condicional en $n_D$: 
 

@@ -265,11 +265,12 @@ $$
 
 Misma que se puede calcular en `R` como:
 ```{r}
-mad(conteo_delitos$n)
+mad(conteo_delitos$n, center = mean(conteo_delitos$n))
 ```
 o bien dentro del `summarise`:
 ```{r}
-conteo_delitos %>% summarise(mean(n), sum(n), var(n), mad(n))
+conteo_delitos %>% summarise(mean(n), sum(n), var(n), 
+                             mad(n, center = mean(n)))
 ```
 
 La MAD también es una forma de medir distancia pero en este caso se tiene que todos aportan por igual los muy alejados y los que no:

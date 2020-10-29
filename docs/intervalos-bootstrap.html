@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 Intervalos Bootstrap | Estadística I: Análisis exploratorio de datos y muestreo</title>
+  <meta name="description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 Intervalos Bootstrap | Estadística I: Análisis exploratorio de datos y muestreo" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 Intervalos Bootstrap | Estadística I: Análisis exploratorio de datos y muestreo" />
+  
+  <meta name="twitter:description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
+  
+
+<meta name="author" content="Rodrigo Zepeda-Tello" />
+
+
+<meta name="date" content="2020-10-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intervalos-de-confianza-mediante-bootstrap.html"/>
+<link rel="next" href="referencias.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Historia y conceptos</a></li>
+<li class="chapter" data-level="2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>2</b> Análisis Exploratorio de Datos</a><ul>
+<li class="chapter" data-level="2.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#inicio"><i class="fa fa-check"></i><b>2.1</b> Inicio</a></li>
+<li class="chapter" data-level="2.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#librerías"><i class="fa fa-check"></i><b>2.2</b> Librerías</a></li>
+<li class="chapter" data-level="2.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#base-a-analizar"><i class="fa fa-check"></i><b>2.3</b> Base a analizar</a></li>
+<li class="chapter" data-level="2.4" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#definiciones-y-notación"><i class="fa fa-check"></i><b>2.4</b> Definiciones y notación</a></li>
+<li class="chapter" data-level="2.5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-univariados"><i class="fa fa-check"></i><b>2.5</b> Estadísticos univariados</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#definición-estadístico"><i class="fa fa-check"></i><b>2.5.1</b> Definición [Estadístico]</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio"><i class="fa fa-check"></i><b>2.6</b> Ejercicio</a></li>
+<li class="chapter" data-level="2.7" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>2.7</b> Ejercicios</a></li>
+<li class="chapter" data-level="2.8" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-univariadas"><i class="fa fa-check"></i><b>2.8</b> Gráficas univariadas</a></li>
+<li class="chapter" data-level="2.9" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-bivariadas"><i class="fa fa-check"></i><b>2.9</b> Gráficas bivariadas</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-1"><i class="fa fa-check"></i><b>2.9.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-bivariados"><i class="fa fa-check"></i><b>2.10</b> Estadísticos bivariados</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-2"><i class="fa fa-check"></i><b>2.10.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-3"><i class="fa fa-check"></i><b>2.11</b> Ejercicio</a></li>
+<li class="chapter" data-level="2.12" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ajuste-funcional"><i class="fa fa-check"></i><b>2.12</b> Ajuste funcional</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-4"><i class="fa fa-check"></i><b>2.12.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="2.12.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-sugerido"><i class="fa fa-check"></i><b>2.12.2</b> Ejercicio sugerido</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios-del-capítulo"><i class="fa fa-check"></i><b>2.13</b> Ejercicios del capítulo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html"><i class="fa fa-check"></i><b>3</b> Muestreo Aleatorio Simple</a><ul>
+<li class="chapter" data-level="3.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#inicio-1"><i class="fa fa-check"></i><b>3.1</b> Inicio</a></li>
+<li class="chapter" data-level="3.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#librerías-1"><i class="fa fa-check"></i><b>3.2</b> Librerías</a></li>
+<li class="chapter" data-level="3.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#notación"><i class="fa fa-check"></i><b>3.3</b> Notación</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo"><i class="fa fa-check"></i><b>3.3.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="3.3.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-5"><i class="fa fa-check"></i><b>3.3.2</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-sin-reemplazo-massr"><i class="fa fa-check"></i><b>3.4</b> Muestreo Aleatorio Simple sin Reemplazo (MAS/sR)</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-6"><i class="fa fa-check"></i><b>3.4.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#teorema-del-límite-central-aplicación"><i class="fa fa-check"></i><b>3.5</b> Teorema del Límite Central (Aplicación)</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#estimación-de-intervalos-de-confianza-para-el-total"><i class="fa fa-check"></i><b>3.5.1</b> Estimación de intervalos de confianza para el total</a></li>
+<li class="chapter" data-level="3.5.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-con-simulación"><i class="fa fa-check"></i><b>3.5.2</b> Ejemplo con simulación:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-de-una-proporción-bajo-muestreo-aleatorio-simple-sin-reemplazo"><i class="fa fa-check"></i><b>3.6</b> Ejemplo Resumen: Estimación de una proporción bajo muestreo aleatorio simple sin reemplazo</a></li>
+<li class="chapter" data-level="3.7" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-del-total-de-individuos-en-una-fotografía"><i class="fa fa-check"></i><b>3.7</b> Ejemplo Resumen: Estimación del total de individuos en una fotografía</a></li>
+<li class="chapter" data-level="3.8" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-7"><i class="fa fa-check"></i><b>3.8</b> Ejercicio:</a></li>
+<li class="chapter" data-level="3.9" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-de-una-región-crítica"><i class="fa fa-check"></i><b>3.9</b> Ejemplo Resumen: Estimación de una región crítica</a></li>
+<li class="chapter" data-level="3.10" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-del-total-de-una-población"><i class="fa fa-check"></i><b>3.10</b> Ejemplo Resumen: Estimación del total de una población</a></li>
+<li class="chapter" data-level="3.11" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#demostración-del-teorema-del-límite-central-para-muestras-finitas"><i class="fa fa-check"></i><b>3.11</b> Demostración del Teorema del Límite Central para Muestras Finitas</a></li>
+<li class="chapter" data-level="3.12" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-bernoulli-be"><i class="fa fa-check"></i><b>3.12</b> Muestreo Aleatorio Simple Bernoulli (BE)</a><ul>
+<li class="chapter" data-level="3.12.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-8"><i class="fa fa-check"></i><b>3.12.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.12.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-1"><i class="fa fa-check"></i><b>3.12.2</b> Ejemplo</a></li>
+<li class="chapter" data-level="3.12.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#un-mejor-estimador-el-proporcional-al-tamaño"><i class="fa fa-check"></i><b>3.12.3</b> Un mejor estimador: el proporcional al tamaño</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-aduana"><i class="fa fa-check"></i><b>3.13</b> Ejemplo Resumen: Aduana</a></li>
+<li class="chapter" data-level="3.14" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-con-reemplazo-mascr"><i class="fa fa-check"></i><b>3.14</b> Muestreo Aleatorio Simple con Reemplazo (MAS/cR)</a></li>
+<li class="chapter" data-level="3.15" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-proporción-de-trabajadores-enfermos-con-o-sin-reemplazo"><i class="fa fa-check"></i><b>3.15</b> Ejemplo Resumen: Proporción de trabajadores enfermos con o sin reemplazo</a></li>
+<li class="chapter" data-level="3.16" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-captura-recaptura-con-reemplazo"><i class="fa fa-check"></i><b>3.16</b> Ejemplo Resumen: Captura-Recaptura con reemplazo</a></li>
+<li class="chapter" data-level="3.17" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-ponderado-masp"><i class="fa fa-check"></i><b>3.17</b> Muestreo Aleatorio Simple Ponderado (MAS/P)</a></li>
+<li class="chapter" data-level="3.18" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicios-1"><i class="fa fa-check"></i><b>3.18</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html"><i class="fa fa-check"></i><b>4</b> Muestreo Aleatorio Estratificado</a><ul>
+<li class="chapter" data-level="4.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#introducción-a-muestreo-aleatorio-estratificado-mae"><i class="fa fa-check"></i><b>4.1</b> Introducción a Muestreo Aleatorio Estratificado (MAE)</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejemplo-2"><i class="fa fa-check"></i><b>4.1.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="4.1.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-sugerido-1"><i class="fa fa-check"></i><b>4.1.2</b> Ejercicio sugerido</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación"><i class="fa fa-check"></i><b>4.2</b> Alocación</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-proporcional-al-tamaño"><i class="fa fa-check"></i><b>4.2.1</b> Alocación proporcional al tamaño</a></li>
+<li class="chapter" data-level="4.2.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-óptima"><i class="fa fa-check"></i><b>4.2.2</b> Alocación óptima</a></li>
+<li class="chapter" data-level="4.2.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejemplo-3"><i class="fa fa-check"></i><b>4.2.3</b> Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-de-clase"><i class="fa fa-check"></i><b>4.3</b> Ejercicio de clase:</a></li>
+<li class="chapter" data-level="4.4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-en-r-tipo-control"><i class="fa fa-check"></i><b>4.4</b> Ejercicio en R tipo control</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html"><i class="fa fa-check"></i><b>5</b> Intervalos de Confianza mediante bootstrap</a><ul>
+<li class="chapter" data-level="5.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#inicio-2"><i class="fa fa-check"></i><b>5.1</b> Inicio</a></li>
+<li class="chapter" data-level="5.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#intervalos-asintóticos"><i class="fa fa-check"></i><b>5.2</b> Intervalos asintóticos</a></li>
+<li class="chapter" data-level="5.3" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#muestreo-basado-en-modelos"><i class="fa fa-check"></i><b>5.3</b> Muestreo basado en modelos</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejemplo-poisson"><i class="fa fa-check"></i><b>5.3.1</b> Ejemplo Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejercico-en-clase"><i class="fa fa-check"></i><b>5.4</b> Ejercico en clase</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="intervalos-bootstrap.html"><a href="intervalos-bootstrap.html"><i class="fa fa-check"></i><b>6</b> Intervalos Bootstrap</a><ul>
+<li class="chapter" data-level="6.1" data-path="intervalos-bootstrap.html"><a href="intervalos-bootstrap.html#boostrap-bajo-un-modelo"><i class="fa fa-check"></i><b>6.1</b> Boostrap bajo un modelo</a></li>
+<li class="chapter" data-level="6.2" data-path="intervalos-bootstrap.html"><a href="intervalos-bootstrap.html#boostrap-de-una-muestra"><i class="fa fa-check"></i><b>6.2</b> Boostrap de una muestra</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="intervalos-bootstrap.html"><a href="intervalos-bootstrap.html#ejemplo-4"><i class="fa fa-check"></i><b>6.2.1</b> Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="appendix"><span><b>Apéndice</b></span></li>
+<li class="chapter" data-level="A" data-path="programación-en-r.html"><a href="programación-en-r.html"><i class="fa fa-check"></i><b>A</b> Programación en <code>R</code></a><ul>
+<li class="chapter" data-level="A.1" data-path="programación-en-r.html"><a href="programación-en-r.html#algunas-ventajas-de-r-y-cosas-no-tan-padres"><i class="fa fa-check"></i><b>A.1</b> Algunas ventajas de <code>R</code> y cosas no tan padres</a><ul>
+<li class="chapter" data-level="A.1.1" data-path="programación-en-r.html"><a href="programación-en-r.html#puntos-a-favor-de-r"><i class="fa fa-check"></i><b>A.1.1</b> Puntos a favor de <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="programación-en-r.html"><a href="programación-en-r.html#bienvenidx-a-r-bunny-wunnies-freak-out-sí-así-se-llama-esta-versión"><i class="fa fa-check"></i><b>A.2</b> Bienvenidx a <code>R</code>, Bunny-Wunnies Freak Out (sí, así se llama esta versión)</a></li>
+<li class="chapter" data-level="A.3" data-path="programación-en-r.html"><a href="programación-en-r.html#instalando-cosas"><i class="fa fa-check"></i><b>A.3</b> Instalando cosas</a><ul>
+<li class="chapter" data-level="A.3.1" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-r"><i class="fa fa-check"></i><b>A.3.1</b> Instalación de <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-rstudio"><i class="fa fa-check"></i><b>A.4</b> Instalación de <code>RStudio</code></a></li>
+<li class="chapter" data-level="A.5" data-path="programación-en-r.html"><a href="programación-en-r.html#primeros-pasos-en-r-usando-rstudio"><i class="fa fa-check"></i><b>A.5</b> Primeros pasos en <code>R</code> usando <code>RStudio</code></a></li>
+<li class="chapter" data-level="A.6" data-path="programación-en-r.html"><a href="programación-en-r.html#cálculos-numéricos"><i class="fa fa-check"></i><b>A.6</b> Cálculos numéricos</a><ul>
+<li class="chapter" data-level="A.6.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-9"><i class="fa fa-check"></i><b>A.6.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="A.6.2" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-10"><i class="fa fa-check"></i><b>A.6.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="A.6.3" data-path="programación-en-r.html"><a href="programación-en-r.html#respuestas"><i class="fa fa-check"></i><b>A.6.3</b> Respuestas</a></li>
+</ul></li>
+<li class="chapter" data-level="A.7" data-path="programación-en-r.html"><a href="programación-en-r.html#variables"><i class="fa fa-check"></i><b>A.7</b> Variables</a><ul>
+<li class="chapter" data-level="A.7.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>A.7.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="A.7.2" data-path="programación-en-r.html"><a href="programación-en-r.html#nivel-3"><i class="fa fa-check"></i><b>A.7.2</b> NIVEL 3</a></li>
+</ul></li>
+<li class="chapter" data-level="A.8" data-path="programación-en-r.html"><a href="programación-en-r.html#observaciones-sobre-la-aritmética-de-punto-flotante"><i class="fa fa-check"></i><b>A.8</b> Observaciones sobre la aritmética de punto flotante</a><ul>
+<li class="chapter" data-level="A.8.1" data-path="programación-en-r.html"><a href="programación-en-r.html#cómo-checar-un-if"><i class="fa fa-check"></i><b>A.8.1</b> ¿Cómo checar un if?</a></li>
+</ul></li>
+<li class="chapter" data-level="A.9" data-path="programación-en-r.html"><a href="programación-en-r.html#leer-y-almacenar-variables-en-r"><i class="fa fa-check"></i><b>A.9</b> Leer y almacenar variables en <code>R</code></a><ul>
+<li class="chapter" data-level="A.9.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-11"><i class="fa fa-check"></i><b>A.9.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="A.10" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-paquetes"><i class="fa fa-check"></i><b>A.10</b> Instalación de paquetes</a><ul>
+<li class="chapter" data-level="A.10.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicios-3"><i class="fa fa-check"></i><b>A.10.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="A.11" data-path="programación-en-r.html"><a href="programación-en-r.html#comentarios-adicionales-sobre-el-formato"><i class="fa fa-check"></i><b>A.11</b> Comentarios adicionales sobre el formato</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html"><i class="fa fa-check"></i><b>B</b> Repaso de Proba</a><ul>
+<li class="chapter" data-level="B.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-indicadoras"><i class="fa fa-check"></i><b>B.1</b> Funciones indicadoras</a></li>
+<li class="chapter" data-level="B.2" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#conteo"><i class="fa fa-check"></i><b>B.2</b> Conteo</a></li>
+<li class="chapter" data-level="B.3" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#espacios-de-probabilidad"><i class="fa fa-check"></i><b>B.3</b> Espacios de probabilidad</a></li>
+<li class="chapter" data-level="B.4" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#probabilidad-condicional"><i class="fa fa-check"></i><b>B.4</b> Probabilidad condicional</a></li>
+<li class="chapter" data-level="B.5" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#independencia"><i class="fa fa-check"></i><b>B.5</b> Independencia</a></li>
+<li class="chapter" data-level="B.6" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#variables-aleatorias-y-función-de-distribución-acumulada"><i class="fa fa-check"></i><b>B.6</b> Variables aleatorias y función de distribución (acumulada)</a></li>
+<li class="chapter" data-level="B.7" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-de-masa-de-probabilidad"><i class="fa fa-check"></i><b>B.7</b> Funciones de masa de probabilidad</a></li>
+<li class="chapter" data-level="B.8" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-de-densidad"><i class="fa fa-check"></i><b>B.8</b> Funciones de densidad</a></li>
+<li class="chapter" data-level="B.9" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-de-cambio-de-variable-unidimensional"><i class="fa fa-check"></i><b>B.9</b> Teorema de cambio de variable unidimensional</a></li>
+<li class="chapter" data-level="B.10" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#probabilidad-multivariada"><i class="fa fa-check"></i><b>B.10</b> Probabilidad Multivariada</a></li>
+<li class="chapter" data-level="B.11" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#esperanza-varianza-y-covarianza"><i class="fa fa-check"></i><b>B.11</b> Esperanza, varianza y covarianza</a><ul>
+<li class="chapter" data-level="B.11.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#propiedades-de-valor-esperado-varianza-y-covarianza"><i class="fa fa-check"></i><b>B.11.1</b> Propiedades de valor esperado, varianza y covarianza</a></li>
+</ul></li>
+<li class="chapter" data-level="B.12" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#condicionamiento-por-otra-variable-aleatoria"><i class="fa fa-check"></i><b>B.12</b> Condicionamiento por otra variable aleatoria</a></li>
+<li class="chapter" data-level="B.13" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-características"><i class="fa fa-check"></i><b>B.13</b> Funciones características</a></li>
+<li class="chapter" data-level="B.14" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#convergencias"><i class="fa fa-check"></i><b>B.14</b> Convergencias</a><ul>
+<li class="chapter" data-level="B.14.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-de-continuidad-de-lévy"><i class="fa fa-check"></i><b>B.14.1</b> Teorema de continuidad de Lévy</a></li>
+</ul></li>
+<li class="chapter" data-level="B.15" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>B.15</b> Ley de los grandes números</a></li>
+<li class="chapter" data-level="B.16" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>B.16</b> Teorema del límite central</a><ul>
+<li class="chapter" data-level="B.16.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#programación-en-r-del-teorema-del-límite-central-con-variables-aleatorias-independientes-idénticamente-distribuidas"><i class="fa fa-check"></i><b>B.16.1</b> Programación en <code>R</code> del teorema del límite central con variables aleatorias independientes idénticamente distribuidas</a></li>
+<li class="chapter" data-level="B.16.2" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#ejercicio-12"><i class="fa fa-check"></i><b>B.16.2</b> Ejercicio</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intervalos-bootstrap" class="section level1">
+<h1><span class="header-section-number">Capítulo 6</span> Intervalos Bootstrap</h1>
+<p>Los intervalos anteriores requieren de manera implícita de la función de distribución acumulada original la cual puede ser muy complicada o desconocida. Los intervalos Bootstrap buscan aproximar dicha función mediante un remuestreo. La demostración exacta (con medida) de por qué funciona el Boostrap la puedes ver en <a href="https://www.cambridge.org/core/books/asymptotic-statistics/A3C7DAD3F7E66A1FA60E9C8FE132EE1D">Asymptotic Statistics</a>. La idea es <em>reconstruir</em> la función de distribución acumulada mediante remuestreo de la base (de una mejor manera aún que con la <span class="math inline">\(\hat{F}\)</span> empírica) y calcular estadísticos a partir de ella. Algunos estadísticos que se pueden calcular a partir de ella es, por ejemplo, la media muestral o la varianza así como los cuantiles. Para ello definiremos un concepto importante:</p>
+<p><strong>Definición</strong>
+Un estadístico <span class="math inline">\(t\)</span> es un funcional estadístico si <span class="math inline">\(t\)</span> es simétrica para <span class="math inline">\(y_1, y_2, \dots, y_N\)</span>. Dicho de otra forma, <span class="math inline">\(t\)</span> depende solamente de los valores ordenados <span class="math inline">\(y_{(1)}, y_{(2)}, \dots, y_{(N)}\)</span> y no del orden preciso (de la muestra o la población). En este caso <span class="math inline">\(t\)</span> depende sólo de la función de distribución y se escribe como <span class="math inline">\(t(F)\)</span> (en el caso poblacional) ó <span class="math inline">\(t(\hat{F})\)</span> en el caso muestral.</p>
+<p>Un ejemplo de estadístico es la media pues (suponiendo <span class="math inline">\(F\)</span> discreta) por ejemplo:
+<span class="math display">\[
+\mu = \sum\limits_x x\big[\underbrace{F(x) - F(x^-)}_{\mathbb{P}(X = x)}\big]
+\]</span>
+Mientras que de manera muestral la estimación es idéntica mediante estimadores:
+<span class="math display">\[
+\hat{\mu} = \sum\limits_x x\big[\underbrace{\hat{F}(x) - \hat{F}(x^-)}_{\hat{\mathbb{P}}(X = x)}\big]
+\]</span>
+donde la notación <span class="math inline">\(F(x^-) = \lim_{y \to x^-} F(y)\)</span>.</p>
+<p>Un ejemplo adicional es la mediana que corresponde a:
+<span class="math display">\[
+\textrm{Mediana} = F^{-1}(1/2)
+\]</span>
+donde
+<span class="math display">\[
+F^{-1}(p) = \inf \{ x \in \mathbb{R} : F(x) \geq p\}
+\]</span>
+es una pseudoinversa conocida como la función cuantil. (En el caso de <span class="math inline">\(F\)</span> continua es una inversa “bien” pero discreta no lo es porque esa cosa ni es invertible).</p>
+<p>La idea de Bootstrap (con una demostración bastante técnica) es que para una <span class="math inline">\(\hat{F}_B\)</span> función de distribución empírica acumulada generada por Boostrap se tiene que:
+<span class="math display">\[
+\sqrt{n} \big( t(\hat{F}_{\text{B}}) - t(\hat{F})))
+\]</span>
+converge en distribución al mismo límite que:
+<span class="math display">\[
+\sqrt{n} \big( t(\hat{F}) - t(F)))
+\]</span>
+para cualquier <span class="math inline">\(t\)</span> función <a href="https://en.wikipedia.org/wiki/Hadamard_derivative">Hadamard-diferenciable.</a>.</p>
+<p>Lo que en humano quiere decir es que muchísimos funcionales estadísticos convergen al verdadero. Lo interesante de Bootstrap (usualmente) no va a ser estimar el <span class="math inline">\(t\)</span> sino estimar un intervalo para <span class="math inline">\(t\)</span> a partir de remuestrear varias <span class="math inline">\(\hat{F}\)</span> mediante simulación.</p>
+<blockquote>
+<p><strong>Nota que no sé dónde poner</strong> Un tipo de Bootstrap específico es el Jacknife donde se elimina aleatoriamente un elemento de la base. <em>Model Assisted Survey Sampling</em> lo pone como otra cosa pero en realidad es un boostrap bajo otro método.</p>
+</blockquote>
+<div id="boostrap-bajo-un-modelo" class="section level2">
+<h2><span class="header-section-number">6.1</span> Boostrap bajo un modelo</h2>
+<p>Regresemos a nuestro ejemplo Poisson de la media pero esta vez usando Boostrap. Para ello consideramos la muestra de tamaño <span class="math inline">\(n = 20\)</span>.</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="intervalos-bootstrap.html#cb219-1"></a>n         &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb219-2"><a href="intervalos-bootstrap.html#cb219-2"></a>muestra   &lt;-<span class="st"> </span><span class="kw">rpois</span>(n, <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>)</span>
+<span id="cb219-3"><a href="intervalos-bootstrap.html#cb219-3"></a>alpha.val &lt;-<span class="st"> </span><span class="fl">0.05</span></span>
+<span id="cb219-4"><a href="intervalos-bootstrap.html#cb219-4"></a>nsim      &lt;-<span class="st"> </span><span class="dv">1000</span> <span class="co">#Mil simulaciones nada más para no trabar</span></span>
+<span id="cb219-5"><a href="intervalos-bootstrap.html#cb219-5"></a>media.completa &lt;-<span class="st"> </span><span class="kw">mean</span>(muestra)</span>
+<span id="cb219-6"><a href="intervalos-bootstrap.html#cb219-6"></a>media     &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
+<span id="cb219-7"><a href="intervalos-bootstrap.html#cb219-7"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nsim){</span>
+<span id="cb219-8"><a href="intervalos-bootstrap.html#cb219-8"></a>  remuestreo &lt;-<span class="st"> </span><span class="kw">sample</span>(muestra, n, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb219-9"><a href="intervalos-bootstrap.html#cb219-9"></a>  media[i]   &lt;-<span class="st"> </span><span class="kw">mean</span>(remuestreo)</span>
+<span id="cb219-10"><a href="intervalos-bootstrap.html#cb219-10"></a>}</span>
+<span id="cb219-11"><a href="intervalos-bootstrap.html#cb219-11"></a></span>
+<span id="cb219-12"><a href="intervalos-bootstrap.html#cb219-12"></a><span class="co">#Cálculo de cotas</span></span>
+<span id="cb219-13"><a href="intervalos-bootstrap.html#cb219-13"></a>lado.sup &lt;-<span class="st"> </span><span class="kw">quantile</span>(media <span class="op">-</span><span class="st"> </span>media.completa, alpha.val<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb219-14"><a href="intervalos-bootstrap.html#cb219-14"></a>lado.inf &lt;-<span class="st"> </span><span class="kw">quantile</span>(media <span class="op">-</span><span class="st"> </span>media.completa, <span class="dv">1</span> <span class="op">-</span><span class="st"> </span>alpha.val<span class="op">/</span><span class="dv">2</span>) </span>
+<span id="cb219-15"><a href="intervalos-bootstrap.html#cb219-15"></a></span>
+<span id="cb219-16"><a href="intervalos-bootstrap.html#cb219-16"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El intervalo es [&quot;</span>, media.completa <span class="op">-</span><span class="st"> </span>lado.inf, </span>
+<span id="cb219-17"><a href="intervalos-bootstrap.html#cb219-17"></a>             <span class="st">&quot;,&quot;</span>, media.completa <span class="op">-</span><span class="st"> </span>lado.sup,<span class="st">&quot;]&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;El intervalo es [-0.05,0.4]&quot;</code></pre>
+<p>El algoritmo es como sigue:
+1. Obtén una muestra aleatoria simple con reemplazo <span class="math inline">\(X_1^B, X_2^B, \dots, X_n^B \sim \hat{F}\)</span> y calcula <span class="math inline">\(t(X_1^B, X_2^B, \dots, X_n^B)\)</span>
+2. Repite <span class="math inline">\(n\)</span> veces (este <span class="math inline">\(n\)</span> se decide de recalculando la <span class="math inline">\(n\)</span> como si viniera de una muestra para tener la precisión deseada) o bien por convergencia.
+3. Calcula los cuantiles simulados correspondientes <span class="math inline">\(\delta_1 = (t_B - t)_{\alpha/2}\)</span> y <span class="math inline">\(\delta_2 = (t_B - t)_{1 - \alpha/2}\)</span>
+4. El intervalo es <span class="math inline">\(t - \delta_1\)</span> y <span class="math inline">\(t - \delta_2\)</span></p>
+<blockquote>
+<p><strong>Nota</strong> Boostrap no es perfecto para todo. Por ejemplo si se tiene una muestra de variables aleatorias <span class="math inline">\(X_i \sim \text{Unif}(0,1)\)</span> y se busca <span class="math inline">\(t_n = \min \{ X_i \}\)</span> bajo Bootstrap se puede demostrar que
+<span class="math display">\[
+n t_n \to \text{Exponencial}(1)
+\]</span>
+lo cual no corresponde al valor verdadero</p>
+</blockquote>
+</div>
+<div id="boostrap-de-una-muestra" class="section level2">
+<h2><span class="header-section-number">6.2</span> Boostrap de una muestra</h2>
+<p>En el caso de una muestra ponderada con estratos excluyentes <span class="math inline">\(S_1, S_2, \dots, S_{H}\)</span> de tamaños <span class="math inline">\(N_1, N_2, \dots, N_H\)</span> para cada estrato <span class="math inline">\(S_h\)</span> seleccionamos una muestra bootstrap a partir de lo cual podemos calcular una función de distribución empírica para cada estrato <span class="math inline">\(\hat{F}_h\)</span> y repetir el algoritmo (para cada estrato):</p>
+<ol style="list-style-type: decimal">
+<li>Crea una subpoblación <span class="math inline">\(U^f_h\)</span> fija de tamaño <span class="math inline">\(k = \Big\lfloor \frac{N_h}{n_h} \Big\rfloor\)</span> repitiendo la original <span class="math inline">\(k\)</span> veces.</li>
+<li>Obtén <span class="math inline">\(U^c_h\)</span> una muestra aleatoria de <span class="math inline">\(S_h\)</span> de tamaño <span class="math inline">\(N - nk\)</span>. Crea la pseudo población bootstrap como <span class="math inline">\(U^{boot}_h = U^c_h \cup U^f_h\)</span>.</li>
+<li>Obtén una muestra de <span class="math inline">\(U^{boot}_h\)</span> de tamaño <span class="math inline">\(n_h\)</span> y recalcula el parámetro de interés <span class="math inline">\(t_B = t(F_h^{boot})\)</span>.</li>
+<li>Repite <span class="math inline">\(m\)</span> veces (este <span class="math inline">\(m\)</span> se decide de recalculando la <span class="math inline">\(n\)</span> como si viniera de una muestra para tener la precisión deseada) o bien por convergencia.</li>
+<li>Calcula los cuantiles simulados correspondientes <span class="math inline">\(\delta_1 = (t_B - t)_{\alpha/2}\)</span> y <span class="math inline">\(\delta_2 = (t_B - t)_{1 - \alpha/2}\)</span></li>
+<li>El intervalo es <span class="math inline">\(t - \delta_1\)</span> y <span class="math inline">\(t - \delta_2\)</span></li>
+</ol>
+<p>El método anterior es el desarrollado por <a href="http://www.jstor.org/stable/2290991?origin=JSTOR-pdf">Booth, Butler y Hall</a>; sin embargo no es el único que existe. Para poblaciones finitas te sugiero checar el compendio de <a href="https://projecteuclid.org/euclid.ssu">Mashreghi, Haziza y Léger</a> donde vienen varios métodos.</p>
+<div id="ejemplo-4" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Ejemplo</h3>
+<p>Calcular la mediana de la siguiente población:</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="intervalos-bootstrap.html#cb221-1"></a>pop.total &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="kw">rexp</span>(<span class="dv">100</span>), <span class="kw">rpois</span>(<span class="dv">100</span>, <span class="dv">2</span>))</span>
+<span id="cb221-2"><a href="intervalos-bootstrap.html#cb221-2"></a>N &lt;-<span class="st"> </span><span class="kw">length</span>(pop.total)</span>
+<span id="cb221-3"><a href="intervalos-bootstrap.html#cb221-3"></a></span>
+<span id="cb221-4"><a href="intervalos-bootstrap.html#cb221-4"></a><span class="co">#Verdadera mediana</span></span>
+<span id="cb221-5"><a href="intervalos-bootstrap.html#cb221-5"></a>mediana.real &lt;-<span class="st"> </span><span class="kw">median</span>(pop.total)</span>
+<span id="cb221-6"><a href="intervalos-bootstrap.html#cb221-6"></a></span>
+<span id="cb221-7"><a href="intervalos-bootstrap.html#cb221-7"></a><span class="co">#Obtenemos muestra de tamaño n = 25 por ejemplo</span></span>
+<span id="cb221-8"><a href="intervalos-bootstrap.html#cb221-8"></a>n &lt;-<span class="st"> </span><span class="dv">25</span></span>
+<span id="cb221-9"><a href="intervalos-bootstrap.html#cb221-9"></a>muestra          &lt;-<span class="st"> </span><span class="kw">sample</span>(pop.total, <span class="dv">25</span>)</span>
+<span id="cb221-10"><a href="intervalos-bootstrap.html#cb221-10"></a>mediana.muestral &lt;-<span class="st"> </span><span class="kw">median</span>(muestra)</span>
+<span id="cb221-11"><a href="intervalos-bootstrap.html#cb221-11"></a>mediana          &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, nsim)</span>
+<span id="cb221-12"><a href="intervalos-bootstrap.html#cb221-12"></a></span>
+<span id="cb221-13"><a href="intervalos-bootstrap.html#cb221-13"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El valor real es &quot;</span>, mediana.real))</span></code></pre></div>
+<pre><code>## [1] &quot;El valor real es 0.629704617234562&quot;</code></pre>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="intervalos-bootstrap.html#cb223-1"></a><span class="co">#Tamaño de bootstrap</span></span>
+<span id="cb223-2"><a href="intervalos-bootstrap.html#cb223-2"></a>k.val &lt;-<span class="st"> </span><span class="kw">floor</span>(N<span class="op">/</span>n)</span>
+<span id="cb223-3"><a href="intervalos-bootstrap.html#cb223-3"></a>Uf    &lt;-<span class="st"> </span><span class="kw">rep</span>(muestra, k.val)</span>
+<span id="cb223-4"><a href="intervalos-bootstrap.html#cb223-4"></a></span>
+<span id="cb223-5"><a href="intervalos-bootstrap.html#cb223-5"></a></span>
+<span id="cb223-6"><a href="intervalos-bootstrap.html#cb223-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nsim){</span>
+<span id="cb223-7"><a href="intervalos-bootstrap.html#cb223-7"></a>  Uc         &lt;-<span class="st"> </span><span class="kw">sample</span>(muestra, N <span class="op">-</span><span class="st"> </span>n<span class="op">*</span>k.val, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb223-8"><a href="intervalos-bootstrap.html#cb223-8"></a>  Uboot      &lt;-<span class="st"> </span><span class="kw">c</span>(Uf, Uc)</span>
+<span id="cb223-9"><a href="intervalos-bootstrap.html#cb223-9"></a>  remuestreo &lt;-<span class="st"> </span><span class="kw">sample</span>(Uboot, n, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb223-10"><a href="intervalos-bootstrap.html#cb223-10"></a>  mediana[i] &lt;-<span class="st"> </span><span class="kw">median</span>(remuestreo)</span>
+<span id="cb223-11"><a href="intervalos-bootstrap.html#cb223-11"></a>}</span>
+<span id="cb223-12"><a href="intervalos-bootstrap.html#cb223-12"></a></span>
+<span id="cb223-13"><a href="intervalos-bootstrap.html#cb223-13"></a><span class="co">#Cálculo de cotas</span></span>
+<span id="cb223-14"><a href="intervalos-bootstrap.html#cb223-14"></a>lado.sup &lt;-<span class="st"> </span><span class="kw">quantile</span>(mediana <span class="op">-</span><span class="st"> </span>mediana.muestral, alpha.val<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb223-15"><a href="intervalos-bootstrap.html#cb223-15"></a>lado.inf &lt;-<span class="st"> </span><span class="kw">quantile</span>(mediana <span class="op">-</span><span class="st"> </span>mediana.muestral, <span class="dv">1</span> <span class="op">-</span><span class="st"> </span>alpha.val<span class="op">/</span><span class="dv">2</span>) </span>
+<span id="cb223-16"><a href="intervalos-bootstrap.html#cb223-16"></a></span>
+<span id="cb223-17"><a href="intervalos-bootstrap.html#cb223-17"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El intervalo es [&quot;</span>, mediana.muestral <span class="op">-</span><span class="st"> </span>lado.inf, </span>
+<span id="cb223-18"><a href="intervalos-bootstrap.html#cb223-18"></a>             <span class="st">&quot;,&quot;</span>, mediana.muestral <span class="op">-</span><span class="st"> </span>lado.sup,<span class="st">&quot;]&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;El intervalo es [-0.12970966652169,0.838248776470654]&quot;</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intervalos-de-confianza-mediante-bootstrap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": ["night", "white", "sepia"],
+"family": "sans",
+"size": [2, 4]
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introduccion_a_Muestreo.pdf", "Introduccion_a_Muestreo.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
