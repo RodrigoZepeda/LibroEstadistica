@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 Muestreo Aleatorio Multietápico | Estadística I: Análisis exploratorio de datos y muestreo</title>
+  <meta name="description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 Muestreo Aleatorio Multietápico | Estadística I: Análisis exploratorio de datos y muestreo" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 Muestreo Aleatorio Multietápico | Estadística I: Análisis exploratorio de datos y muestreo" />
+  
+  <meta name="twitter:description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
+  
+
+<meta name="author" content="Rodrigo Zepeda-Tello" />
+
+
+<meta name="date" content="2020-11-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intervalos-de-confianza-mediante-bootstrap.html"/>
+<link rel="next" href="referencias.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Historia y conceptos</a></li>
+<li class="chapter" data-level="2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>2</b> Análisis Exploratorio de Datos</a><ul>
+<li class="chapter" data-level="2.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#inicio"><i class="fa fa-check"></i><b>2.1</b> Inicio</a></li>
+<li class="chapter" data-level="2.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#librerías"><i class="fa fa-check"></i><b>2.2</b> Librerías</a></li>
+<li class="chapter" data-level="2.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#base-a-analizar"><i class="fa fa-check"></i><b>2.3</b> Base a analizar</a></li>
+<li class="chapter" data-level="2.4" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#definiciones-y-notación"><i class="fa fa-check"></i><b>2.4</b> Definiciones y notación</a></li>
+<li class="chapter" data-level="2.5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-univariados"><i class="fa fa-check"></i><b>2.5</b> Estadísticos univariados</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#definición-estadístico"><i class="fa fa-check"></i><b>2.5.1</b> Definición [Estadístico]</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio"><i class="fa fa-check"></i><b>2.6</b> Ejercicio</a></li>
+<li class="chapter" data-level="2.7" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>2.7</b> Ejercicios</a></li>
+<li class="chapter" data-level="2.8" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-univariadas"><i class="fa fa-check"></i><b>2.8</b> Gráficas univariadas</a></li>
+<li class="chapter" data-level="2.9" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-bivariadas"><i class="fa fa-check"></i><b>2.9</b> Gráficas bivariadas</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-1"><i class="fa fa-check"></i><b>2.9.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-bivariados"><i class="fa fa-check"></i><b>2.10</b> Estadísticos bivariados</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-2"><i class="fa fa-check"></i><b>2.10.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-3"><i class="fa fa-check"></i><b>2.11</b> Ejercicio</a></li>
+<li class="chapter" data-level="2.12" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ajuste-funcional"><i class="fa fa-check"></i><b>2.12</b> Ajuste funcional</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-4"><i class="fa fa-check"></i><b>2.12.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="2.12.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-sugerido"><i class="fa fa-check"></i><b>2.12.2</b> Ejercicio sugerido</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios-del-capítulo"><i class="fa fa-check"></i><b>2.13</b> Ejercicios del capítulo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html"><i class="fa fa-check"></i><b>3</b> Muestreo Aleatorio Simple</a><ul>
+<li class="chapter" data-level="3.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#inicio-1"><i class="fa fa-check"></i><b>3.1</b> Inicio</a></li>
+<li class="chapter" data-level="3.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#librerías-1"><i class="fa fa-check"></i><b>3.2</b> Librerías</a></li>
+<li class="chapter" data-level="3.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#notación"><i class="fa fa-check"></i><b>3.3</b> Notación</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo"><i class="fa fa-check"></i><b>3.3.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="3.3.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-5"><i class="fa fa-check"></i><b>3.3.2</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-sin-reemplazo-massr"><i class="fa fa-check"></i><b>3.4</b> Muestreo Aleatorio Simple sin Reemplazo (MAS/sR)</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-6"><i class="fa fa-check"></i><b>3.4.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#teorema-del-límite-central-aplicación"><i class="fa fa-check"></i><b>3.5</b> Teorema del Límite Central (Aplicación)</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#estimación-de-intervalos-de-confianza-para-el-total"><i class="fa fa-check"></i><b>3.5.1</b> Estimación de intervalos de confianza para el total</a></li>
+<li class="chapter" data-level="3.5.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-con-simulación"><i class="fa fa-check"></i><b>3.5.2</b> Ejemplo con simulación:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-de-una-proporción-bajo-muestreo-aleatorio-simple-sin-reemplazo"><i class="fa fa-check"></i><b>3.6</b> Ejemplo Resumen: Estimación de una proporción bajo muestreo aleatorio simple sin reemplazo</a></li>
+<li class="chapter" data-level="3.7" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-del-total-de-individuos-en-una-fotografía"><i class="fa fa-check"></i><b>3.7</b> Ejemplo Resumen: Estimación del total de individuos en una fotografía</a></li>
+<li class="chapter" data-level="3.8" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-7"><i class="fa fa-check"></i><b>3.8</b> Ejercicio:</a></li>
+<li class="chapter" data-level="3.9" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-de-una-región-crítica"><i class="fa fa-check"></i><b>3.9</b> Ejemplo Resumen: Estimación de una región crítica</a></li>
+<li class="chapter" data-level="3.10" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-del-total-de-una-población"><i class="fa fa-check"></i><b>3.10</b> Ejemplo Resumen: Estimación del total de una población</a></li>
+<li class="chapter" data-level="3.11" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#demostración-del-teorema-del-límite-central-para-muestras-finitas"><i class="fa fa-check"></i><b>3.11</b> Demostración del Teorema del Límite Central para Muestras Finitas</a></li>
+<li class="chapter" data-level="3.12" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-bernoulli-be"><i class="fa fa-check"></i><b>3.12</b> Muestreo Aleatorio Simple Bernoulli (BE)</a><ul>
+<li class="chapter" data-level="3.12.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-8"><i class="fa fa-check"></i><b>3.12.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.12.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-1"><i class="fa fa-check"></i><b>3.12.2</b> Ejemplo</a></li>
+<li class="chapter" data-level="3.12.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#un-mejor-estimador-el-proporcional-al-tamaño"><i class="fa fa-check"></i><b>3.12.3</b> Un mejor estimador: el proporcional al tamaño</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-aduana"><i class="fa fa-check"></i><b>3.13</b> Ejemplo Resumen: Aduana</a></li>
+<li class="chapter" data-level="3.14" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-con-reemplazo-mascr"><i class="fa fa-check"></i><b>3.14</b> Muestreo Aleatorio Simple con Reemplazo (MAS/cR)</a></li>
+<li class="chapter" data-level="3.15" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-proporción-de-trabajadores-enfermos-con-o-sin-reemplazo"><i class="fa fa-check"></i><b>3.15</b> Ejemplo Resumen: Proporción de trabajadores enfermos con o sin reemplazo</a></li>
+<li class="chapter" data-level="3.16" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-captura-recaptura-con-reemplazo"><i class="fa fa-check"></i><b>3.16</b> Ejemplo Resumen: Captura-Recaptura con reemplazo</a></li>
+<li class="chapter" data-level="3.17" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-ponderado-masp"><i class="fa fa-check"></i><b>3.17</b> Muestreo Aleatorio Simple Ponderado (MAS/P)</a></li>
+<li class="chapter" data-level="3.18" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicios-1"><i class="fa fa-check"></i><b>3.18</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html"><i class="fa fa-check"></i><b>4</b> Muestreo Aleatorio Estratificado</a><ul>
+<li class="chapter" data-level="4.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#introducción-a-muestreo-aleatorio-estratificado-mae"><i class="fa fa-check"></i><b>4.1</b> Introducción a Muestreo Aleatorio Estratificado (MAE)</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejemplo-2"><i class="fa fa-check"></i><b>4.1.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="4.1.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-sugerido-1"><i class="fa fa-check"></i><b>4.1.2</b> Ejercicio sugerido</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación"><i class="fa fa-check"></i><b>4.2</b> Alocación</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-proporcional-al-tamaño"><i class="fa fa-check"></i><b>4.2.1</b> Alocación proporcional al tamaño</a></li>
+<li class="chapter" data-level="4.2.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-óptima"><i class="fa fa-check"></i><b>4.2.2</b> Alocación óptima</a></li>
+<li class="chapter" data-level="4.2.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejemplo-3"><i class="fa fa-check"></i><b>4.2.3</b> Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-de-clase"><i class="fa fa-check"></i><b>4.3</b> Ejercicio de clase:</a></li>
+<li class="chapter" data-level="4.4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-en-r-tipo-control"><i class="fa fa-check"></i><b>4.4</b> Ejercicio en R tipo control</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html"><i class="fa fa-check"></i><b>5</b> Intervalos de Confianza mediante bootstrap</a><ul>
+<li class="chapter" data-level="5.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#inicio-2"><i class="fa fa-check"></i><b>5.1</b> Inicio</a></li>
+<li class="chapter" data-level="5.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#intervalos-asintóticos"><i class="fa fa-check"></i><b>5.2</b> Intervalos asintóticos</a></li>
+<li class="chapter" data-level="5.3" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#muestreo-basado-en-modelos"><i class="fa fa-check"></i><b>5.3</b> Muestreo basado en modelos</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejemplo-poisson"><i class="fa fa-check"></i><b>5.3.1</b> Ejemplo Poisson</a></li>
+<li class="chapter" data-level="5.3.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejercicio-9"><i class="fa fa-check"></i><b>5.3.2</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#intervalos-bootstrap"><i class="fa fa-check"></i><b>5.4</b> Intervalos Bootstrap</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#boostrap-bajo-un-modelo"><i class="fa fa-check"></i><b>5.4.1</b> Boostrap bajo un modelo</a></li>
+<li class="chapter" data-level="5.4.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#boostrap-de-una-muestra"><i class="fa fa-check"></i><b>5.4.2</b> Boostrap de una muestra</a></li>
+<li class="chapter" data-level="5.4.3" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejemplo-4"><i class="fa fa-check"></i><b>5.4.3</b> Ejemplo</a></li>
+<li class="chapter" data-level="5.4.4" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejercicio-10"><i class="fa fa-check"></i><b>5.4.4</b> Ejercicio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html"><i class="fa fa-check"></i><b>6</b> Muestreo Aleatorio Multietápico</a><ul>
+<li class="chapter" data-level="6.1" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#muestreo-aleatorio-por-clusters-en-una-sola-etapa"><i class="fa fa-check"></i><b>6.1</b> Muestreo aleatorio por clusters en una sola etapa</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#ejemplo-5"><i class="fa fa-check"></i><b>6.1.1</b> Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#muestreo-aleatorio-por-clusters-bietápico-en-dos-etapas"><i class="fa fa-check"></i><b>6.2</b> Muestreo aleatorio por clusters bietápico (en dos etapas)</a></li>
+<li class="chapter" data-level="6.3" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#ejemplo-disco-duro"><i class="fa fa-check"></i><b>6.3</b> Ejemplo: Disco duro</a></li>
+<li class="chapter" data-level="6.4" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#ejemplo-encuesta-nacional-de-salud"><i class="fa fa-check"></i><b>6.4</b> Ejemplo: Encuesta Nacional de Salud</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="appendix"><span><b>Apéndice</b></span></li>
+<li class="chapter" data-level="A" data-path="programación-en-r.html"><a href="programación-en-r.html"><i class="fa fa-check"></i><b>A</b> Programación en <code>R</code></a><ul>
+<li class="chapter" data-level="A.1" data-path="programación-en-r.html"><a href="programación-en-r.html#algunas-ventajas-de-r-y-cosas-no-tan-padres"><i class="fa fa-check"></i><b>A.1</b> Algunas ventajas de <code>R</code> y cosas no tan padres</a><ul>
+<li class="chapter" data-level="A.1.1" data-path="programación-en-r.html"><a href="programación-en-r.html#puntos-a-favor-de-r"><i class="fa fa-check"></i><b>A.1.1</b> Puntos a favor de <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="programación-en-r.html"><a href="programación-en-r.html#bienvenidx-a-r-bunny-wunnies-freak-out-sí-así-se-llama-esta-versión"><i class="fa fa-check"></i><b>A.2</b> Bienvenidx a <code>R</code>, Bunny-Wunnies Freak Out (sí, así se llama esta versión)</a></li>
+<li class="chapter" data-level="A.3" data-path="programación-en-r.html"><a href="programación-en-r.html#instalando-cosas"><i class="fa fa-check"></i><b>A.3</b> Instalando cosas</a><ul>
+<li class="chapter" data-level="A.3.1" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-r"><i class="fa fa-check"></i><b>A.3.1</b> Instalación de <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-rstudio"><i class="fa fa-check"></i><b>A.4</b> Instalación de <code>RStudio</code></a></li>
+<li class="chapter" data-level="A.5" data-path="programación-en-r.html"><a href="programación-en-r.html#primeros-pasos-en-r-usando-rstudio"><i class="fa fa-check"></i><b>A.5</b> Primeros pasos en <code>R</code> usando <code>RStudio</code></a></li>
+<li class="chapter" data-level="A.6" data-path="programación-en-r.html"><a href="programación-en-r.html#cálculos-numéricos"><i class="fa fa-check"></i><b>A.6</b> Cálculos numéricos</a><ul>
+<li class="chapter" data-level="A.6.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-11"><i class="fa fa-check"></i><b>A.6.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="A.6.2" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-12"><i class="fa fa-check"></i><b>A.6.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="A.6.3" data-path="programación-en-r.html"><a href="programación-en-r.html#respuestas"><i class="fa fa-check"></i><b>A.6.3</b> Respuestas</a></li>
+</ul></li>
+<li class="chapter" data-level="A.7" data-path="programación-en-r.html"><a href="programación-en-r.html#variables"><i class="fa fa-check"></i><b>A.7</b> Variables</a><ul>
+<li class="chapter" data-level="A.7.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>A.7.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="A.7.2" data-path="programación-en-r.html"><a href="programación-en-r.html#nivel-3"><i class="fa fa-check"></i><b>A.7.2</b> NIVEL 3</a></li>
+</ul></li>
+<li class="chapter" data-level="A.8" data-path="programación-en-r.html"><a href="programación-en-r.html#observaciones-sobre-la-aritmética-de-punto-flotante"><i class="fa fa-check"></i><b>A.8</b> Observaciones sobre la aritmética de punto flotante</a><ul>
+<li class="chapter" data-level="A.8.1" data-path="programación-en-r.html"><a href="programación-en-r.html#cómo-checar-un-if"><i class="fa fa-check"></i><b>A.8.1</b> ¿Cómo checar un if?</a></li>
+</ul></li>
+<li class="chapter" data-level="A.9" data-path="programación-en-r.html"><a href="programación-en-r.html#leer-y-almacenar-variables-en-r"><i class="fa fa-check"></i><b>A.9</b> Leer y almacenar variables en <code>R</code></a><ul>
+<li class="chapter" data-level="A.9.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-13"><i class="fa fa-check"></i><b>A.9.1</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="A.10" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-paquetes"><i class="fa fa-check"></i><b>A.10</b> Instalación de paquetes</a><ul>
+<li class="chapter" data-level="A.10.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicios-3"><i class="fa fa-check"></i><b>A.10.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="A.11" data-path="programación-en-r.html"><a href="programación-en-r.html#comentarios-adicionales-sobre-el-formato"><i class="fa fa-check"></i><b>A.11</b> Comentarios adicionales sobre el formato</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html"><i class="fa fa-check"></i><b>B</b> Repaso de Proba</a><ul>
+<li class="chapter" data-level="B.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-indicadoras"><i class="fa fa-check"></i><b>B.1</b> Funciones indicadoras</a></li>
+<li class="chapter" data-level="B.2" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#conteo"><i class="fa fa-check"></i><b>B.2</b> Conteo</a></li>
+<li class="chapter" data-level="B.3" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#espacios-de-probabilidad"><i class="fa fa-check"></i><b>B.3</b> Espacios de probabilidad</a></li>
+<li class="chapter" data-level="B.4" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#probabilidad-condicional"><i class="fa fa-check"></i><b>B.4</b> Probabilidad condicional</a></li>
+<li class="chapter" data-level="B.5" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#independencia"><i class="fa fa-check"></i><b>B.5</b> Independencia</a></li>
+<li class="chapter" data-level="B.6" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#variables-aleatorias-y-función-de-distribución-acumulada"><i class="fa fa-check"></i><b>B.6</b> Variables aleatorias y función de distribución (acumulada)</a></li>
+<li class="chapter" data-level="B.7" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-de-masa-de-probabilidad"><i class="fa fa-check"></i><b>B.7</b> Funciones de masa de probabilidad</a></li>
+<li class="chapter" data-level="B.8" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-de-densidad"><i class="fa fa-check"></i><b>B.8</b> Funciones de densidad</a></li>
+<li class="chapter" data-level="B.9" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-de-cambio-de-variable-unidimensional"><i class="fa fa-check"></i><b>B.9</b> Teorema de cambio de variable unidimensional</a></li>
+<li class="chapter" data-level="B.10" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#probabilidad-multivariada"><i class="fa fa-check"></i><b>B.10</b> Probabilidad Multivariada</a></li>
+<li class="chapter" data-level="B.11" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#esperanza-varianza-y-covarianza"><i class="fa fa-check"></i><b>B.11</b> Esperanza, varianza y covarianza</a><ul>
+<li class="chapter" data-level="B.11.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#propiedades-de-valor-esperado-varianza-y-covarianza"><i class="fa fa-check"></i><b>B.11.1</b> Propiedades de valor esperado, varianza y covarianza</a></li>
+</ul></li>
+<li class="chapter" data-level="B.12" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#condicionamiento-por-otra-variable-aleatoria"><i class="fa fa-check"></i><b>B.12</b> Condicionamiento por otra variable aleatoria</a></li>
+<li class="chapter" data-level="B.13" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-características"><i class="fa fa-check"></i><b>B.13</b> Funciones características</a></li>
+<li class="chapter" data-level="B.14" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#convergencias"><i class="fa fa-check"></i><b>B.14</b> Convergencias</a><ul>
+<li class="chapter" data-level="B.14.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-de-continuidad-de-lévy"><i class="fa fa-check"></i><b>B.14.1</b> Teorema de continuidad de Lévy</a></li>
+</ul></li>
+<li class="chapter" data-level="B.15" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>B.15</b> Ley de los grandes números</a></li>
+<li class="chapter" data-level="B.16" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>B.16</b> Teorema del límite central</a><ul>
+<li class="chapter" data-level="B.16.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#programación-en-r-del-teorema-del-límite-central-con-variables-aleatorias-independientes-idénticamente-distribuidas"><i class="fa fa-check"></i><b>B.16.1</b> Programación en <code>R</code> del teorema del límite central con variables aleatorias independientes idénticamente distribuidas</a></li>
+<li class="chapter" data-level="B.16.2" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#ejercicio-14"><i class="fa fa-check"></i><b>B.16.2</b> Ejercicio</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="muestreo-aleatorio-multietápico" class="section level1">
+<h1><span class="header-section-number">Capítulo 6</span> Muestreo Aleatorio Multietápico</h1>
+<p>La idea de un muestreo aleatorio multietápico es un modelo donde la aleatoriedad ocurre más de una vez. El ejemplo común es el de encuestadores que van a una casa. De inicio la casa se selecciona al azar usando un censo o un mapa (primer fuente de aleatoriedad) y una vez que se llega a la casa y se le pregunta a la gente de la misma cuántos habitantes hay, se selecciona a una persona de la casa de manera aleatoria (segunda fuente de aleatoriedad) para realizarle la encuesta.</p>
+<blockquote>
+<p><strong>Nota</strong> La diferencia esencial entre una etapa y un estrato es que el estrato no es aleatorio. Un estrato es cómo decido yo dividir mi muestra que tenga sentido de manera explicativa (por ejemplo hombre/mujer/otrx o por estado civil, grupo de edad). Pero no es que <em>aleatoriamente</em> se seleccione un hombre o una mujer sino que es una característica de la población que se mide y en base a la cual se clasifica. Por otro lado, una etapa va a ser algo que se selecciona de manera aleatoria.</p>
+</blockquote>
+<p>Hay dos razones principales para hacer muestreo multietápico:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><em>Se desconoce la población total.</em> No hay un censo de toda la población. Pero sí hay forma de identificar otros grupos dentro de los cuales se puede muestrear y obtener un censo.</p></li>
+<li><p><em>La muestra está repartida en un área demasiado grande</em> (piensa, por ejemplo, muestrear en una selva) por lo que es imposible cubrir toda el área por lo que se muestrean regiones y luego subregiones a fin de tener toda la muestra (en la selva igual se seleccionarían al azar regiones y luego subregiones).</p></li>
+</ol>
+<p>El primer ejemplo que analizaremos será un <em>muestreo aleatorizado por clusters de una sola etapa</em>. De ahí saltaremos al bietápico y daremos las líneas para el multietápico (sin meternos mucho en ello). Para ello la definición de cluster será un subgrupo en el cual se divide la población donde la selección aleatoria ocurre entre los grupos (y no entre las unidades primarias de muestreo) y luego dentro del cluster se realiza un censo.</p>
+<p>Por poner un ejemplo, de <em>muestreo aleatorizado por clusters de una sola etapa</em> podría interesar conocer el uso de drogas dentro de estudiantes de preparatoria. Para ello se divide a la población estudiantil en subgrupos (las preparatorias) y se muestrean las preparatorias (el cluster). Una vez seleccionadas algunas preparatorias dentro de las mismas se hace un censo de todos los estudiantes preguntándoles sobre consumo de drogas.</p>
+<p>El algoritmo multietápico suele ser como sigue:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Se agrupan elementos poblacionales en subpoblaciones disjuntas conocidas como <strong>unidades primarias de muestreo</strong> (PSU) dentro de las cuales se toma una muestra (<em>primera etapa</em>)</p></li>
+<li><p>Los elementos de cada PSU se consideran nuevas unidades de muestreo (SSU, unidades secundarias de muestreo) las cuales pueden ser elementos (de los cuales se toma un censo) o bien nuevos clusters</p></li>
+<li><p>En caso que la SSU sean nuevos clusters el proceso se repite en tantas etapas como sea necesario hasta tener un censo de elementos (en algún nivel). Estas se conocen como undades terciarias de muestro (o penúltimas, <span class="math inline">\(n\)</span>-ésimas, lo que sea que aplique según cuántas se tengan).</p></li>
+</ol>
+<div id="muestreo-aleatorio-por-clusters-en-una-sola-etapa" class="section level2">
+<h2><span class="header-section-number">6.1</span> Muestreo aleatorio por clusters en una sola etapa</h2>
+<p>En este caso se tiene una población finita <span class="math inline">\(U = (x_1, x_2, \dots, x_N)^T\)</span> particionada en <span class="math inline">\(N_t\)</span> subpoblaciones llamadas <em>clusters</em> denotadas <span class="math inline">\(U_1, U_2, \dots, U_{N_1}\)</span>. Generalmente identificamos al cluster por su subíndice:
+<span class="math display">\[
+\mathcal{U}_1 = \{ 1, 2, \dots, N_1\}
+\]</span>
+En este caso se tiene que:
+<span class="math display">\[
+U = \bigcup_{i \in \mathcal{C}_1} U_i \qquad \text{y} \qquad N = \sum\limits_{i \in \mathcal{C}_1} N_i
+\]</span>
+El muestreo aleatorio por clusters en una sola etapa se define como sigue:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Se obtiene una muestra<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> <span class="math inline">\(\mathcal{S}_1\)</span> de clusters obtenidos de <span class="math inline">\(\mathcal{C}_1\)</span> de acuerdo a algún diseño probabilístico <span class="math inline">\(\mathbb{P}_1\)</span>. El tamaño de la muestra es <span class="math inline">\(n_1\)</span>.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Se mide cada elemento de los clusters seleccionados.</li>
+</ol></li>
+</ol>
+<p>Podemos hacer dicho esquema de muestreo en <code>R</code>, por ejemplo si consideramos una base de escuelas donde se tiene el registro de cada uno de los alumnos en la escuela:</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="muestreo-aleatorio-multietápico.html#cb227-1"></a><span class="co">#Creamos la base de datos</span></span>
+<span id="cb227-2"><a href="muestreo-aleatorio-multietápico.html#cb227-2"></a>escuelas       &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Escuela &quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)</span>
+<span id="cb227-3"><a href="muestreo-aleatorio-multietápico.html#cb227-3"></a>datos.escuelas &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Escuela =</span> <span class="kw">sample</span>(escuelas, <span class="dv">1000</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>), </span>
+<span id="cb227-4"><a href="muestreo-aleatorio-multietápico.html#cb227-4"></a>                             <span class="dt">Promedio_Alumno =</span> <span class="kw">runif</span>(<span class="dv">1000</span>, <span class="dv">6</span>, <span class="dv">10</span>))</span>
+<span id="cb227-5"><a href="muestreo-aleatorio-multietápico.html#cb227-5"></a></span>
+<span id="cb227-6"><a href="muestreo-aleatorio-multietápico.html#cb227-6"></a><span class="co">#Seleccionamos las escuelas al azar (los clusters)</span></span>
+<span id="cb227-7"><a href="muestreo-aleatorio-multietápico.html#cb227-7"></a>escuelas.seleccionadas &lt;-<span class="st"> </span><span class="kw">sample</span>(escuelas, <span class="dv">5</span>)</span>
+<span id="cb227-8"><a href="muestreo-aleatorio-multietápico.html#cb227-8"></a></span>
+<span id="cb227-9"><a href="muestreo-aleatorio-multietápico.html#cb227-9"></a><span class="co">#Una vez se tiene el cluster se produce un censo de los clusters</span></span>
+<span id="cb227-10"><a href="muestreo-aleatorio-multietápico.html#cb227-10"></a>muestra &lt;-<span class="st"> </span>datos.escuelas <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Escuela <span class="op">%in%</span><span class="st"> </span>escuelas.seleccionadas)</span></code></pre></div>
+<p>En este caso denotaremos la muestra observada como:
+<span class="math display">\[
+\mathcal{S} = \bigcup_{i \in \mathcal{S}_1} U_i
+\]</span></p>
+<p>con su tamaño respectivo:
+<span class="math display">\[
+n_{\mathcal{S}} = \sum\limits_{i \in \mathcal{S}_1} N_i
+\]</span>
+&gt; Toma en cuenta que aunque la muestra de clusters sea de tamaño fijo en general el número de elementos observados no va a ser fijo pues los tamaños de cluster pueden variar.</p>
+<p>Agregamos unas nuevas probabilidades de pertenencia. Para un elemento <span class="math inline">\(x_k \in U_i\)</span> se tiene que:
+<span class="math display">\[
+\pi_{k} = \mathbb{P}(x_k \in \mathcal{S}) = \mathbb{P}(U_i \subseteq \mathcal{S}) = \pi_{1,i}
+\]</span>
+mientras que para <span class="math inline">\(x_k \in U_i\)</span> y <span class="math inline">\(x_l\in U_j\)</span> se tiene:
+<span class="math display">\[
+\pi_{k,l} = \mathbb{P}(x_k  \in \mathcal{S},x_l  \in \mathcal{S}) = \mathbb{P}(U_i \subseteq \mathcal{S}, U_j \subseteq \mathcal{S}) = \pi_{1,i,j}
+\]</span></p>
+<p>El total poblacional puede escribirse como:
+<span class="math display">\[
+t = \sum_{U_i} t_i = \sum_{k = 1}^N x_k 
+\]</span>
+donde <span class="math inline">\(t_i = \sum_{x_k \in U_i} x_k\)</span> son los totales de cada cluster. En este contexto tenemos que:
+<span class="math display">\[
+\hat{t} = \sum\limits_{i \in \mathcal{S}_1} \dfrac{t_i}{\pi_{1i}}
+\]</span>
+es un estimador insesgado del total poblacional. Su varianza está dada por:
+<span class="math display">\[
+\textrm{Var}(\hat{t}) = \sum\limits_{j \in \mathcal{C}_1}\sum\limits_{i \in \mathcal{C}_1} \dfrac{\Delta_{1ij}}{\pi_{1i}\pi_{1j}} t_i t_j
+\]</span>
+mientras que un estimador insesgado es:
+<span class="math display">\[
+\widehat{\textrm{Var}}(\hat{t}) = \sum\limits_{j \in \mathcal{S}_1}\sum\limits_{i \in \mathcal{S}_1}\dfrac{1}{\pi_{1ij}} \dfrac{\Delta_{1ij}}{\pi_{1i}\pi_{1j}} t_i t_j
+\]</span>
+Las demostraciones de que dichos estimadores son insesgados son idénticas a las que ya hicimos con muestreo aleatorio simple y no las repetiremos.</p>
+<p>En particular podemos tener que en el caso de muestreo aleatorio simple sin reemplazo se tiene:
+<span class="math display">\[
+\hat{t} = N_1 \bar{t}_{\mathcal{S}_1}
+\]</span>
+donde <span class="math inline">\(\bar{t}_{\mathcal{S}_1} = \sum_{i \in \mathcal{S}_1} t_i / n_1\)</span> es la media de los totales. En este caso las expresiones de las varianzas son idénticas a las que ya conocemos (justo porque se deducen de la misma manera):
+<span class="math display">\[
+\textrm{Var}(\hat{t}) = N_1^2 \dfrac{1 - f_1}{n_1}S^2_{t,\mathcal{U}_1}
+\]</span>
+donde <span class="math inline">\(f_1 = n_1/N_1\)</span> es la fracción muestral del cluster y
+<span class="math display">\[
+S^2_{t,\mathcal{U}_1} = \dfrac{1}{N_1 - 1} \sum_{i\in\mathcal{U}_1}(t_i - \bar{t}_{\mathcal{U}_1})^2
+\]</span>
+con <span class="math inline">\(\bar{t}_{\mathcal{U}_1} = \sum\limits_{i \in \mathcal{U}_1} t_i / N_1\)</span>. El estimador de la varianza corresponde al muestral:
+<span class="math display">\[
+\widehat{\textrm{Var}}(\hat{t}) =  N_1^2 \dfrac{1 - f_1}{n_1}S^2_{t,\mathcal{S}_1}
+\]</span>
+donde
+<span class="math display">\[
+S^2_{t,\mathcal{S}_1} = \dfrac{1}{n_1 - 1} \sum_{i\in\mathcal{S}_1}(t_i - \bar{t}_{\mathcal{S}_1})^2
+\]</span></p>
+<div id="ejemplo-5" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Ejemplo</h3>
+<p>El objetivo es estimar la media de ingreso de hogares en una colonia de una ciudad que consiste de 60 cuadras de casas de tamaño variable. Para esto seleccionamos tres cuadras usando muestreo aleatorio simple sin reemplazo y entrevistamos a todos los hogares en dichas cuadras. Se sabe, además que hay <span class="math inline">\(5000\)</span> casas en esta colonia y la tabla muestra los resultados de la encuesta</p>
+
+<p><strong>Estimar la media de ingreso y su varianza.</strong></p>
+<p><strong>Solución</strong>
+Tenemos que <span class="math inline">\(n_1 = 3\)</span>, <span class="math inline">\(N = 5000\)</span> y <span class="math inline">\(N_1 = 60\)</span>. Las probabilidades de inclusión son:
+<span class="math display">\[
+\pi_{1i} = \frac{n_1}{N_1} = \frac{1}{20}
+\]</span>
+Se construye el estimador de la media mediante:
+<span class="math display">\[
+\hat{\bar{x}} = \frac{1}{N} \sum_{i \in \mathcal{S}} \underbrace{\dfrac{t_i}{\frac{n_1}{N_1}}}_{\pi_{1i}} =  \frac{N_1}{N} \frac{1}{n_1}\sum_{i \in \mathcal{S}}t_i \approx 22.4
+\]</span></p>
+<p>Por otro lado como <span class="math inline">\(\hat{\bar{x}} = \hat{t}/N\)</span> entonces se tiene que
+<span class="math display">\[
+\textrm{Var}(\hat{\bar{x}}) = \textrm{Var}(\hat{t})/N^2
+\]</span>
+de donde se obtiene:
+<span class="math display">\[
+\widehat{\textrm{Var}}(\hat{\bar{x}}) =\approx 4.7
+\]</span>
+(El resultado anterior sale sólo de sustituir).</p>
+</div>
+</div>
+<div id="muestreo-aleatorio-por-clusters-bietápico-en-dos-etapas" class="section level2">
+<h2><span class="header-section-number">6.2</span> Muestreo aleatorio por clusters bietápico (en dos etapas)</h2>
+<p>Usualmente es demasiado caro hacer el censo <em>dentro</em> del cluster por lo que se muestrea dentro del mismo una vez seleccionado. (Por ejemplo, en el caso de las drogas en las escuelas es más fácil seleccionar sólo unos alumnos al azar y no a todos los alumnos). En estos casos hay dos fuentes de aleatoriedad: las unidades primarias de muestreo (los clusters más grandotes) y las secundarias (muestreo dentro del cluster), La notación se va a complicar pero el principio es el mismo.</p>
+<p>La idea es que la población de elementos:
+<span class="math display">\[
+\mathcal{U} = \{ x_1, x_2, \dots, x_N\}
+\]</span>
+es subdividida en <span class="math inline">\(N\)</span> unidades primarias de muestreo denotadas <span class="math inline">\(U_1, \dots, U_{N_1}\)</span>. El tamaño de <span class="math inline">\(U_i\)</span> es <span class="math inline">\(N_u\)</span>. El diseño muestral es como sigue:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Se obtiene una muestra <span class="math inline">\(\mathcal{S}_1\)</span> de unidades primarias de muestreo de acuerdo con algún diseño <span class="math inline">\(\mathbb{P}_1\)</span>.</li>
+<li>Para cada <span class="math inline">\(U_i \in \mathcal{S}_1\)</span> se selecciona una muestra de <span class="math inline">\(S_i\)</span> elementos de <span class="math inline">\(U_i\)</span> de acuerdo al diseño condicional <span class="math inline">\(\mathbb{P}_i\big(\cdot | \mathcal{S}_1\big)\)</span></li>
+</ol>
+<p>La muestra resultante de elementos se denota:
+<span class="math display">\[
+\mathcal{S} = \bigcup_{i \in \mathcal{S}_1} S_i
+\]</span></p>
+<p>En este capítulo pediremos dos cosas para los muestreos condicionales:</p>
+<p><strong>Independencia</strong> Que el muestreo de <span class="math inline">\(U_i\)</span> sea independiente del de <span class="math inline">\(U_j\)</span>. Matemáticamente esto se escribe como:
+<span class="math display">\[
+\mathbb{P}\Bigg( \bigcup_{i \in \mathcal{S}} S_i | \mathcal{S}_1 \Bigg)  = \prod\limits_{i \in \mathcal{S}} \mathbb{P}(S_i | \mathcal{S}_1 )
+\]</span></p>
+<p><strong>Invarianza</strong> Una vez que se incluye el <span class="math inline">\(U_i\)</span> en la muestra el muestreo siempre es igual independientemente de los <span class="math inline">\(U_j\)</span>; es decir: <span class="math inline">\(\mathbb{P}_i\big(\cdot | \mathcal{S}_1\big) = \mathbb{P}_i\big(\cdot \big)\)</span>.</p>
+<p>Los tamaños de muestra se definen como sigue: el número de unidades primarias de muestreo es <span class="math inline">\(S_i\)</span> es <span class="math inline">\(n_i\)</span>. El número total de elementos en <span class="math inline">\(\mathcal{S}\)</span> está dado por:
+<span class="math display">\[
+n_{\mathcal{S}} = \sum_{i \in \mathcal{S}} n_{i}
+\]</span>
+Las probabilidades de inclusión en la primera etapa <span class="math inline">\(\mathbb{P}_1\)</span> son:
+<span class="math display">\[
+\Delta_{1ij} = \pi_{1ij} - \pi_{1i} \pi_{1j}
+\]</span>
+con
+<span class="math display">\[
+\Delta_{1ii} = \pi_{1i}(1 - \pi_{1i})
+\]</span>
+Para la segunda etapa (el muestreo adentro de un <span class="math inline">\(\mathcal{S}_i\)</span>) las cantidades son:
+<span class="math display">\[
+\Delta_{kl|i} = \pi_{kl|i} - \pi_{k|i} \pi_{l|i}
+\]</span></p>
+<p>con <span class="math inline">\(\Delta_{kk|i} = \pi_{k|i}(1 - \pi_{k|i})\)</span>. Notamos que por invarianza e independencia:
+<span class="math display">\[
+\pi_k = \pi_{1i} \pi_{k | i} \qquad \textrm{para } x_k\in U_i
+\]</span>
+mientras que:
+<span class="math display">\[
+\pi_{kl} = \begin{cases}
+\pi_{1i} \pi_{k|i} &amp; \text{ si } x_k = x_l \in U_i\\
+\pi_{1i} \pi_{kl|i}  &amp; \text{ si } x_k, x_l \in U_i\\
+\pi_{1ij} \pi_{k|i}\pi_{l|j} &amp; \text{ si } x_k \in U_i \text{ y } x_l \in U_j
+\end{cases}
+\]</span></p>
+<p>Un estimador del total poblacional (insesgado) es el ya usual estimador HT:
+<span class="math display">\[
+\hat{t} = \sum\limits_{\mathcal{S}_1} \frac{\hat{t}_{i}}{\pi_{1i}}
+\]</span></p>
+<p>donde <span class="math inline">\(\hat{t}_{i}\)</span> es el estimador de <span class="math inline">\(t_i\)</span> el total de <span class="math inline">\(U_i\)</span>. La varianza de <span class="math inline">\(\hat{t}\)</span> se puede escribir como:
+<span class="math display">\[
+\textrm{Var}(\hat{t}) = V_{PSU} + V_{SSU}
+\]</span></p>
+<p>donde
+<span class="math display">\[
+V_{PSU} = \sum\sum_{U_i} \dfrac{\Delta_{1ij}}{\pi_{1i} \pi_{1j}} t_i t_j
+\]</span>
+<span class="math display">\[
+V_{SSU} = \sum_{U_i} \dfrac{V_i}{\pi_{1i}}
+\]</span>
+con
+<span class="math display">\[
+V_i = \sum\sum_{U_i} \Delta_{kl|i} \dfrac{x_k}{\pi_{k|i}}\dfrac{x_l}{\pi_{l|i}}
+\]</span>
+Los estimadores insesgados así como las expresiones reducidas de la varianza pueden hallarse en el formulario bietápico disponible en comunidad. <strong>Demostración</strong> Checar el Sarndal páginas 136-139.</p>
+</div>
+<div id="ejemplo-disco-duro" class="section level2">
+<h2><span class="header-section-number">6.3</span> Ejemplo: Disco duro</h2>
+<p>En el disco duro de una computadora hay 400 bases de datos cada una de las cuales consiste en 50 entradas (renglones). Se desea estimar el número de caracteres por entrada por lo que se hace muestreo aleatorio simple de los 80 archivos y luego dentro de cada archivo muestreo aleatorio simple para <span class="math inline">\(5\)</span> entradas. En el caso del formulario de comunidad, sean <span class="math inline">\(m = 80\)</span> y <span class="math inline">\(n = 5\)</span>. Después de muestrear obtenemos:</p>
+<ol style="list-style-type: lower-alpha">
+<li>La media muestral de los estimadores para el número total de caracteres por archivo dada por: <span class="math inline">\(s^2_T = 905000\)</span></li>
+<li>La media de las <span class="math inline">\(m\)</span> varianzas muestrales <span class="math inline">\(s^2_i\)</span> es igual a <span class="math inline">\(805\)</span> donde <span class="math inline">\(s^2_i\)</span> representa la varianza del número de caracteres por entrada en el iésimo archivo.</li>
+</ol>
+<p>Estimar el número promedio de caracteres por entrada junto con su precisión de manera insesgada. Dar un intervalo de confianza al <span class="math inline">\(95\%\)</span>.</p>
+<p><strong>Solución</strong></p>
+<p>Denotando <span class="math inline">\(y_{i,k}\)</span> al número de caracteres de la entrada <span class="math inline">\(k\)</span> del archivo <span class="math inline">\(i\)</span> tenemos que la cantidad de interés es:
+<span class="math display">\[
+\bar{y} =\frac{1}{N} \sum\limits_{i = 1}^M \sum_{k \in U_i} y_{i,k} = \frac{1}{N} \sum\limits_{i = 1}^M \bar{N}\bar{y}_i = \frac{1}{M}\sum_{i = 1}^M \bar{y}_i
+\]</span>
+donde</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(M = 400\)</span> es el número de archivos (PSU)</p></li>
+<li><p><span class="math inline">\(\bar{N} = 50\)</span> es el número de entradas por archivo (SSU)</p></li>
+<li><p><span class="math inline">\(N = 400 \times 50\)</span> es el número total de entradas (<span class="math inline">\(n_{\mathcal{S}}\)</span>)</p></li>
+<li><p><span class="math inline">\(\bar{y}_i\)</span> es el número promedio de caracteres por entrada del archivo <span class="math inline">\(i\)</span>.</p></li>
+<li><p><span class="math inline">\(U_i\)</span> es el cluster <span class="math inline">\(i\)</span> (identificadores de las entradas del archivo <span class="math inline">\(i\)</span> en este caso).</p></li>
+</ol>
+<p>El estimador insesgado de la media sería
+<span class="math display">\[
+\hat{\bar{y}} = \dfrac{\hat{y}}{N} = \dfrac{1}{N} \sum\limits_{i \in \mathcal{S}}^M \dfrac{\hat{t}_i }{m/M}
+\]</span></p>
+<p>donde <span class="math inline">\(\hat{t}_i\)</span> son los estimadores de los totales del archivo <span class="math inline">\(i\)</span> y <span class="math inline">\(\mathcal{S}\)</span> es la colección de índices seleccionados para la muestra. En particular:
+<span class="math display">\[
+\hat{t}_i =\sum_{k \in \mathcal{S}_i} \dfrac{y_{i,k} }{\bar{n}/\bar{N}} = 
+\]</span>
+El estimador de <span class="math inline">\(\widehat{\textrm{Var}}(\hat{\bar{y}}) = \frac{1}{N^2}\widehat{\text{Var}}(\hat{t}) \approx 3.98.\)</span> cuando se sustituye. Finalmente:
+<span class="math display">\[
+\hat{\bar{y}} \pm Z_{1 - 0.05/2}\sqrt{3.98}
+\]</span>
+da el intervalo de confianza.</p>
+</div>
+<div id="ejemplo-encuesta-nacional-de-salud" class="section level2">
+<h2><span class="header-section-number">6.4</span> Ejemplo: Encuesta Nacional de Salud</h2>
+<p>La <a href="https://ensanut.insp.mx/encuestas/ensanut2018/descargas.php">Encuesta Nacional de Salud y Nutrición 2018</a> es una encuesta nacional estratificada bietápica. La nota metodológica completa puede hallarse <a href="https://ensanut.insp.mx/encuestas/ensanut2018/doctos/metodologia/ensanut_2018_diseno_muestral.pdf">en el reporte</a>. A partir de la lectura de la nota metodológica se establece el diseño muestral:</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="muestreo-aleatorio-multietápico.html#cb228-1"></a><span class="kw">library</span>(readr)</span>
+<span id="cb228-2"><a href="muestreo-aleatorio-multietápico.html#cb228-2"></a><span class="kw">library</span>(survey)</span></code></pre></div>
+<pre><code>## Loading required package: grid</code></pre>
+<pre><code>## 
+## Attaching package: &#39;grid&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:imager&#39;:
+## 
+##     depth</code></pre>
+<pre><code>## Loading required package: Matrix</code></pre>
+<pre><code>## 
+## Attaching package: &#39;Matrix&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:tidyr&#39;:
+## 
+##     expand, pack, unpack</code></pre>
+<pre><code>## Loading required package: survival</code></pre>
+<pre><code>## 
+## Attaching package: &#39;survey&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     dotchart</code></pre>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="muestreo-aleatorio-multietápico.html#cb238-1"></a>ensanut &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;~/Dropbox/ITAM_CLASES/Aplicada1/Archivos_2020/ENSANUT_1.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   .default = col_double(),
+##   UPM = col_character(),
+##   VIV_SEL = col_character(),
+##   NUMREN = col_character(),
+##   P1_2 = col_character(),
+##   P1_5 = col_character(),
+##   P1_8 = col_character(),
+##   P3_3V = col_character(),
+##   P3_4 = col_character(),
+##   P3_5D = col_character(),
+##   P3_5M = col_character(),
+##   P3_5A = col_character(),
+##   P3_6 = col_character(),
+##   P3_9M = col_character(),
+##   P3_9A = col_character(),
+##   P3_10M = col_character(),
+##   P3_10A = col_character(),
+##   P3_12 = col_character(),
+##   P3_15_1 = col_character(),
+##   P3_15_2 = col_character(),
+##   P3_15_3 = col_character()
+##   # ... with 122 more columns
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
+<pre><code>## Warning: 1342 parsing failures.
+##  row      col           expected actual                                                          file
+## 1281 P10_7_7  1/0/T/F/TRUE/FALSE   05   &#39;~/Dropbox/ITAM_CLASES/Aplicada1/Archivos_2020/ENSANUT_1.csv&#39;
+## 2093 P10_7_7  1/0/T/F/TRUE/FALSE   09   &#39;~/Dropbox/ITAM_CLASES/Aplicada1/Archivos_2020/ENSANUT_1.csv&#39;
+## 2349 P9_9_B2D 1/0/T/F/TRUE/FALSE   30   &#39;~/Dropbox/ITAM_CLASES/Aplicada1/Archivos_2020/ENSANUT_1.csv&#39;
+## 2349 P9_9_B2M 1/0/T/F/TRUE/FALSE   09   &#39;~/Dropbox/ITAM_CLASES/Aplicada1/Archivos_2020/ENSANUT_1.csv&#39;
+## 2349 P9_9_B2A 1/0/T/F/TRUE/FALSE   2008 &#39;~/Dropbox/ITAM_CLASES/Aplicada1/Archivos_2020/ENSANUT_1.csv&#39;
+## .... ........ .................. ...... .............................................................
+## See problems(...) for more details.</code></pre>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="muestreo-aleatorio-multietápico.html#cb241-1"></a><span class="co">#Diseño de encuesta completa</span></span>
+<span id="cb241-2"><a href="muestreo-aleatorio-multietápico.html#cb241-2"></a>ensanut &lt;-<span class="st"> </span>ensanut <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">id =</span> <span class="kw">paste0</span>(VIV_SEL, NUMREN))</span>
+<span id="cb241-3"><a href="muestreo-aleatorio-multietápico.html#cb241-3"></a></span>
+<span id="cb241-4"><a href="muestreo-aleatorio-multietápico.html#cb241-4"></a><span class="co">#Codificar diabéticos</span></span>
+<span id="cb241-5"><a href="muestreo-aleatorio-multietápico.html#cb241-5"></a>ensanut &lt;-<span class="st"> </span>ensanut <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Diabetes =</span> <span class="kw">ifelse</span>(P3_<span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb241-6"><a href="muestreo-aleatorio-multietápico.html#cb241-6"></a></span>
+<span id="cb241-7"><a href="muestreo-aleatorio-multietápico.html#cb241-7"></a><span class="co">#Diseño muestral</span></span>
+<span id="cb241-8"><a href="muestreo-aleatorio-multietápico.html#cb241-8"></a>diseño  &lt;-<span class="st"> </span><span class="kw">svydesign</span>(<span class="dt">id=</span> <span class="op">~</span>id, <span class="dt">strata=</span> <span class="op">~</span>EST_DIS, <span class="dt">weights=</span><span class="op">~</span>F_20MAS, <span class="dt">PSU=</span><span class="op">~</span>UPM, <span class="dt">data=</span> ensanut, <span class="dt">nest=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<p>Podemos utilizar el diseño muestral y el paquete survey para estimaciones como calcular la proporción nacional de diabéticos:</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="muestreo-aleatorio-multietápico.html#cb242-1"></a>media &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span class="op">~</span>Diabetes, diseño)</span>
+<span id="cb242-2"><a href="muestreo-aleatorio-multietápico.html#cb242-2"></a><span class="kw">print</span>(media)</span></code></pre></div>
+<pre><code>##             mean     SE
+## Diabetes 0.10321 0.0024</code></pre>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="muestreo-aleatorio-multietápico.html#cb244-1"></a><span class="kw">confint</span>(media)</span></code></pre></div>
+<pre><code>##               2.5 %    97.5 %
+## Diabetes 0.09849833 0.1079285</code></pre>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>La muestra puede ser estratificada, aleatoria simple, bernoulli, como sea…<a href="muestreo-aleatorio-multietápico.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intervalos-de-confianza-mediante-bootstrap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": ["night", "white", "sepia"],
+"family": "sans",
+"size": [2, 4]
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introduccion_a_Muestreo.pdf", "Introduccion_a_Muestreo.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -29,3 +29,6 @@ knitr
 reshape2
 data.tree
 binom
+Matrix
+survival
+survey
