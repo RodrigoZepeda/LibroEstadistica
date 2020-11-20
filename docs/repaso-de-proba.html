@@ -24,7 +24,7 @@
 <meta name="author" content="Rodrigo Zepeda-Tello" />
 
 
-<meta name="date" content="2020-11-10" />
+<meta name="date" content="2020-11-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -584,7 +584,7 @@ o bien:
 \mathbb{P}(X &lt; x) = \lim_{z \to x^-} F(z)
 \]</span></p>
 <p>Las funciones de distribución acumulada más comunes se veían como en la imagen:</p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-298-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-300-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Si una función de distribución acumulada <span class="math inline">\(F_X\)</span> era continua entonces decíamos que la variable aleatoria asociada (<span class="math inline">\(X\)</span>) es <em>continua</em>. En particular, la continuidad implica que:
 <span class="math display">\[
 \mathbb{P}(X = k) = 0 \qquad \forall k 
@@ -603,7 +603,7 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span class="math display">\[
 \mathbb{P}\big( X = a_k \big) = \dfrac{1}{n} \cdot \mathbb{I}_{A}(a_k) \qquad \forall k \in \{ 1, 2, \dots, n \} 
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-299-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-301-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Un modelo particular salía de considerar el siguiente problema:</p>
 <blockquote>
 <p>Tenemos una moneda que cae Águila con probabilidad <span class="math inline">\(p\)</span> y Sol con probabilidad <span class="math inline">\((1-p)\)</span> (con <span class="math inline">\(0 &lt; p &lt; 1\)</span>). Nos interesa saber cuál es la probabilidad de tener <span class="math inline">\(k\)</span> Águilas en <span class="math inline">\(n\)</span> tiros.
@@ -613,7 +613,7 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span class="math display">\[
 \mathbb{P}\big(X = k \big) = \binom{n}{k} p^k (1-p)^{n-k} \mathbb{I}_{\{0,1,2,\dots,n \}}(k)
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-300-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-302-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Una pregunta distinta que nos pudimos hacer fue:</p>
 <blockquote>
 <p>Tenemos una moneda que cae Águila con probabilidad <span class="math inline">\(p\)</span> y Sol con probabilidad <span class="math inline">\((1-p)\)</span> (con <span class="math inline">\(0 &lt; p &lt; 1\)</span>). Arrojamos la moneda hasta obtener <span class="math inline">\(r\)</span> Águilas y en ese momento nos detenemos. Determina la probabilidad de que se aviente la moneda <span class="math inline">\(k\)</span> veces.</p>
@@ -623,13 +623,13 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span class="math display">\[
 \mathbb{P}\big(X = k \big) = \binom{k-1}{r-1} p^r (1-p)^{k-r} \mathbb{I}_{\{r, r+1, r+2, \dots \}}(k)
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-301-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-303-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Finalmente, otro modelo que pudimos hacer con monedas es un caso específico del <em>Binomial Negativo</em> . Aquí la pregunta es, se tira una moneda que tiene probabilidad <span class="math inline">\(p\)</span> de salir Águila hasta que se obtiene el águila. Contamos cuántos tiros ocurrieron hasta que ocurriera el primer Águila y la pregunta de interés es la probabilidad de haber realizado específicamente <span class="math inline">\(k\)</span> tiros. Para ello necesitamos tener <span class="math inline">\((k-1)\)</span> tiros que fueran sol: <span class="math inline">\((1-p)^{k-1}\)</span> y un tiro que saliera águila <span class="math inline">\(p\)</span>. Esto nos genera el modelo geométrico:</p>
 <p>Una variable aleatoria <span class="math inline">\(X\)</span> tiene una distribución <span class="math inline">\(\text{Geométrica}(p)\)</span> si:
 <span class="math display">\[
 \mathbb{P}\big(X = k \big) = (1-p)^k p \cdot \mathbb{I}_{\mathbb{N}}(k).
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-302-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-304-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Otro modelo de interés es el siguiente:</p>
 <blockquote>
 <p>Se tiene una población de tamaño <span class="math inline">\(M\)</span> donde <span class="math inline">\(N\)</span> individuos pertenecen al partido político AZUL y <span class="math inline">\(M-N\)</span> pertenecen al VERDE Se toma una submuestra de tamaño <span class="math inline">\(m\)</span>. Determina la probabilidad de que haya <span class="math inline">\(n\)</span> individuos del partido político AZUL.</p>
@@ -639,7 +639,7 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span class="math display">\[
 \mathbb{P}\big(X = n \big) = \dfrac{\binom{M-N}{m-n} \binom{N}{n} }{\binom{M}{m}} \cdot \mathbb{I}_{\{0,1,\dots, \text{mín}\{m, N\} \}} (n)
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-303-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-305-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>El modelo Poisson va a ser bastante útil. Para estudiarlo, consideremos un modelo. Vamos a pensar en un servidor de computación (piensa en una página de Internet) que recibe solicitudes de entrar a la página de manera independiente y aleatoria en un intervalo de tiempo entre <span class="math inline">\(t = 0\)</span> y <span class="math inline">\(t = 1\)</span>. Como primera aproximación podemos dividir el intervalo en <span class="math inline">\(n\)</span> pedazos cada uno de longitud <span class="math inline">\(1/n\)</span> y asumir que, a fuerza, sólo una conexión se puede realizar en cada uno de esos pedazos. Finalmente, asumamos que la probabilidad <span class="math inline">\(p\)</span> de que se haga una conexión es proporcional a la longitud del intervalo y sea <span class="math inline">\(p = \lambda / n\)</span>. Con estas hipótesis, la probabilidad de tener <span class="math inline">\(k\)</span> conexiones (<span class="math inline">\(k\)</span> entero entre <span class="math inline">\(0\)</span> y <span class="math inline">\(n\)</span>) está dada por un modelo binomial:
 <span class="math display">\[\begin{equation}\nonumber
 \begin{aligned}
@@ -658,7 +658,7 @@ Esto resulta en el modelo Poisson:</p>
 <span class="math display">\[
 \mathbb{P}\big(X = k \big) = \dfrac{\lambda^k e^{-\lambda}}{k!} \mathbb{I}_{\mathbb{N}\cup \{ 0 \}}(k)
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-304-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-306-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="funciones-de-densidad" class="section level2">
 <h2><span class="header-section-number">B.8</span> Funciones de densidad</h2>
@@ -677,7 +677,7 @@ f_X(x) = \dfrac{d}{dx} F_X(x)
 <span class="math display">\[
 f_X(x) = \dfrac{1}{b-a}\mathbb{I}_{(a,b)}(x)
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-305-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-307-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Una generalización del modelo uniforme es el beta (eventualmente veremos de dónde sale):</p>
 <p>Una variable aleatoria <span class="math inline">\(X\)</span> tiene una distribución <span class="math inline">\(\text{Beta}(\alpha,\beta)\)</span> si:
 <span class="math display">\[
@@ -687,7 +687,7 @@ donde
 <span class="math display">\[
 B(\alpha, \beta) = \dfrac{\Gamma (\alpha) \Gamma (\beta)}{\Gamma (\alpha + \beta)}
 \]</span></p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-306-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-308-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Podemos deducir el modelo exponencial a partir de la descripción del Poisson. Volvamos al mismo problema del <span class="math inline">\(\textrm{Poisson}(\lambda)\)</span> donde hay computadoras conectándose a un servidor. Sea <span class="math inline">\(W\)</span> la variable aleatoria que denota el tiempo de espera hasta el primer evento. Analicemos su distribución acumulada; notamos que
 <span class="math display">\[
 F_W(w) = \mathbb{P}(W \leq w) = 1 - \mathbb{P}(W &gt; w)
@@ -781,7 +781,7 @@ f_X(x) =  \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x - \mu)^2}{2 \sigma^2}}
 f_X(x) = \dfrac{1}{x \sqrt{2 \pi \sigma^2}}e^{-(\ln(x) - \mu)^2/2\sigma^2} \mathbb{I}_{(0,\infty)}(x).
 \]</span></p>
 <p>Lo cual cambia mucho la forma de la distribución:</p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-307-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-309-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>La pregunta es, cómo obtener la función de densidad de <span class="math inline">\(X\)</span> si se conoce la función <span class="math inline">\(\phi\)</span>; el teorema de cambio de variable nos da una respuesta cuando <span class="math inline">\(\phi\)</span> es monótona estrictamente creciente o bien estrictamente decreciente y diferenciable.</p>
 <p>Sea <span class="math inline">\(X\)</span> una variable aleatoria continua y <span class="math inline">\(\phi\)</span> una función estrictamente creciente ó estrictamente decreciente y diferenciable. Entonces:
 <span class="math display">\[
@@ -985,13 +985,13 @@ donde el símbolo <span class="math inline">\(\sim\)</span> se lee “se distrib
 \]</span></p>
 <p>donde <span class="math inline">\(\mathrel{\dot\sim}\)</span> se lee como “se distribuye aproximadamente”. Programaremos una función en <code>R</code> que para <span class="math inline">\(n\)</span> grande muestre eso:</p>
 <p>donde podemos ver la aproximación normal si tomamos, por ejemplo, las <span class="math inline">\(X_i\)</span> siguen una distribución Gamma:</p>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-309-1.png" width="384" style="display: block; margin: auto;" />
+<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-311-1.png" width="384" style="display: block; margin: auto;" />
 La binomial se ve así:
-<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-310-1.png" width="384" style="display: block; margin: auto;" /></p>
-<p>Poisson:
-<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-311-1.png" width="384" style="display: block; margin: auto;" /></p>
-<p>E inclusive uniformes:
 <img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-312-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>Poisson:
+<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-313-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>E inclusive uniformes:
+<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-314-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Experimenta con otras distribuciones ¿puedes encontrar alguna para la que no funcione?</p>
 </div>
 <div id="ejercicio-14" class="section level3">
