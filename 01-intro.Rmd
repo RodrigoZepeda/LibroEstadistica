@@ -207,6 +207,7 @@ $$
 donde $\bar{r} = (\bar{c}^2 + \bar{s}^2)^{1/2}$ es el resolvente explicado anteriormente. Es importante notar que $\textrm{Var}$ puede tomar valores en $\[0,1\]$ y su interpretación es similar a la de la varianza de datos lineales, i.e. "entre más pequeño sea el valor de la varianza circular, más conectrada es la distribución de los datos" @fisher1995statistical.
 
 **1.3 Dirección Mediana Circular**
+
 Denotamos a la _dirección mediana circular_ por $\tilde{\theta}$. Se puede determinar de manera muy similar al caso del cálculo de la mediana para datos lineales. De tal manera que $\tilde{\theta}$ es cualquier ángulo $\phi$ tal que la mitad de los datos se encuentra en el arco $\[\phi, \phi + \pi \]$ y la mayoría de los puntos están más cerca de $phi$ que de $\phi + \pi$ (Mardia y Jupp). Ahora si $n$ es impar, la mediana es uno de los datos, en caso contrariom la mediana pasa por el punto medio de dos datos adyacentes.
 
 **1.4 Desviación Estándar Circular**
