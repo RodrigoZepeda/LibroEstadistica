@@ -193,7 +193,7 @@ Ahora bien, si tomamos
 $$
 c=\sum\limits_{i = 1}^n \cos (\theta_i) \qquad \text{y} \qquad \bar{s} =\sum\limits_{i = 1}^n \sin (\theta_i)
 $$
-podemos definir _la longitud resultante_ como $r=(c^2 + s^2)^{\frac{1}{2}}$, entonces, es perfectamente aceptable tomar _la longitud resultante promedio_ previamente definida como 
+podemos definir _la longitud resultante_ como $r=(c^2 + s^2)^{\frac{1}{2}}$, entonces, es perfectamente aceptable tomar _la longitud resultante promedio_ previamente definida como:
 $$
 \bar{r}= (\bar{c}^2 + \bar{s}^2)^{1/2} = \frac{r}{n}
 $$
