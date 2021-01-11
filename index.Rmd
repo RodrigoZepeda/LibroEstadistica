@@ -1,7 +1,7 @@
 --- 
 title: "Estadística I: Análisis exploratorio de datos y muestreo"
 author: "Rodrigo Zepeda-Tello"
-author: "Luis Gerardo Martínez Valdés"
+author: "Luis Gerardo Martínez Valdés" 
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
