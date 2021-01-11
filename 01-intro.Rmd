@@ -189,7 +189,33 @@ $$
 $$
 donde el caso $\bar{c} = 0$ se interpreta como el límite por la derecha (respectivamente por la izquierda) de la arcotangente de acuerdo con el signo de $\bar{s}$. 
 
-Para más información sobre estadística circular puedes consultar @pewsey2013circular
+Ahora bien, si tomamos
+$$
+c=\sum\limits_{i = 1}^n \cos (\theta_i) \qquad \text{y} \qquad \bar{s} =\sum\limits_{i = 1}^n \sin (\theta_i)
+$$
+podemos definir _la longitud resultante_ como $r=(c^2 + s^2)^{\frac{1}{2}}$, entonces, es perfectamente aceptable tomar _la longitud resultante promedio_ previamente definida como 
+$$
+\bar{r}= (\bar{c}^2 + \bar{s}^2)^{1/2} = \frac{r}{n}
+$$
+>**NOTA** Muchos son los casos donde las coordenadas polares son más útiles. Sabemos que las coordenadas polares piden la especificación de un ángulo $\phi$ y una recta de longitud $r$. Las coordenadas polares pueden ser utilizadas para especificar puntos en cualquier lugar de un plano, no solamente en el círculo unitario. En lugar de las coordenadas cartesianas $(x_i, y_i)$, las coordenadas polares $(\phi_i, r_i)$ especifican dónde se encuentra cada punto en términos de su dirección y distancia con respecto al origen. Así, nos dan la clara ventaja de separar información tanto de distancia como de dirección en el análisis de datos, mientras que las cartesianas confunden aspectos espaciales. 
+
+**1.2 Varianza Angular(Circular)**
+@pewsey2013circular define la varianza circular como:
+$$
+\textrm{Var} = 1 - \bar{r}
+$$
+donde $\bar{r} = (\bar{c}^2 + \bar{s}^2)^{1/2}$ es el resolvente explicado anteriormente. Es importante notar que $\textrm{Var}$ puede tomar valores en $\[0,1\]$ y su interpretación es similar a la de la varianza de datos lineales, i.e. "entre más pequeño sea el valor de la varianza circular, más conectrada es la distribución de los datos" @fisher1995statistical.
+
+**1.3 Dirección Mediana Circular**
+Denotamos a la _dirección mediana circular_ por $\tilde{\theta}$. Se puede determinar de manera muy similar al caso del cálculo de la mediana para datos lineales. De tal manera que $\tilde{\theta}$ es cualquier ángulo $\phi$ tal que la mitad de los datos se encuentra en el arco $\[\phi, \phi + \pi \]$ y la mayoría de los puntos están más cerca de $phi$ que de $\phi + \pi$ (Mardia y Jupp). Ahora si $n$ es impar, la mediana es uno de los datos, en caso contrariom la mediana pasa por el punto medio de dos datos adyacentes.
+
+**1.4 Desviación Estándar Circular**
+Al igual que con datos lineales, la desviación estándar está ítimamente relacionada con la varianza, definimos a la _desviación estándar circular_ como
+$$
+v=\big{-2ln(1-V)\big}^{\frac{1}{2}}= \big{-2ln(\bar{r})\big}^{\frac{1}{2}}
+$$
+Para más información sobre estadística circular puedes consultar @pewsey2013circular, @fisher1995statistical, @mardia2009directional.
+
 
 ## Ejercicio 
 Utiliza la función `atan2` de `R` junto con `cos` y `sin` para seno y coseno para estimar el día promedio en el que ocurren más delitos según la base `conteo.dia`.
