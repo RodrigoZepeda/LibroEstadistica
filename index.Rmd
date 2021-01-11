@@ -1,7 +1,6 @@
 --- 
 title: "Estadística I: Análisis exploratorio de datos y muestreo"
-author: "Rodrigo Zepeda-Tello"
-author: "Luis Gerardo Martínez Valdés" 
+author: "Rodrigo Zepeda-Tello y Luis Gerardo Martínez Valdés" 
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -11,16 +10,43 @@ link-citations: yes
 description: "Libro de estadística aplicada: temas de análisis exploratorio y muestreo"
 ---
 
-# Historia y conceptos
+# Historia de la estadística
 
 > El libro está en construcción. Por favor si encuentras cualquier error levanta un _issue_ en Github 
-
-
 
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', "tidyverse", "survey","kableExtra"
 ), 'packages.bib')
 ```
+
+# Conceptos
+
+Este libro trata sobre **datos** y **encuestas** que estudian **poblaciones** a través de **muestras**. Antes de empezar con las matemáticas es necesario definir estos conceptos para tener claro de qué se habla. El más importante es la distinción entre **encuesta** y **experimento**: todo este libro hablará sobre encuestas, dejando la estadística para experimentos para otras notas. 
+
++ **Experimento** Cualquier diseño de estudio donde la investigadora puede replicar cuantas veces desee el estudio y obtener cuantas mediciones sean necesarias. El objeto de estudio NO es una población. Por ejemplo: alimentar ratones con una sustancia y medir su presión arterial (pueden obtenerse cuantos ratones sean necesarios), determinar la vida media de un compuesto (puede hacerse cuantos kilogramos de la sustancia se requieran) o establecer si una forma de enseñanza de estadística genera mejores resultados en los exámenes que otra (se pueden obtener tantos alumnos como se desee y enseñarles de X o Y forma hasta distinguir una diferencia si es que hay).
+
++ **Encuesta** Una encuesta es un diseño de estudio donde se busca determinar el estado actual o una característica de una población finita. Una encuesta no es replicable en igualdad de condiciones y está sujeta a que, a lo más, puede obtener tantas mediciones como el tamaño de la población. Por ejemplo: realizar un cuestionario sobre salud mental dentro de la población de estudiantes (no es replicable porque si se vuelve a hacer, la salud mental de los estudiantes o la población ya cambió); determinar el tamaño en bytes del Internet (la población es finita); medir la altura de los árboles de un bosque (finito y no replicable). 
+
+> **Nota** Una encuesta no es un cuestionario. Algunas encuestas de salud, por ejemplo, toma muestras de sangre de las personas para determinar la proporción de personas con diabetes. Esta encuesta no es un cuestionario (no tiene una pregunta) pero sí es una encuesta (busca determinar el estado actual o una característica de una población finita). 
+
++ **Población** Cualquier conjunto no vacío. Algunos ejemplos de poblaciones incluyen: las personas que viven en Guatemala (si me interesa saber algo de los guatemaltecos en general), los árboles del Amazonas (si quiero saber cosas de ecología), los perros callejeros en Ciudad de México, los consumidores de una marca de cereal, los coches que transitan por Dubai o los granos de arena en una playa específica de Cancún. 
+
+> **Nota:** Las poblaciones no necesariamente son de seres vivos son sólo conjuntos de cosas que se están estudiando. Las poblaciones usualmente están restringidas al tiempo y al espacio por lo que es importante tener una definición _clara_ de quiénes sí están en el estudio, quiénes no y por qué. 
+
++ **Población objetivo** El conjunto de elementos que formarán parte del estudio. Definir la _población objetivo_ es complicado en algunas situaciones; por ejemplo, si se desea saber si _los mexicanos_ están a favor o en contra de legalizar la marihuana hay que establecer quiénes son _los mexicanos_. ¿Cuentan las personas con nacionalidad mexicana que residen en el extranjero? ¿Cuentan los menores de edad? ¿Qué pasa con los extranjeros que son residentes?
+
++ **Población muestreada** Es el conjunto de elementos sobre los cuales se tomó la muestra para el análisis estadístico. _Idealmente_ la población objetivo y la muestreada deberían de ser igual pero el mundo no es tan bello. En encuestas de consumo, por ejemplo, usualmente no se muestrean zonas remotas o de muy bajos recursos. En encuestas de elecciones si bien la población objetivo son _todas las personas que voten el día de la elección_, como la mayoría se hacen _antes_ de la elección (exceptuando las de salida) entonces se aproxima la definición de _votante_ buscando incluir sólo aquellos que estén registrados en el padrón electoral o bien aquellos que al ser encuestados digan que _sí_ van a votar.
+
++ **Muestra** Un subconjunto propio de la población muestreada. Si la muestra coincide con la población muestreada se dice que es un **censo**. 
+
++ **Marco muestral** Una lista a partir de la cual se selecciona la muestra para la encuesta. Puede ser, en un salón de clases, la lista completa de alumnos. En estudios de agricultura usualmente la lista son _parcelas de tierra_ aunque interese estudiar los cultivos mientras que en poblaciones grandes de personas el marco suele ser una lista de casas (dado que no se sabe qué persona vive dónde) o bien un mapa de calles y colonias. Para el INEGI es común usar las _Áreas Geoestadísticas Básicas_ (AGEB) las cuales son divisiones fijas (pequeñísimas, como una manzana) del mapa de México. 
+
++ **Unidad de muestreo** Una unidad que puede seleccionarse del marco muestral. Por ejemplo, en la lista de casas la _unidad de muestreo_ sería una casa. Por otro lado, en una lista de parcelas la _unidad_ es la parcela. Si se tiene una lista de estudiantes en un grupo la unidad serían los estudiantes. 
+
++ **Unidad de observación** El objeto que interesa medir. En el caso de una encuesta dirigida a personas donde se utiliza una lista de casas para encontrar a las personas, la unidad de muestreo es la casa (el objeto de la lista) pero la unidad de observación es la persona (lo que quiero medir). Si se tiene una lista de estudiantes y se desea encuestar estudiantes entonces la unidad de observación y la de muestreo coinciden (son estudiantes). Si se tiene una lista de casas y se desea estudiar propiedades de la casa (digamos, tamaño del terreno construido) entonces la unidad de muestreo y de observación coinciden y son la casa. 
+
+
+

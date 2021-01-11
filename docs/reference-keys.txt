@@ -17,7 +17,8 @@ fig:unnamed-chunk-246
 fig:unnamed-chunk-266
 fig:unnamed-chunk-296
 fig:unnamed-chunk-298
-historia-y-conceptos
+historia-de-la-estadística
+conceptos
 análisis-exploratorio-de-datos
 inicio
 librerías
