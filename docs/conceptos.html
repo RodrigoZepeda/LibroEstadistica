@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 2 Conceptos | Estadística I: Análisis exploratorio de datos y muestreo</title>
   <meta name="description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 2 Conceptos | Estadística I: Análisis exploratorio de datos y muestreo" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Rodrigo Zepeda-Tello y Luis Gerardo Martínez Valdés" />
 
 
-<meta name="date" content="2021-01-11" />
+<meta name="date" content="2021-08-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="análisis-exploratorio-de-datos.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,25 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +89,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -120,6 +122,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -138,41 +163,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Historia de la estadística</a></li>
 <li class="chapter" data-level="2" data-path="conceptos.html"><a href="conceptos.html"><i class="fa fa-check"></i><b>2</b> Conceptos</a></li>
-<li class="chapter" data-level="3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>3</b> Análisis Exploratorio de Datos</a><ul>
+<li class="chapter" data-level="3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>3</b> Análisis Exploratorio de Datos</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#inicio"><i class="fa fa-check"></i><b>3.1</b> Inicio</a></li>
 <li class="chapter" data-level="3.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#librerías"><i class="fa fa-check"></i><b>3.2</b> Librerías</a></li>
 <li class="chapter" data-level="3.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#base-a-analizar"><i class="fa fa-check"></i><b>3.3</b> Base a analizar</a></li>
 <li class="chapter" data-level="3.4" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#definiciones-y-notación"><i class="fa fa-check"></i><b>3.4</b> Definiciones y notación</a></li>
-<li class="chapter" data-level="3.5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-univariados"><i class="fa fa-check"></i><b>3.5</b> Estadísticos univariados</a><ul>
+<li class="chapter" data-level="3.5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-univariados"><i class="fa fa-check"></i><b>3.5</b> Estadísticos univariados</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#definición-estadístico"><i class="fa fa-check"></i><b>3.5.1</b> Definición [Estadístico]</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio"><i class="fa fa-check"></i><b>3.6</b> Ejercicio</a></li>
 <li class="chapter" data-level="3.7" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>3.7</b> Ejercicios</a></li>
 <li class="chapter" data-level="3.8" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-univariadas"><i class="fa fa-check"></i><b>3.8</b> Gráficas univariadas</a></li>
-<li class="chapter" data-level="3.9" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-bivariadas"><i class="fa fa-check"></i><b>3.9</b> Gráficas bivariadas</a><ul>
+<li class="chapter" data-level="3.9" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-bivariadas"><i class="fa fa-check"></i><b>3.9</b> Gráficas bivariadas</a>
+<ul>
 <li class="chapter" data-level="3.9.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-1"><i class="fa fa-check"></i><b>3.9.1</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-bivariados"><i class="fa fa-check"></i><b>3.10</b> Estadísticos bivariados</a><ul>
+<li class="chapter" data-level="3.10" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-bivariados"><i class="fa fa-check"></i><b>3.10</b> Estadísticos bivariados</a>
+<ul>
 <li class="chapter" data-level="3.10.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-2"><i class="fa fa-check"></i><b>3.10.1</b> Ejercicio</a></li>
 </ul></li>
 <li class="chapter" data-level="3.11" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-3"><i class="fa fa-check"></i><b>3.11</b> Ejercicio</a></li>
-<li class="chapter" data-level="3.12" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ajuste-funcional"><i class="fa fa-check"></i><b>3.12</b> Ajuste funcional</a><ul>
+<li class="chapter" data-level="3.12" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ajuste-funcional"><i class="fa fa-check"></i><b>3.12</b> Ajuste funcional</a>
+<ul>
 <li class="chapter" data-level="3.12.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-4"><i class="fa fa-check"></i><b>3.12.1</b> Ejercicio</a></li>
 <li class="chapter" data-level="3.12.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-sugerido"><i class="fa fa-check"></i><b>3.12.2</b> Ejercicio sugerido</a></li>
 </ul></li>
 <li class="chapter" data-level="3.13" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios-del-capítulo"><i class="fa fa-check"></i><b>3.13</b> Ejercicios del capítulo</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html"><i class="fa fa-check"></i><b>4</b> Muestreo Aleatorio Simple</a><ul>
+<li class="chapter" data-level="4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html"><i class="fa fa-check"></i><b>4</b> Muestreo Aleatorio Simple</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#inicio-1"><i class="fa fa-check"></i><b>4.1</b> Inicio</a></li>
 <li class="chapter" data-level="4.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#librerías-1"><i class="fa fa-check"></i><b>4.2</b> Librerías</a></li>
-<li class="chapter" data-level="4.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#notación"><i class="fa fa-check"></i><b>4.3</b> Notación</a><ul>
+<li class="chapter" data-level="4.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#notación"><i class="fa fa-check"></i><b>4.3</b> Notación</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo"><i class="fa fa-check"></i><b>4.3.1</b> Ejemplo</a></li>
 <li class="chapter" data-level="4.3.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-5"><i class="fa fa-check"></i><b>4.3.2</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-sin-reemplazo-massr"><i class="fa fa-check"></i><b>4.4</b> Muestreo Aleatorio Simple sin Reemplazo (MAS/sR)</a><ul>
+<li class="chapter" data-level="4.4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-sin-reemplazo-massr"><i class="fa fa-check"></i><b>4.4</b> Muestreo Aleatorio Simple sin Reemplazo (MAS/sR)</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-6"><i class="fa fa-check"></i><b>4.4.1</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#teorema-del-límite-central-aplicación"><i class="fa fa-check"></i><b>4.5</b> Teorema del Límite Central (Aplicación)</a><ul>
+<li class="chapter" data-level="4.5" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#teorema-del-límite-central-aplicación"><i class="fa fa-check"></i><b>4.5</b> Teorema del Límite Central (Aplicación)</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#estimación-de-intervalos-de-confianza-para-el-total"><i class="fa fa-check"></i><b>4.5.1</b> Estimación de intervalos de confianza para el total</a></li>
 <li class="chapter" data-level="4.5.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-con-simulación"><i class="fa fa-check"></i><b>4.5.2</b> Ejemplo con simulación:</a></li>
 </ul></li>
@@ -182,7 +216,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.9" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-de-una-región-crítica"><i class="fa fa-check"></i><b>4.9</b> Ejemplo Resumen: Estimación de una región crítica</a></li>
 <li class="chapter" data-level="4.10" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-del-total-de-una-población"><i class="fa fa-check"></i><b>4.10</b> Ejemplo Resumen: Estimación del total de una población</a></li>
 <li class="chapter" data-level="4.11" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#demostración-del-teorema-del-límite-central-para-muestras-finitas"><i class="fa fa-check"></i><b>4.11</b> Demostración del Teorema del Límite Central para Muestras Finitas</a></li>
-<li class="chapter" data-level="4.12" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-bernoulli-be"><i class="fa fa-check"></i><b>4.12</b> Muestreo Aleatorio Simple Bernoulli (BE)</a><ul>
+<li class="chapter" data-level="4.12" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-bernoulli-be"><i class="fa fa-check"></i><b>4.12</b> Muestreo Aleatorio Simple Bernoulli (BE)</a>
+<ul>
 <li class="chapter" data-level="4.12.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-8"><i class="fa fa-check"></i><b>4.12.1</b> Ejercicio</a></li>
 <li class="chapter" data-level="4.12.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-1"><i class="fa fa-check"></i><b>4.12.2</b> Ejemplo</a></li>
 <li class="chapter" data-level="4.12.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#un-mejor-estimador-el-proporcional-al-tamaño"><i class="fa fa-check"></i><b>4.12.3</b> Un mejor estimador: el proporcional al tamaño</a></li>
@@ -194,12 +229,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.17" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-ponderado-masp"><i class="fa fa-check"></i><b>4.17</b> Muestreo Aleatorio Simple Ponderado (MAS/P)</a></li>
 <li class="chapter" data-level="4.18" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicios-1"><i class="fa fa-check"></i><b>4.18</b> Ejercicios</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html"><i class="fa fa-check"></i><b>5</b> Muestreo Aleatorio Estratificado</a><ul>
-<li class="chapter" data-level="5.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#introducción-a-muestreo-aleatorio-estratificado-mae"><i class="fa fa-check"></i><b>5.1</b> Introducción a Muestreo Aleatorio Estratificado (MAE)</a><ul>
+<li class="chapter" data-level="5" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html"><i class="fa fa-check"></i><b>5</b> Muestreo Aleatorio Estratificado</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#introducción-a-muestreo-aleatorio-estratificado-mae"><i class="fa fa-check"></i><b>5.1</b> Introducción a Muestreo Aleatorio Estratificado (MAE)</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejemplo-2"><i class="fa fa-check"></i><b>5.1.1</b> Ejemplo</a></li>
 <li class="chapter" data-level="5.1.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-sugerido-1"><i class="fa fa-check"></i><b>5.1.2</b> Ejercicio sugerido</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación"><i class="fa fa-check"></i><b>5.2</b> Alocación</a><ul>
+<li class="chapter" data-level="5.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación"><i class="fa fa-check"></i><b>5.2</b> Alocación</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-proporcional-al-tamaño"><i class="fa fa-check"></i><b>5.2.1</b> Alocación proporcional al tamaño</a></li>
 <li class="chapter" data-level="5.2.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-óptima"><i class="fa fa-check"></i><b>5.2.2</b> Alocación óptima</a></li>
 <li class="chapter" data-level="5.2.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejemplo-3"><i class="fa fa-check"></i><b>5.2.3</b> Ejemplo</a></li>
@@ -207,22 +245,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-de-clase"><i class="fa fa-check"></i><b>5.3</b> Ejercicio de clase:</a></li>
 <li class="chapter" data-level="5.4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-en-r-tipo-control"><i class="fa fa-check"></i><b>5.4</b> Ejercicio en R tipo control</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html"><i class="fa fa-check"></i><b>6</b> Intervalos de Confianza mediante bootstrap</a><ul>
+<li class="chapter" data-level="6" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html"><i class="fa fa-check"></i><b>6</b> Intervalos de Confianza mediante bootstrap</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#inicio-2"><i class="fa fa-check"></i><b>6.1</b> Inicio</a></li>
 <li class="chapter" data-level="6.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#intervalos-asintóticos"><i class="fa fa-check"></i><b>6.2</b> Intervalos asintóticos</a></li>
-<li class="chapter" data-level="6.3" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#muestreo-basado-en-modelos"><i class="fa fa-check"></i><b>6.3</b> Muestreo basado en modelos</a><ul>
+<li class="chapter" data-level="6.3" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#muestreo-basado-en-modelos"><i class="fa fa-check"></i><b>6.3</b> Muestreo basado en modelos</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejemplo-poisson"><i class="fa fa-check"></i><b>6.3.1</b> Ejemplo Poisson</a></li>
 <li class="chapter" data-level="6.3.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejercicio-9"><i class="fa fa-check"></i><b>6.3.2</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#intervalos-bootstrap"><i class="fa fa-check"></i><b>6.4</b> Intervalos Bootstrap</a><ul>
+<li class="chapter" data-level="6.4" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#intervalos-bootstrap"><i class="fa fa-check"></i><b>6.4</b> Intervalos Bootstrap</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#boostrap-bajo-un-modelo"><i class="fa fa-check"></i><b>6.4.1</b> Boostrap bajo un modelo</a></li>
 <li class="chapter" data-level="6.4.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#boostrap-de-una-muestra"><i class="fa fa-check"></i><b>6.4.2</b> Boostrap de una muestra</a></li>
 <li class="chapter" data-level="6.4.3" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejemplo-4"><i class="fa fa-check"></i><b>6.4.3</b> Ejemplo</a></li>
 <li class="chapter" data-level="6.4.4" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejercicio-10"><i class="fa fa-check"></i><b>6.4.4</b> Ejercicio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html"><i class="fa fa-check"></i><b>7</b> Muestreo Aleatorio Multietápico</a><ul>
-<li class="chapter" data-level="7.1" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#muestreo-aleatorio-por-clusters-en-una-sola-etapa"><i class="fa fa-check"></i><b>7.1</b> Muestreo aleatorio por clusters en una sola etapa</a><ul>
+<li class="chapter" data-level="7" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html"><i class="fa fa-check"></i><b>7</b> Muestreo Aleatorio Multietápico</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#muestreo-aleatorio-por-clusters-en-una-sola-etapa"><i class="fa fa-check"></i><b>7.1</b> Muestreo aleatorio por clusters en una sola etapa</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#ejemplo-5"><i class="fa fa-check"></i><b>7.1.1</b> Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#muestreo-aleatorio-por-clusters-bietápico-en-dos-etapas"><i class="fa fa-check"></i><b>7.2</b> Muestreo aleatorio por clusters bietápico (en dos etapas)</a></li>
@@ -231,37 +274,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
 <li class="appendix"><span><b>Apéndice</b></span></li>
-<li class="chapter" data-level="A" data-path="programación-en-r.html"><a href="programación-en-r.html"><i class="fa fa-check"></i><b>A</b> Programación en <code>R</code></a><ul>
-<li class="chapter" data-level="A.1" data-path="programación-en-r.html"><a href="programación-en-r.html#algunas-ventajas-de-r-y-cosas-no-tan-padres"><i class="fa fa-check"></i><b>A.1</b> Algunas ventajas de <code>R</code> y cosas no tan padres</a><ul>
+<li class="chapter" data-level="A" data-path="programación-en-r.html"><a href="programación-en-r.html"><i class="fa fa-check"></i><b>A</b> Programación en <code>R</code></a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="programación-en-r.html"><a href="programación-en-r.html#algunas-ventajas-de-r-y-cosas-no-tan-padres"><i class="fa fa-check"></i><b>A.1</b> Algunas ventajas de <code>R</code> y cosas no tan padres</a>
+<ul>
 <li class="chapter" data-level="A.1.1" data-path="programación-en-r.html"><a href="programación-en-r.html#puntos-a-favor-de-r"><i class="fa fa-check"></i><b>A.1.1</b> Puntos a favor de <code>R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="A.2" data-path="programación-en-r.html"><a href="programación-en-r.html#bienvenidx-a-r-bunny-wunnies-freak-out-sí-así-se-llama-esta-versión"><i class="fa fa-check"></i><b>A.2</b> Bienvenidx a <code>R</code>, Bunny-Wunnies Freak Out (sí, así se llama esta versión)</a></li>
-<li class="chapter" data-level="A.3" data-path="programación-en-r.html"><a href="programación-en-r.html#instalando-cosas"><i class="fa fa-check"></i><b>A.3</b> Instalando cosas</a><ul>
+<li class="chapter" data-level="A.2" data-path="programación-en-r.html"><a href="programación-en-r.html#bienvenidx-a-r-camp-pontanezen-sí-así-se-llama-esta-versión"><i class="fa fa-check"></i><b>A.2</b> Bienvenidx a <code>R</code>, Camp Pontanezen (sí, así se llama esta versión)</a></li>
+<li class="chapter" data-level="A.3" data-path="programación-en-r.html"><a href="programación-en-r.html#instalando-cosas"><i class="fa fa-check"></i><b>A.3</b> Instalando cosas</a>
+<ul>
 <li class="chapter" data-level="A.3.1" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-r"><i class="fa fa-check"></i><b>A.3.1</b> Instalación de <code>R</code></a></li>
 </ul></li>
 <li class="chapter" data-level="A.4" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-rstudio"><i class="fa fa-check"></i><b>A.4</b> Instalación de <code>RStudio</code></a></li>
 <li class="chapter" data-level="A.5" data-path="programación-en-r.html"><a href="programación-en-r.html#primeros-pasos-en-r-usando-rstudio"><i class="fa fa-check"></i><b>A.5</b> Primeros pasos en <code>R</code> usando <code>RStudio</code></a></li>
-<li class="chapter" data-level="A.6" data-path="programación-en-r.html"><a href="programación-en-r.html#cálculos-numéricos"><i class="fa fa-check"></i><b>A.6</b> Cálculos numéricos</a><ul>
+<li class="chapter" data-level="A.6" data-path="programación-en-r.html"><a href="programación-en-r.html#cálculos-numéricos"><i class="fa fa-check"></i><b>A.6</b> Cálculos numéricos</a>
+<ul>
 <li class="chapter" data-level="A.6.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-11"><i class="fa fa-check"></i><b>A.6.1</b> Ejercicio</a></li>
 <li class="chapter" data-level="A.6.2" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-12"><i class="fa fa-check"></i><b>A.6.2</b> Ejercicio</a></li>
 <li class="chapter" data-level="A.6.3" data-path="programación-en-r.html"><a href="programación-en-r.html#respuestas"><i class="fa fa-check"></i><b>A.6.3</b> Respuestas</a></li>
 </ul></li>
-<li class="chapter" data-level="A.7" data-path="programación-en-r.html"><a href="programación-en-r.html#variables"><i class="fa fa-check"></i><b>A.7</b> Variables</a><ul>
+<li class="chapter" data-level="A.7" data-path="programación-en-r.html"><a href="programación-en-r.html#variables"><i class="fa fa-check"></i><b>A.7</b> Variables</a>
+<ul>
 <li class="chapter" data-level="A.7.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>A.7.1</b> Ejercicios</a></li>
 <li class="chapter" data-level="A.7.2" data-path="programación-en-r.html"><a href="programación-en-r.html#nivel-3"><i class="fa fa-check"></i><b>A.7.2</b> NIVEL 3</a></li>
 </ul></li>
-<li class="chapter" data-level="A.8" data-path="programación-en-r.html"><a href="programación-en-r.html#observaciones-sobre-la-aritmética-de-punto-flotante"><i class="fa fa-check"></i><b>A.8</b> Observaciones sobre la aritmética de punto flotante</a><ul>
+<li class="chapter" data-level="A.8" data-path="programación-en-r.html"><a href="programación-en-r.html#observaciones-sobre-la-aritmética-de-punto-flotante"><i class="fa fa-check"></i><b>A.8</b> Observaciones sobre la aritmética de punto flotante</a>
+<ul>
 <li class="chapter" data-level="A.8.1" data-path="programación-en-r.html"><a href="programación-en-r.html#cómo-checar-un-if"><i class="fa fa-check"></i><b>A.8.1</b> ¿Cómo checar un if?</a></li>
 </ul></li>
-<li class="chapter" data-level="A.9" data-path="programación-en-r.html"><a href="programación-en-r.html#leer-y-almacenar-variables-en-r"><i class="fa fa-check"></i><b>A.9</b> Leer y almacenar variables en <code>R</code></a><ul>
+<li class="chapter" data-level="A.9" data-path="programación-en-r.html"><a href="programación-en-r.html#leer-y-almacenar-variables-en-r"><i class="fa fa-check"></i><b>A.9</b> Leer y almacenar variables en <code>R</code></a>
+<ul>
 <li class="chapter" data-level="A.9.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-13"><i class="fa fa-check"></i><b>A.9.1</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="A.10" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-paquetes"><i class="fa fa-check"></i><b>A.10</b> Instalación de paquetes</a><ul>
+<li class="chapter" data-level="A.10" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-paquetes"><i class="fa fa-check"></i><b>A.10</b> Instalación de paquetes</a>
+<ul>
 <li class="chapter" data-level="A.10.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicios-3"><i class="fa fa-check"></i><b>A.10.1</b> Ejercicios</a></li>
 </ul></li>
 <li class="chapter" data-level="A.11" data-path="programación-en-r.html"><a href="programación-en-r.html#comentarios-adicionales-sobre-el-formato"><i class="fa fa-check"></i><b>A.11</b> Comentarios adicionales sobre el formato</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html"><i class="fa fa-check"></i><b>B</b> Repaso de Proba</a><ul>
+<li class="chapter" data-level="B" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html"><i class="fa fa-check"></i><b>B</b> Repaso de Proba</a>
+<ul>
 <li class="chapter" data-level="B.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-indicadoras"><i class="fa fa-check"></i><b>B.1</b> Funciones indicadoras</a></li>
 <li class="chapter" data-level="B.2" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#conteo"><i class="fa fa-check"></i><b>B.2</b> Conteo</a></li>
 <li class="chapter" data-level="B.3" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#espacios-de-probabilidad"><i class="fa fa-check"></i><b>B.3</b> Espacios de probabilidad</a></li>
@@ -272,16 +324,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B.8" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-de-densidad"><i class="fa fa-check"></i><b>B.8</b> Funciones de densidad</a></li>
 <li class="chapter" data-level="B.9" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-de-cambio-de-variable-unidimensional"><i class="fa fa-check"></i><b>B.9</b> Teorema de cambio de variable unidimensional</a></li>
 <li class="chapter" data-level="B.10" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#probabilidad-multivariada"><i class="fa fa-check"></i><b>B.10</b> Probabilidad Multivariada</a></li>
-<li class="chapter" data-level="B.11" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#esperanza-varianza-y-covarianza"><i class="fa fa-check"></i><b>B.11</b> Esperanza, varianza y covarianza</a><ul>
+<li class="chapter" data-level="B.11" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#esperanza-varianza-y-covarianza"><i class="fa fa-check"></i><b>B.11</b> Esperanza, varianza y covarianza</a>
+<ul>
 <li class="chapter" data-level="B.11.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#propiedades-de-valor-esperado-varianza-y-covarianza"><i class="fa fa-check"></i><b>B.11.1</b> Propiedades de valor esperado, varianza y covarianza</a></li>
 </ul></li>
 <li class="chapter" data-level="B.12" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#condicionamiento-por-otra-variable-aleatoria"><i class="fa fa-check"></i><b>B.12</b> Condicionamiento por otra variable aleatoria</a></li>
 <li class="chapter" data-level="B.13" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-características"><i class="fa fa-check"></i><b>B.13</b> Funciones características</a></li>
-<li class="chapter" data-level="B.14" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#convergencias"><i class="fa fa-check"></i><b>B.14</b> Convergencias</a><ul>
+<li class="chapter" data-level="B.14" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#convergencias"><i class="fa fa-check"></i><b>B.14</b> Convergencias</a>
+<ul>
 <li class="chapter" data-level="B.14.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-de-continuidad-de-lévy"><i class="fa fa-check"></i><b>B.14.1</b> Teorema de continuidad de Lévy</a></li>
 </ul></li>
 <li class="chapter" data-level="B.15" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>B.15</b> Ley de los grandes números</a></li>
-<li class="chapter" data-level="B.16" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>B.16</b> Teorema del límite central</a><ul>
+<li class="chapter" data-level="B.16" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>B.16</b> Teorema del límite central</a>
+<ul>
 <li class="chapter" data-level="B.16.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#programación-en-r-del-teorema-del-límite-central-con-variables-aleatorias-independientes-idénticamente-distribuidas"><i class="fa fa-check"></i><b>B.16.1</b> Programación en <code>R</code> del teorema del límite central con variables aleatorias independientes idénticamente distribuidas</a></li>
 <li class="chapter" data-level="B.16.2" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#ejercicio-14"><i class="fa fa-check"></i><b>B.16.2</b> Ejercicio</a></li>
 </ul></li>
@@ -306,29 +361,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="conceptos" class="section level1">
+<div id="conceptos" class="section level1" number="2">
 <h1><span class="header-section-number">Capítulo 2</span> Conceptos</h1>
 <p>Este libro trata sobre <strong>datos</strong> y <strong>encuestas</strong> que estudian <strong>poblaciones</strong> a través de <strong>muestras</strong>. Antes de empezar con las matemáticas es necesario definir estos conceptos para tener claro de qué se habla. El más importante es la distinción entre <strong>encuesta</strong> y <strong>experimento</strong>: todo este libro hablará sobre encuestas, dejando la estadística para experimentos para otras notas.</p>
 <ul>
-<li><p><strong>Experimento</strong> Cualquier diseño de estudio donde la investigadora puede replicar cuantas veces desee el estudio y obtener cuantas mediciones sean necesarias. El objeto de estudio NO es una población. Por ejemplo: alimentar ratones con una sustancia y medir su presión arterial (pueden obtenerse cuantos ratones sean necesarios), determinar la vida media de un compuesto (puede hacerse cuantos kilogramos de la sustancia se requieran) o establecer si una forma de enseñanza de estadística genera mejores resultados en los exámenes que otra (se pueden obtener tantos alumnos como se desee y enseñarles de X o Y forma hasta distinguir una diferencia si es que hay).</p></li>
-<li><p><strong>Encuesta</strong> Una encuesta es un diseño de estudio donde se busca determinar el estado actual o una característica de una población finita. Una encuesta no es replicable en igualdad de condiciones y está sujeta a que, a lo más, puede obtener tantas mediciones como el tamaño de la población. Por ejemplo: realizar un cuestionario sobre salud mental dentro de la población de estudiantes (no es replicable porque si se vuelve a hacer, la salud mental de los estudiantes o la población ya cambió); determinar el tamaño en bytes del Internet (la población es finita); medir la altura de los árboles de un bosque (finito y no replicable).</p></li>
+<li><strong>Experimento</strong> Cualquier diseño de estudio donde la investigadora puede, potencialmente, replicar cuantas veces desee el estudio y obtener cuantas mediciones sean necesarias. El objeto de estudio NO es una población finita. Por ejemplo: alimentar ratones con una sustancia y medir su presión arterial (pueden obtenerse cuantos ratones sean necesarios), determinar la vida media de un compuesto (puede hacerse cuantos kilogramos de la sustancia se requieran) o establecer si una forma de enseñanza de estadística genera mejores resultados en los exámenes que otra (se pueden obtener tantos alumnos como se desee y enseñarles de X o Y forma hasta distinguir una diferencia si es que hay).</li>
 </ul>
 <blockquote>
-<p><strong>Nota</strong> Una encuesta no es un cuestionario. Algunas encuestas de salud, por ejemplo, toma muestras de sangre de las personas para determinar la proporción de personas con diabetes. Esta encuesta no es un cuestionario (no tiene una pregunta) pero sí es una encuesta (busca determinar el estado actual o una característica de una población finita).</p>
+<p><strong>Nota</strong> Si has escuchado hablar de inferencia estadística usualmente esto es lo que se enseña cuando se consideran variables aleatorias independientes idénticamente distribuidas. Muchos de los teoremas (como normalidad aproximada) funcionan cuando el tamaño de tu muestra, <span class="math inline">\(n\)</span>, tiende a infinito, <span class="math inline">\(n \to \infty\)</span>. Eso funciona súper bien cuando lo que se analiza son experimentos que se pueden repetir tantas veces como sea necesario para obtener la aproximación límite. Este libro no trata sobre experimentos sino sobre encuestas y en una encuesta usualmente se considera una población finita por lo que no se pueden obtener infinitas mediciones.</p>
 </blockquote>
 <ul>
-<li><strong>Población</strong> Cualquier conjunto no vacío. Algunos ejemplos de poblaciones incluyen: las personas que viven en Guatemala (si me interesa saber algo de los guatemaltecos en general), los árboles del Amazonas (si quiero saber cosas de ecología), los perros callejeros en Ciudad de México, los consumidores de una marca de cereal, los coches que transitan por Dubai o los granos de arena en una playa específica de Cancún.</li>
+<li><strong>Encuesta</strong> Una encuesta es un diseño de estudio donde se busca determinar el estado actual o una característica de una población finita (tamaño usualmente denotado <span class="math inline">\(N\)</span>). Una encuesta no es replicable en igualdad de condiciones y está sujeta a que, a lo más, puede obtener tantas mediciones como el tamaño de la población. Por ejemplo: realizar un cuestionario sobre salud mental dentro de la población de estudiantes (no es replicable porque si se vuelve a hacer, la salud mental de los estudiantes o la población ya cambió); determinar el tamaño en bytes del Internet (la población es finita); medir la altura de los árboles de un bosque (finito y no replicable).</li>
+</ul>
+<blockquote>
+<p><strong>Nota</strong> Una encuesta no es un cuestionario. Algunas encuestas de salud, por ejemplo, toma muestras de sangre de las personas para determinar la proporción de personas con diabetes. Esta encuesta no es un cuestionario (no tiene una pregunta) pero sí es una encuesta (busca determinar el estado actual o una característica de una población finita). Lo mismo ocurre cuando se busca determinar la cantidad de árboles en un bosque (no se les pregunta a los árboles cuántos son) o cuando se quiere establecer el peso promedio de las vacas en distintos centros ganaderos (no se les pregunta a las vacas cuánto pesan).</p>
+</blockquote>
+<div class="figure">
+<img src="images/arbol.png" alt="" />
+<p class="caption">No todas las encuestas tienen sentido como cuestionarios</p>
+</div>
+<ul>
+<li><strong>Población</strong> Cualquier conjunto no vacío. Algunos ejemplos de poblaciones incluyen: las personas que viven en Guatemala (si me interesa saber algo de los guatemaltecos en general), los árboles del Amazonas (si quiero saber cosas de ecología en torno al río), los perros callejeros en Ciudad de México, los consumidores de una marca de cereal, los coches que transitan por Dubai o los granos de arena en una playa específica de Cancún.</li>
 </ul>
 <blockquote>
 <p><strong>Nota:</strong> Las poblaciones no necesariamente son de seres vivos son sólo conjuntos de cosas que se están estudiando. Las poblaciones usualmente están restringidas al tiempo y al espacio por lo que es importante tener una definición <em>clara</em> de quiénes sí están en el estudio, quiénes no y por qué.</p>
 </blockquote>
+<blockquote>
+<p><strong>Nota:</strong> En la mayoría de los problemas de encuestas que enfrentaremos suponemos que la población es de tamaño <em>finito</em> <span class="math inline">\(N\)</span>. Esto en contraste con un experimento donde la población es de tamaño infinito.</p>
+</blockquote>
 <ul>
 <li><p><strong>Población objetivo</strong> El conjunto de elementos que formarán parte del estudio. Definir la <em>población objetivo</em> es complicado en algunas situaciones; por ejemplo, si se desea saber si <em>los mexicanos</em> están a favor o en contra de legalizar la marihuana hay que establecer quiénes son <em>los mexicanos</em>. ¿Cuentan las personas con nacionalidad mexicana que residen en el extranjero? ¿Cuentan los menores de edad? ¿Qué pasa con los extranjeros que son residentes?</p></li>
 <li><p><strong>Población muestreada</strong> Es el conjunto de elementos sobre los cuales se tomó la muestra para el análisis estadístico. <em>Idealmente</em> la población objetivo y la muestreada deberían de ser igual pero el mundo no es tan bello. En encuestas de consumo, por ejemplo, usualmente no se muestrean zonas remotas o de muy bajos recursos. En encuestas de elecciones si bien la población objetivo son <em>todas las personas que voten el día de la elección</em>, como la mayoría se hacen <em>antes</em> de la elección (exceptuando las de salida) entonces se aproxima la definición de <em>votante</em> buscando incluir sólo aquellos que estén registrados en el padrón electoral o bien aquellos que al ser encuestados digan que <em>sí</em> van a votar.</p></li>
-<li><p><strong>Muestra</strong> Un subconjunto propio de la población muestreada. Si la muestra coincide con la población muestreada se dice que es un <strong>censo</strong>.</p></li>
-<li><p><strong>Marco muestral</strong> Una lista a partir de la cual se selecciona la muestra para la encuesta. Puede ser, en un salón de clases, la lista completa de alumnos. En estudios de agricultura usualmente la lista son <em>parcelas de tierra</em> aunque interese estudiar los cultivos mientras que en poblaciones grandes de personas el marco suele ser una lista de casas (dado que no se sabe qué persona vive dónde) o bien un mapa de calles y colonias. Para el INEGI es común usar las <em>Áreas Geoestadísticas Básicas</em> (AGEB) las cuales son divisiones fijas (pequeñísimas, como una manzana) del mapa de México.</p></li>
-<li><p><strong>Unidad de muestreo</strong> Una unidad que puede seleccionarse del marco muestral. Por ejemplo, en la lista de casas la <em>unidad de muestreo</em> sería una casa. Por otro lado, en una lista de parcelas la <em>unidad</em> es la parcela. Si se tiene una lista de estudiantes en un grupo la unidad serían los estudiantes.</p></li>
-<li><p><strong>Unidad de observación</strong> El objeto que interesa medir. En el caso de una encuesta dirigida a personas donde se utiliza una lista de casas para encontrar a las personas, la unidad de muestreo es la casa (el objeto de la lista) pero la unidad de observación es la persona (lo que quiero medir). Si se tiene una lista de estudiantes y se desea encuestar estudiantes entonces la unidad de observación y la de muestreo coinciden (son estudiantes). Si se tiene una lista de casas y se desea estudiar propiedades de la casa (digamos, tamaño del terreno construido) entonces la unidad de muestreo y de observación coinciden y son la casa.</p></li>
+</ul>
+<blockquote>
+<p>A veces a la población se le conoce como <em>el conjunto universo</em> y es por esto que se denota:
+<span class="math display">\[
+\mathcal{U} = \{ u_1, u_2, \dots \} 
+\]</span>
+con <span class="math inline">\(u_i\)</span> siendo sus elementos. Nosotros (hasta que se diga lo contrario) supondremos que la muestreada coincide con la objetivo y por tanto esa <span class="math inline">\(\mathcal{U}\)</span> será sólo <strong>la población</strong>.</p>
+</blockquote>
+<div class="figure">
+<img src="images/muestra.png" alt="" />
+<p class="caption">Diferencia entre población objetivo, población muestreada y muestra</p>
+</div>
+<ul>
+<li><strong>Muestra</strong> Un subconjunto de la población muestreada. Si la muestra coincide con la población muestreada se dice que es un <strong>censo</strong>. Los “mejores” censos (para nosotros) son aquellos donde la población muestreada y la población objetivo coinciden (porque ya medimos todo lo que queríamos). Para el propósito de estas notas los únicos <strong>censos</strong> que consideraremos son aquellos donde la población muestreada es la objetivo.</li>
+</ul>
+<blockquote>
+<p>La muestra es un subconjunto de la población:
+<span class="math display">\[
+\mathcal{S} = \{ s_1, s_2, \dots \} \subseteq \mathcal{U}
+\]</span>
+con <span class="math inline">\(s_i\)</span> siendo sus elementos. Nosotros sólo consideraremos muestras que son de tamaño finito, <span class="math inline">\(n\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Nota:</strong> Hasta ahora no estamos hablando de <em>muestras aleatorias</em>. Esta definición habla de cualquier subconjunto no necesariamente uno que se haya obtenido por algún mecanismo aleatorio. Por ejemplo, si durante una pandemia se le pide a todas las personas de una población con apellidos de la A a la F acudan a una institución esto sí es una muestra (dado que es subconjunto de la población) pero podría argumentarse no es una muestra aleatoria (pues el proceso de selección fue determinista).</p>
+</blockquote>
+<blockquote>
+<p><strong>Nota</strong> A menos que se especifique lo contrario, el vació, <span class="math inline">\(\emptyset\)</span> es una muestra.</p>
+</blockquote>
+<div class="figure">
+<img src="images/muestravacia.jpg" alt="" />
+<p class="caption">Hay que ser muy claros para especificar que queremos una muestra con <span class="math inline">\(n &gt;0\)</span></p>
+</div>
+<ul>
+<li><strong>Marco muestral</strong> Una lista a partir de la cual se selecciona la muestra para la encuesta. Puede ser, en un salón de clases, la lista completa de alumnos. En estudios de agricultura usualmente la lista son <em>parcelas de tierra</em> aunque interese estudiar los cultivos mientras que en poblaciones grandes de personas el marco suele ser una lista de casas (dado que no se sabe qué persona vive dónde) o bien un mapa de calles y colonias. Para el INEGI es común usar las <em>Áreas Geoestadísticas Básicas</em> (AGEB) las cuales son divisiones fijas (pequeñísimas, como una manzana) del mapa de México.</li>
+</ul>
+<div class="figure">
+<img src="images/samplingframe.png" alt="" />
+<p class="caption">Este marco muestral está amañado</p>
+</div>
+<ul>
+<li><p><strong>Unidad de muestreo</strong> Una unidad que puede seleccionarse del marco muestral. Por ejemplo, en la lista de casas la <em>unidad de muestreo</em> sería una casa. Por otro lado, en una lista de parcelas la <em>unidad</em> es la parcela. Si se tiene una lista de estudiantes en un grupo la <em>unidad</em> serían los estudiantes. Puede que haya múltiples unidades de muestreo en la misma encuesta por ejemplo, si se desea hacer una encuesta para evaluar alumnos de las escuelas. Suponiendo que el muestreo ocurre de la siguiente forma: 1) primero sólo se tiene la lista de escuelas por lo que se seleccionan al azar un número de escuelas; 2) una vez las investigadoras llegan a la escuela elegida, obtienen la lista de los alumnos inscritos y muestrean sobre ellos. En este escenario hay dos niveles de marcos muestrales (la lista de escuelas de manera inicial y la lista de alumnos por escuela que se obtiene una vez llegas a la escuela elegida). La primera unidad de muestreo (Unidad Primaria de Muestreo) es la escuela; la segunda unidad de muestreo (Unidad Secundaria de Muestreo) son los alumnos.</p></li>
+<li><p><strong>Unidad de observación</strong> El objeto que interesa medir. En el caso de una encuesta dirigida a personas donde se utiliza una lista de casas para encontrar a las personas, la unidad de muestreo es la casa (el objeto de la lista) pero la unidad de observación son las personas que viven dentro de la casa (lo que quiero medir). Una cosa muy parecida (pero no idéntica) es tener una lista de casas y desear estudiar propiedades de la casa (digamos, tamaño). En ese caso la unidad de muestreo y observación coinciden: son la casa.</p></li>
 </ul>
 
 </div>
@@ -361,6 +466,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

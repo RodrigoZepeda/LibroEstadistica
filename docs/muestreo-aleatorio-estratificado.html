@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 5 Muestreo Aleatorio Estratificado | Estadística I: Análisis exploratorio de datos y muestreo</title>
   <meta name="description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 5 Muestreo Aleatorio Estratificado | Estadística I: Análisis exploratorio de datos y muestreo" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Rodrigo Zepeda-Tello y Luis Gerardo Martínez Valdés" />
 
 
-<meta name="date" content="2021-01-11" />
+<meta name="date" content="2021-08-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="muestreo-aleatorio-simple.html"/>
 <link rel="next" href="intervalos-de-confianza-mediante-bootstrap.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,25 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +89,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -120,6 +122,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -138,41 +163,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Historia de la estadística</a></li>
 <li class="chapter" data-level="2" data-path="conceptos.html"><a href="conceptos.html"><i class="fa fa-check"></i><b>2</b> Conceptos</a></li>
-<li class="chapter" data-level="3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>3</b> Análisis Exploratorio de Datos</a><ul>
+<li class="chapter" data-level="3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>3</b> Análisis Exploratorio de Datos</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#inicio"><i class="fa fa-check"></i><b>3.1</b> Inicio</a></li>
 <li class="chapter" data-level="3.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#librerías"><i class="fa fa-check"></i><b>3.2</b> Librerías</a></li>
 <li class="chapter" data-level="3.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#base-a-analizar"><i class="fa fa-check"></i><b>3.3</b> Base a analizar</a></li>
 <li class="chapter" data-level="3.4" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#definiciones-y-notación"><i class="fa fa-check"></i><b>3.4</b> Definiciones y notación</a></li>
-<li class="chapter" data-level="3.5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-univariados"><i class="fa fa-check"></i><b>3.5</b> Estadísticos univariados</a><ul>
+<li class="chapter" data-level="3.5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-univariados"><i class="fa fa-check"></i><b>3.5</b> Estadísticos univariados</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#definición-estadístico"><i class="fa fa-check"></i><b>3.5.1</b> Definición [Estadístico]</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio"><i class="fa fa-check"></i><b>3.6</b> Ejercicio</a></li>
 <li class="chapter" data-level="3.7" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>3.7</b> Ejercicios</a></li>
 <li class="chapter" data-level="3.8" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-univariadas"><i class="fa fa-check"></i><b>3.8</b> Gráficas univariadas</a></li>
-<li class="chapter" data-level="3.9" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-bivariadas"><i class="fa fa-check"></i><b>3.9</b> Gráficas bivariadas</a><ul>
+<li class="chapter" data-level="3.9" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#gráficas-bivariadas"><i class="fa fa-check"></i><b>3.9</b> Gráficas bivariadas</a>
+<ul>
 <li class="chapter" data-level="3.9.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-1"><i class="fa fa-check"></i><b>3.9.1</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-bivariados"><i class="fa fa-check"></i><b>3.10</b> Estadísticos bivariados</a><ul>
+<li class="chapter" data-level="3.10" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-bivariados"><i class="fa fa-check"></i><b>3.10</b> Estadísticos bivariados</a>
+<ul>
 <li class="chapter" data-level="3.10.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-2"><i class="fa fa-check"></i><b>3.10.1</b> Ejercicio</a></li>
 </ul></li>
 <li class="chapter" data-level="3.11" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-3"><i class="fa fa-check"></i><b>3.11</b> Ejercicio</a></li>
-<li class="chapter" data-level="3.12" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ajuste-funcional"><i class="fa fa-check"></i><b>3.12</b> Ajuste funcional</a><ul>
+<li class="chapter" data-level="3.12" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ajuste-funcional"><i class="fa fa-check"></i><b>3.12</b> Ajuste funcional</a>
+<ul>
 <li class="chapter" data-level="3.12.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-4"><i class="fa fa-check"></i><b>3.12.1</b> Ejercicio</a></li>
 <li class="chapter" data-level="3.12.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-sugerido"><i class="fa fa-check"></i><b>3.12.2</b> Ejercicio sugerido</a></li>
 </ul></li>
 <li class="chapter" data-level="3.13" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios-del-capítulo"><i class="fa fa-check"></i><b>3.13</b> Ejercicios del capítulo</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html"><i class="fa fa-check"></i><b>4</b> Muestreo Aleatorio Simple</a><ul>
+<li class="chapter" data-level="4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html"><i class="fa fa-check"></i><b>4</b> Muestreo Aleatorio Simple</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#inicio-1"><i class="fa fa-check"></i><b>4.1</b> Inicio</a></li>
 <li class="chapter" data-level="4.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#librerías-1"><i class="fa fa-check"></i><b>4.2</b> Librerías</a></li>
-<li class="chapter" data-level="4.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#notación"><i class="fa fa-check"></i><b>4.3</b> Notación</a><ul>
+<li class="chapter" data-level="4.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#notación"><i class="fa fa-check"></i><b>4.3</b> Notación</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo"><i class="fa fa-check"></i><b>4.3.1</b> Ejemplo</a></li>
 <li class="chapter" data-level="4.3.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-5"><i class="fa fa-check"></i><b>4.3.2</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-sin-reemplazo-massr"><i class="fa fa-check"></i><b>4.4</b> Muestreo Aleatorio Simple sin Reemplazo (MAS/sR)</a><ul>
+<li class="chapter" data-level="4.4" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-sin-reemplazo-massr"><i class="fa fa-check"></i><b>4.4</b> Muestreo Aleatorio Simple sin Reemplazo (MAS/sR)</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-6"><i class="fa fa-check"></i><b>4.4.1</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#teorema-del-límite-central-aplicación"><i class="fa fa-check"></i><b>4.5</b> Teorema del Límite Central (Aplicación)</a><ul>
+<li class="chapter" data-level="4.5" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#teorema-del-límite-central-aplicación"><i class="fa fa-check"></i><b>4.5</b> Teorema del Límite Central (Aplicación)</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#estimación-de-intervalos-de-confianza-para-el-total"><i class="fa fa-check"></i><b>4.5.1</b> Estimación de intervalos de confianza para el total</a></li>
 <li class="chapter" data-level="4.5.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-con-simulación"><i class="fa fa-check"></i><b>4.5.2</b> Ejemplo con simulación:</a></li>
 </ul></li>
@@ -182,7 +216,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.9" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-de-una-región-crítica"><i class="fa fa-check"></i><b>4.9</b> Ejemplo Resumen: Estimación de una región crítica</a></li>
 <li class="chapter" data-level="4.10" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-resumen-estimación-del-total-de-una-población"><i class="fa fa-check"></i><b>4.10</b> Ejemplo Resumen: Estimación del total de una población</a></li>
 <li class="chapter" data-level="4.11" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#demostración-del-teorema-del-límite-central-para-muestras-finitas"><i class="fa fa-check"></i><b>4.11</b> Demostración del Teorema del Límite Central para Muestras Finitas</a></li>
-<li class="chapter" data-level="4.12" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-bernoulli-be"><i class="fa fa-check"></i><b>4.12</b> Muestreo Aleatorio Simple Bernoulli (BE)</a><ul>
+<li class="chapter" data-level="4.12" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-bernoulli-be"><i class="fa fa-check"></i><b>4.12</b> Muestreo Aleatorio Simple Bernoulli (BE)</a>
+<ul>
 <li class="chapter" data-level="4.12.1" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicio-8"><i class="fa fa-check"></i><b>4.12.1</b> Ejercicio</a></li>
 <li class="chapter" data-level="4.12.2" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejemplo-1"><i class="fa fa-check"></i><b>4.12.2</b> Ejemplo</a></li>
 <li class="chapter" data-level="4.12.3" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#un-mejor-estimador-el-proporcional-al-tamaño"><i class="fa fa-check"></i><b>4.12.3</b> Un mejor estimador: el proporcional al tamaño</a></li>
@@ -194,12 +229,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.17" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#muestreo-aleatorio-simple-ponderado-masp"><i class="fa fa-check"></i><b>4.17</b> Muestreo Aleatorio Simple Ponderado (MAS/P)</a></li>
 <li class="chapter" data-level="4.18" data-path="muestreo-aleatorio-simple.html"><a href="muestreo-aleatorio-simple.html#ejercicios-1"><i class="fa fa-check"></i><b>4.18</b> Ejercicios</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html"><i class="fa fa-check"></i><b>5</b> Muestreo Aleatorio Estratificado</a><ul>
-<li class="chapter" data-level="5.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#introducción-a-muestreo-aleatorio-estratificado-mae"><i class="fa fa-check"></i><b>5.1</b> Introducción a Muestreo Aleatorio Estratificado (MAE)</a><ul>
+<li class="chapter" data-level="5" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html"><i class="fa fa-check"></i><b>5</b> Muestreo Aleatorio Estratificado</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#introducción-a-muestreo-aleatorio-estratificado-mae"><i class="fa fa-check"></i><b>5.1</b> Introducción a Muestreo Aleatorio Estratificado (MAE)</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejemplo-2"><i class="fa fa-check"></i><b>5.1.1</b> Ejemplo</a></li>
 <li class="chapter" data-level="5.1.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-sugerido-1"><i class="fa fa-check"></i><b>5.1.2</b> Ejercicio sugerido</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación"><i class="fa fa-check"></i><b>5.2</b> Alocación</a><ul>
+<li class="chapter" data-level="5.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación"><i class="fa fa-check"></i><b>5.2</b> Alocación</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-proporcional-al-tamaño"><i class="fa fa-check"></i><b>5.2.1</b> Alocación proporcional al tamaño</a></li>
 <li class="chapter" data-level="5.2.2" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#alocación-óptima"><i class="fa fa-check"></i><b>5.2.2</b> Alocación óptima</a></li>
 <li class="chapter" data-level="5.2.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejemplo-3"><i class="fa fa-check"></i><b>5.2.3</b> Ejemplo</a></li>
@@ -207,22 +245,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-de-clase"><i class="fa fa-check"></i><b>5.3</b> Ejercicio de clase:</a></li>
 <li class="chapter" data-level="5.4" data-path="muestreo-aleatorio-estratificado.html"><a href="muestreo-aleatorio-estratificado.html#ejercicio-en-r-tipo-control"><i class="fa fa-check"></i><b>5.4</b> Ejercicio en R tipo control</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html"><i class="fa fa-check"></i><b>6</b> Intervalos de Confianza mediante bootstrap</a><ul>
+<li class="chapter" data-level="6" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html"><i class="fa fa-check"></i><b>6</b> Intervalos de Confianza mediante bootstrap</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#inicio-2"><i class="fa fa-check"></i><b>6.1</b> Inicio</a></li>
 <li class="chapter" data-level="6.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#intervalos-asintóticos"><i class="fa fa-check"></i><b>6.2</b> Intervalos asintóticos</a></li>
-<li class="chapter" data-level="6.3" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#muestreo-basado-en-modelos"><i class="fa fa-check"></i><b>6.3</b> Muestreo basado en modelos</a><ul>
+<li class="chapter" data-level="6.3" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#muestreo-basado-en-modelos"><i class="fa fa-check"></i><b>6.3</b> Muestreo basado en modelos</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejemplo-poisson"><i class="fa fa-check"></i><b>6.3.1</b> Ejemplo Poisson</a></li>
 <li class="chapter" data-level="6.3.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejercicio-9"><i class="fa fa-check"></i><b>6.3.2</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#intervalos-bootstrap"><i class="fa fa-check"></i><b>6.4</b> Intervalos Bootstrap</a><ul>
+<li class="chapter" data-level="6.4" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#intervalos-bootstrap"><i class="fa fa-check"></i><b>6.4</b> Intervalos Bootstrap</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#boostrap-bajo-un-modelo"><i class="fa fa-check"></i><b>6.4.1</b> Boostrap bajo un modelo</a></li>
 <li class="chapter" data-level="6.4.2" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#boostrap-de-una-muestra"><i class="fa fa-check"></i><b>6.4.2</b> Boostrap de una muestra</a></li>
 <li class="chapter" data-level="6.4.3" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejemplo-4"><i class="fa fa-check"></i><b>6.4.3</b> Ejemplo</a></li>
 <li class="chapter" data-level="6.4.4" data-path="intervalos-de-confianza-mediante-bootstrap.html"><a href="intervalos-de-confianza-mediante-bootstrap.html#ejercicio-10"><i class="fa fa-check"></i><b>6.4.4</b> Ejercicio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html"><i class="fa fa-check"></i><b>7</b> Muestreo Aleatorio Multietápico</a><ul>
-<li class="chapter" data-level="7.1" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#muestreo-aleatorio-por-clusters-en-una-sola-etapa"><i class="fa fa-check"></i><b>7.1</b> Muestreo aleatorio por clusters en una sola etapa</a><ul>
+<li class="chapter" data-level="7" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html"><i class="fa fa-check"></i><b>7</b> Muestreo Aleatorio Multietápico</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#muestreo-aleatorio-por-clusters-en-una-sola-etapa"><i class="fa fa-check"></i><b>7.1</b> Muestreo aleatorio por clusters en una sola etapa</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#ejemplo-5"><i class="fa fa-check"></i><b>7.1.1</b> Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="muestreo-aleatorio-multietápico.html"><a href="muestreo-aleatorio-multietápico.html#muestreo-aleatorio-por-clusters-bietápico-en-dos-etapas"><i class="fa fa-check"></i><b>7.2</b> Muestreo aleatorio por clusters bietápico (en dos etapas)</a></li>
@@ -231,37 +274,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
 <li class="appendix"><span><b>Apéndice</b></span></li>
-<li class="chapter" data-level="A" data-path="programación-en-r.html"><a href="programación-en-r.html"><i class="fa fa-check"></i><b>A</b> Programación en <code>R</code></a><ul>
-<li class="chapter" data-level="A.1" data-path="programación-en-r.html"><a href="programación-en-r.html#algunas-ventajas-de-r-y-cosas-no-tan-padres"><i class="fa fa-check"></i><b>A.1</b> Algunas ventajas de <code>R</code> y cosas no tan padres</a><ul>
+<li class="chapter" data-level="A" data-path="programación-en-r.html"><a href="programación-en-r.html"><i class="fa fa-check"></i><b>A</b> Programación en <code>R</code></a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="programación-en-r.html"><a href="programación-en-r.html#algunas-ventajas-de-r-y-cosas-no-tan-padres"><i class="fa fa-check"></i><b>A.1</b> Algunas ventajas de <code>R</code> y cosas no tan padres</a>
+<ul>
 <li class="chapter" data-level="A.1.1" data-path="programación-en-r.html"><a href="programación-en-r.html#puntos-a-favor-de-r"><i class="fa fa-check"></i><b>A.1.1</b> Puntos a favor de <code>R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="A.2" data-path="programación-en-r.html"><a href="programación-en-r.html#bienvenidx-a-r-bunny-wunnies-freak-out-sí-así-se-llama-esta-versión"><i class="fa fa-check"></i><b>A.2</b> Bienvenidx a <code>R</code>, Bunny-Wunnies Freak Out (sí, así se llama esta versión)</a></li>
-<li class="chapter" data-level="A.3" data-path="programación-en-r.html"><a href="programación-en-r.html#instalando-cosas"><i class="fa fa-check"></i><b>A.3</b> Instalando cosas</a><ul>
+<li class="chapter" data-level="A.2" data-path="programación-en-r.html"><a href="programación-en-r.html#bienvenidx-a-r-camp-pontanezen-sí-así-se-llama-esta-versión"><i class="fa fa-check"></i><b>A.2</b> Bienvenidx a <code>R</code>, Camp Pontanezen (sí, así se llama esta versión)</a></li>
+<li class="chapter" data-level="A.3" data-path="programación-en-r.html"><a href="programación-en-r.html#instalando-cosas"><i class="fa fa-check"></i><b>A.3</b> Instalando cosas</a>
+<ul>
 <li class="chapter" data-level="A.3.1" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-r"><i class="fa fa-check"></i><b>A.3.1</b> Instalación de <code>R</code></a></li>
 </ul></li>
 <li class="chapter" data-level="A.4" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-rstudio"><i class="fa fa-check"></i><b>A.4</b> Instalación de <code>RStudio</code></a></li>
 <li class="chapter" data-level="A.5" data-path="programación-en-r.html"><a href="programación-en-r.html#primeros-pasos-en-r-usando-rstudio"><i class="fa fa-check"></i><b>A.5</b> Primeros pasos en <code>R</code> usando <code>RStudio</code></a></li>
-<li class="chapter" data-level="A.6" data-path="programación-en-r.html"><a href="programación-en-r.html#cálculos-numéricos"><i class="fa fa-check"></i><b>A.6</b> Cálculos numéricos</a><ul>
+<li class="chapter" data-level="A.6" data-path="programación-en-r.html"><a href="programación-en-r.html#cálculos-numéricos"><i class="fa fa-check"></i><b>A.6</b> Cálculos numéricos</a>
+<ul>
 <li class="chapter" data-level="A.6.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-11"><i class="fa fa-check"></i><b>A.6.1</b> Ejercicio</a></li>
 <li class="chapter" data-level="A.6.2" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-12"><i class="fa fa-check"></i><b>A.6.2</b> Ejercicio</a></li>
 <li class="chapter" data-level="A.6.3" data-path="programación-en-r.html"><a href="programación-en-r.html#respuestas"><i class="fa fa-check"></i><b>A.6.3</b> Respuestas</a></li>
 </ul></li>
-<li class="chapter" data-level="A.7" data-path="programación-en-r.html"><a href="programación-en-r.html#variables"><i class="fa fa-check"></i><b>A.7</b> Variables</a><ul>
+<li class="chapter" data-level="A.7" data-path="programación-en-r.html"><a href="programación-en-r.html#variables"><i class="fa fa-check"></i><b>A.7</b> Variables</a>
+<ul>
 <li class="chapter" data-level="A.7.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>A.7.1</b> Ejercicios</a></li>
 <li class="chapter" data-level="A.7.2" data-path="programación-en-r.html"><a href="programación-en-r.html#nivel-3"><i class="fa fa-check"></i><b>A.7.2</b> NIVEL 3</a></li>
 </ul></li>
-<li class="chapter" data-level="A.8" data-path="programación-en-r.html"><a href="programación-en-r.html#observaciones-sobre-la-aritmética-de-punto-flotante"><i class="fa fa-check"></i><b>A.8</b> Observaciones sobre la aritmética de punto flotante</a><ul>
+<li class="chapter" data-level="A.8" data-path="programación-en-r.html"><a href="programación-en-r.html#observaciones-sobre-la-aritmética-de-punto-flotante"><i class="fa fa-check"></i><b>A.8</b> Observaciones sobre la aritmética de punto flotante</a>
+<ul>
 <li class="chapter" data-level="A.8.1" data-path="programación-en-r.html"><a href="programación-en-r.html#cómo-checar-un-if"><i class="fa fa-check"></i><b>A.8.1</b> ¿Cómo checar un if?</a></li>
 </ul></li>
-<li class="chapter" data-level="A.9" data-path="programación-en-r.html"><a href="programación-en-r.html#leer-y-almacenar-variables-en-r"><i class="fa fa-check"></i><b>A.9</b> Leer y almacenar variables en <code>R</code></a><ul>
+<li class="chapter" data-level="A.9" data-path="programación-en-r.html"><a href="programación-en-r.html#leer-y-almacenar-variables-en-r"><i class="fa fa-check"></i><b>A.9</b> Leer y almacenar variables en <code>R</code></a>
+<ul>
 <li class="chapter" data-level="A.9.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicio-13"><i class="fa fa-check"></i><b>A.9.1</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="A.10" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-paquetes"><i class="fa fa-check"></i><b>A.10</b> Instalación de paquetes</a><ul>
+<li class="chapter" data-level="A.10" data-path="programación-en-r.html"><a href="programación-en-r.html#instalación-de-paquetes"><i class="fa fa-check"></i><b>A.10</b> Instalación de paquetes</a>
+<ul>
 <li class="chapter" data-level="A.10.1" data-path="programación-en-r.html"><a href="programación-en-r.html#ejercicios-3"><i class="fa fa-check"></i><b>A.10.1</b> Ejercicios</a></li>
 </ul></li>
 <li class="chapter" data-level="A.11" data-path="programación-en-r.html"><a href="programación-en-r.html#comentarios-adicionales-sobre-el-formato"><i class="fa fa-check"></i><b>A.11</b> Comentarios adicionales sobre el formato</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html"><i class="fa fa-check"></i><b>B</b> Repaso de Proba</a><ul>
+<li class="chapter" data-level="B" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html"><i class="fa fa-check"></i><b>B</b> Repaso de Proba</a>
+<ul>
 <li class="chapter" data-level="B.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-indicadoras"><i class="fa fa-check"></i><b>B.1</b> Funciones indicadoras</a></li>
 <li class="chapter" data-level="B.2" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#conteo"><i class="fa fa-check"></i><b>B.2</b> Conteo</a></li>
 <li class="chapter" data-level="B.3" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#espacios-de-probabilidad"><i class="fa fa-check"></i><b>B.3</b> Espacios de probabilidad</a></li>
@@ -272,16 +324,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B.8" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-de-densidad"><i class="fa fa-check"></i><b>B.8</b> Funciones de densidad</a></li>
 <li class="chapter" data-level="B.9" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-de-cambio-de-variable-unidimensional"><i class="fa fa-check"></i><b>B.9</b> Teorema de cambio de variable unidimensional</a></li>
 <li class="chapter" data-level="B.10" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#probabilidad-multivariada"><i class="fa fa-check"></i><b>B.10</b> Probabilidad Multivariada</a></li>
-<li class="chapter" data-level="B.11" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#esperanza-varianza-y-covarianza"><i class="fa fa-check"></i><b>B.11</b> Esperanza, varianza y covarianza</a><ul>
+<li class="chapter" data-level="B.11" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#esperanza-varianza-y-covarianza"><i class="fa fa-check"></i><b>B.11</b> Esperanza, varianza y covarianza</a>
+<ul>
 <li class="chapter" data-level="B.11.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#propiedades-de-valor-esperado-varianza-y-covarianza"><i class="fa fa-check"></i><b>B.11.1</b> Propiedades de valor esperado, varianza y covarianza</a></li>
 </ul></li>
 <li class="chapter" data-level="B.12" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#condicionamiento-por-otra-variable-aleatoria"><i class="fa fa-check"></i><b>B.12</b> Condicionamiento por otra variable aleatoria</a></li>
 <li class="chapter" data-level="B.13" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#funciones-características"><i class="fa fa-check"></i><b>B.13</b> Funciones características</a></li>
-<li class="chapter" data-level="B.14" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#convergencias"><i class="fa fa-check"></i><b>B.14</b> Convergencias</a><ul>
+<li class="chapter" data-level="B.14" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#convergencias"><i class="fa fa-check"></i><b>B.14</b> Convergencias</a>
+<ul>
 <li class="chapter" data-level="B.14.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-de-continuidad-de-lévy"><i class="fa fa-check"></i><b>B.14.1</b> Teorema de continuidad de Lévy</a></li>
 </ul></li>
 <li class="chapter" data-level="B.15" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>B.15</b> Ley de los grandes números</a></li>
-<li class="chapter" data-level="B.16" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>B.16</b> Teorema del límite central</a><ul>
+<li class="chapter" data-level="B.16" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>B.16</b> Teorema del límite central</a>
+<ul>
 <li class="chapter" data-level="B.16.1" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#programación-en-r-del-teorema-del-límite-central-con-variables-aleatorias-independientes-idénticamente-distribuidas"><i class="fa fa-check"></i><b>B.16.1</b> Programación en <code>R</code> del teorema del límite central con variables aleatorias independientes idénticamente distribuidas</a></li>
 <li class="chapter" data-level="B.16.2" data-path="repaso-de-proba.html"><a href="repaso-de-proba.html#ejercicio-14"><i class="fa fa-check"></i><b>B.16.2</b> Ejercicio</a></li>
 </ul></li>
@@ -306,9 +361,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="muestreo-aleatorio-estratificado" class="section level1">
+<div id="muestreo-aleatorio-estratificado" class="section level1" number="5">
 <h1><span class="header-section-number">Capítulo 5</span> Muestreo Aleatorio Estratificado</h1>
-<div id="introducción-a-muestreo-aleatorio-estratificado-mae" class="section level2">
+<div id="introducción-a-muestreo-aleatorio-estratificado-mae" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Introducción a Muestreo Aleatorio Estratificado (MAE)</h2>
 <p>Vamos a considerar una población <span class="math inline">\(\mathcal{U}\)</span> la cual suponemos podemos particionar en una cantidad finita (no vacía) de subpoblaciones: <span class="math inline">\(\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_H\)</span> de tamaños <span class="math inline">\(N_1, N_2, \dots, N_H\)</span> con <span class="math inline">\(\bigcup\limits_{h=1}^H \mathcal{U}_h = \mathcal{U}\)</span> (lo que se traduce en <span class="math inline">\(\sum_{h = 1}^H N_h = N\)</span>). Lo que busca el muestreo aleatorio estratificado es <em>estimar</em> en cada uno de los estratos así como de manera global. Por ejemplo, puede interesarnos conocer la estatura en hombres y mujeres, las ganancias en empresas agrícolas, ganaderas, de servicios y de transformación, la cantidad de enfermos que hay en cada entidad federativa, etc. En cada uno de estos casos estamos hablando de estratos de en los cuales interesa realizar la estimación. Un punto importante aquí es que <em>los estratos son conocidos y decididos por la investigadora</em>. La extracción en cada uno de los estratos se realiza de manera independiente obteniéndose muestras <span class="math inline">\(\mathcal{S}_1, \mathcal{S}_2, \dots, \mathcal{S}_H\)</span> de tamaños <span class="math inline">\(n_1, n_2, \dots, n_H\)</span> para cada uno de ellos.</p>
 <blockquote>
@@ -363,7 +418,7 @@ donde</p>
 s^2_{\mathcal{S}_h} = \dfrac{1}{n_h - 1}\sum\limits_{\mathcal{S}_h}(x_k - \bar{x}_{\mathcal{S}_h})^2
 \]</span>
 es la varianza muestral ajustada.</p>
-<div id="ejemplo-2" class="section level3">
+<div id="ejemplo-2" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Ejemplo</h3>
 <p>Dada la población <span class="math inline">\(\mathcal{U} = \{ x_1, x_2, x_3, x_4 \}\)</span> con <span class="math inline">\(x_1 = x_2 = 0\)</span>, <span class="math inline">\(x_3 = 1\)</span>, <span class="math inline">\(x_4 = -1\)</span>:</p>
 <ol style="list-style-type: decimal">
@@ -401,7 +456,7 @@ s^2_{\mathcal{S}_2} = 2
 \]</span></p>
 <p>Notamos que la varianza del muestreo estratificado es mayor a la varianza del muestreo simple. Por lo que concluimos que <strong>estratificar no necesariamente reduce la varianza</strong>.</p>
 </div>
-<div id="ejercicio-sugerido-1" class="section level3">
+<div id="ejercicio-sugerido-1" class="section level3" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> Ejercicio sugerido</h3>
 <p>De entre 7500 empleados de una compañía deseamos conocer la proporción <span class="math inline">\(P\)</span> que tiene un vehículo por lo menos. Se construyeron <span class="math inline">\(3\)</span> estratos para la población según el ingreso (bajo, medio, alto). Se tiene <span class="math inline">\(N_h\)</span> el total del estrato, <span class="math inline">\(n_h\)</span> el total muestreado y <span class="math inline">\(p_h\)</span>
 el estimador del total de vehículos para cada estrato <span class="math inline">\(h = 1,2,3\)</span> según la muestra.</p>
@@ -469,14 +524,14 @@ Alto
 <p>Determina un estimador <span class="math inline">\(\hat{p}\)</span> y su intervalo de confianza.</p>
 </div>
 </div>
-<div id="alocación" class="section level2">
+<div id="alocación" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Alocación</h2>
 <p>Una pregunta importante para el caso de muestreo estratificado es el cálculo de la(s) <span class="math inline">\(n\)</span>. En este caso ¿cómo determinar cuánto muestrear de cada población? Veamos un ejemplo:</p>
 <blockquote>
 <p>Supongamos que se desean muestrear hombres y mujeres en México. En este país el 48% de los habitantes son hombres y el 52% son mujeres.</p>
 </blockquote>
 <p>Una opción en este caso podría ser tomar una muestra que refleje exactamente esas proporciones. Ésta se conoce como <em>proporcional al tamaño</em>.</p>
-<div id="alocación-proporcional-al-tamaño" class="section level3">
+<div id="alocación-proporcional-al-tamaño" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Alocación proporcional al tamaño</h3>
 <p>Dada una población de tamaño <span class="math inline">\(N\)</span> con <span class="math inline">\(H\)</span> estratos de tamaños <span class="math inline">\(N_1, N_2, \dots, N_H\)</span> para <span class="math inline">\(h = 1,2,\dots, H\)</span> la alocación proporcional consiste en tomar <span class="math inline">\(n_h\)</span> como:
 <span class="math display">\[
@@ -485,7 +540,7 @@ n_h = n\cdot \dfrac{N_h}{N}
 Ésta forma de asignar variables no necesariamente es la mejor (mucho menos para estudios con costo) por lo cual se tienen otras alocaciones.</p>
 <p>Un alocación proporcional al tamaño representa usualmente una ganancia en la precisión (ver último ejemplo, el de los doctores)</p>
 </div>
-<div id="alocación-óptima" class="section level3">
+<div id="alocación-óptima" class="section level3" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Alocación óptima</h3>
 <p>Si consideramos muestreo aleatorio simple sin reemplazo y analizamos su varianza podemos reescribirla:
 <span class="math display">\[
@@ -545,12 +600,12 @@ n_h = \Big(\frac{A_h}{c_h}\Big)^{1/2}\Big[ \sum_{h = 1}^H (A_h c_h)^{1/2}\Big] /
 <p><strong>Nota 2</strong> Cuando se toman todas las <span class="math inline">\(c_h\)</span> idénticas y constantes se le conoce como alocación de Neymann o sólo alocación óptima.</p>
 </blockquote>
 </div>
-<div id="ejemplo-3" class="section level3">
+<div id="ejemplo-3" class="section level3" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> Ejemplo</h3>
 <p>Se quiere estimar las ventas promedio de una población de empresas. Las empresas se enlistan según tres clases: según sus ventas en la siguiente tabla:</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="muestreo-aleatorio-estratificado.html#cb194-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">Ventas en millones</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;0 a 1&quot;</span>,<span class="st">&quot;1 a 10&quot;</span>, <span class="st">&quot;Más de 10&quot;</span>),</span>
-<span id="cb194-2"><a href="muestreo-aleatorio-estratificado.html#cb194-2"></a>       <span class="st">`</span><span class="dt">Cantidad de negocios</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">100</span>, <span class="dv">10</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb194-3"><a href="muestreo-aleatorio-estratificado.html#cb194-3"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">booktabs =</span> T) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="muestreo-aleatorio-estratificado.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="st">`</span><span class="at">Ventas en millones</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;0 a 1&quot;</span>,<span class="st">&quot;1 a 10&quot;</span>, <span class="st">&quot;Más de 10&quot;</span>),</span>
+<span id="cb192-2"><a href="muestreo-aleatorio-estratificado.html#cb192-2" aria-hidden="true" tabindex="-1"></a>       <span class="st">`</span><span class="at">Cantidad de negocios</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">100</span>, <span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb192-3"><a href="muestreo-aleatorio-estratificado.html#cb192-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>()</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -595,7 +650,6 @@ Más de 10
 \frac{(b-a)^2}{12}
 \]</span>
 de donde obtenemos la tabla actualizada:</p>
-
 <p>de donde se sigue que (para convertir a <span class="math inline">\(1/N-1\)</span> de <span class="math inline">\(1/N\)</span>):
 <span class="math display">\[\begin{equation}\nonumber
 \begin{aligned}
@@ -639,7 +693,7 @@ La distribución óptima entonces es <span class="math inline">\(n_1 = 53, n_2 =
 \]</span></p>
 </div>
 </div>
-<div id="ejercicio-de-clase" class="section level2">
+<div id="ejercicio-de-clase" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Ejercicio de clase:</h2>
 <p>En una ciudad grande se estudia el número promedio de pacientes que ven los médicos en su día laboral. Comenzamos con algunas hipótesis <em>a priori</em>: entre más experiencia tiene un médico más pacientes ve. Esto nos lleva a clasificar a la población de médicos en tres grupos: <code>recién graduados</code> (grupo 1), <code>intermedios</code> (grupo 2) y <code>experimentados</code> (grupo 3). Tenemos una lista de <span class="math inline">\(500\)</span> doctores en el grupo <span class="math inline">\(1\)</span>, <span class="math inline">\(1000\)</span> en el grupo <span class="math inline">\(2\)</span> y <span class="math inline">\(2500\)</span> en el grupo <span class="math inline">\(3\)</span>. Seleccionamos mediante muestreo aleatorio simple sin reemplazo <span class="math inline">\(200\)</span> doctores por cada clase y calculamos el número de pacientes por día y por doctor: <span class="math inline">\(10\)</span> para el grupo <span class="math inline">\(1\)</span>, <span class="math inline">\(15\)</span> para el grupo <span class="math inline">\(2\)</span> y <span class="math inline">\(20\)</span> para el grupo <span class="math inline">\(3\)</span>. Finalmente calculamos las varianzas del número de pacientes por doctor en cada una de las siguientes muestras y encontramos respectivamente que son <span class="math inline">\(4\)</span> (grupo 1), <span class="math inline">\(7\)</span> (grupo 2) y <span class="math inline">\(10\)</span> (grupo 3).</p>
 <ol style="list-style-type: decimal">
@@ -703,7 +757,7 @@ de donde la ganancia de la proporcional está dada por:
 \]</span>
 Lo cual nos muestra que, en este caso, estratificar sí resulta en estimaciones más precisas.</p>
 </div>
-<div id="ejercicio-en-r-tipo-control" class="section level2">
+<div id="ejercicio-en-r-tipo-control" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Ejercicio en R tipo control</h2>
 <p>La base de datos <code>Base_a_estratificar</code> (en este <a href="https://www.dropbox.com/s/q4j8iaqzp4fv6oa/Base_a_estratificar.RDS?dl=0">link</a>) contiene una base con un millón de entradas correspondientes a los registros de un millón de clientes de una empresa. Se registró el grupo de edad, la entidad federativa y el género de la persona. Interesa realizar un muestreo aleatorio simple para estudiar el ingreso promedio de los clientes estratificando por grupo de edad, entidad y género. Se sabe además que los costos de muestreo por cada persona muestreada varían según el estado y puedes encontrarlos en la base <code>Costos_x_entidad</code> <a href="https://www.dropbox.com/s/dq5r7xqpdt9l2e3/Costos_x_entidad.RDS?dl=0">este link</a>.</p>
 <ol style="list-style-type: decimal">
@@ -755,88 +809,88 @@ Varianza
 <ol style="list-style-type: decimal">
 <li>En primer lugar calculamos <span class="math inline">\(N_h\)</span> de cada estrato así como el <span class="math inline">\(N\)</span>:</li>
 </ol>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="muestreo-aleatorio-estratificado.html#cb195-1"></a>base.datos &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="st">&quot;Base_a_estratificar.RDS&quot;</span>)</span>
-<span id="cb195-2"><a href="muestreo-aleatorio-estratificado.html#cb195-2"></a>base.nh    &lt;-<span class="st"> </span>base.datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Género, Entidad, Edad) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="muestreo-aleatorio-estratificado.html#cb193-1" aria-hidden="true" tabindex="-1"></a>base.datos <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">&quot;Base_a_estratificar.RDS&quot;</span>)</span>
+<span id="cb193-2"><a href="muestreo-aleatorio-estratificado.html#cb193-2" aria-hidden="true" tabindex="-1"></a>base.nh    <span class="ot">&lt;-</span> base.datos <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Género, Entidad, Edad) <span class="sc">%&gt;%</span> <span class="fu">tally</span>()</span></code></pre></div>
 <p>Por otro lado calculamos la varianza a partir del error usando que
 <span class="math display">\[
 \epsilon = Z_{1 - \alpha/2}\sqrt{\textrm{Var}(\bar{x}_{\mathcal{S}})} \qquad \text{con} \qquad \alpha = 0.05
 \]</span>
 Entonces:</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="muestreo-aleatorio-estratificado.html#cb196-1"></a>eps.error &lt;-<span class="st"> </span><span class="dv">50</span></span>
-<span id="cb196-2"><a href="muestreo-aleatorio-estratificado.html#cb196-2"></a>zalpha    &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)</span>
-<span id="cb196-3"><a href="muestreo-aleatorio-estratificado.html#cb196-3"></a>var.x     &lt;-<span class="st"> </span>(eps.error<span class="op">/</span>zalpha)<span class="op">^</span><span class="dv">2</span></span>
-<span id="cb196-4"><a href="muestreo-aleatorio-estratificado.html#cb196-4"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;La varianza es &quot;</span>, var.x))</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="muestreo-aleatorio-estratificado.html#cb194-1" aria-hidden="true" tabindex="-1"></a>eps.error <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb194-2"><a href="muestreo-aleatorio-estratificado.html#cb194-2" aria-hidden="true" tabindex="-1"></a>zalpha    <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>)</span>
+<span id="cb194-3"><a href="muestreo-aleatorio-estratificado.html#cb194-3" aria-hidden="true" tabindex="-1"></a>var.x     <span class="ot">&lt;-</span> (eps.error<span class="sc">/</span>zalpha)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb194-4"><a href="muestreo-aleatorio-estratificado.html#cb194-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;La varianza es &quot;</span>, var.x))</span></code></pre></div>
 <pre><code>## [1] &quot;La varianza es 650.794429067515&quot;</code></pre>
 <p>De la ecuación calculamos el término <span class="math inline">\(V^* = V - B\)</span>. Para ello recordamos que:
 <span class="math display">\[
 B = -\sum\limits_{h = 1}^H N_h s^2_{\mathcal{U}_h}
 \]</span></p>
 <p>Entonces:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="muestreo-aleatorio-estratificado.html#cb198-1"></a>edad     &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;&lt; 20&quot;</span>,<span class="st">&quot;[20,60]&quot;</span>,<span class="st">&quot;&gt;60&quot;</span>)</span>
-<span id="cb198-2"><a href="muestreo-aleatorio-estratificado.html#cb198-2"></a>dats     &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Edad =</span> edad, <span class="dt">Varianza =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">500</span>))</span>
-<span id="cb198-3"><a href="muestreo-aleatorio-estratificado.html#cb198-3"></a>base.nh  &lt;-<span class="st"> </span>base.nh <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(dats, <span class="dt">by =</span> <span class="st">&quot;Edad&quot;</span>)</span>
-<span id="cb198-4"><a href="muestreo-aleatorio-estratificado.html#cb198-4"></a>base.nh  &lt;-<span class="st"> </span>base.nh <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">BSumandos =</span> Varianza<span class="op">*</span>n)</span>
-<span id="cb198-5"><a href="muestreo-aleatorio-estratificado.html#cb198-5"></a>B        &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sum</span>(base.nh<span class="op">$</span>BSumandos)</span>
-<span id="cb198-6"><a href="muestreo-aleatorio-estratificado.html#cb198-6"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;B = &quot;</span>, B))</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="muestreo-aleatorio-estratificado.html#cb196-1" aria-hidden="true" tabindex="-1"></a>edad     <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;&lt; 20&quot;</span>,<span class="st">&quot;[20,60]&quot;</span>,<span class="st">&quot;&gt;60&quot;</span>)</span>
+<span id="cb196-2"><a href="muestreo-aleatorio-estratificado.html#cb196-2" aria-hidden="true" tabindex="-1"></a>dats     <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Edad =</span> edad, <span class="at">Varianza =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">500</span>))</span>
+<span id="cb196-3"><a href="muestreo-aleatorio-estratificado.html#cb196-3" aria-hidden="true" tabindex="-1"></a>base.nh  <span class="ot">&lt;-</span> base.nh <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(dats, <span class="at">by =</span> <span class="st">&quot;Edad&quot;</span>)</span>
+<span id="cb196-4"><a href="muestreo-aleatorio-estratificado.html#cb196-4" aria-hidden="true" tabindex="-1"></a>base.nh  <span class="ot">&lt;-</span> base.nh <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">BSumandos =</span> Varianza<span class="sc">*</span>n)</span>
+<span id="cb196-5"><a href="muestreo-aleatorio-estratificado.html#cb196-5" aria-hidden="true" tabindex="-1"></a>B        <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">sum</span>(base.nh<span class="sc">$</span>BSumandos)</span>
+<span id="cb196-6"><a href="muestreo-aleatorio-estratificado.html#cb196-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;B = &quot;</span>, B))</span></code></pre></div>
 <pre><code>## [1] &quot;B = -21616500&quot;</code></pre>
 <p>Por otro lado, obtenemos los costos:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="muestreo-aleatorio-estratificado.html#cb200-1"></a>base.costos &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="st">&quot;Costos_x_entidad.RDS&quot;</span>)</span>
-<span id="cb200-2"><a href="muestreo-aleatorio-estratificado.html#cb200-2"></a>base.nh     &lt;-<span class="st"> </span>base.nh <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(base.costos, <span class="dt">by =</span> <span class="st">&quot;Entidad&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="muestreo-aleatorio-estratificado.html#cb198-1" aria-hidden="true" tabindex="-1"></a>base.costos <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">&quot;Costos_x_entidad.RDS&quot;</span>)</span>
+<span id="cb198-2"><a href="muestreo-aleatorio-estratificado.html#cb198-2" aria-hidden="true" tabindex="-1"></a>base.nh     <span class="ot">&lt;-</span> base.nh <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(base.costos, <span class="at">by =</span> <span class="st">&quot;Entidad&quot;</span>)</span></code></pre></div>
 <p>Y calculamos los <span class="math inline">\(A_h\)</span>:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="muestreo-aleatorio-estratificado.html#cb201-1"></a>base.nh &lt;-<span class="st"> </span>base.nh <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Ah =</span> Varianza<span class="op">*</span>n<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="muestreo-aleatorio-estratificado.html#cb199-1" aria-hidden="true" tabindex="-1"></a>base.nh <span class="ot">&lt;-</span> base.nh <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Ah =</span> Varianza<span class="sc">*</span>n<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <p>Finalmente obtenemos los <span class="math inline">\(n_h\)</span>:</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="muestreo-aleatorio-estratificado.html#cb202-1"></a>sumaAh  &lt;-<span class="st"> </span><span class="kw">sum</span>(<span class="kw">sqrt</span>(base.nh<span class="op">$</span>Ah<span class="op">*</span>base.nh<span class="op">$</span>Costo))</span>
-<span id="cb202-2"><a href="muestreo-aleatorio-estratificado.html#cb202-2"></a>base.nh &lt;-<span class="st"> </span>base.nh <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">nh =</span> <span class="kw">sqrt</span>(Ah<span class="op">/</span>Costo)<span class="op">*</span>sumaAh<span class="op">/</span>(var.x <span class="op">-</span><span class="st"> </span>B))</span>
-<span id="cb202-3"><a href="muestreo-aleatorio-estratificado.html#cb202-3"></a>base.nh &lt;-<span class="st"> </span>base.nh <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">nh =</span> <span class="kw">ceiling</span>(nh))</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="muestreo-aleatorio-estratificado.html#cb200-1" aria-hidden="true" tabindex="-1"></a>sumaAh  <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">sqrt</span>(base.nh<span class="sc">$</span>Ah<span class="sc">*</span>base.nh<span class="sc">$</span>Costo))</span>
+<span id="cb200-2"><a href="muestreo-aleatorio-estratificado.html#cb200-2" aria-hidden="true" tabindex="-1"></a>base.nh <span class="ot">&lt;-</span> base.nh <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">nh =</span> <span class="fu">sqrt</span>(Ah<span class="sc">/</span>Costo)<span class="sc">*</span>sumaAh<span class="sc">/</span>(var.x <span class="sc">-</span> B))</span>
+<span id="cb200-3"><a href="muestreo-aleatorio-estratificado.html#cb200-3" aria-hidden="true" tabindex="-1"></a>base.nh <span class="ot">&lt;-</span> base.nh <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">nh =</span> <span class="fu">ceiling</span>(nh))</span></code></pre></div>
 <p>Verificamos que no haya ningún <span class="math inline">\(n_h &gt; N_h\)</span>:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="muestreo-aleatorio-estratificado.html#cb203-1"></a>base.nh &lt;-<span class="st"> </span>base.nh <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">nh =</span> <span class="kw">ifelse</span>(nh <span class="op">&gt;</span><span class="st"> </span>n, n, nh))</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="muestreo-aleatorio-estratificado.html#cb201-1" aria-hidden="true" tabindex="-1"></a>base.nh <span class="ot">&lt;-</span> base.nh <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">nh =</span> <span class="fu">ifelse</span>(nh <span class="sc">&gt;</span> n, n, nh))</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Para determinar el costo total de la encuesta,</li>
 </ol>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="muestreo-aleatorio-estratificado.html#cb204-1"></a>base.nh &lt;-<span class="st"> </span>base.nh <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Costo_estrato =</span> Costo<span class="op">*</span>nh)</span>
-<span id="cb204-2"><a href="muestreo-aleatorio-estratificado.html#cb204-2"></a>costo   &lt;-<span class="st"> </span><span class="dv">500000</span> <span class="op">+</span><span class="st"> </span><span class="kw">sum</span>(base.nh<span class="op">$</span>Costo_estrato)</span>
-<span id="cb204-3"><a href="muestreo-aleatorio-estratificado.html#cb204-3"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El costo es de $&quot;</span>, scales<span class="op">::</span><span class="kw">comma</span>(costo)))</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="muestreo-aleatorio-estratificado.html#cb202-1" aria-hidden="true" tabindex="-1"></a>base.nh <span class="ot">&lt;-</span> base.nh <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Costo_estrato =</span> Costo<span class="sc">*</span>nh)</span>
+<span id="cb202-2"><a href="muestreo-aleatorio-estratificado.html#cb202-2" aria-hidden="true" tabindex="-1"></a>costo   <span class="ot">&lt;-</span> <span class="dv">500000</span> <span class="sc">+</span> <span class="fu">sum</span>(base.nh<span class="sc">$</span>Costo_estrato)</span>
+<span id="cb202-3"><a href="muestreo-aleatorio-estratificado.html#cb202-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El costo es de $&quot;</span>, scales<span class="sc">::</span><span class="fu">comma</span>(costo)))</span></code></pre></div>
 <pre><code>## [1] &quot;El costo es de $985,409&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Analizamos la base de datos muestra:</li>
 </ol>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="muestreo-aleatorio-estratificado.html#cb206-1"></a>muestra &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="st">&quot;Muestra_estratificada.RDS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="muestreo-aleatorio-estratificado.html#cb204-1" aria-hidden="true" tabindex="-1"></a>muestra <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">&quot;Muestra_estratificada.RDS&quot;</span>)</span></code></pre></div>
 <p>Obtenemos los estimadores puntuales de cada uno</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="muestreo-aleatorio-estratificado.html#cb207-1"></a>promedios.muestra &lt;-<span class="st"> </span>muestra <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Género, Entidad, Edad) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb207-2"><a href="muestreo-aleatorio-estratificado.html#cb207-2"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Media =</span> <span class="kw">mean</span>(Ingreso), <span class="dt">S_h =</span> <span class="kw">var</span>(Ingreso), <span class="dt">n =</span> <span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="muestreo-aleatorio-estratificado.html#cb205-1" aria-hidden="true" tabindex="-1"></a>promedios.muestra <span class="ot">&lt;-</span> muestra <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Género, Entidad, Edad) <span class="sc">%&gt;%</span> </span>
+<span id="cb205-2"><a href="muestreo-aleatorio-estratificado.html#cb205-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media =</span> <span class="fu">mean</span>(Ingreso), <span class="at">S_h =</span> <span class="fu">var</span>(Ingreso), <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
 <p>Agrego los <span class="math inline">\(N_h\)</span> y los <span class="math inline">\(N\)</span>:</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="muestreo-aleatorio-estratificado.html#cb208-1"></a>promedios.muestra &lt;-<span class="st"> </span>promedios.muestra <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb208-2"><a href="muestreo-aleatorio-estratificado.html#cb208-2"></a><span class="st">  </span><span class="kw">left_join</span>(base.nh, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Género&quot;</span>, <span class="st">&quot;Entidad&quot;</span>, <span class="st">&quot;Edad&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb208-3"><a href="muestreo-aleatorio-estratificado.html#cb208-3"></a><span class="st">  </span><span class="kw">rename</span>(<span class="st">`</span><span class="dt">N_mayusc_h</span><span class="st">`</span> =<span class="st"> </span>n.y) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="st">`</span><span class="dt">n_minusc_h</span><span class="st">`</span> =<span class="st"> </span>n.x)</span>
-<span id="cb208-4"><a href="muestreo-aleatorio-estratificado.html#cb208-4"></a></span>
-<span id="cb208-5"><a href="muestreo-aleatorio-estratificado.html#cb208-5"></a>Ntotal &lt;-<span class="st"> </span><span class="kw">sum</span>(promedios.muestra<span class="op">$</span>N_mayusc_h)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="muestreo-aleatorio-estratificado.html#cb206-1" aria-hidden="true" tabindex="-1"></a>promedios.muestra <span class="ot">&lt;-</span> promedios.muestra <span class="sc">%&gt;%</span> </span>
+<span id="cb206-2"><a href="muestreo-aleatorio-estratificado.html#cb206-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(base.nh, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Género&quot;</span>, <span class="st">&quot;Entidad&quot;</span>, <span class="st">&quot;Edad&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb206-3"><a href="muestreo-aleatorio-estratificado.html#cb206-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">N_mayusc_h</span><span class="st">`</span> <span class="ot">=</span> n.y) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="st">`</span><span class="at">n_minusc_h</span><span class="st">`</span> <span class="ot">=</span> n.x)</span>
+<span id="cb206-4"><a href="muestreo-aleatorio-estratificado.html#cb206-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-5"><a href="muestreo-aleatorio-estratificado.html#cb206-5" aria-hidden="true" tabindex="-1"></a>Ntotal <span class="ot">&lt;-</span> <span class="fu">sum</span>(promedios.muestra<span class="sc">$</span>N_mayusc_h)</span></code></pre></div>
 <p>El estimador total es el promedio ponderado de los de cada grupo:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="muestreo-aleatorio-estratificado.html#cb209-1"></a>promedios.muestra &lt;-<span class="st"> </span>promedios.muestra <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb209-2"><a href="muestreo-aleatorio-estratificado.html#cb209-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">factor_pop =</span> N_mayusc_h<span class="op">/!!</span>Ntotal)</span>
-<span id="cb209-3"><a href="muestreo-aleatorio-estratificado.html#cb209-3"></a>promedios.muestra &lt;-<span class="st"> </span>promedios.muestra <span class="op">%&gt;%</span></span>
-<span id="cb209-4"><a href="muestreo-aleatorio-estratificado.html#cb209-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sumando_media =</span> factor_pop<span class="op">*</span>Media)</span>
-<span id="cb209-5"><a href="muestreo-aleatorio-estratificado.html#cb209-5"></a>xbarra &lt;-<span class="st"> </span><span class="kw">sum</span>(promedios.muestra<span class="op">$</span>sumando_media)</span>
-<span id="cb209-6"><a href="muestreo-aleatorio-estratificado.html#cb209-6"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;La media se estima con &quot;</span>, xbarra))</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="muestreo-aleatorio-estratificado.html#cb207-1" aria-hidden="true" tabindex="-1"></a>promedios.muestra <span class="ot">&lt;-</span> promedios.muestra <span class="sc">%&gt;%</span> </span>
+<span id="cb207-2"><a href="muestreo-aleatorio-estratificado.html#cb207-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">factor_pop =</span> N_mayusc_h<span class="sc">/!!</span>Ntotal)</span>
+<span id="cb207-3"><a href="muestreo-aleatorio-estratificado.html#cb207-3" aria-hidden="true" tabindex="-1"></a>promedios.muestra <span class="ot">&lt;-</span> promedios.muestra <span class="sc">%&gt;%</span></span>
+<span id="cb207-4"><a href="muestreo-aleatorio-estratificado.html#cb207-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sumando_media =</span> factor_pop<span class="sc">*</span>Media)</span>
+<span id="cb207-5"><a href="muestreo-aleatorio-estratificado.html#cb207-5" aria-hidden="true" tabindex="-1"></a>xbarra <span class="ot">&lt;-</span> <span class="fu">sum</span>(promedios.muestra<span class="sc">$</span>sumando_media)</span>
+<span id="cb207-6"><a href="muestreo-aleatorio-estratificado.html#cb207-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;La media se estima con &quot;</span>, xbarra))</span></code></pre></div>
 <pre><code>## [1] &quot;La media se estima con 1193.65573405234&quot;</code></pre>
 <p>Mientras que la varianza se estima mediante:</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="muestreo-aleatorio-estratificado.html#cb211-1"></a>promedios.muestra  &lt;-<span class="st"> </span>promedios.muestra <span class="op">%&gt;%</span></span>
-<span id="cb211-2"><a href="muestreo-aleatorio-estratificado.html#cb211-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">varianza_intra_clase =</span> (<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>n_minusc_h<span class="op">/</span>N_mayusc_h)<span class="op">/</span>n_minusc_h<span class="op">*</span>S_h)</span>
-<span id="cb211-3"><a href="muestreo-aleatorio-estratificado.html#cb211-3"></a>promedios.muestra &lt;-<span class="st"> </span>promedios.muestra <span class="op">%&gt;%</span></span>
-<span id="cb211-4"><a href="muestreo-aleatorio-estratificado.html#cb211-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sumando_var =</span> (factor_pop<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>varianza_intra_clase)</span>
-<span id="cb211-5"><a href="muestreo-aleatorio-estratificado.html#cb211-5"></a>varianza.est &lt;-<span class="st"> </span><span class="kw">sum</span>(promedios.muestra<span class="op">$</span>sumando_var)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="muestreo-aleatorio-estratificado.html#cb209-1" aria-hidden="true" tabindex="-1"></a>promedios.muestra  <span class="ot">&lt;-</span> promedios.muestra <span class="sc">%&gt;%</span></span>
+<span id="cb209-2"><a href="muestreo-aleatorio-estratificado.html#cb209-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">varianza_intra_clase =</span> (<span class="dv">1</span> <span class="sc">-</span> n_minusc_h<span class="sc">/</span>N_mayusc_h)<span class="sc">/</span>n_minusc_h<span class="sc">*</span>S_h)</span>
+<span id="cb209-3"><a href="muestreo-aleatorio-estratificado.html#cb209-3" aria-hidden="true" tabindex="-1"></a>promedios.muestra <span class="ot">&lt;-</span> promedios.muestra <span class="sc">%&gt;%</span></span>
+<span id="cb209-4"><a href="muestreo-aleatorio-estratificado.html#cb209-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sumando_var =</span> (factor_pop<span class="sc">^</span><span class="dv">2</span>)<span class="sc">*</span>varianza_intra_clase)</span>
+<span id="cb209-5"><a href="muestreo-aleatorio-estratificado.html#cb209-5" aria-hidden="true" tabindex="-1"></a>varianza.est <span class="ot">&lt;-</span> <span class="fu">sum</span>(promedios.muestra<span class="sc">$</span>sumando_var)</span></code></pre></div>
 <p>Luego el intervalo está dado por:</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="muestreo-aleatorio-estratificado.html#cb212-1"></a><span class="kw">c</span>(</span>
-<span id="cb212-2"><a href="muestreo-aleatorio-estratificado.html#cb212-2"></a>  <span class="dt">Lower =</span> xbarra <span class="op">-</span><span class="st"> </span>zalpha<span class="op">*</span><span class="kw">sqrt</span>(varianza.est),</span>
-<span id="cb212-3"><a href="muestreo-aleatorio-estratificado.html#cb212-3"></a>  <span class="dt">Upper =</span> xbarra <span class="op">+</span><span class="st"> </span>zalpha<span class="op">*</span><span class="kw">sqrt</span>(varianza.est)</span>
-<span id="cb212-4"><a href="muestreo-aleatorio-estratificado.html#cb212-4"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="muestreo-aleatorio-estratificado.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(</span>
+<span id="cb210-2"><a href="muestreo-aleatorio-estratificado.html#cb210-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Lower =</span> xbarra <span class="sc">-</span> zalpha<span class="sc">*</span><span class="fu">sqrt</span>(varianza.est),</span>
+<span id="cb210-3"><a href="muestreo-aleatorio-estratificado.html#cb210-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Upper =</span> xbarra <span class="sc">+</span> zalpha<span class="sc">*</span><span class="fu">sqrt</span>(varianza.est)</span>
+<span id="cb210-4"><a href="muestreo-aleatorio-estratificado.html#cb210-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>##    Lower    Upper 
 ## 1178.268 1209.043</code></pre>
 <p>Para los intervalos de cada estrato usamos la varianza específica de los mismos:</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="muestreo-aleatorio-estratificado.html#cb214-1"></a>promedios.muestra &lt;-<span class="st"> </span>promedios.muestra <span class="op">%&gt;%</span></span>
-<span id="cb214-2"><a href="muestreo-aleatorio-estratificado.html#cb214-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ic_lower =</span> Media <span class="op">-</span><span class="st"> </span><span class="op">!!</span>zalpha<span class="op">*</span><span class="kw">sqrt</span>(varianza_intra_clase)) <span class="op">%&gt;%</span></span>
-<span id="cb214-3"><a href="muestreo-aleatorio-estratificado.html#cb214-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ic_upper =</span> Media <span class="op">+</span><span class="st"> </span><span class="op">!!</span>zalpha<span class="op">*</span><span class="kw">sqrt</span>(varianza_intra_clase))</span>
-<span id="cb214-4"><a href="muestreo-aleatorio-estratificado.html#cb214-4"></a></span>
-<span id="cb214-5"><a href="muestreo-aleatorio-estratificado.html#cb214-5"></a><span class="kw">kable</span>(promedios.muestra) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>(<span class="dt">latex_options =</span> <span class="st">&quot;striped&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="muestreo-aleatorio-estratificado.html#cb212-1" aria-hidden="true" tabindex="-1"></a>promedios.muestra <span class="ot">&lt;-</span> promedios.muestra <span class="sc">%&gt;%</span></span>
+<span id="cb212-2"><a href="muestreo-aleatorio-estratificado.html#cb212-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ic_lower =</span> Media <span class="sc">-</span> <span class="sc">!!</span>zalpha<span class="sc">*</span><span class="fu">sqrt</span>(varianza_intra_clase)) <span class="sc">%&gt;%</span></span>
+<span id="cb212-3"><a href="muestreo-aleatorio-estratificado.html#cb212-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ic_upper =</span> Media <span class="sc">+</span> <span class="sc">!!</span>zalpha<span class="sc">*</span><span class="fu">sqrt</span>(varianza_intra_clase))</span>
+<span id="cb212-4"><a href="muestreo-aleatorio-estratificado.html#cb212-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb212-5"><a href="muestreo-aleatorio-estratificado.html#cb212-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(promedios.muestra) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">&quot;striped&quot;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -17926,6 +17980,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

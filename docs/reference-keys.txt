@@ -95,7 +95,7 @@ ejemplo-encuesta-nacional-de-salud
 programación-en-r
 algunas-ventajas-de-r-y-cosas-no-tan-padres
 puntos-a-favor-de-r
-bienvenidx-a-r-bunny-wunnies-freak-out-sí-así-se-llama-esta-versión
+bienvenidx-a-r-camp-pontanezen-sí-así-se-llama-esta-versión
 instalando-cosas
 instalación-de-r
 instalación-de-rstudio
