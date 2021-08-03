@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Libro de estadística aplicada: temas de análisis exploratorio y muestreo" />
   
 
-<meta name="author" content="Rodrigo Zepeda-Tello y Luis Gerardo Martínez Valdés" />
+<meta name="author" content="Rodrigo Zepeda-Tello" />
 
 
 <meta name="date" content="2021-08-03" />
@@ -161,7 +161,7 @@ div.csl-indent {
 <li><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Historia de la estadística</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Historia del muestro</a></li>
 <li class="chapter" data-level="2" data-path="conceptos.html"><a href="conceptos.html"><i class="fa fa-check"></i><b>2</b> Conceptos</a></li>
 <li class="chapter" data-level="3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>3</b> Análisis Exploratorio de Datos</a>
 <ul>
@@ -598,13 +598,13 @@ podemos definir <em>la longitud resultante</em> como <span class="math inline">\
 <span class="math display">\[
 \textrm{Var} = 1 - \bar{r}
 \]</span>
-donde <span class="math inline">\(\bar{r} = (\bar{c}^2 + \bar{s}^2)^{1/2}\)</span> es el resolvente explicado anteriormente. Es importante notar que <span class="math inline">\(\textrm{Var}\)</span> puede tomar valores en <span class="math inline">\(\[0,1\]\)</span> y su interpretación es similar a la de la varianza de datos lineales, i.e. “entre más pequeño sea el valor de la varianza circular, más conectrada es la distribución de los datos” <span class="citation"><a href="#ref-fisher1995statistical" role="doc-biblioref">Fisher</a> (<a href="#ref-fisher1995statistical" role="doc-biblioref">1995</a>)</span>.</p>
+donde <span class="math inline">\(\bar{r} = (\bar{c}^2 + \bar{s}^2)^{1/2}\)</span> es el resolvente explicado anteriormente. Es importante notar que <span class="math inline">\(\textrm{Var}\)</span> puede tomar valores en <span class="math inline">\([0,1]\)</span> y su interpretación es similar a la de la varianza de datos lineales, i.e. “entre más pequeño sea el valor de la varianza circular, más conectrada es la distribución de los datos” <span class="citation"><a href="#ref-fisher1995statistical" role="doc-biblioref">Fisher</a> (<a href="#ref-fisher1995statistical" role="doc-biblioref">1995</a>)</span>.</p>
 <p><strong>1.3 Dirección Mediana Circular</strong></p>
-<p>Denotamos a la <em>dirección mediana circular</em> por <span class="math inline">\(\tilde{\theta}\)</span>. Se puede determinar de manera muy similar al caso del cálculo de la mediana para datos lineales. De tal manera que <span class="math inline">\(\tilde{\theta}\)</span> es cualquier ángulo <span class="math inline">\(\phi\)</span> tal que la mitad de los datos se encuentra en el arco <span class="math inline">\(\[\phi, \phi + \pi \]\)</span> y la mayoría de los puntos están más cerca de <span class="math inline">\(phi\)</span> que de <span class="math inline">\(\phi + \pi\)</span> (Mardia y Jupp). Ahora si <span class="math inline">\(n\)</span> es impar, la mediana es uno de los datos, en caso contrariom la mediana pasa por el punto medio de dos datos adyacentes.</p>
+<p>Denotamos a la <em>dirección mediana circular</em> por <span class="math inline">\(\tilde{\theta}\)</span>. Se puede determinar de manera muy similar al caso del cálculo de la mediana para datos lineales. De tal manera que <span class="math inline">\(\tilde{\theta}\)</span> es cualquier ángulo <span class="math inline">\(\phi\)</span> tal que la mitad de los datos se encuentra en el arco <span class="math inline">\([\phi, \phi + \pi ]\)</span> y la mayoría de los puntos están más cerca de <span class="math inline">\(phi\)</span> que de <span class="math inline">\(\phi + \pi\)</span> (Mardia y Jupp). Ahora si <span class="math inline">\(n\)</span> es impar, la mediana es uno de los datos, en caso contrariom la mediana pasa por el punto medio de dos datos adyacentes.</p>
 <p><strong>1.4 Desviación Estándar Circular</strong>
 Al igual que con datos lineales, la desviación estándar está ítimamente relacionada con la varianza, definimos a la <em>desviación estándar circular</em> como
 <span class="math display">\[
-v=\big{-2ln(1-V)\big}^{\frac{1}{2}}= \big{-2ln(\bar{r})\big}^{\frac{1}{2}}
+v=\big(-2ln(1-V)\big)^{\frac{1}{2}}= \big(-2ln(\bar{r})\big)^{\frac{1}{2}}
 \]</span>
 Para más información sobre estadística circular puedes consultar <span class="citation"><a href="#ref-pewsey2013circular" role="doc-biblioref">Pewsey, Neuhäuser, and Ruxton</a> (<a href="#ref-pewsey2013circular" role="doc-biblioref">2013</a>)</span>, <span class="citation"><a href="#ref-fisher1995statistical" role="doc-biblioref">Fisher</a> (<a href="#ref-fisher1995statistical" role="doc-biblioref">1995</a>)</span>, <span class="citation"><a href="#ref-mardia2009directional" role="doc-biblioref">Mardia and Jupp</a> (<a href="#ref-mardia2009directional" role="doc-biblioref">2009</a>)</span>.</p>
 </div>

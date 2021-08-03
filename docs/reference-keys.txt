@@ -14,10 +14,10 @@ fig:unnamed-chunk-223
 fig:unnamed-chunk-224
 fig:unnamed-chunk-230
 fig:unnamed-chunk-246
-fig:unnamed-chunk-266
-fig:unnamed-chunk-296
-fig:unnamed-chunk-298
-historia-de-la-estadística
+fig:unnamed-chunk-267
+fig:unnamed-chunk-297
+fig:unnamed-chunk-299
+historia-del-muestro
 conceptos
 análisis-exploratorio-de-datos
 inicio

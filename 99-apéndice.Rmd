@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # (APPENDIX) Apéndice {-}
 
 ```{r, echo = FALSE, message=FALSE}
@@ -10,6 +15,7 @@ library(beepr)
 library(gridExtra)
 library(latex2exp)
 library(DescTools)
+library(rlist)
 library(filesstrings)
 filedir <- "datasets/"
 subDir  <- "Mi_curso_de_R"
@@ -24,8 +30,7 @@ require(data.tree)
 options(knitr.table.format = "html") 
 
 #Chunk options
-opts_chunk$set(echo = FALSE)
-opts_chunk$set(results = 'asis')
+opts_chunk$set(echo = T)
 opts_chunk$set(fig.width  = 4)
 opts_chunk$set(fig.height = 4)
 opts_chunk$set(fig.align='center')
@@ -474,9 +479,13 @@ La magia de `R` comienza con que puedes almacenar valores en variables. Por ejem
 x <- 10
 ```
 
+La flecha de asignación funciona para ambos lados pero no se recomienda usarla al revés:
+```{r}
+#Asignamos x = 10
+10 -> x
+```
 
-
-Hay dos formas de asignar valores, una es con la flecha de asignación $\leftarrow$ y otra con el signo de igual:
+Hay dos formas de asignar valores, una es con la flecha de asignación $\leftarrow$ (o $\rightarrow$ si quieres ver el mundo arder) y otra con el signo de igual:
 ```{r}
 #Podemos asignar valores con el signo de =
 y = 6

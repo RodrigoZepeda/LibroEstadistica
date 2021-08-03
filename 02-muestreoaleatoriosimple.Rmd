@@ -1262,10 +1262,12 @@ k & \text{ si } x_i  \in \mathcal{S} \quad k \textrm{ veces}
 $$
 Observamos que la distribución de las $a_i$ es multinomial:
 \begin{equation}
+\begin{aligned}
 \mathbb{P}\Big(\mathbb{A}_{\mathcal{S}}(x_1) = a_1,\mathbb{A}_{\mathcal{S}}(x_2) = a_2, \dots,\mathbb{A}_{\mathcal{S}}(x_N) =  a_N\Big) & = 
 \\ & = \binom{m}{a_1}\Big(\frac{1}{N}\Big)^{a_1} \cdot \binom{m - a_1}{a_2}\Big(\frac{1}{N}\Big)^{a_2}\cdot\binom{m - a_1 - a_2}{a_3}\Big(\frac{1}{N}\Big)^{a_3} \cdots \binom{m - \sum_{l = 1}^{N-1} a_l}{a_N}\Big(\frac{1}{N}\Big)^{a_N} \\
 & = \dfrac{m!}{a_1!a_2!\cdots a_N!}\dfrac{1}{(m - \sum_{l= 1}^N a_l)!} \Big(\frac{1}{N}\Big)^{\sum_{l= 1}^N a_l} \\
 & = \dfrac{m!}{a_1!a_2!\cdots a_N!} \Big(\frac{1}{N}\Big)^{m} \\
+\end{aligned}
 \end{equation}
 
 donde tomamos que $\sum\limits_{l = 1}^N a_l = m$. Al ser una distribución multinomial se tienen las marginales:
