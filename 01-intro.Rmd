@@ -27,6 +27,7 @@ Para este análisis vamos a tener que llamar a las siguientes librerías previam
 ```{r, message = FALSE}
 library(tidyverse)
 library(dplyr)
+library(readr)
 library(moments)
 library(lubridate)
 library(ggcorrplot)
@@ -43,12 +44,12 @@ Como ejemplo analizaremos la base de _Carpetas de Investigación de la Fiscalía
 
 > Si el link anterior no abre ve al sitio [https://datos.cdmx.gob.mx/explore/dataset/carpetas-de-investigacion-pgj-cdmx/table/?refine.ao_hechos=2018](https://datos.cdmx.gob.mx/explore/dataset/carpetas-de-investigacion-pgj-cdmx/table/?refine.ao_hechos=2018) y elige la opción de año 2018, mes diciembre y descargar como csv.
 
-La forma más fácil en RStudio es yéndonos a `Import Dataset` en el panel derecho seguido de `From Text` y seleccionamos el archivo. En este caso hay dos opciones cualquiera de las dos opciones funciona: si en tu ordenador no sirve una, ¡prueba la otra!
+La forma más fácil en RStudio es yéndonos a `Import Dataset` en el panel derecho seguido de `From Text (readr)` y seleccionamos el archivo.^[`readr` es una librería que tiene más opciones para leer archivos de manera más sencilla que `base` y puede leer más tipos de archivos.] Usualmente la primera vez RStudio te pide instalar el paquete `readr`. Dile que sí, que reinicie `R` y luego vuelve a ponerle en `Import` para ahora sí leer el archivo. 
 
 En mi caso el archivo está en una carpeta que se llama `datasets` y se lee de la siguiente manera:
 
 ```{r}
-datos <- read.csv("datasets/carpetas-de-investigacion-pgj-cdmx.csv")
+datos <- read_csv("datasets/carpetas-de-investigacion-pgj-cdmx.csv")
 ```
 
 ## Definiciones y notación
@@ -62,17 +63,18 @@ donde $\ell \in \mathbb{N}$ con $\ell > 0$ y las $z_i$ sin pérdida de generalid
 
   + *Numérica* si $z_{k} \in \mathbb{R}^{n}$. En particular es entera si $z_{j} \in \mathbb{Z}^{n}$. 
     
-  + *Categórica* si cada entrada de $z_{k}$ es una indicadora de pertenencia a algún conjunto (por ejemplo `Hombre / Mujer` ó `Ingresos Altos / Ingresos Medios / Ingresos Bajos`). Usualmente $z_{k}$ se representa con un caracter o con un entero. Una variable cateórica puede ser *lógica* si $z_{k}$ es un indicador que toma alguno de los dos valores: `r TRUE` ó `r FALSE`. 
+  + *Categórica* si cada entrada de $z_{k}$ es una indicadora de pertenencia a algún conjunto (por ejemplo `Hombre / Mujer` ó `Ingresos Altos / Ingresos Medios / Ingresos Bajos`). Usualmente $z_{k}$ se representa con un caracter o con un entero (por ejemplo poniendo `Enfermo` y `Sano` o bien codificando `Enfermo = 1` y `Sano = 0`. Una variable cateórica puede ser *lógica* si $z_{k}$ es un indicador que toma alguno de los dos valores: `VERDADERO` ó `FALSO`. 
   
   + *Ordinal*  Una variable ordinal es aquél $z_{k} \in \mathcal{C}$ donde sobre  $\mathcal{C}$ existe un orden total; es decir si $x,y,w\in z_{k}$ se tiene que:
     a. Ocurre al menos una de las siguientes: $x \leq y$ ó $x \geq y$.
     b. Si $x \leq y$ y $y \geq w$ entonces $x \leq w$
     c. Si $x \leq y$ y $x \geq y$ entonces $x = y$.
+  Ejemplos de variables ordinales son los grados de escolaridad (`Sin elstudios o con primaria < Secundaria y/o Preparatoria < Universidad o Técnico < Posgrado` ), los premios en una competencia (`Medalla de oro > Medalla de plata > Medalla de bronce`), las preferencias de un consumidor siempre y cuando no formen ciclos (`Donas < Pastel < Gelatina < Flan`).     
   Variables numéricas univariadas son ordinales por el orden natural de $\mathbb{R}$.
     
-  + *Caracter* si $z_{k}$ es un caracter o una cadena de caracteres donde los caracteres son el objeto de análisis en sí (no como pertenencia). Por ejemplo si cada entrada $z_{k,m}$ representa un Tweet.  
+  + *Caracter* si $z_{k}$ es un caracter o una cadena de caracteres donde los caracteres son el objeto de análisis en sí (no como pertenencia). Por ejemplo si cada entrada $z_{k,m}$ representa un Tweet. Aquí es importante destacar que no por contener palabras la variable es tipo _caracter_. Por ejemplo, si estamos estudiando la clasificación de atletas quizá `Medalla de oro` u `Hombre` importen como variables ordinales y categóricas (respectivamente) y no como caracteres. Por otro lado, si estamos analizando palabras escritas en una colección de poemas `Medalla de oro` y `Hombre` probablemente importen como caracteres y no como variables ordinales o categóricas. 
     
-**OJO** Los datos $z_{k,m}$ son variables fijas ya dadas y **NO SON ALEATORIAS**. 
+**OJO** Cuando hablamos de datos $z_{k,m}$ éstos son cantidades fijas ya medidas y **NO SON ALEATORIAS**.  
 
 En el caso de nuestra base de datos podemos resumir la información contenida en la misma mediante `glimpse`:
 
@@ -202,8 +204,9 @@ podemos definir _la longitud resultante_ como $r=(c^2 + s^2)^{\frac{1}{2}}$, ent
 $$
 \bar{r}= (\bar{c}^2 + \bar{s}^2)^{1/2} = \frac{r}{n}
 $$
->**NOTA** Muchos son los casos donde las coordenadas polares son más útiles. Sabemos que las coordenadas polares piden la especificación de un ángulo $\phi$ y una recta de longitud $r$. Las coordenadas polares pueden ser utilizadas para especificar puntos en cualquier lugar de un plano, no solamente en el círculo unitario. En lugar de las coordenadas cartesianas $(x_i, y_i)$, las coordenadas polares $(\phi_i, r_i)$ especifican dónde se encuentra cada punto en términos de su dirección y distancia con respecto al origen. Así, nos dan la clara ventaja de separar información tanto de distancia como de dirección en el análisis de datos, mientras que las cartesianas confunden aspectos espaciales. 
+> **NOTA** Muchos son los casos donde las coordenadas polares son más útiles. Sabemos que las coordenadas polares piden la especificación de un ángulo $\phi$ y una recta de longitud $r$. Las coordenadas polares pueden ser utilizadas para especificar puntos en cualquier lugar de un plano, no solamente en el círculo unitario. En lugar de las coordenadas cartesianas $(x_i, y_i)$, las coordenadas polares $(\phi_i, r_i)$ especifican dónde se encuentra cada punto en términos de su dirección y distancia con respecto al origen. Así, nos dan la clara ventaja de separar información tanto de distancia como de dirección en el análisis de datos, mientras que las cartesianas confunden aspectos espaciales. 
 
+<!--
 **1.2 Varianza Angular(Circular)**
 @pewsey2013circular define la varianza circular como:
 $$
@@ -220,10 +223,13 @@ Al igual que con datos lineales, la desviación estándar está ítimamente rela
 $$
 v=\big(-2ln(1-V)\big)^{\frac{1}{2}}= \big(-2ln(\bar{r})\big)^{\frac{1}{2}}
 $$
+
+-->
+
 Para más información sobre estadística circular puedes consultar @pewsey2013circular, @fisher1995statistical, @mardia2009directional.
 
 
-## Ejercicio 
+### Ejercicio 
 Utiliza la función `atan2` de `R` junto con `cos` y `sin` para seno y coseno para estimar el día promedio en el que ocurren más delitos según la base `conteo.dia`.
 
 **2. Total poblacional**  (ver @sarndal2003model) Dado un vector de datos numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ definimos el total poblacional como: 
@@ -383,6 +389,13 @@ n.longitud <- length(conteo_delitos$n)
 
 > ¿Qué implica el resultado anterior?
 
+También podemos calcularla usando la librería `moments`:
+
+```{r}
+library(moments)
+skewness(conteo_delitos$n)
+```
+
 **6. Curtosis** Dado el mismo vector $\vec{x}$ que en el enunciado anterior el coeficiente de curtosis se define como
 
 $$
@@ -400,18 +413,28 @@ datos %>% summarise(kurtosis(latitud, na.rm = T), kurtosis(longitud, na.rm = T))
 ```
 donde se agregó el comando `na.rm = T` para eliminar los valores de no respuesta (missing) marcados como `NA`. Del análisis notamos que la longitud tiene colas más pesadas que la latitud. 
 
+> **Nota** La curtosis a veces se define con un denominador distinto (en términos de las $n$) como en @myatt2007making. 
+
 > **NOTACIÓN** Dado un vector $\vec{x} = (x_1, x_2, \dots, x_n)^T$ de valores numéricos denotamos el $j$-ésimo valor muestral ($1 \leq j \leq n$) como $x_{(j)}$ tal que $x_{(1)} = \min \{ x_1, x_2, \dots, x_n \}$ y
 $$
 x_{(j)} = \min \{ x_1, x_2, \dots, x_n \} \setminus \{ x_{(1)}, x_{(2)}, \dots, x_{(j-1)} \}
 $$
 Es decir $x_{(j)}$ es el valor en orden $j$ al momento de ordenar la muestra. Como nota adicional se define $x_{(0)} = 0$ y $x_{(n+1)} = 0$.
 
-> **Nota** La curtosis a veces se define con un denominador distinto (en términos de las $n$) como en @myatt2007making. 
 
 **7. Mediana** Dado un vector de valores numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ definimos la mediana como (@panaretos2016statistics):
 $$
 \text{Mediana}_{\vec{x}} = \dfrac{x_{(\lfloor \frac{n+1}{2} \rfloor)} + x_{(\lceil \frac{n+1}{2} \rceil)}}{2} 
 $$
+donde $\lceil \cdot \rceil$ denota la función techo y $\lfloor \cdot \rfloor$ la función piso. 
+
+La mediana (en caso de $n$ impar) lo que hace es encontrar el valor que está justo en medio. Por ejemplo si se tienen los datos: $\vec{x} = (4,1,10)^T$ entonces $x_{(1)} = 1$, $x_{(2)} = 4$ y $x_{(3)} = 10$. La mediana es $4$, el valor que está en la posición $x_{(\lfloor \frac{3+1}{2} \rfloor)} = x_{(2)} = x_{(\lceil \frac{3+1}{2} \rceil)}$. 
+
+En el caso de $n$ par la mediana interpola el valor medio entre las dos entradas que están al centro (en términos del orden). Por ejemplo si se tiene $\vec{x} = (4,1,8,10)^T$ entonces $x_{(1)} = 1$, $x_{(2)} = 4$, $x_{(3)} = 8$ y $x_{(4)} = 10$ y se tiene que la mediana es el valor medio entre el $4$ y el $6$:
+$$
+\text{Mediana}_{\vec{x}} = \dfrac{x_{(\lfloor \frac{4+1}{2} \rfloor)} + x_{(\lceil \frac{4+1}{2} \rceil)}}{2} = \dfrac{x_{(2)} + x_{(3)}}{2} = \dfrac{8 + 4}{2} = 6.
+$$
+
 La mediana puede calcularse fácilmente haciendo:
 ```{r}
 median(conteo_delitos$n)
@@ -426,6 +449,7 @@ donde $x_{(0)} = x_{(n+1)} = 0$. `R` no calcula los cuantiles de manera exacta s
 ```{r}
 conteo_delitos %>% summarise(quantile(n, c(0.1, 0.66)))
 ```
+
 La función `summary` también es bastante útil resumiendo múltiples observaciones de la base:
 ```{r}
 summary(conteo_delitos$n)
@@ -443,8 +467,6 @@ $$
 ```{r}
 IQR(conteo_delitos$n)
 ```
-
-
 
 **10. Valores atípicos (outliers)** Dado un vector de datos numéricos $\vec{x} = (x_1, x_2, \dots, x_n)^T$ seguimos a @panaretos2016statistics para definir los valores atípicos _outliers_ como aquellas observaciones:
 $$
@@ -496,7 +518,7 @@ outliers <- conteo_delitos %>% filter(n < lim.inf | n > lim.sup)
 
 En este caso no tenemos _outliers_. 
 
-> **NOTA** Según la aplicación que tenemos la definición de _outlier_ cambia. La actual es la que se utiliza para datos que pudieran ser descritos mediante una Normal; empero, no siempre esta definición de _outlier_ es un buen modelo (por ejemplo en datos como ingreso que son cantidades positivas, con mucha asimetría y cola pesada). Un buen tratamiento sobre los _outliers_ puedes encontrarlo en @suri2019outlier. 
+> **NOTA** Según la aplicación que tenemos la definición de _outlier_ cambia. La actual es la que se utiliza para datos que pudieran ser descritos mediante una normal; empero, no siempre esta definición de _outlier_ es un buen modelo (por ejemplo en datos como ingreso que son cantidades positivas, con mucha asimetría y cola pesada). Un buen tratamiento sobre los _outliers_ puedes encontrarlo en @suri2019outlier. 
 
 **11. Rango** El rango (@peck2015introduction) se define como la diferencia entre el mínimo y el máximo de los valores de un vector numérico $\vec{x} = (x_1, x_2, \dots, x_n)^T$:
 
@@ -568,14 +590,13 @@ datos %>%
   group_by(fecha) %>%  tally()
 ```
 
-
 **13. Moda** 
 En términos simples, la moda es el conjunto de los valores que más se repiten. Matemáticamente (ver @peck2015introduction) la moda es el conjunto $\textrm{Moda}_{\vec{y}} = \{ m_1, m_2, \dots, m_k \}$ tal que $m \in \textrm{Moda}$ sí y sólo si
 $$
 \sum_{i = 1}^{n} \mathbb{I}_{\{m\}}(y_i) \geq \sum_{i = 1}^{n} \mathbb{I}_{\{ \ell\}}(y_i) \qquad \forall \ell \neq m \textrm{ donde } y_i \in \vec{y}.
 $$
 
-Para calcularla en `R` no existe una función predefinida para calcular la moda. Nosotros podemos crearla con el comando `function`. El término `function` nos sirve para construir funciones; por ejemplo, una función que eleva al cuadrado:
+En `R` no existe una función predefinida para calcular la moda. Nosotros podemos crearla con el comando `function`. El término `function` nos sirve para construir funciones; por ejemplo, una función que eleva al cuadrado:
 
 ```{r}
 elevar.cuadrado <- function(x){

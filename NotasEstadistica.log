@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.4)  3 AUG 2021 20:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.4)  3 AUG 2021 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -639,7 +639,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
 (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [9]
-<images/arbol.png, id=218, 819.06pt x 736.25063pt>
+<images/arbol.png, id=216, 819.06pt x 736.25063pt>
 File: images/arbol.png Graphic file (type png)
 <use images/arbol.png>
 Package pdftex.def Info: images/arbol.png  used on input line 190.
@@ -650,7 +650,7 @@ Package pdftex.def Info: images/arbol.png  used on input line 190.
                                                   
 l.198 \end{itemize}
                     <./images/arbol.png>]
-<images/muestra.png, id=226, 1198.4775pt x 837.1275pt>
+<images/muestra.png, id=224, 1198.4775pt x 837.1275pt>
 File: images/muestra.png Graphic file (type png)
 <use images/muestra.png>
 Package pdftex.def Info: images/muestra.png  used on input line 225.
@@ -661,7 +661,7 @@ e.2.2}) has been already used, duplicate ignored
                                                   
 l.233 \end{itemize}
                     <./images/muestra.png>]
-<images/muestravacia.jpg, id=241, 682.55pt x 439.6425pt>
+<images/muestravacia.jpg, id=239, 682.55pt x 439.6425pt>
 File: images/muestravacia.jpg Graphic file (type jpg)
 <use images/muestravacia.jpg>
 Package pdftex.def Info: images/muestravacia.jpg  used on input line 253.
@@ -672,7 +672,7 @@ Package pdftex.def Info: images/muestravacia.jpg  used on input line 253.
                                                   
 l.261 \end{itemize}
                     <./images/muestravacia.jpg>]
-<images/samplingframe.png, id=248, 809.52437pt x 806.01125pt>
+<images/samplingframe.png, id=246, 809.52437pt x 806.01125pt>
 File: images/samplingframe.png Graphic file (type png)
 <use images/samplingframe.png>
 Package pdftex.def Info: images/samplingframe.png  used on input line 265.
@@ -687,639 +687,683 @@ l.273   \textbf
 
 ]
 Chapter 3.
-[17] [18]
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
-[]\T1/lmtt/m/n/10 ## $ año_hechos           <int> 2018, 2018, 2018, 2018, 2018,
+
+Underfull \vbox (badness 6348) has occurred while \output is active []
+
+[17]
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 357--357
+[]\T1/lmtt/m/n/10 ## -- Column specification ----------------------------------
+----------------------[] 
+ []
+
+
+Underfull \vbox (badness 2772) has occurred while \output is active []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 386--389
+\T1/lmtt/m/n/10 < Secundaria y/o Preparatoria < Universidad o Técnico <
+ []
+
+[19]
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
+[]\T1/lmtt/m/n/10 ## $ año_hechos           <dbl> 2018, 2018, 2018, 2018, 2018,
  2018, 2018, 2018, 2~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ mes_hechos           <chr> "Diciembre", "Diciembre", "Di
 ciembre", "Diciembre~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ fecha_hechos         <chr> "2018-12-13 12:00:00", "2018-
 12-22 19:00:00", "20~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ delito               <chr> "USURPACIÓN DE IDENTIDAD", "S
 USTRACCION DE MENORE~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ categoria_delito     <chr> "DELITO DE BAJO IMPACTO", "DE
 LITO DE BAJO IMPACTO~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ fiscalía             <chr> "INVESTIGACIÓN EN MIGUEL HIDA
 LGO", "INVESTIGACIÓN~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ agencia              <chr> "MH-2", "59", "BJ-1", "IZP-9"
 , "75TER", "FDS-5", ~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ unidad_investigacion <chr> "UI-1SD", "UI-1CD", "UI-1SD",
  "UI-2SD", "3 S/D", ~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ colonia_hechos       <chr> "LOMAS DE SOTELO", NA, "DEL V
 ALLE CENTRO", "AMPLI~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ alcaldia_hechos      <chr> "MIGUEL HIDALGO", "CUAUTLA", 
 "BENITO JUAREZ", "IZ~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ fecha_inicio         <chr> "2019-06-16 12:14:09", "2019-
 06-06 16:26:15", "20~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ mes_inicio           <chr> "Junio", "Junio", "Febrero", 
 "Febrero", "Abril", ~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
-[]\T1/lmtt/m/n/10 ## $ ao_inicio            <int> 2019, 2019, 2019, 2019, 2019,
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
+[]\T1/lmtt/m/n/10 ## $ ao_inicio            <dbl> 2019, 2019, 2019, 2019, 2019,
  2019, 2019, 2019, 2~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ calle_hechos         <chr> "AV. CONSCRIPTO", "AVENIDFA D
 IEZ DE MARZO", "FELI~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ calle_hechos2        <chr> ".", "HECHOS EN CUAUTLA MOREL
 OS", "ESQUINA COYOAC~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ longitud             <dbl> -99.22535, NA, -99.17088, -99
 .03016, -99.13423, -~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ latitud              <dbl> 19.44028, NA, 19.37207, 19.34
 797, 19.54788, 19.34~[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 398--398
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 425--425
 []\T1/lmtt/m/n/10 ## $ Geopoint             <chr> "19.4402832543,-99.2253527208
-", "", "19.372068287~[] 
+", NA, "19.372068287~[] 
  []
 
-[19]
-Underfull \hbox (badness 1824) in paragraph at lines 436--438
+[20]
+Underfull \hbox (badness 1824) in paragraph at lines 466--468
 \T1/lmr/m/n/10 (+20) (\T1/lmtt/m/n/10 year-month-day_hour-minute-second\T1/lmr/
 m/n/10 (+20) ) del pa-quete de \T1/lmtt/m/n/10 lubridate \T1/lmr/m/n/10 (+20) y
  la
  []
 
-[20]
+[21]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-503.
+533.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<NotasEstadistica_files/figure-latex/unnamed-chunk-17-1.pdf, id=304, 245.91875p
+<NotasEstadistica_files/figure-latex/unnamed-chunk-17-1.pdf, id=312, 245.91875p
 t x 224.84pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (
 type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-17-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-17-1
-.pdf  used on input line 537.
+.pdf  used on input line 567.
 (pdftex.def)             Requested size: 245.92938pt x 224.84973pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[21] [22 <./NotasEstadistica_files/figure-latex/unnamed-chunk-17-1.pdf>] [23] [
-24]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-22-1.pdf, id=361, 456.70625p
+[22] [23 <./NotasEstadistica_files/figure-latex/unnamed-chunk-17-1.pdf>] [24]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-22-1.pdf, id=353, 456.70625p
 t x 312.16624pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-22-1.pdf Graphic file (
 type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-22-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-22-1
-.pdf  used on input line 663.
+.pdf  used on input line 677.
 (pdftex.def)             Requested size: 345.00972pt x 235.81982pt.
-[25 <./NotasEstadistica_files/figure-latex/unnamed-chunk-22-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-25-1.pdf, id=382, 456.70625p
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[25] [26 <./NotasEstadistica_files/figure-latex/unnamed-chunk-22-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-25-1.pdf, id=383, 456.70625p
 t x 312.16624pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-25-1.pdf Graphic file (
 type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-25-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-25-1
-.pdf  used on input line 708.
+.pdf  used on input line 722.
 (pdftex.def)             Requested size: 345.00972pt x 235.81982pt.
-[26 <./NotasEstadistica_files/figure-latex/unnamed-chunk-25-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-26-1.pdf, id=399, 460.72125p
+[27 <./NotasEstadistica_files/figure-latex/unnamed-chunk-25-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-26-1.pdf, id=401, 460.72125p
 t x 316.18124pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-26-1.pdf Graphic file (
 type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-26-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-26-1
-.pdf  used on input line 727.
+.pdf  used on input line 741.
 (pdftex.def)             Requested size: 344.99878pt x 236.76385pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--729
+Underfull \hbox (badness 10000) in paragraph at lines 741--743
 [][]
  []
 
-[27 <./NotasEstadistica_files/figure-latex/unnamed-chunk-26-1.pdf>] [28] [29]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-33-1.pdf, id=433, 427.5975pt
+[28 <./NotasEstadistica_files/figure-latex/unnamed-chunk-26-1.pdf>]
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 805--805
+[]\T1/lmtt/m/n/10 ##   \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 kurtosis(latitud, na.r
+m = T)\TS1/lmtt/m/n/10 ` `\T1/lmtt/m/n/10 kurtosis(longitud, na.rm = T)\TS1/lmt
+t/m/n/10 `[] 
+ []
+
+
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 805--805
+[]\T1/lmtt/m/n/10 ##                            <dbl>                          
+ <dbl>[] 
+ []
+
+
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 805--805
+[]\T1/lmtt/m/n/10 ## 1                           2.86                          
+  3.05[] 
+ []
+
+[29] [30]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-34-1.pdf, id=433, 427.5975pt
  x 323.2075pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-33-1.pdf Graphic file (
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (
 type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-33-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-33-1
-.pdf  used on input line 868.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-34-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-34-1
+.pdf  used on input line 906.
 (pdftex.def)             Requested size: 345.00148pt x 260.77577pt.
-[30 <./NotasEstadistica_files/figure-latex/unnamed-chunk-33-1.pdf>] [31]
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 968--968
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[31] [32 <./NotasEstadistica_files/figure-latex/unnamed-chunk-34-1.pdf>]
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 1006--1006
 []\T1/lmtt/m/n/10 ## ABANDONO DE PERSONA              ABORTO  ABUSO DE AUTORIDA
 D  ABUSO DE CONFIANZA[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 968--968
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 1006--1006
 []\T1/lmtt/m/n/10 ##                  53                  15                 10
 2                 276[] 
  []
 
-[32] [33] [34] [35]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-56-1.pdf, id=487, 427.5975pt
+[33] [34] [35] [36] [37]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-57-1.pdf, id=496, 427.5975pt
  x 305.14pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-56-1.pdf Graphic file (
-type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-56-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-56-1
-.pdf  used on input line 1239.
-(pdftex.def)             Requested size: 345.00148pt x 246.19823pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-57-1.pdf, id=488, 459.7175pt
- x 313.17pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-57-1.pdf Graphic file (
 type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-57-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-57-1
-.pdf  used on input line 1250.
-(pdftex.def)             Requested size: 345.01875pt x 235.0346pt.
-[36 <./NotasEstadistica_files/figure-latex/unnamed-chunk-56-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-58-1.pdf, id=503, 446.66875p
-t x 316.18124pt>
+.pdf  used on input line 1279.
+(pdftex.def)             Requested size: 345.00148pt x 246.19823pt.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-58-1.pdf, id=497, 459.7175pt
+ x 313.17pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-58-1.pdf Graphic file (
 type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-58-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-58-1
-.pdf  used on input line 1270.
-(pdftex.def)             Requested size: 345.00604pt x 244.21776pt.
+.pdf  used on input line 1290.
+(pdftex.def)             Requested size: 345.01875pt x 235.0346pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[37 <./NotasEstadistica_files/figure-latex/unnamed-chunk-57-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-59-1.pdf, id=516, 446.66875p
+[38 <./NotasEstadistica_files/figure-latex/unnamed-chunk-57-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-59-1.pdf, id=509, 446.66875p
 t x 316.18124pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-59-1.pdf Graphic file (
 type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-59-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-59-1
-.pdf  used on input line 1287.
+.pdf  used on input line 1310.
 (pdftex.def)             Requested size: 345.00604pt x 244.21776pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[38 <./NotasEstadistica_files/figure-latex/unnamed-chunk-58-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-60-1.pdf, id=528, 436.63126p
-t x 313.17pt>
+[39 <./NotasEstadistica_files/figure-latex/unnamed-chunk-58-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-60-1.pdf, id=521, 446.66875p
+t x 316.18124pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-60-1.pdf Graphic file (
 type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-60-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-60-1
-.pdf  used on input line 1301.
+.pdf  used on input line 1327.
+(pdftex.def)             Requested size: 345.00604pt x 244.21776pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[40 <./NotasEstadistica_files/figure-latex/unnamed-chunk-59-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-61-1.pdf, id=533, 436.63126p
+t x 313.17pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-61-1.pdf Graphic file (
+type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-61-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-61-1
+.pdf  used on input line 1341.
 (pdftex.def)             Requested size: 345.00154pt x 247.44936pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[39 <./NotasEstadistica_files/figure-latex/unnamed-chunk-59-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-62-1.pdf, id=540, 469.755pt 
+[41 <./NotasEstadistica_files/figure-latex/unnamed-chunk-60-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-63-1.pdf, id=545, 469.755pt 
 x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-62-1.pdf Graphic file (
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-63-1.pdf Graphic file (
 type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-62-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-62-1
-.pdf  used on input line 1322.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-63-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-63-1
+.pdf  used on input line 1362.
 (pdftex.def)             Requested size: 344.997pt x 229.99797pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1322--1324
+Underfull \hbox (badness 10000) in paragraph at lines 1362--1364
 [][]
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[40 <./NotasEstadistica_files/figure-latex/unnamed-chunk-60-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-63-1.pdf, id=552, 457.71pt x
+[42 <./NotasEstadistica_files/figure-latex/unnamed-chunk-61-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-64-1.pdf, id=557, 457.71pt x
  313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-63-1.pdf Graphic file (
-type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-63-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-63-1
-.pdf  used on input line 1334.
-(pdftex.def)             Requested size: 345.01372pt x 236.062pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[41 <./NotasEstadistica_files/figure-latex/unnamed-chunk-62-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-64-1.pdf, id=565, 459.7175pt
- x 315.1775pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-64-1.pdf Graphic file (
 type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-64-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-64-1
-.pdf  used on input line 1353.
-(pdftex.def)             Requested size: 345.01875pt x 236.54124pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[42 <./NotasEstadistica_files/figure-latex/unnamed-chunk-63-1.pdf>] [43 <./Nota
-sEstadistica_files/figure-latex/unnamed-chunk-64-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-65-1.pdf, id=594, 436.63126p
-t x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-65-1.pdf Graphic file (
-type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-65-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-65-1
-.pdf  used on input line 1377.
-(pdftex.def)             Requested size: 345.00154pt x 247.44936pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-66-1.pdf, id=595, 457.71pt x
- 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-66-1.pdf Graphic file (
-type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-66-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-66-1
-.pdf  used on input line 1387.
+.pdf  used on input line 1374.
 (pdftex.def)             Requested size: 345.01372pt x 236.062pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[44 <./NotasEstadistica_files/figure-latex/unnamed-chunk-65-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-67-1.pdf, id=607, 463.7325pt
- x 316.18124pt>
+[43 <./NotasEstadistica_files/figure-latex/unnamed-chunk-63-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-65-1.pdf, id=571, 459.7175pt
+ x 315.1775pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-65-1.pdf Graphic file (
+type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-65-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-65-1
+.pdf  used on input line 1393.
+(pdftex.def)             Requested size: 345.01875pt x 236.54124pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[44 <./NotasEstadistica_files/figure-latex/unnamed-chunk-64-1.pdf>] [45 <./Nota
+sEstadistica_files/figure-latex/unnamed-chunk-65-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-66-1.pdf, id=599, 436.63126p
+t x 313.17pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-66-1.pdf Graphic file (
+type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-66-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-66-1
+.pdf  used on input line 1417.
+(pdftex.def)             Requested size: 345.00154pt x 247.44936pt.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-67-1.pdf, id=600, 457.71pt x
+ 313.17pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-67-1.pdf Graphic file (
 type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-67-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-67-1
-.pdf  used on input line 1404.
-(pdftex.def)             Requested size: 345.0035pt x 235.22964pt.
+.pdf  used on input line 1427.
+(pdftex.def)             Requested size: 345.01372pt x 236.062pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[45 <./NotasEstadistica_files/figure-latex/unnamed-chunk-66-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-68-1.pdf, id=619, 463.7325pt
+[46 <./NotasEstadistica_files/figure-latex/unnamed-chunk-66-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-68-1.pdf, id=612, 463.7325pt
  x 316.18124pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-68-1.pdf Graphic file (
 type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-68-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-68-1
-.pdf  used on input line 1421.
+.pdf  used on input line 1444.
 (pdftex.def)             Requested size: 345.0035pt x 235.22964pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[46 <./NotasEstadistica_files/figure-latex/unnamed-chunk-67-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-70-1.pdf, id=633, 453.695pt 
-x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-70-1.pdf Graphic file (
+[47 <./NotasEstadistica_files/figure-latex/unnamed-chunk-67-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-69-1.pdf, id=625, 463.7325pt
+ x 316.18124pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-69-1.pdf Graphic file (
 type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-70-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-70-1
-.pdf  used on input line 1439.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-69-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-69-1
+.pdf  used on input line 1461.
+(pdftex.def)             Requested size: 345.0035pt x 235.22964pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[48 <./NotasEstadistica_files/figure-latex/unnamed-chunk-68-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-71-1.pdf, id=638, 453.695pt 
+x 313.17pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-71-1.pdf Graphic file (
+type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-71-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-71-1
+.pdf  used on input line 1479.
 (pdftex.def)             Requested size: 344.9987pt x 238.14069pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1439--1441
+Underfull \hbox (badness 10000) in paragraph at lines 1479--1481
 [][]
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[47 <./NotasEstadistica_files/figure-latex/unnamed-chunk-68-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-72-1.pdf, id=647, 459.7175pt
+[49 <./NotasEstadistica_files/figure-latex/unnamed-chunk-69-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-73-1.pdf, id=653, 459.7175pt
  x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-72-1.pdf Graphic file (
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-73-1.pdf Graphic file (
 type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-72-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-72-1
-.pdf  used on input line 1449.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-73-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-73-1
+.pdf  used on input line 1489.
 (pdftex.def)             Requested size: 345.01875pt x 235.0346pt.
-[48 <./NotasEstadistica_files/figure-latex/unnamed-chunk-70-1.pdf> <./NotasEsta
-distica_files/figure-latex/unnamed-chunk-72-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-74-1.pdf, id=666, 457.71pt x
+[50 <./NotasEstadistica_files/figure-latex/unnamed-chunk-71-1.pdf> <./NotasEsta
+distica_files/figure-latex/unnamed-chunk-73-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-75-1.pdf, id=672, 457.71pt x
  313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-74-1.pdf Graphic file (
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-75-1.pdf Graphic file (
 type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-74-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-74-1
-.pdf  used on input line 1460.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-75-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-75-1
+.pdf  used on input line 1500.
 (pdftex.def)             Requested size: 345.01372pt x 236.062pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-76-1.pdf, id=667, 453.695pt 
+<NotasEstadistica_files/figure-latex/unnamed-chunk-77-1.pdf, id=673, 453.695pt 
 x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-76-1.pdf Graphic file (
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-77-1.pdf Graphic file (
 type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-76-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-76-1
-.pdf  used on input line 1475.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-77-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-77-1
+.pdf  used on input line 1515.
 (pdftex.def)             Requested size: 344.9987pt x 238.14069pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[49 <./NotasEstadistica_files/figure-latex/unnamed-chunk-74-1.pdf>] [50 <./Nota
-sEstadistica_files/figure-latex/unnamed-chunk-76-1.pdf>] [51]
+[51 <./NotasEstadistica_files/figure-latex/unnamed-chunk-75-1.pdf>] [52 <./Nota
+sEstadistica_files/figure-latex/unnamed-chunk-77-1.pdf>] [53]
 Underfull \vbox (badness 3158) has occurred while \output is active []
 
-[52]
-
-LaTeX Warning: Reference `fumador' on page 53 undefined on input line 1657.
-
-[53]
-
-LaTeX Warning: Reference `fumador' on page 54 undefined on input line 1712.
-
 [54]
+
+LaTeX Warning: Reference `fumador' on page 55 undefined on input line 1697.
+
+[55]
+
+LaTeX Warning: Reference `fumador' on page 56 undefined on input line 1752.
+
+[56]
 Underfull \vbox (badness 6316) has occurred while \output is active []
 
-[55] [56]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-98-1.pdf, id=722, 457.71pt x
+[57] [58]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-99-1.pdf, id=727, 457.71pt x
  315.1775pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-98-1.pdf Graphic file (
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-99-1.pdf Graphic file (
 type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-98-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-98-1
-.pdf  used on input line 1863.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-99-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-99-1
+.pdf  used on input line 1903.
 (pdftex.def)             Requested size: 345.01372pt x 237.57523pt.
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ##             mpg        cyl       disp         hp        dr
 at         wt[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ## mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.681171
 91 -0.8676594[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ## cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.699938
 11  0.7824958[] 
  []
 
-[57 <./NotasEstadistica_files/figure-latex/unnamed-chunk-98-1.pdf>]
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+[59 <./NotasEstadistica_files/figure-latex/unnamed-chunk-99-1.pdf>]
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ## disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.710213
 93  0.8879799[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ## hp   -0.7761684  0.8324475  0.7909486  1.0000000 -0.448759
 12  0.6587479[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ## drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.000000
 00 -0.7124406[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ## wt   -0.8676594  0.7824958  0.8879799  0.6587479 -0.712440
 65  1.0000000[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ## qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.091204
 76 -0.1747159[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ## vs    0.6640389 -0.8108118 -0.7104159 -0.7230967  0.440278
 46 -0.5549157[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ## am    0.5998324 -0.5226070 -0.5912270 -0.2432043  0.712711
 13 -0.6924953[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ## gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.699610
 13 -0.5832870[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 1897--1897
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 1937--1937
 []\T1/lmtt/m/n/10 ## carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.090789
 80  0.4276059[] 
  []
 
-<NotasEstadistica_files/figure-latex/unnamed-chunk-100-1.pdf, id=734, 353.32pt 
+<NotasEstadistica_files/figure-latex/unnamed-chunk-101-1.pdf, id=739, 353.32pt 
 x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-100-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-101-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-100-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-100-
-1.pdf  used on input line 1910.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-101-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-101-
+1.pdf  used on input line 1950.
 (pdftex.def)             Requested size: 345.00586pt x 305.80064pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[58]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-102-1.pdf, id=739, 457.71pt 
+[60]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-103-1.pdf, id=744, 457.71pt 
 x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-102-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-103-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-102-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-102-
-1.pdf  used on input line 1926.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-103-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-103-
+1.pdf  used on input line 1966.
 (pdftex.def)             Requested size: 345.01372pt x 236.062pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[59 <./NotasEstadistica_files/figure-latex/unnamed-chunk-100-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-105-1.pdf, id=752, 457.71pt 
+[61 <./NotasEstadistica_files/figure-latex/unnamed-chunk-101-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-106-1.pdf, id=758, 457.71pt 
 x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-105-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-106-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-105-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-105-
-1.pdf  used on input line 1955.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-106-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-106-
+1.pdf  used on input line 1995.
 (pdftex.def)             Requested size: 345.01372pt x 236.062pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[60 <./NotasEstadistica_files/figure-latex/unnamed-chunk-102-1.pdf>]
-Overfull \hbox (4.398pt too wide) in paragraph at lines 1973--1974
+[62 <./NotasEstadistica_files/figure-latex/unnamed-chunk-103-1.pdf>]
+Overfull \hbox (4.398pt too wide) in paragraph at lines 2013--2014
 []\T1/lmr/m/n/10 (-20) Para un vec-tor or-di-nal defin-i-mos su or-de-namiento 
 como $\OML/lmm/m/it/10 x[] \OT1/lmr/m/n/10 (-20) = []\OMS/lmsy/m/n/10 f\OML/lmm
 /m/it/10 x[]; x[]; [] ; x[]\OMS/lmsy/m/n/10 g$
  []
 
 
-Underfull \hbox (badness 1484) in paragraph at lines 1973--1974
+Underfull \hbox (badness 1484) in paragraph at lines 2013--2014
 \T1/lmr/m/n/10 (+20) y $\OML/lmm/m/it/10 x[] \OT1/lmr/m/n/10 (+20) = []\OMS/lms
 y/m/n/10 f\OML/lmm/m/it/10 x[]; x[]; [] ; x[]\OMS/lmsy/m/n/10 g n f\OML/lmm/m/i
 t/10 x[]; x[]; [] ; x[]\OMS/lmsy/m/n/10 g$ \T1/lmr/m/n/10 (+20) de tal forma qu
 e
  []
 
-[61 <./NotasEstadistica_files/figure-latex/unnamed-chunk-105-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-107-1.pdf, id=781, 457.71pt 
+[63 <./NotasEstadistica_files/figure-latex/unnamed-chunk-106-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-108-1.pdf, id=786, 457.71pt 
 x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-107-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-108-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-107-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-107-
-1.pdf  used on input line 2002.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-108-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-108-
+1.pdf  used on input line 2042.
 (pdftex.def)             Requested size: 345.01372pt x 236.062pt.
-[62 <./NotasEstadistica_files/figure-latex/unnamed-chunk-107-1.pdf>] [63]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-113-1.pdf, id=801, 457.71pt 
+[64 <./NotasEstadistica_files/figure-latex/unnamed-chunk-108-1.pdf>] [65]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-114-1.pdf, id=806, 457.71pt 
 x 316.18124pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-113-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-114-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-113-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-113-
-1.pdf  used on input line 2121.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-114-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-114-
+1.pdf  used on input line 2161.
 (pdftex.def)             Requested size: 345.01372pt x 238.33183pt.
-[64 <./NotasEstadistica_files/figure-latex/unnamed-chunk-113-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-115-1.pdf, id=813, 447.6725p
+[66 <./NotasEstadistica_files/figure-latex/unnamed-chunk-114-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-116-1.pdf, id=818, 447.6725p
 t x 305.14pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-115-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-116-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-115-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-115-
-1.pdf  used on input line 2157.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-116-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-116-
+1.pdf  used on input line 2197.
 (pdftex.def)             Requested size: 345.00945pt x 235.16338pt.
-[65 <./NotasEstadistica_files/figure-latex/unnamed-chunk-115-1.pdf>]pdfTeX warn
-ing (ext4): destination with the same identifier (name{equation.3.10.2}) has be
-en already used, duplicate ignored
+[67 <./NotasEstadistica_files/figure-latex/unnamed-chunk-116-1.pdf>]pdfTeX warn
+ing (ext4): destination with the same identifier (name{equation.3.9.2}) has bee
+n already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2180 \begin{equation}
+l.2220 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
-e identifier (name{equation.3.10.2}) has been already used, duplicate ignored
+e identifier (name{equation.3.9.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2180 \begin{equation}
+l.2220 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
-e identifier (name{equation.3.10.2}) has been already used, duplicate ignored
+e identifier (name{equation.3.9.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2180 \begin{equation}
+l.2220 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
-e identifier (name{equation.3.10.2}) has been already used, duplicate ignored
+e identifier (name{equation.3.9.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2180 \begin{equation}
-                       \nonumber [66]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-117-1.pdf, id=831, 457.71pt 
+l.2220 \begin{equation}
+                       \nonumber [68]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-118-1.pdf, id=837, 457.71pt 
 x 314.17375pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-117-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-118-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-117-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-117-
-1.pdf  used on input line 2234.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-118-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-118-
+1.pdf  used on input line 2274.
 (pdftex.def)             Requested size: 345.01372pt x 236.8186pt.
-[67 <./NotasEstadistica_files/figure-latex/unnamed-chunk-117-1.pdf>]
-<images/extrapolating.png, id=846, 438.3746pt x 280.52171pt>
+[69 <./NotasEstadistica_files/figure-latex/unnamed-chunk-118-1.pdf>]
+<images/extrapolating.png, id=851, 438.3746pt x 280.52171pt>
 File: images/extrapolating.png Graphic file (type png)
 <use images/extrapolating.png>
-Package pdftex.def Info: images/extrapolating.png  used on input line 2266.
+Package pdftex.def Info: images/extrapolating.png  used on input line 2306.
 (pdftex.def)             Requested size: 438.40028pt x 280.53815pt.
 
-Overfull \hbox (93.40028pt too wide) in paragraph at lines 2266--2267
+Overfull \hbox (93.40028pt too wide) in paragraph at lines 2306--2307
 [][] 
  []
 
-[68 <./images/extrapolating.png>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-121-1.pdf, id=851, 457.71pt 
+[70 <./images/extrapolating.png>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-122-1.pdf, id=856, 457.71pt 
 x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-121-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-122-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-121-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-121-
-1.pdf  used on input line 2281.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-122-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-122-
+1.pdf  used on input line 2321.
 (pdftex.def)             Requested size: 345.01372pt x 236.062pt.
-[69 <./NotasEstadistica_files/figure-latex/unnamed-chunk-121-1.pdf>] [70] [71]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-125-1.pdf, id=877, 463.7325p
-t x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-125-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-125-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-125-
-1.pdf  used on input line 2420.
-(pdftex.def)             Requested size: 345.0035pt x 232.98936pt.
-[72 <./NotasEstadistica_files/figure-latex/unnamed-chunk-125-1.pdf>] [73]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-126-1.pdf, id=898, 459.7175p
+[71 <./NotasEstadistica_files/figure-latex/unnamed-chunk-122-1.pdf>] [72] [73]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-126-1.pdf, id=883, 463.7325p
 t x 313.17pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-126-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-126-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-126-
-1.pdf  used on input line 2469.
-(pdftex.def)             Requested size: 345.01875pt x 235.0346pt.
-[74 <./NotasEstadistica_files/figure-latex/unnamed-chunk-126-1.pdf>] [75] [76]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-129-1.pdf, id=923, 463.7325p
-t x 316.18124pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-129-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-129-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-129-
-1.pdf  used on input line 2591.
-(pdftex.def)             Requested size: 345.0035pt x 235.22964pt.
-[77 <./NotasEstadistica_files/figure-latex/unnamed-chunk-129-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-130-1.pdf, id=935, 459.7175p
+1.pdf  used on input line 2460.
+(pdftex.def)             Requested size: 345.0035pt x 232.98936pt.
+[74 <./NotasEstadistica_files/figure-latex/unnamed-chunk-126-1.pdf>] [75]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-127-1.pdf, id=904, 459.7175p
 t x 313.17pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-127-1.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-127-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-127-
+1.pdf  used on input line 2509.
+(pdftex.def)             Requested size: 345.01875pt x 235.0346pt.
+[76 <./NotasEstadistica_files/figure-latex/unnamed-chunk-127-1.pdf>] [77] [78]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-130-1.pdf, id=928, 463.7325p
+t x 316.18124pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-130-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-130-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-130-
-1.pdf  used on input line 2634.
+1.pdf  used on input line 2631.
+(pdftex.def)             Requested size: 345.0035pt x 235.22964pt.
+[79 <./NotasEstadistica_files/figure-latex/unnamed-chunk-130-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-131-1.pdf, id=941, 459.7175p
+t x 313.17pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-131-1.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-131-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-131-
+1.pdf  used on input line 2674.
 (pdftex.def)             Requested size: 345.01875pt x 235.0346pt.
-[78 <./NotasEstadistica_files/figure-latex/unnamed-chunk-130-1.pdf>]
-Overfull \hbox (71.28413pt too wide) detected at line 2656
+[80 <./NotasEstadistica_files/figure-latex/unnamed-chunk-131-1.pdf>]
+Overfull \hbox (71.28413pt too wide) detected at line 2696
 \U/msb/m/n/10 E[] [][] [][]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )
 \OML/lmm/m/it/10 dx[] \OT1/lmr/m/n/10 = \U/msb/m/n/10 E[][] [] \OML/lmm/m/it/10
  n[]\OT1/lmr/m/n/10 ([]) \OMS/lmsy/m/n/10 ^^A [][] \U/msb/m/n/10 I[]\OT1/lmr/m/
@@ -1329,144 +1373,144 @@ n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 dx[] \OT1/lmr/m/n/10
 m/it/10 n[]\OT1/lmr/m/n/10 ([])[]
  []
 
-<NotasEstadistica_files/figure-latex/unnamed-chunk-131-1.pdf, id=952, 463.7325p
+<NotasEstadistica_files/figure-latex/unnamed-chunk-132-1.pdf, id=958, 463.7325p
 t x 306.14375pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-131-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-131-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-131-
-1.pdf  used on input line 2669.
-(pdftex.def)             Requested size: 345.0035pt x 227.76204pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[79]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-132-1.pdf, id=958, 459.7175p
-t x 313.17pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-132-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-132-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-132-
-1.pdf  used on input line 2683.
+1.pdf  used on input line 2709.
+(pdftex.def)             Requested size: 345.0035pt x 227.76204pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[81]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-133-1.pdf, id=963, 459.7175p
+t x 313.17pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-133-1.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-133-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-133-
+1.pdf  used on input line 2723.
 (pdftex.def)             Requested size: 345.01875pt x 235.0346pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[80 <./NotasEstadistica_files/figure-latex/unnamed-chunk-131-1.pdf>] [81 <./Not
-asEstadistica_files/figure-latex/unnamed-chunk-132-1.pdf>] [82]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-135-1.pdf, id=996, 459.7175p
-t x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-135-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-135-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-135-
-1.pdf  used on input line 2797.
-(pdftex.def)             Requested size: 345.01875pt x 235.0346pt.
-[83 <./NotasEstadistica_files/figure-latex/unnamed-chunk-135-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-136-1.pdf, id=1010, 453.695p
-t x 301.125pt>
+[82 <./NotasEstadistica_files/figure-latex/unnamed-chunk-132-1.pdf>] [83 <./Not
+asEstadistica_files/figure-latex/unnamed-chunk-133-1.pdf>] [84]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-136-1.pdf, id=1001, 459.7175
+pt x 313.17pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-136-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-136-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-136-
-1.pdf  used on input line 2817.
-(pdftex.def)             Requested size: 344.9987pt x 228.98143pt.
-[84 <./NotasEstadistica_files/figure-latex/unnamed-chunk-136-1.pdf>] [85] [86]
-
-LaTeX Warning: Reference `tab:my_label' on page 87 undefined on input line 3031
-.
-
-[87] [88]
-
-LaTeX Warning: Reference `contingencia' on page 89 undefined on input line 3102
-.
-
-<NotasEstadistica_files/figure-latex/unnamed-chunk-143-1.pdf, id=1113, 437.635p
-t x 306.14375pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-143-1.pdf Graphic file 
+1.pdf  used on input line 2837.
+(pdftex.def)             Requested size: 345.01875pt x 235.0346pt.
+[85 <./NotasEstadistica_files/figure-latex/unnamed-chunk-136-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-137-1.pdf, id=1016, 453.695p
+t x 301.125pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-137-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-143-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-143-
-1.pdf  used on input line 3153.
-(pdftex.def)             Requested size: 345.00665pt x 241.34639pt.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-137-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-137-
+1.pdf  used on input line 2857.
+(pdftex.def)             Requested size: 344.9987pt x 228.98143pt.
+[86 <./NotasEstadistica_files/figure-latex/unnamed-chunk-137-1.pdf>] [87] [88]
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Reference `tab:my_label' on page 89 undefined on input line 3071
+.
 
-[89]
-Underfull \hbox (badness 10000) in paragraph at lines 3178--3180
+[89] [90]
 
- []
+LaTeX Warning: Reference `contingencia' on page 91 undefined on input line 3142
+.
 
-<NotasEstadistica_files/figure-latex/unnamed-chunk-144-1.pdf, id=1125, 436.6312
-6pt x 311.1625pt>
+<NotasEstadistica_files/figure-latex/unnamed-chunk-144-1.pdf, id=1118, 437.635p
+t x 306.14375pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-144-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-144-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-144-
-1.pdf  used on input line 3204.
+1.pdf  used on input line 3193.
+(pdftex.def)             Requested size: 345.00665pt x 241.34639pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[91]
+Underfull \hbox (badness 10000) in paragraph at lines 3218--3220
+
+ []
+
+<NotasEstadistica_files/figure-latex/unnamed-chunk-145-1.pdf, id=1131, 436.6312
+6pt x 311.1625pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-145-1.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-145-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-145-
+1.pdf  used on input line 3244.
 (pdftex.def)             Requested size: 345.00154pt x 245.86316pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[90 <./NotasEstadistica_files/figure-latex/unnamed-chunk-143-1.pdf>]pdfTeX warn
-ing (ext4): destination with the same identifier (name{equation.3.13.2}) has be
+[92 <./NotasEstadistica_files/figure-latex/unnamed-chunk-144-1.pdf>]pdfTeX warn
+ing (ext4): destination with the same identifier (name{equation.3.12.2}) has be
 en already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3267   \begin{equation}
+l.3307   \begin{equation}
                          \nonumberpdfTeX warning (ext4): destination with the s
-ame identifier (name{equation.3.13.2}) has been already used, duplicate ignored
+ame identifier (name{equation.3.12.2}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.3267   \begin{equation}
+l.3307   \begin{equation}
                          \nonumberpdfTeX warning (ext4): destination with the s
-ame identifier (name{equation.3.13.2}) has been already used, duplicate ignored
+ame identifier (name{equation.3.12.2}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.3267   \begin{equation}
+l.3307   \begin{equation}
                          \nonumberpdfTeX warning (ext4): destination with the s
-ame identifier (name{equation.3.13.2}) has been already used, duplicate ignored
+ame identifier (name{equation.3.12.2}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.3267   \begin{equation}
-                         \nonumber [91 <./NotasEstadistica_files/figure-latex/u
-nnamed-chunk-144-1.pdf>]pdfTeX warning (ext4): destination with the same identi
-fier (name{equation.3.13.2}) has been already used, duplicate ignored
+l.3307   \begin{equation}
+                         \nonumber [93 <./NotasEstadistica_files/figure-latex/u
+nnamed-chunk-145-1.pdf>]pdfTeX warning (ext4): destination with the same identi
+fier (name{equation.3.12.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3272   \begin{equation}
+l.3312   \begin{equation}
                          \nonumberpdfTeX warning (ext4): destination with the s
-ame identifier (name{equation.3.13.2}) has been already used, duplicate ignored
+ame identifier (name{equation.3.12.2}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.3272   \begin{equation}
+l.3312   \begin{equation}
                          \nonumberpdfTeX warning (ext4): destination with the s
-ame identifier (name{equation.3.13.2}) has been already used, duplicate ignored
+ame identifier (name{equation.3.12.2}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.3272   \begin{equation}
+l.3312   \begin{equation}
                          \nonumberpdfTeX warning (ext4): destination with the s
-ame identifier (name{equation.3.13.2}) has been already used, duplicate ignored
+ame identifier (name{equation.3.12.2}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.3272   \begin{equation}
+l.3312   \begin{equation}
                          \nonumber
-Underfull \hbox (badness 10000) in paragraph at lines 3274--3276
+Underfull \hbox (badness 10000) in paragraph at lines 3314--3316
 
  []
 
-[92]
+[94]
 Chapter 4.
-[93
+[95
 
 ]
-Underfull \hbox (badness 2042) in paragraph at lines 3378--3379
+Underfull \hbox (badness 2042) in paragraph at lines 3418--3419
 []\T1/lmr/m/n/10 (+20) De di-men-sión $\OML/lmm/m/it/10 n \OT1/lmr/m/n/10 (+20)
  = 3$\T1/lmr/m/n/10 (+20) : $\OML/lmm/m/it/10 S[] \OT1/lmr/m/n/10 (+20) = ([]\O
 ML/lmm/m/it/10 ; []; []\OT1/lmr/m/n/10 (+20) )[]$\T1/lmr/m/n/10 (+20) , $\OML/l
@@ -1474,83 +1518,83 @@ mm/m/it/10 S[] \OT1/lmr/m/n/10 (+20) = ([]\OML/lmm/m/it/10 ; []; []\OT1/lmr/m/n
 /10 (+20) )[]$\T1/lmr/m/n/10 (+20) ,
  []
 
-[94] [95]
-Overfull \hbox (17.05907pt too wide) detected at line 3479
+[96] [97]
+Overfull \hbox (17.05907pt too wide) detected at line 3519
 [][][]
  []
 
-[96] [97] [98]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-150-1.pdf, id=1225, 459.7175
+[98] [99] [100]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-151-1.pdf, id=1230, 459.7175
 pt x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-150-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-151-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-150-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-150-
-1.pdf  used on input line 3626.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-151-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-151-
+1.pdf  used on input line 3666.
 (pdftex.def)             Requested size: 345.01875pt x 235.0346pt.
-[99] [100 <./NotasEstadistica_files/figure-latex/unnamed-chunk-150-1.pdf>]pdfTe
-X warning (ext4): destination with the same identifier (name{equation.4.4.2}) h
-as been already used, duplicate ignored
+[101] [102 <./NotasEstadistica_files/figure-latex/unnamed-chunk-151-1.pdf>]pdfT
+eX warning (ext4): destination with the same identifier (name{equation.4.4.2}) 
+has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3681 \begin{equation}
+l.3721 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.4.4.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3681 \begin{equation}
+l.3721 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.4.4.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3681 \begin{equation}
+l.3721 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.4.4.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3681 \begin{equation}
+l.3721 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.4.4.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3689 \begin{equation}
+l.3729 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.4.4.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3689 \begin{equation}
+l.3729 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.4.4.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3689 \begin{equation}
+l.3729 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.4.4.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3689 \begin{equation}
+l.3729 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.4.4.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3698 \begin{equation}
+l.3738 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.4.4.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3698 \begin{equation}
+l.3738 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.4.4.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3698 \begin{equation}
+l.3738 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.4.4.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3698 \begin{equation}
-                       \nonumber [101] [102] [103]
-Overfull \hbox (53.59668pt too wide) detected at line 3786
+l.3738 \begin{equation}
+                       \nonumber [103] [104] [105]
+Overfull \hbox (53.59668pt too wide) detected at line 3826
 [] \OMS/lmsy/m/n/10 ^^A [][] [] \OML/lmm/m/it/10 x[]\U/msb/m/n/10 I[]\OT1/lmr/m
 /n/10 (\OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^@ [][] \OT1/lmr
 /m/n/10 = \OMS/lmsy/m/n/10 ^^A\OML/lmm/m/it/10 N[] \OT1/lmr/m/n/10 = [] [] [](0
@@ -1558,7 +1602,7 @@ Overfull \hbox (53.59668pt too wide) detected at line 3786
  []
 
 
-Overfull \hbox (81.5815pt too wide) detected at line 3799
+Overfull \hbox (81.5815pt too wide) detected at line 3839
 \U/msb/m/n/10 P[]\OML/lmm/m/it/10 z[][] \OMS/lmsy/m/n/10 ^^T [] ^^@ \OML/lmm/m/
 it/10 t \OMS/lmsy/m/n/10 ^^T \OML/lmm/m/it/10 z[][][] \OT1/lmr/m/n/10 = \U/msb/
 m/n/10 P[][] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 z[][] \OMS/lmsy/m/n/10 ^^T \
@@ -1566,171 +1610,90 @@ OML/lmm/m/it/10 t \OMS/lmsy/m/n/10 ^^T [] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 z[
 ][][] \OT1/lmr/m/n/10 = 1 \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 
  []
 
-[104]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-154-1.pdf, id=1269, 459.7175
+[106]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-155-1.pdf, id=1274, 459.7175
 pt x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-154-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-155-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-154-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-154-
-1.pdf  used on input line 3859.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-155-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-155-
+1.pdf  used on input line 3899.
 (pdftex.def)             Requested size: 345.01875pt x 235.0346pt.
-[105]
+[107]
 Underfull \vbox (badness 4242) has occurred while \output is active []
 
-[106 <./NotasEstadistica_files/figure-latex/unnamed-chunk-154-1.pdf>]
-Overfull \hbox (5.31665pt too wide) detected at line 3904
+[108 <./NotasEstadistica_files/figure-latex/unnamed-chunk-155-1.pdf>]
+Overfull \hbox (5.31665pt too wide) detected at line 3944
 [][][]
  []
 
 
 Overfull \hbox (256.70186pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 4.6.  EJEMPLO RESUMEN: ESTIMACIÓN DE UNA PROPORCIÓN BAJO MUESTR
-EO ALEATORIO SIMPLE SIN REEMPLAZO \T1/lmr/m/n/10 107
+EO ALEATORIO SIMPLE SIN REEMPLAZO \T1/lmr/m/n/10 109
  []
 
-[107]
+[109]
 Underfull \vbox (badness 6641) has occurred while \output is active []
 
-[108pdfTeX warning (ext4): destination with the same identifier (name{equation.
+[110pdfTeX warning (ext4): destination with the same identifier (name{equation.
 4.6.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.3941 \end{equation}
+l.3981 \end{equation}
                      ]
-<images/concierto.jpg, id=1302, 1284.8pt x 722.7pt>
+<images/concierto.jpg, id=1308, 1284.8pt x 722.7pt>
 File: images/concierto.jpg Graphic file (type jpg)
 <use images/concierto.jpg>
-Package pdftex.def Info: images/concierto.jpg  used on input line 3972.
+Package pdftex.def Info: images/concierto.jpg  used on input line 4012.
 (pdftex.def)             Requested size: 258.73946pt x 145.54094pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3976--3976
+Underfull \hbox (badness 10000) in paragraph at lines 4016--4016
 []\T1/lmr/m/n/10 (+20) Figure 4.1: []Imagen de un concierto ex-traída de
  []
 
 
 Overfull \hbox (118.16257pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 4.7.  EJEMPLO RESUMEN: ESTIMACIÓN DEL TOTAL DE INDIVIDUOS EN UN
-A FOTOGRAFÍA \T1/lmr/m/n/10 109
- []
-
-[109pdfTeX warning (ext4): destination with the same identifier (name{equation.
-4.6.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.3980 
-       ] [110pdfTeX warning (ext4): destination with the same identifier (name{
-figure.4.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.4007 \end{equation}
-                      <./images/concierto.jpg>]
-Overfull \hbox (118.16257pt too wide) has occurred while \output is active
-\T1/lmr/m/sl/10 4.7.  EJEMPLO RESUMEN: ESTIMACIÓN DEL TOTAL DE INDIVIDUOS EN UN
 A FOTOGRAFÍA \T1/lmr/m/n/10 111
  []
 
-[111]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-158-1.pdf, id=1324, 469.755p
-t x 319.1925pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-158-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-158-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-158-
-1.pdf  used on input line 4077.
-(pdftex.def)             Requested size: 344.997pt x 234.42102pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[112]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-1.pdf, id=1329, 346.2937
-5pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-1.pdf  used on input line 4103.
-(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+[111pdfTeX warning (ext4): destination with the same identifier (name{equation.
+4.6.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.4020 
+       ] [112pdfTeX warning (ext4): destination with the same identifier (name{
+figure.4.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.4047 \end{equation}
+                      <./images/concierto.jpg>]
 Overfull \hbox (118.16257pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 4.7.  EJEMPLO RESUMEN: ESTIMACIÓN DEL TOTAL DE INDIVIDUOS EN UN
 A FOTOGRAFÍA \T1/lmr/m/n/10 113
  []
 
-[113 <./NotasEstadistica_files/figure-latex/unnamed-chunk-158-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-2.pdf, id=1439, 346.2937
-5pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-2.pdf Graphic file 
+[113]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-159-1.pdf, id=1329, 469.755p
+t x 319.1925pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-159-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-2.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-2.pdf  used on input line 4105.
-(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-3.pdf, id=1440, 346.2937
-5pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-3.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-3.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-3.pdf  used on input line 4107.
-(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-4.pdf, id=1441, 346.2937
-5pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-4.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-4.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-4.pdf  used on input line 4109.
-(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-5.pdf, id=1442, 346.2937
-5pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-5.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-5.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-5.pdf  used on input line 4111.
-(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-159-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-159-
+1.pdf  used on input line 4117.
+(pdftex.def)             Requested size: 344.997pt x 234.42102pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[114 <./NotasEstadistica_files/figure-latex/unnamed-chunk-160-1.pdf> <./NotasEs
-tadistica_files/figure-latex/unnamed-chunk-160-2.pdf> <./NotasEstadistica_files
-/figure-latex/unnamed-chunk-160-3.pdf> <./NotasEstadistica_files/figure-latex/u
-nnamed-chunk-160-4.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-6.pdf, id=1479, 346.2937
+[114]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-1.pdf, id=1334, 346.2937
 5pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-6.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-6.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-6.pdf  used on input line 4113.
-(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-7.pdf, id=1480, 346.2937
-5pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-7.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-7.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-7.pdf  used on input line 4115.
-(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-8.pdf, id=1481, 346.2937
-5pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-8.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-8.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-8.pdf  used on input line 4117.
-(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-9.pdf, id=1482, 346.2937
-5pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-9.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-9.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-9.pdf  used on input line 4119.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+1.pdf  used on input line 4143.
 (pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1741,83 +1704,164 @@ Overfull \hbox (118.16257pt too wide) has occurred while \output is active
 A FOTOGRAFÍA \T1/lmr/m/n/10 115
  []
 
-[115 <./NotasEstadistica_files/figure-latex/unnamed-chunk-160-5.pdf> <./NotasEs
-tadistica_files/figure-latex/unnamed-chunk-160-6.pdf> <./NotasEstadistica_files
-/figure-latex/unnamed-chunk-160-7.pdf> <./NotasEstadistica_files/figure-latex/u
-nnamed-chunk-160-8.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-10.pdf, id=1521, 346.293
-75pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-10.pdf Graphic file
- (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-10.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-10.pdf  used on input line 4121.
+[115 <./NotasEstadistica_files/figure-latex/unnamed-chunk-159-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-2.pdf, id=1445, 346.2937
+5pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-2.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-2.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+2.pdf  used on input line 4145.
 (pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-11.pdf, id=1522, 346.293
-75pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-11.pdf Graphic file
- (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-11.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-11.pdf  used on input line 4123.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-3.pdf, id=1446, 346.2937
+5pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-3.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-3.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+3.pdf  used on input line 4147.
 (pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-12.pdf, id=1523, 346.293
-75pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-12.pdf Graphic file
- (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-12.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-12.pdf  used on input line 4125.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-4.pdf, id=1447, 346.2937
+5pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-4.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-4.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+4.pdf  used on input line 4149.
 (pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-13.pdf, id=1524, 346.293
-75pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-13.pdf Graphic file
- (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-13.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-13.pdf  used on input line 4127.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-5.pdf, id=1448, 346.2937
+5pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-5.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-5.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+5.pdf  used on input line 4151.
 (pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[116 <./NotasEstadistica_files/figure-latex/unnamed-chunk-160-9.pdf> <./NotasEs
-tadistica_files/figure-latex/unnamed-chunk-160-10.pdf> <./NotasEstadistica_file
-s/figure-latex/unnamed-chunk-160-11.pdf> <./NotasEstadistica_files/figure-latex
-/unnamed-chunk-160-12.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-160-14.pdf, id=1561, 346.293
-75pt x 227.85126pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-160-14.pdf Graphic file
- (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-160-14.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-160-
-14.pdf  used on input line 4129.
+[116 <./NotasEstadistica_files/figure-latex/unnamed-chunk-161-1.pdf> <./NotasEs
+tadistica_files/figure-latex/unnamed-chunk-161-2.pdf> <./NotasEstadistica_files
+/figure-latex/unnamed-chunk-161-3.pdf> <./NotasEstadistica_files/figure-latex/u
+nnamed-chunk-161-4.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-6.pdf, id=1485, 346.2937
+5pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-6.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-6.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+6.pdf  used on input line 4153.
 (pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-7.pdf, id=1486, 346.2937
+5pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-7.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-7.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+7.pdf  used on input line 4155.
+(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-8.pdf, id=1487, 346.2937
+5pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-8.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-8.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+8.pdf  used on input line 4157.
+(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-9.pdf, id=1488, 346.2937
+5pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-9.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-9.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+9.pdf  used on input line 4159.
+(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Overfull \hbox (118.16257pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 4.7.  EJEMPLO RESUMEN: ESTIMACIÓN DEL TOTAL DE INDIVIDUOS EN UN
 A FOTOGRAFÍA \T1/lmr/m/n/10 117
  []
 
-[117 <./NotasEstadistica_files/figure-latex/unnamed-chunk-160-13.pdf> <./NotasE
-stadistica_files/figure-latex/unnamed-chunk-160-14.pdf>]
-Overfull \hbox (132.74861pt too wide) in paragraph at lines 4200--4200
+[117 <./NotasEstadistica_files/figure-latex/unnamed-chunk-161-5.pdf> <./NotasEs
+tadistica_files/figure-latex/unnamed-chunk-161-6.pdf> <./NotasEstadistica_files
+/figure-latex/unnamed-chunk-161-7.pdf> <./NotasEstadistica_files/figure-latex/u
+nnamed-chunk-161-8.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-10.pdf, id=1526, 346.293
+75pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-10.pdf Graphic file
+ (type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-10.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+10.pdf  used on input line 4161.
+(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-11.pdf, id=1527, 346.293
+75pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-11.pdf Graphic file
+ (type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-11.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+11.pdf  used on input line 4163.
+(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-12.pdf, id=1528, 346.293
+75pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-12.pdf Graphic file
+ (type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-12.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+12.pdf  used on input line 4165.
+(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-13.pdf, id=1529, 346.293
+75pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-13.pdf Graphic file
+ (type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-13.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+13.pdf  used on input line 4167.
+(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[118 <./NotasEstadistica_files/figure-latex/unnamed-chunk-161-9.pdf> <./NotasEs
+tadistica_files/figure-latex/unnamed-chunk-161-10.pdf> <./NotasEstadistica_file
+s/figure-latex/unnamed-chunk-161-11.pdf> <./NotasEstadistica_files/figure-latex
+/unnamed-chunk-161-12.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-161-14.pdf, id=1566, 346.293
+75pt x 227.85126pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-161-14.pdf Graphic file
+ (type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-161-14.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-161-
+14.pdf  used on input line 4169.
+(pdftex.def)             Requested size: 172.50179pt x 113.50117pt.
+
+Overfull \hbox (118.16257pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 4.7.  EJEMPLO RESUMEN: ESTIMACIÓN DEL TOTAL DE INDIVIDUOS EN UN
+A FOTOGRAFÍA \T1/lmr/m/n/10 119
+ []
+
+[119 <./NotasEstadistica_files/figure-latex/unnamed-chunk-161-13.pdf> <./NotasE
+stadistica_files/figure-latex/unnamed-chunk-161-14.pdf>]
+Overfull \hbox (132.74861pt too wide) in paragraph at lines 4240--4240
 []\T1/lmtt/m/n/10 ## [1] "Se estiman 1186.67 personas con intervalo de confianz
 a al 95% de [959.55 ,1413.78]"[] 
  []
 
-<images/CRAN.png, id=1583, 1404.24625pt x 760.8425pt>
+<images/CRAN.png, id=1588, 1404.24625pt x 760.8425pt>
 File: images/CRAN.png Graphic file (type png)
 <use images/CRAN.png>
-Package pdftex.def Info: images/CRAN.png  used on input line 4207.
+Package pdftex.def Info: images/CRAN.png  used on input line 4247.
 (pdftex.def)             Requested size: 258.75299pt x 140.1964pt.
-[118 <./images/CRAN.png>] [119] [120]
+[120 <./images/CRAN.png>] [121] [122]
 Overfull \hbox (34.3449pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 4.10.  EJEMPLO RESUMEN: ESTIMACIÓN DEL TOTAL DE UNA POBLACIÓN \
-T1/lmr/m/n/10 121
+T1/lmr/m/n/10 123
  []
 
-[121]
-Overfull \hbox (33.71985pt too wide) detected at line 4325
+[123]
+Overfull \hbox (33.71985pt too wide) detected at line 4365
 \U/msb/m/n/10 E[]\OML/lmm/m/it/10 K[] \OT1/lmr/m/n/10 = [] +\U/msb/m/n/10 E[]\O
 ML/lmm/m/it/10 K\OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 K > \OT1/lmr/m/n/10 0[]\U/ms
 b/m/n/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 K > \OT1/lmr/m/n/10 0) \OMS/lmsy/m/
@@ -1828,111 +1872,111 @@ n/10 ) \U/msb/m/n/10 E[]\OML/lmm/m/it/10 K\OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 K
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[122]
+[124]
 Overfull \hbox (105.73056pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 4.11.  DEMOSTRACIÓN DEL TEOREMA DEL LÍMITE CENTRAL PARA MUESTRA
-S FINITAS \T1/lmr/m/n/10 123
+S FINITAS \T1/lmr/m/n/10 125
  []
 
-[123] [124] [125]
-Overfull \hbox (36.21423pt too wide) detected at line 4494
+[125] [126] [127]
+Overfull \hbox (36.21423pt too wide) detected at line 4534
 [][][]
  []
 
-[126]
-Overfull \hbox (25.26611pt too wide) detected at line 4512
+[128]
+Overfull \hbox (25.26611pt too wide) detected at line 4552
 []
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[127pdfTeX warning (ext4): destination with the same identifier (name{equation.
+[129pdfTeX warning (ext4): destination with the same identifier (name{equation.
 4.12.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.4512 \end{align*}
+l.4552 \end{align*}
                    ]
 Overfull \vbox (34.65567pt too high) has occurred while \output is active []
 
-[128]pdfTeX warning (ext4): destination with the same identifier (name{equation
+[130]pdfTeX warning (ext4): destination with the same identifier (name{equation
 .4.12.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.4515 \%\begin{equation}
+l.4555 \%\begin{equation}
                          \nonumberpdfTeX warning (ext4): destination with the s
 ame identifier (name{equation.4.12.4}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.4515 \%\begin{equation}
+l.4555 \%\begin{equation}
                          \nonumberpdfTeX warning (ext4): destination with the s
 ame identifier (name{equation.4.12.4}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.4515 \%\begin{equation}
+l.4555 \%\begin{equation}
                          \nonumberpdfTeX warning (ext4): destination with the s
 ame identifier (name{equation.4.12.4}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.4515 \%\begin{equation}
+l.4555 \%\begin{equation}
                          \nonumber
-Overfull \hbox (36.21423pt too wide) detected at line 4526
+Overfull \hbox (36.21423pt too wide) detected at line 4566
 [][][]
- []
-
-[129]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-165-1.pdf, id=1656, 459.7175
-pt x 315.1775pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-165-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-165-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-165-
-1.pdf  used on input line 4568.
-(pdftex.def)             Requested size: 345.01875pt x 236.54124pt.
-[130 <./NotasEstadistica_files/figure-latex/unnamed-chunk-165-1.pdf>]
-Overfull \hbox (1.98535pt too wide) has occurred while \output is active
-\T1/lmr/m/sl/10 4.14.  MUESTREO ALEATORIO SIMPLE CON REEMPLAZO (MAS/CR) \T1/lmr
-/m/n/10 131
  []
 
 [131]
-Overfull \hbox (254.34128pt too wide) detected at line 4651
-[][][]
- []
-
-[132]
-Underfull \vbox (badness 3386) has occurred while \output is active []
-
-
+<NotasEstadistica_files/figure-latex/unnamed-chunk-166-1.pdf, id=1661, 459.7175
+pt x 315.1775pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-166-1.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-166-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-166-
+1.pdf  used on input line 4608.
+(pdftex.def)             Requested size: 345.01875pt x 236.54124pt.
+[132 <./NotasEstadistica_files/figure-latex/unnamed-chunk-166-1.pdf>]
 Overfull \hbox (1.98535pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 4.14.  MUESTREO ALEATORIO SIMPLE CON REEMPLAZO (MAS/CR) \T1/lmr
 /m/n/10 133
  []
 
-[133] [134]
-Overfull \hbox (156.42682pt too wide) has occurred while \output is active
-\T1/lmr/m/sl/10 4.15.  EJEMPLO RESUMEN: PROPORCIÓN DE TRABAJADORES ENFERMOS CON
- O SIN REEMPLAZO \T1/lmr/m/n/10 135
+[133]
+Overfull \hbox (254.34128pt too wide) detected at line 4691
+[][][]
  []
 
-[135]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 476
+[134]
+Underfull \vbox (badness 3386) has occurred while \output is active []
+
+
+Overfull \hbox (1.98535pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 4.14.  MUESTREO ALEATORIO SIMPLE CON REEMPLAZO (MAS/CR) \T1/lmr
+/m/n/10 135
+ []
+
+[135] [136]
+Overfull \hbox (156.42682pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 4.15.  EJEMPLO RESUMEN: PROPORCIÓN DE TRABAJADORES ENFERMOS CON
+ O SIN REEMPLAZO \T1/lmr/m/n/10 137
+ []
+
+[137]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 480
 7.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg
 File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 
-) [136]
-Underfull \hbox (badness 2261) in paragraph at lines 4811--4811
+) [138]
+Underfull \hbox (badness 2261) in paragraph at lines 4851--4851
 []\T1/lmr/bx/n/14.4 (+20) Muestreo Aleato-rio Sim-ple Pon-der-ado
  []
 
-[137]
-Overfull \hbox (55.27528pt too wide) detected at line 4853
+[139]
+Overfull \hbox (55.27528pt too wide) detected at line 4893
 []\OT1/lmr/m/n/10 ([]) = [] [] \OML/lmm/m/it/10 x[] \OMS/lmsy/m/n/10 ^^A []\OT1
 /lmr/m/n/10 (\U/msb/m/n/10 I[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]\OT1/lmr/m/n
 /10 )) = [] [] \OML/lmm/m/it/10 x[] \OMS/lmsy/m/n/10 ^^A [][]\OT1/lmr/m/n/10 1 
@@ -1940,105 +1984,84 @@ Overfull \hbox (55.27528pt too wide) detected at line 4853
 y/m/n/10 ^^A [] \OT1/lmr/m/n/10 = []\OML/lmm/m/it/10 s[]
  []
 
-[138] [139] [140]
-Overfull \hbox (37.94258pt too wide) in paragraph at lines 5040--5049
+[140] [141] [142]
+Overfull \hbox (37.94258pt too wide) in paragraph at lines 5080--5089
  [][] 
  []
 
-[141] [142]
+[143] [144]
 Chapter 5.
-[143
+[145
 
-] [144]
+] [146]
 Overfull \hbox (27.26222pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 5.1.  INTRODUCCIÓN A MUESTREO ALEATORIO ESTRATIFICADO (MAE) \T1
-/lmr/m/n/10 145
+/lmr/m/n/10 147
  []
 
-[145] [146] [147] [148] [149pdfTeX warning (ext4): destination with the same id
+[147] [148] [149] [150] [151pdfTeX warning (ext4): destination with the same id
 entifier (name{table.5.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.5386 \]
+l.5426 \]
          pdfTeX warning (ext4): destination with the same identifier (name{equa
 tion.5.2.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.5386 \]
+l.5426 \]
          pdfTeX warning (ext4): destination with the same identifier (name{equa
 tion.5.2.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.5386 \]
+l.5426 \]
          pdfTeX warning (ext4): destination with the same identifier (name{equa
 tion.5.2.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.5386 \]
-         ] [150]pdfTeX warning (ext4): destination with the same identifier (na
+l.5426 \]
+         ] [152]pdfTeX warning (ext4): destination with the same identifier (na
 me{equation.5.3.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.5437 \begin{equation}
+l.5477 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.5.3.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.5437 \begin{equation}
+l.5477 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.5.3.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.5437 \begin{equation}
+l.5477 \begin{equation}
                        \nonumberpdfTeX warning (ext4): destination with the sam
 e identifier (name{equation.5.3.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.5437 \begin{equation}
-                       \nonumber [151] [152] [153]
-Overfull \hbox (853.16893pt too wide) in paragraph at lines 5709--6290
+l.5477 \begin{equation}
+                       \nonumber [153] [154] [155]
+Overfull \hbox (853.16893pt too wide) in paragraph at lines 5749--6330
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 3033.99823pt on input line 6290.
+LaTeX Warning: Float too large for page by 3033.99823pt on input line 6330.
 
-[154] [155] [156
+[156] [157] [158
 
 ]
 Chapter 6.
-[157]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-195-1.pdf, id=1873, 463.7325
+[159]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-196-1.pdf, id=1878, 463.7325
 pt x 313.17pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-195-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-196-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-195-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-195-
-1.pdf  used on input line 6349.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-196-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-196-
+1.pdf  used on input line 6389.
 (pdftex.def)             Requested size: 345.0035pt x 232.98936pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (6.7068pt too wide) has occurred while \output is active
-\T1/lmr/m/n/10 158 \T1/lmr/m/sl/10 CHAPTER 6.  INTERVALOS DE CONFIANZA MEDIANTE
- BOOTSTRAP
- []
-
-[158] [159 <./NotasEstadistica_files/figure-latex/unnamed-chunk-195-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-197-1.pdf, id=1891, 457.71pt
- x 315.1775pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-197-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-197-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-197-
-1.pdf  used on input line 6403.
-(pdftex.def)             Requested size: 345.01372pt x 237.57523pt.
-
-Overfull \hbox (171.37766pt too wide) in paragraph at lines 6402--6404
-\T1/lmr/m/n/10 (-20) dia en $\OML/lmm/m/it/10 ^^U$ \T1/lmr/m/n/10 (-20) y cre-c
-iente de-spués de la me-dia: [] 
- []
 
 
 Overfull \hbox (6.7068pt too wide) has occurred while \output is active
@@ -2046,650 +2069,671 @@ Overfull \hbox (6.7068pt too wide) has occurred while \output is active
  BOOTSTRAP
  []
 
-[160] [161 <./NotasEstadistica_files/figure-latex/unnamed-chunk-197-1.pdf>]
+[160] [161 <./NotasEstadistica_files/figure-latex/unnamed-chunk-196-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-198-1.pdf, id=1896, 457.71pt
+ x 315.1775pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-198-1.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-198-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-198-
+1.pdf  used on input line 6443.
+(pdftex.def)             Requested size: 345.01372pt x 237.57523pt.
+
+Overfull \hbox (171.37766pt too wide) in paragraph at lines 6442--6444
+\T1/lmr/m/n/10 (-20) dia en $\OML/lmm/m/it/10 ^^U$ \T1/lmr/m/n/10 (-20) y cre-c
+iente de-spués de la me-dia: [] 
+ []
+
+
 Overfull \hbox (6.7068pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10 162 \T1/lmr/m/sl/10 CHAPTER 6.  INTERVALOS DE CONFIANZA MEDIANTE
  BOOTSTRAP
  []
 
-[162] [163]
+[162] [163 <./NotasEstadistica_files/figure-latex/unnamed-chunk-198-1.pdf>]
 Overfull \hbox (6.7068pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10 164 \T1/lmr/m/sl/10 CHAPTER 6.  INTERVALOS DE CONFIANZA MEDIANTE
  BOOTSTRAP
  []
 
-[164]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[165]
+[164] [165]
 Overfull \hbox (6.7068pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10 166 \T1/lmr/m/sl/10 CHAPTER 6.  INTERVALOS DE CONFIANZA MEDIANTE
  BOOTSTRAP
  []
 
-[166] [167]
+[166]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[167]
 Overfull \hbox (6.7068pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10 168 \T1/lmr/m/sl/10 CHAPTER 6.  INTERVALOS DE CONFIANZA MEDIANTE
  BOOTSTRAP
  []
 
-[168
+[168] [169]
+Overfull \hbox (6.7068pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10 170 \T1/lmr/m/sl/10 CHAPTER 6.  INTERVALOS DE CONFIANZA MEDIANTE
+ BOOTSTRAP
+ []
+
+[170
 
 ]
 Chapter 7.
-[169]
-Overfull \hbox (977.99615pt too wide) in paragraph at lines 6760--6760
+[171]
+Overfull \hbox (977.99615pt too wide) in paragraph at lines 6800--6800
 []\T1/lmtt/m/n/10 a. Se obtiene una muestra^[La muestra puede ser estratificada
 , aleatoria simple, bernoulli, como sea...] $\mathcal{S}_1$ de clusters obtenid
 os de $\mathcal{C}_1$ de acuerdo a algún diseño probabilístico $\mathbb{P}_1$. 
 El tamaño de la muestra es $n_1$.[] 
  []
 
-[170] [171] [172]
+[172] [173] [174]
 Overfull \hbox (41.56454pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 7.2.  MUESTREO ALEATORIO POR CLUSTERS BIETÁPICO (EN DOS ETAPAS)
- \T1/lmr/m/n/10 173
+ \T1/lmr/m/n/10 175
  []
 
-[173] [174] [175] [176]
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 7111--7111
+[175] [176] [177] [178]
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 7151--7151
 []\T1/lmtt/m/n/10 ## -- Column specification ----------------------------------
 ----------------------[] 
  []
 
 
-Overfull \hbox (200.99841pt too wide) in paragraph at lines 7123--7123
+Overfull \hbox (200.99841pt too wide) in paragraph at lines 7163--7163
 []\T1/lmtt/m/n/10 ##  row      col           expected actual                   
                                        file[] 
  []
 
 
-Overfull \hbox (200.99841pt too wide) in paragraph at lines 7123--7123
+Overfull \hbox (200.99841pt too wide) in paragraph at lines 7163--7163
 []\T1/lmtt/m/n/10 ## 1281 P10_7_7  1/0/T/F/TRUE/FALSE   05   \TS1/lmtt/m/n/10 '
 \T1/lmtt/m/n/10 ~/Dropbox/ITAM_CLASES/Aplicada1/Archivos_2020/ENSANUT_1.csv\TS1
 /lmtt/m/n/10 '[] 
  []
 
 
-Overfull \hbox (200.99841pt too wide) in paragraph at lines 7123--7123
+Overfull \hbox (200.99841pt too wide) in paragraph at lines 7163--7163
 []\T1/lmtt/m/n/10 ## 2093 P10_7_7  1/0/T/F/TRUE/FALSE   09   \TS1/lmtt/m/n/10 '
 \T1/lmtt/m/n/10 ~/Dropbox/ITAM_CLASES/Aplicada1/Archivos_2020/ENSANUT_1.csv\TS1
 /lmtt/m/n/10 '[] 
  []
 
 
-Overfull \hbox (200.99841pt too wide) in paragraph at lines 7123--7123
+Overfull \hbox (200.99841pt too wide) in paragraph at lines 7163--7163
 []\T1/lmtt/m/n/10 ## 2349 P9_9_B2D 1/0/T/F/TRUE/FALSE   30   \TS1/lmtt/m/n/10 '
 \T1/lmtt/m/n/10 ~/Dropbox/ITAM_CLASES/Aplicada1/Archivos_2020/ENSANUT_1.csv\TS1
 /lmtt/m/n/10 '[] 
  []
 
 
-Overfull \hbox (200.99841pt too wide) in paragraph at lines 7123--7123
+Overfull \hbox (200.99841pt too wide) in paragraph at lines 7163--7163
 []\T1/lmtt/m/n/10 ## 2349 P9_9_B2M 1/0/T/F/TRUE/FALSE   09   \TS1/lmtt/m/n/10 '
 \T1/lmtt/m/n/10 ~/Dropbox/ITAM_CLASES/Aplicada1/Archivos_2020/ENSANUT_1.csv\TS1
 /lmtt/m/n/10 '[] 
  []
 
 
-Overfull \hbox (200.99841pt too wide) in paragraph at lines 7123--7123
+Overfull \hbox (200.99841pt too wide) in paragraph at lines 7163--7163
 []\T1/lmtt/m/n/10 ## 2349 P9_9_B2A 1/0/T/F/TRUE/FALSE   2008 \TS1/lmtt/m/n/10 '
 \T1/lmtt/m/n/10 ~/Dropbox/ITAM_CLASES/Aplicada1/Archivos_2020/ENSANUT_1.csv\TS1
 /lmtt/m/n/10 '[] 
  []
 
 
-Overfull \hbox (200.99841pt too wide) in paragraph at lines 7123--7123
+Overfull \hbox (200.99841pt too wide) in paragraph at lines 7163--7163
 []\T1/lmtt/m/n/10 ## .... ........ .................. ...... ..................
 ...........................................[] 
  []
 
 
-Underfull \vbox (badness 1077) detected at line 7136
+Underfull \vbox (badness 1077) detected at line 7176
  []
 
 
 Underfull \vbox (badness 1077) has occurred while \output is active []
 
-[177] [178]
+[179] [180]
 Appendix A.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7168.
-<images/rlogo.png, id=2032, 1284.8pt x 995.72pt>
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7208.
+<images/rlogo.png, id=2037, 1284.8pt x 995.72pt>
 File: images/rlogo.png Graphic file (type png)
 <use images/rlogo.png>
-Package pdftex.def Info: images/rlogo.png  used on input line 7172.
+Package pdftex.def Info: images/rlogo.png  used on input line 7212.
 (pdftex.def)             Requested size: 150.56213pt x 116.68564pt.
-[179
+[181
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.A.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7184 
+l.7224 
         <./images/rlogo.png>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7186.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7226.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7189.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-212-1.pdf, id=2048, 288.0762
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7229.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-213-1.pdf, id=2054, 288.0762
 5pt x 281.05pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-212-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-212-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-212-
-1.pdf  used on input line 7208.
-(pdftex.def)             Requested size: 288.08432pt x 281.05788pt.
-
-Underfull \vbox (badness 6141) has occurred while \output is active []
-
-[180]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-213-1.pdf, id=2058, 385.44pt
- x 243.91125pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-213-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-213-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-213-
-1.pdf  used on input line 7214.
+1.pdf  used on input line 7248.
+(pdftex.def)             Requested size: 288.08432pt x 281.05788pt.
+
+Underfull \vbox (badness 6141) has occurred while \output is active []
+
+[182]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-214-1.pdf, id=2064, 385.44pt
+ x 243.91125pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-214-1.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-214-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-214-
+1.pdf  used on input line 7254.
 (pdftex.def)             Requested size: 344.99901pt x 218.31967pt.
-<images/compiling.png, id=2061, 414.54875pt x 361.35pt>
+<images/compiling.png, id=2067, 414.54875pt x 361.35pt>
 File: images/compiling.png Graphic file (type png)
 <use images/compiling.png>
-Package pdftex.def Info: images/compiling.png  used on input line 7230.
+Package pdftex.def Info: images/compiling.png  used on input line 7270.
 (pdftex.def)             Requested size: 414.54773pt x 361.34912pt.
 
-Overfull \hbox (69.54773pt too wide) in paragraph at lines 7230--7231
+Overfull \hbox (69.54773pt too wide) in paragraph at lines 7270--7271
  [][] 
  []
 
 
-Overfull \hbox (56.53604pt too wide) has occurred while \output is active
-\T1/lmr/m/sl/10 A.2.  BIENVENIDX A \T1/lmtt/m/sl/10 R\T1/lmr/m/sl/10 , CAMP PON
-TANEZEN (SÍ, ASÍ SE LLAMA ESTA VERSIÓN) \T1/lmr/m/n/10 181
- []
-
-[181 <./NotasEstadistica_files/figure-latex/unnamed-chunk-212-1.pdf>] [182pdfTe
-X warning (ext4): destination with the same identifier (name{figure.A.2}) has b
-een already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.7262 
-        <./NotasEstadistica_files/figure-latex/unnamed-chunk-213-1.pdf>]
 Overfull \hbox (56.53604pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 A.2.  BIENVENIDX A \T1/lmtt/m/sl/10 R\T1/lmr/m/sl/10 , CAMP PON
 TANEZEN (SÍ, ASÍ SE LLAMA ESTA VERSIÓN) \T1/lmr/m/n/10 183
  []
 
-[183pdfTeX warning (ext4): destination with the same identifier (name{figure.A.
+[183 <./NotasEstadistica_files/figure-latex/unnamed-chunk-213-1.pdf>] [184pdfTe
+X warning (ext4): destination with the same identifier (name{figure.A.2}) has b
+een already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.7302 
+        <./NotasEstadistica_files/figure-latex/unnamed-chunk-214-1.pdf>]
+Overfull \hbox (56.53604pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 A.2.  BIENVENIDX A \T1/lmtt/m/sl/10 R\T1/lmr/m/sl/10 , CAMP PON
+TANEZEN (SÍ, ASÍ SE LLAMA ESTA VERSIÓN) \T1/lmr/m/n/10 185
+ []
+
+[185pdfTeX warning (ext4): destination with the same identifier (name{figure.A.
 3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7262 
+l.7302 
         <./images/compiling.png>]
-<images/CRAN1.png, id=2110, 2890.8pt x 1564.84625pt>
+<images/CRAN1.png, id=2115, 2890.8pt x 1564.84625pt>
 File: images/CRAN1.png Graphic file (type png)
 <use images/CRAN1.png>
-Package pdftex.def Info: images/CRAN1.png  used on input line 7271.
+Package pdftex.def Info: images/CRAN1.png  used on input line 7311.
 (pdftex.def)             Requested size: 1016.02974pt x 549.99664pt.
 
-Overfull \hbox (671.02974pt too wide) in paragraph at lines 7271--7272
+Overfull \hbox (671.02974pt too wide) in paragraph at lines 7311--7312
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 35.94107pt on input line 7276.
+LaTeX Warning: Float too large for page by 35.94107pt on input line 7316.
 
 
-Underfull \hbox (badness 7012) in paragraph at lines 7281--7286
+Underfull \hbox (badness 7012) in paragraph at lines 7321--7326
 \T1/lmtt/m/n/10 messages: 1: Setting LC_CTYPE failed [...] \T1/lmr/m/n/10 (+20)
  para []solu-
  []
 
-<images/rstudio.png, id=2116, 1773.62625pt x 622.82687pt>
+<images/rstudio.png, id=2121, 1773.62625pt x 622.82687pt>
 File: images/rstudio.png Graphic file (type png)
 <use images/rstudio.png>
-Package pdftex.def Info: images/rstudio.png  used on input line 7314.
+Package pdftex.def Info: images/rstudio.png  used on input line 7354.
 (pdftex.def)             Requested size: 1566.26274pt x 550.00906pt.
 
-Overfull \hbox (1221.26274pt too wide) in paragraph at lines 7314--7315
+Overfull \hbox (1221.26274pt too wide) in paragraph at lines 7354--7355
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 23.95349pt on input line 7319.
+LaTeX Warning: Float too large for page by 23.95349pt on input line 7359.
 
-[184] [185pdfTeX warning (ext4): destination with the same identifier (name{fig
+[186] [187pdfTeX warning (ext4): destination with the same identifier (name{fig
 ure.A.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7322 
-        <./images/CRAN1.png>] [186pdfTeX warning (ext4): destination with the s
+l.7362 
+        <./images/CRAN1.png>] [188pdfTeX warning (ext4): destination with the s
 ame identifier (name{figure.A.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7322 
+l.7362 
         <./images/rstudio.png>]
-<images/RStudio1.png, id=2144, 2890.8pt x 1564.84625pt>
+<images/RStudio1.png, id=2150, 2890.8pt x 1564.84625pt>
 File: images/RStudio1.png Graphic file (type png)
 <use images/RStudio1.png>
-Package pdftex.def Info: images/RStudio1.png  used on input line 7336.
+Package pdftex.def Info: images/RStudio1.png  used on input line 7376.
 (pdftex.def)             Requested size: 1016.02974pt x 549.99664pt.
 
-Overfull \hbox (671.02974pt too wide) in paragraph at lines 7336--7337
+Overfull \hbox (671.02974pt too wide) in paragraph at lines 7376--7377
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 23.94107pt on input line 7341.
+LaTeX Warning: Float too large for page by 23.94107pt on input line 7381.
 
-<images/RStudio2.png, id=2145, 2890.8pt x 1564.84625pt>
+<images/RStudio2.png, id=2151, 2890.8pt x 1564.84625pt>
 File: images/RStudio2.png Graphic file (type png)
 <use images/RStudio2.png>
-Package pdftex.def Info: images/RStudio2.png  used on input line 7347.
+Package pdftex.def Info: images/RStudio2.png  used on input line 7387.
 (pdftex.def)             Requested size: 1016.02974pt x 549.99664pt.
 
-Overfull \hbox (671.02974pt too wide) in paragraph at lines 7347--7348
+Overfull \hbox (671.02974pt too wide) in paragraph at lines 7387--7388
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 23.94107pt on input line 7352.
+LaTeX Warning: Float too large for page by 23.94107pt on input line 7392.
 
-<NotasEstadistica_files/figure-latex/unnamed-chunk-218-1.pdf, id=2146, 289.08pt
+<NotasEstadistica_files/figure-latex/unnamed-chunk-219-1.pdf, id=2152, 289.08pt
  x 289.08pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-218-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-219-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-218-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-218-
-1.pdf  used on input line 7358.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-219-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-219-
+1.pdf  used on input line 7398.
 (pdftex.def)             Requested size: 289.09251pt x 289.09251pt.
-<images/RStudio4.png, id=2147, 2890.8pt x 1564.84625pt>
+<images/RStudio4.png, id=2153, 2890.8pt x 1564.84625pt>
 File: images/RStudio4.png Graphic file (type png)
 <use images/RStudio4.png>
-Package pdftex.def Info: images/RStudio4.png  used on input line 7374.
+Package pdftex.def Info: images/RStudio4.png  used on input line 7414.
 (pdftex.def)             Requested size: 1016.02974pt x 549.99664pt.
 
-Overfull \hbox (671.02974pt too wide) in paragraph at lines 7374--7375
+Overfull \hbox (671.02974pt too wide) in paragraph at lines 7414--7415
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 23.94107pt on input line 7379.
+LaTeX Warning: Float too large for page by 23.94107pt on input line 7419.
 
-<images/RStudio5.png, id=2148, 2890.8pt x 1564.84625pt>
+<images/RStudio5.png, id=2154, 2890.8pt x 1564.84625pt>
 File: images/RStudio5.png Graphic file (type png)
 <use images/RStudio5.png>
-Package pdftex.def Info: images/RStudio5.png  used on input line 7391.
+Package pdftex.def Info: images/RStudio5.png  used on input line 7431.
 (pdftex.def)             Requested size: 1016.02974pt x 549.99664pt.
 
-Overfull \hbox (671.02974pt too wide) in paragraph at lines 7391--7392
+Overfull \hbox (671.02974pt too wide) in paragraph at lines 7431--7432
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 35.94107pt on input line 7396.
+LaTeX Warning: Float too large for page by 35.94107pt on input line 7436.
 
-<images/RStudio6.png, id=2150, 2890.8pt x 1806.75pt>
+<images/RStudio6.png, id=2156, 2890.8pt x 1806.75pt>
 File: images/RStudio6.png Graphic file (type png)
 <use images/RStudio6.png>
-Package pdftex.def Info: images/RStudio6.png  used on input line 7408.
+Package pdftex.def Info: images/RStudio6.png  used on input line 7448.
 (pdftex.def)             Requested size: 879.9945pt x 549.99655pt.
 
-Overfull \hbox (534.9945pt too wide) in paragraph at lines 7408--7409
+Overfull \hbox (534.9945pt too wide) in paragraph at lines 7448--7449
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 48.49655pt on input line 7413.
+LaTeX Warning: Float too large for page by 48.49655pt on input line 7453.
 
-[187] [188pdfTeX warning (ext4): destination with the same identifier (name{fig
+[189] [190pdfTeX warning (ext4): destination with the same identifier (name{fig
 ure.A.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7421 \end{enumerate}
-                       <./images/RStudio1.png>] [189pdfTeX warning (ext4): dest
+l.7461 \end{enumerate}
+                       <./images/RStudio1.png>] [191pdfTeX warning (ext4): dest
 ination with the same identifier (name{figure.A.7}) has been already used, dupl
 icate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7421 \end{enumerate}
-                       <./images/RStudio2.png>] [190pdfTeX warning (ext4): dest
+l.7461 \end{enumerate}
+                       <./images/RStudio2.png>] [192pdfTeX warning (ext4): dest
 ination with the same identifier (name{figure.A.8}) has been already used, dupl
 icate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7421 \end{enumerate}
-                       <./NotasEstadistica_files/figure-latex/unnamed-chunk-218
--1.pdf>] [191pdfTeX warning (ext4): destination with the same identifier (name{
+l.7461 \end{enumerate}
+                       <./NotasEstadistica_files/figure-latex/unnamed-chunk-219
+-1.pdf>] [193pdfTeX warning (ext4): destination with the same identifier (name{
 figure.A.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7421 \end{enumerate}
-                       <./images/RStudio4.png>] [192pdfTeX warning (ext4): dest
+l.7461 \end{enumerate}
+                       <./images/RStudio4.png>] [194pdfTeX warning (ext4): dest
 ination with the same identifier (name{figure.A.10}) has been already used, dup
 licate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7421 \end{enumerate}
-                       <./images/RStudio5.png>] [193pdfTeX warning (ext4): dest
+l.7461 \end{enumerate}
+                       <./images/RStudio5.png>] [195pdfTeX warning (ext4): dest
 ination with the same identifier (name{figure.A.11}) has been already used, dup
 licate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7421 \end{enumerate}
+l.7461 \end{enumerate}
                        <./images/RStudio6.png>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-223-1.pdf, id=2209, 255.9562
+<NotasEstadistica_files/figure-latex/unnamed-chunk-224-1.pdf, id=2214, 255.9562
 5pt x 215.80624pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-223-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-224-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-223-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-223-
-1.pdf  used on input line 7425.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-224-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-224-
+1.pdf  used on input line 7465.
 (pdftex.def)             Requested size: 255.95561pt x 215.80571pt.
-<images/RStudio7.png, id=2210, 2890.8pt x 1564.84625pt>
+<images/RStudio7.png, id=2215, 2890.8pt x 1564.84625pt>
 File: images/RStudio7.png Graphic file (type png)
 <use images/RStudio7.png>
-Package pdftex.def Info: images/RStudio7.png  used on input line 7434.
+Package pdftex.def Info: images/RStudio7.png  used on input line 7474.
 (pdftex.def)             Requested size: 1016.02974pt x 549.99664pt.
 
-Overfull \hbox (671.02974pt too wide) in paragraph at lines 7434--7435
+Overfull \hbox (671.02974pt too wide) in paragraph at lines 7474--7475
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 23.94107pt on input line 7439.
+LaTeX Warning: Float too large for page by 23.94107pt on input line 7479.
 
-[194pdfTeX warning (ext4): destination with the same identifier (name{figure.A.
+[196pdfTeX warning (ext4): destination with the same identifier (name{figure.A.
 12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7469 \begin{Shaded}
-                      <./NotasEstadistica_files/figure-latex/unnamed-chunk-223-
-1.pdf>] [195pdfTeX warning (ext4): destination with the same identifier (name{f
+l.7509 \begin{Shaded}
+                      <./NotasEstadistica_files/figure-latex/unnamed-chunk-224-
+1.pdf>] [197pdfTeX warning (ext4): destination with the same identifier (name{f
 igure.A.13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7469 \begin{Shaded}
+l.7509 \begin{Shaded}
                       <./images/RStudio7.png>]
-<images/ada_lovelace.jpg, id=2232, 1027.84pt x 1631.09375pt>
+<images/ada_lovelace.jpg, id=2237, 1027.84pt x 1631.09375pt>
 File: images/ada_lovelace.jpg Graphic file (type jpg)
 <use images/ada_lovelace.jpg>
-Package pdftex.def Info: images/ada_lovelace.jpg  used on input line 7498.
+Package pdftex.def Info: images/ada_lovelace.jpg  used on input line 7538.
 (pdftex.def)             Requested size: 346.5752pt x 549.98508pt.
 
-Overfull \hbox (1.5752pt too wide) in paragraph at lines 7498--7499
+Overfull \hbox (1.5752pt too wide) in paragraph at lines 7538--7539
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 35.9295pt on input line 7503.
+LaTeX Warning: Float too large for page by 35.9295pt on input line 7543.
 
-[196] [197pdfTeX warning (ext4): destination with the same identifier (name{fig
+[198] [199pdfTeX warning (ext4): destination with the same identifier (name{fig
 ure.A.14}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7572 \begin{Shaded}
-                      <./images/ada_lovelace.jpg>] [198]
-<images/algorithm_lovelace.jpg, id=2258, 1927.2pt x 1349.04pt>
+l.7612 \begin{Shaded}
+                      <./images/ada_lovelace.jpg>] [200]
+<images/algorithm_lovelace.jpg, id=2264, 1927.2pt x 1349.04pt>
 File: images/algorithm_lovelace.jpg Graphic file (type jpg)
 <use images/algorithm_lovelace.jpg>
-Package pdftex.def Info: images/algorithm_lovelace.jpg  used on input line 7717
+Package pdftex.def Info: images/algorithm_lovelace.jpg  used on input line 7757
 .
 (pdftex.def)             Requested size: 785.71672pt x 550.0017pt.
 
-Overfull \hbox (440.71672pt too wide) in paragraph at lines 7717--7718
+Overfull \hbox (440.71672pt too wide) in paragraph at lines 7757--7758
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 23.94612pt on input line 7722.
+LaTeX Warning: Float too large for page by 23.94612pt on input line 7762.
 
-[199] [200pdfTeX warning (ext4): destination with the same identifier (name{fig
+[201] [202pdfTeX warning (ext4): destination with the same identifier (name{fig
 ure.A.15}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.7739 \begin{Shaded}
-                      <./images/algorithm_lovelace.jpg>] [201] [202] [203]
-<images/Z3_Deutsches_Museum.jpeg, id=2293, 642.4pt x 481.8pt>
+l.7779 \begin{Shaded}
+                      <./images/algorithm_lovelace.jpg>] [203] [204] [205]
+<images/Z3_Deutsches_Museum.jpeg, id=2299, 642.4pt x 481.8pt>
 File: images/Z3_Deutsches_Museum.jpeg Graphic file (type jpg)
 <use images/Z3_Deutsches_Museum.jpeg>
 Package pdftex.def Info: images/Z3_Deutsches_Museum.jpeg  used on input line 80
-45.
+85.
 (pdftex.def)             Requested size: 642.41803pt x 481.8135pt.
 
-Overfull \hbox (297.41803pt too wide) in paragraph at lines 8045--8046
+Overfull \hbox (297.41803pt too wide) in paragraph at lines 8085--8086
  [][] 
  []
 
-[204]
+[206]
 Overfull \hbox (16.00992pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 A.8.  OBSERVACIONES SOBRE LA ARITMÉTICA DE PUNTO FLOTANTE \T1/l
-mr/m/n/10 205
+mr/m/n/10 207
  []
 
-[205pdfTeX warning (ext4): destination with the same identifier (name{figure.A.
+[207pdfTeX warning (ext4): destination with the same identifier (name{figure.A.
 16}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.8101 
+l.8141 
         <./images/Z3_Deutsches_Museum.jpeg>]
-Underfull \hbox (badness 1226) in paragraph at lines 8127--8128
+Underfull \hbox (badness 1226) in paragraph at lines 8167--8168
 []\T1/lmr/m/n/10 (+20) El mismo prob-lema ocurre con números dec-i-males cuya r
 ep-re-sentación
  []
 
-[206] [207]
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+[208] [209]
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##   [1] "vr.name"                "p.val"                  "s
 ub10"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##   [4] "ybarra"                 "sub11"                  "s
 ub12"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##   [7] "costo"                  "sub13"                  "s
 ub14"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [10] "sub15"                  "sub16"                  "s
 ub17"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [13] "sub18"                  "confianza.bajo"         "s
 ub19"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [19] "sub20"                  "sub21"                  "s
 ub22"[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [22] "sub23"                  "varianza.est"           "v
 ar.total"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [25] "sub24"                  "Uc"                     "s
 ub25"[] 
  []
 
 
-Overfull \hbox (80.24876pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (80.24876pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [28] "mediana.real"           "sub26"                  "i
 ntervalos.simulados"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [31] "sub27"                  "Uf"                     "s
 ub28"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [34] "sub29"                  "sub30"                  "s
 ub31"[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [37] "sub32"                  "sub33"                  "s
 umaAh"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [40] "sub34"                  "sub35"                  "s
 ub36"[] 
  []
 
 
-Overfull \hbox (27.74892pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [43] "func.opt.1"             "sub37"                  "f
 unc.opt.2"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [46] "sub38"                  "sub39"                  "k
 .val"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [49] "datos"                  "var.x"                  "s
 ub40"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [52] "promedios.muestra"      "sub41"                  "s
 ub42"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [55] "sub43"                  "base.costos"            "s
 ub44"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [58] "xbarra"                 "sub45"                  "s
 ub46"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [61] "sub47"                  "B"                      "s
 ub48"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [64] "sub49"                  "y.val"                  "s
 ub50"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [67] "sub51"                  "sub52"                  "s
 ub53"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [70] "nsim"                   "N"                      "s
 ub54"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [73] "sub55"                  "sub56"                  "s
 ub57"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [76] "sub58"                  "sub59"                  "c
 i_up"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [79] "Z"                      "sub60"                  "s
 ub61"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [82] "sub62"                  "sub63"                  "s
 ub64"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [88] "sub66"                  "sub67"                  "s
 ub68"[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ##  [91] "sub69"                  "escuelas.seleccionadas" "v
 arianza"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [103] "sub73"                  "n"                      "s
 ub74"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [106] "sub75"                  "sub76"                  "s
 ub77"[] 
  []
 
 
-Overfull \hbox (80.24876pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (80.24876pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [109] "sub78"                  "sub79"                  "i
 magenes.muestreadas"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [115] "sub80"                  "sub81"                  "s
 ub82"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [118] "sub83"                  "sub84"                  "s
 ub85"[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [121] "sub86"                  "Loblolly"               "n
 ombres"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [124] "sub87"                  "mediana.muestral"       "s
 ub88"[] 
  []
@@ -2697,192 +2741,192 @@ ub88"[]
 
 Underfull \vbox (badness 2698) has occurred while \output is active []
 
-[208]
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+[210]
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [127] "sub89"                  "sub90"                  "s
 ub91"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [130] "media.completa"         "sub92"                  "s
 ub93"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [133] "sub94"                  "sub95"                  "s
 ub96"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [136] "sub97"                  "alpha"                  "s
 ub98"[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [142] "remuestreo"             "arboles"                "m
 edia"[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [145] "Uboot"                  "alpha.val"              "b
 ase.completa"[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [148] "mediana"                "img"                    "p
 op.total"[] 
  []
 
 
-Overfull \hbox (27.74892pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [151] "edad"                   "total.muestra"          "b
 ase.datos"[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [154] "base.nh"                "confianza.alto"         "l
 ado.inf"[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [175] "r3"                     "datos.escuelas"         "l
 ambda"[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [178] "muestra"                "g.fun"                  "N
 total"[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [181] "s2"                     "m.val"                  "E
 xample1"[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [184] "lambda.1"               "zalpha"                 "l
 ambda.2"[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 8262--8262
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 8302--8302
 []\T1/lmtt/m/n/10 ## [187] "ensanut"                "total"                  "d
 iseño"[] 
  []
 
-[209]
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 8332--8332
+[211]
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 8372--8372
 []\T1/lmtt/m/n/10 ## Warning in readChar(con, 5L, useBytes = TRUE): cannot open
  compressed file[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 8332--8332
+Overfull \hbox (1.499pt too wide) in paragraph at lines 8372--8372
 []\T1/lmtt/m/n/10 ## \TS1/lmtt/m/n/10 '\T1/lmtt/m/n/10 MisVariables.rda\TS1/lmt
 t/m/n/10 '\T1/lmtt/m/n/10 , probable reason \TS1/lmtt/m/n/10 '\T1/lmtt/m/n/10 N
 o such file or directory\TS1/lmtt/m/n/10 '[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 8336--8336
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 8376--8376
 []\T1/lmtt/m/n/10 ## Error in readChar(con, 5L, useBytes = TRUE): cannot open t
 he connection[] 
  []
 
-[210] [211]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-290-1.pdf, id=2357, 279.0425
+[212] [213]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-291-1.pdf, id=2362, 279.0425
 pt x 277.035pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-290-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-290-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-290-
-1.pdf  used on input line 8442.
-(pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-291-1.pdf, id=2359, 277.035p
-t x 280.04625pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-291-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-291-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-291-
-1.pdf  used on input line 8464.
+1.pdf  used on input line 8482.
+(pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-292-1.pdf, id=2364, 277.035p
+t x 280.04625pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-292-1.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-292-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-292-
+1.pdf  used on input line 8504.
 (pdftex.def)             Requested size: 277.03432pt x 280.04555pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[212 <./NotasEstadistica_files/figure-latex/unnamed-chunk-290-1.pdf>] [213 <./N
-otasEstadistica_files/figure-latex/unnamed-chunk-291-1.pdf>] [214]
-<images/tweet1.jpg, id=2463, 722.7pt x 406.51875pt>
+[214 <./NotasEstadistica_files/figure-latex/unnamed-chunk-291-1.pdf>] [215 <./N
+otasEstadistica_files/figure-latex/unnamed-chunk-292-1.pdf>] [216]
+<images/tweet1.jpg, id=2468, 722.7pt x 406.51875pt>
 File: images/tweet1.jpg Graphic file (type jpg)
 <use images/tweet1.jpg>
-Package pdftex.def Info: images/tweet1.jpg  used on input line 8584.
+Package pdftex.def Info: images/tweet1.jpg  used on input line 8624.
 (pdftex.def)             Requested size: 722.70924pt x 406.52394pt.
 
-Overfull \hbox (377.70924pt too wide) in paragraph at lines 8584--8585
+Overfull \hbox (377.70924pt too wide) in paragraph at lines 8624--8625
  [][] 
  []
 
-<images/Grandma-Finds-The-Internet.jpg, id=2464, 642.4pt x 481.8pt>
+<images/Grandma-Finds-The-Internet.jpg, id=2469, 642.4pt x 481.8pt>
 File: images/Grandma-Finds-The-Internet.jpg Graphic file (type jpg)
 <use images/Grandma-Finds-The-Internet.jpg>
 Package pdftex.def Info: images/Grandma-Finds-The-Internet.jpg  used on input l
-ine 8628.
+ine 8668.
 (pdftex.def)             Requested size: 642.41803pt x 481.8135pt.
 
-Overfull \hbox (297.41803pt too wide) in paragraph at lines 8628--8629
+Overfull \hbox (297.41803pt too wide) in paragraph at lines 8668--8669
  [][] 
  []
 
-[215] [216pdfTeX warning (ext4): destination with the same identifier (name{fig
+[217] [218pdfTeX warning (ext4): destination with the same identifier (name{fig
 ure.A.17}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.8647 ...Repaso de Proba}\label{repaso-de-proba}}
-                                                   <./images/tweet1.jpg>] [217p
+l.8687 ...Repaso de Proba}\label{repaso-de-proba}}
+                                                   <./images/tweet1.jpg>] [219p
 dfTeX warning (ext4): destination with the same identifier (name{figure.A.18}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.8647 ...Repaso de Proba}\label{repaso-de-proba}}
+l.8687 ...Repaso de Proba}\label{repaso-de-proba}}
                                                    <./images/Grandma-Finds-The-
-Internet.jpg>] [218
+Internet.jpg>] [220
 
 ]
 Appendix B.
-[219] [220pdfTeX warning (ext4): destination with the same identifier (name{equ
+[221] [222pdfTeX warning (ext4): destination with the same identifier (name{equ
 ation.B.2.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.8739 \(
-         \quad \text{Sin Orden}\)] [221] [222] [223pdfTeX warning (ext4): desti
+l.8779 \(
+         \quad \text{Sin Orden}\)] [223] [224] [225pdfTeX warning (ext4): desti
 nation with the same identifier (name{equation.B.4.1}) has been already used, d
 uplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.8905 \end{equation}
-                     ] [224pdfTeX warning (ext4): destination with the same ide
+l.8945 \end{equation}
+                     ] [226pdfTeX warning (ext4): destination with the same ide
 ntifier (name{equation.B.4.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.8943 \]
+l.8983 \]
          ]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-301-1.pdf, id=2543, 279.0425
+<NotasEstadistica_files/figure-latex/unnamed-chunk-302-1.pdf, id=2548, 279.0425
 pt x 277.035pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-301-1.pdf Graphic file 
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-302-1.pdf Graphic file 
 (type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-301-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-301-
-1.pdf  used on input line 8993.
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-302-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-302-
+1.pdf  used on input line 9033.
 (pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2890,76 +2934,62 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Overfull \hbox (51.8433pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10 B.6.  VARIABLES ALEATORIAS Y FUNCIÓN DE DISTRIBUCIÓN (ACUMULADA
-) \T1/lmr/m/n/10 225
+) \T1/lmr/m/n/10 227
  []
 
-[225] [226 <./NotasEstadistica_files/figure-latex/unnamed-chunk-301-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-302-1.pdf, id=2566, 279.0425
-pt x 277.035pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-302-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-302-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-302-
-1.pdf  used on input line 9028.
-(pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
-
-Underfull \vbox (badness 3219) has occurred while \output is active []
-
-[227 <./NotasEstadistica_files/figure-latex/unnamed-chunk-302-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-303-1.pdf, id=2578, 279.0425
+[227] [228 <./NotasEstadistica_files/figure-latex/unnamed-chunk-302-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-303-1.pdf, id=2571, 279.0425
 pt x 277.035pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-303-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-303-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-303-
-1.pdf  used on input line 9052.
+1.pdf  used on input line 9068.
 (pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
-[228 <./NotasEstadistica_files/figure-latex/unnamed-chunk-303-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-304-1.pdf, id=2590, 279.0425
+
+Underfull \vbox (badness 3219) has occurred while \output is active []
+
+[229 <./NotasEstadistica_files/figure-latex/unnamed-chunk-303-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-304-1.pdf, id=2584, 279.0425
 pt x 277.035pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-304-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-304-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-304-
-1.pdf  used on input line 9077.
+1.pdf  used on input line 9092.
 (pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
-[229 <./NotasEstadistica_files/figure-latex/unnamed-chunk-304-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-305-1.pdf, id=2603, 279.0425
+[230 <./NotasEstadistica_files/figure-latex/unnamed-chunk-304-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-305-1.pdf, id=2596, 279.0425
 pt x 277.035pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-305-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-305-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-305-
-1.pdf  used on input line 9096.
+1.pdf  used on input line 9117.
 (pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
-[230 <./NotasEstadistica_files/figure-latex/unnamed-chunk-305-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-306-1.pdf, id=2615, 279.0425
+[231 <./NotasEstadistica_files/figure-latex/unnamed-chunk-305-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-306-1.pdf, id=2608, 279.0425
 pt x 277.035pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-306-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-306-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-306-
-1.pdf  used on input line 9121.
+1.pdf  used on input line 9136.
 (pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
-
-Underfull \vbox (badness 1168) has occurred while \output is active []
-
-[231 <./NotasEstadistica_files/figure-latex/unnamed-chunk-306-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-307-1.pdf, id=2628, 279.0425
+[232 <./NotasEstadistica_files/figure-latex/unnamed-chunk-306-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-307-1.pdf, id=2620, 279.0425
 pt x 277.035pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-307-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-307-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-307-
-1.pdf  used on input line 9153.
+1.pdf  used on input line 9161.
 (pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
-[232pdfTeX warning (ext4): destination with the same identifier (name{equation.
-B.7.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.9161 \[
-          <./NotasEstadistica_files/figure-latex/unnamed-chunk-307-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-308-1.pdf, id=2641, 279.0425
+
+Underfull \vbox (badness 1168) has occurred while \output is active []
+
+[233 <./NotasEstadistica_files/figure-latex/unnamed-chunk-307-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-308-1.pdf, id=2633, 279.0425
 pt x 277.035pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-308-1.pdf Graphic file 
 (type pdf)
@@ -2967,35 +2997,49 @@ File: NotasEstadistica_files/figure-latex/unnamed-chunk-308-1.pdf Graphic file
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-308-
 1.pdf  used on input line 9193.
 (pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[233]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-309-1.pdf, id=2648, 273.02pt
- x 277.035pt>
+[234pdfTeX warning (ext4): destination with the same identifier (name{equation.
+B.7.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.9201 \[
+          <./NotasEstadistica_files/figure-latex/unnamed-chunk-308-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-309-1.pdf, id=2646, 279.0425
+pt x 277.035pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-309-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-309-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-309-
-1.pdf  used on input line 9223.
-(pdftex.def)             Requested size: 273.01933pt x 277.03432pt.
-[234 <./NotasEstadistica_files/figure-latex/unnamed-chunk-308-1.pdf>] [235 <./N
-otasEstadistica_files/figure-latex/unnamed-chunk-309-1.pdf>]
-Overfull \hbox (470.54536pt too wide) detected at line 9261
-[][][]
- []
+1.pdf  used on input line 9233.
+(pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
 
-[236] [237]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-310-1.pdf, id=2686, 279.0425
-pt x 277.035pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[235]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-310-1.pdf, id=2654, 273.02pt
+ x 277.035pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-310-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-310-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-310-
-1.pdf  used on input line 9342.
+1.pdf  used on input line 9263.
+(pdftex.def)             Requested size: 273.01933pt x 277.03432pt.
+[236 <./NotasEstadistica_files/figure-latex/unnamed-chunk-309-1.pdf>] [237 <./N
+otasEstadistica_files/figure-latex/unnamed-chunk-310-1.pdf>]
+Overfull \hbox (470.54536pt too wide) detected at line 9301
+[][][]
+ []
+
+[238] [239]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-311-1.pdf, id=2691, 279.0425
+pt x 277.035pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-311-1.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-311-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-311-
+1.pdf  used on input line 9382.
 (pdftex.def)             Requested size: 279.04181pt x 277.03432pt.
-[238 <./NotasEstadistica_files/figure-latex/unnamed-chunk-310-1.pdf>]
-Overfull \hbox (90.92534pt too wide) detected at line 9390
+[240 <./NotasEstadistica_files/figure-latex/unnamed-chunk-311-1.pdf>]
+Overfull \hbox (90.92534pt too wide) detected at line 9430
 \U/msb/m/n/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X[] \OMS/lmsy/m/n/10 2 \OML/lm
 m/m/it/10 A[]; X[] \OMS/lmsy/m/n/10 2 \OML/lmm/m/it/10 A[]; [] ; X[] \OMS/lmsy/
 m/n/10 2 \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) = \U/msb/m/n/10 P[]\OMS/lmsy/m/n
@@ -3007,89 +3051,89 @@ S/lmsy/m/n/10 2 \OML/lmm/m/it/10 A[][]X[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 !\OT
 OMS/lmsy/m/n/10 g[]
  []
 
-[239pdfTeX warning (ext4): destination with the same identifier (name{equation.
+[241pdfTeX warning (ext4): destination with the same identifier (name{equation.
 B.9.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.9397 \]
+l.9437 \]
          ]
-Overfull \hbox (119.14601pt too wide) detected at line 9441
+Overfull \hbox (119.14601pt too wide) detected at line 9481
 [][][]
  []
 
-[240] [241pdfTeX warning (ext4): destination with the same identifier (name{equ
+[242] [243pdfTeX warning (ext4): destination with the same identifier (name{equ
 ation.B.11.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.9497 \end{equation}
+l.9537 \end{equation}
                      pdfTeX warning (ext4): destination with the same identifie
 r (name{equation.B.11.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.9497 \end{equation}
-                     ] [242]
+l.9537 \end{equation}
+                     ] [244]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <5> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 9579.
-<NotasEstadistica_files/figure-latex/unnamed-chunk-312-1.pdf, id=2736, 288.0762
-5pt x 277.035pt>
-File: NotasEstadistica_files/figure-latex/unnamed-chunk-312-1.pdf Graphic file 
-(type pdf)
-<use NotasEstadistica_files/figure-latex/unnamed-chunk-312-1.pdf>
-Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-312-
-1.pdf  used on input line 9627.
-(pdftex.def)             Requested size: 288.07553pt x 277.03432pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[243]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-313-1.pdf, id=2743, 288.0762
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 9619.
+<NotasEstadistica_files/figure-latex/unnamed-chunk-313-1.pdf, id=2741, 288.0762
 5pt x 277.035pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-313-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-313-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-313-
-1.pdf  used on input line 9638.
+1.pdf  used on input line 9667.
 (pdftex.def)             Requested size: 288.07553pt x 277.03432pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[244 <./NotasEstadistica_files/figure-latex/unnamed-chunk-312-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-314-1.pdf, id=2755, 288.0762
+[245]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-314-1.pdf, id=2748, 288.0762
 5pt x 277.035pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-314-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-314-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-314-
-1.pdf  used on input line 9648.
+1.pdf  used on input line 9678.
 (pdftex.def)             Requested size: 288.07553pt x 277.03432pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[245 <./NotasEstadistica_files/figure-latex/unnamed-chunk-313-1.pdf>]
-<NotasEstadistica_files/figure-latex/unnamed-chunk-315-1.pdf, id=2767, 287.0725
-pt x 277.035pt>
+[246 <./NotasEstadistica_files/figure-latex/unnamed-chunk-313-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-315-1.pdf, id=2760, 288.0762
+5pt x 277.035pt>
 File: NotasEstadistica_files/figure-latex/unnamed-chunk-315-1.pdf Graphic file 
 (type pdf)
 <use NotasEstadistica_files/figure-latex/unnamed-chunk-315-1.pdf>
 Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-315-
-1.pdf  used on input line 9659.
+1.pdf  used on input line 9688.
+(pdftex.def)             Requested size: 288.07553pt x 277.03432pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[247 <./NotasEstadistica_files/figure-latex/unnamed-chunk-314-1.pdf>]
+<NotasEstadistica_files/figure-latex/unnamed-chunk-316-1.pdf, id=2773, 287.0725
+pt x 277.035pt>
+File: NotasEstadistica_files/figure-latex/unnamed-chunk-316-1.pdf Graphic file 
+(type pdf)
+<use NotasEstadistica_files/figure-latex/unnamed-chunk-316-1.pdf>
+Package pdftex.def Info: NotasEstadistica_files/figure-latex/unnamed-chunk-316-
+1.pdf  used on input line 9699.
 (pdftex.def)             Requested size: 287.0718pt x 277.03432pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[246 <./NotasEstadistica_files/figure-latex/unnamed-chunk-314-1.pdf>] [247 <./N
-otasEstadistica_files/figure-latex/unnamed-chunk-315-1.pdf>] (./NotasEstadistic
+[248 <./NotasEstadistica_files/figure-latex/unnamed-chunk-315-1.pdf>] [249 <./N
+otasEstadistica_files/figure-latex/unnamed-chunk-316-1.pdf>] (./NotasEstadistic
 a.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16434 strings out of 478994
- 265903 string characters out of 5858185
- 1360283 words of memory out of 5000000
- 32236 multiletter control sequences out of 15000+600000
- 512723 words of font info for 308 fonts, out of 8000000 for 9000
+ 16440 strings out of 478994
+ 265974 string characters out of 5858185
+ 1361278 words of memory out of 5000000
+ 32235 multiletter control sequences out of 15000+600000
+ 512947 words of font info for 310 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  85i,18n,88p,1587b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
@@ -3126,10 +3170,10 @@ ist/fonts/type1/public/lm/lmtti10.pfb></usr/local/texlive/2021/texmf-dist/fonts
 blic/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type
 1/public/amsfonts/symbols/msbm5.pfb></usr/local/texlive/2021/texmf-dist/fonts/t
 ype1/public/amsfonts/symbols/msbm7.pfb>
-Output written on NotasEstadistica.pdf (247 pages, 13350913 bytes).
+Output written on NotasEstadistica.pdf (249 pages, 13353501 bytes).
 PDF statistics:
- 3330 PDF objects out of 3580 (max. 8388607)
+ 3332 PDF objects out of 3580 (max. 8388607)
  2568 compressed objects within 26 object streams
- 836 named destinations out of 1000 (max. 500000)
- 54391 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 839 named destinations out of 1000 (max. 500000)
+ 54383 words of extra memory for PDF output out of 61914 (max. 10000000)
 
