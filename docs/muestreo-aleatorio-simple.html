@@ -342,7 +342,7 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
+<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello | Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License</a></li>
 
 </ul>
 
@@ -598,7 +598,7 @@ En nuestro caso <span class="math inline">\(\hat{t}\)</span> es <em>insesgado</e
 <span id="cb164-3"><a href="muestreo-aleatorio-simple.html#cb164-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">binwidth =</span> <span class="dv">40</span>) <span class="sc">+</span> </span>
 <span id="cb164-4"><a href="muestreo-aleatorio-simple.html#cb164-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> total), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
 <span id="cb164-5"><a href="muestreo-aleatorio-simple.html#cb164-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() </span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-150-1.png" width="672" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-150-1.png" width="672" /></p>
 <p>Como podrás notar la <span class="math inline">\(\hat{t}\)</span> es una variable aleatoria y por tanto tiene varianza. De hecho:
 <span class="math display">\[
 \textrm{Var}(\hat{t}) = \sum\limits_{k = 1}^N \sum\limits_{l = 1}^N \Delta_{k,l} \frac{x_k}{\pi_k} \frac{x_l}{\pi_l}
@@ -772,7 +772,7 @@ de manera concisa muchas veces los escribimos como:
 <span id="cb171-34"><a href="muestreo-aleatorio-simple.html#cb171-34" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb171-35"><a href="muestreo-aleatorio-simple.html#cb171-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb171-36"><a href="muestreo-aleatorio-simple.html#cb171-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Simulación de intervalos de confianza&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
 <p>Nota que estos intervalos son aproximados y no siempre van a funcionar. (¿Puedes hallar un ejemplo donde no sirvan a pesar de que <span class="math inline">\(n\)</span> y <span class="math inline">\(N\)</span> sean grandes?) Luego veremos correcciones a esto; por ahora, supondremos que la aproximación es buena.</p>
 </div>
 </div>
@@ -944,7 +944,7 @@ Podemos calcular en <code>R</code>:</p>
 <span id="cb176-27"><a href="muestreo-aleatorio-simple.html#cb176-27" aria-hidden="true" tabindex="-1"></a>           <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ann =</span> <span class="cn">FALSE</span> )    </span>
 <span id="cb176-28"><a href="muestreo-aleatorio-simple.html#cb176-28" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb176-29"><a href="muestreo-aleatorio-simple.html#cb176-29" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-158-1.png" width="672" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-158-1.png" width="672" /></p>
 <p>Podemos acceder a cada una de las imágenes que se tienen a través de su nombre (<code>sub</code> seguido de un número entre <span class="math inline">\(0\)</span> y <span class="math inline">\(100\)</span>). Muestreamos entonces los nombres de las 15 imágenes:</p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="muestreo-aleatorio-simple.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Obtenemos los dígitos a muestrear</span></span>
 <span id="cb177-2"><a href="muestreo-aleatorio-simple.html#cb177-2" aria-hidden="true" tabindex="-1"></a>imagenes.muestreadas <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, n, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
@@ -957,7 +957,7 @@ Podemos calcular en <code>R</code>:</p>
 <span id="cb178-3"><a href="muestreo-aleatorio-simple.html#cb178-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (imagen <span class="cf">in</span> imagenes.muestreadas){</span>
 <span id="cb178-4"><a href="muestreo-aleatorio-simple.html#cb178-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="fu">get</span>(imagen),  <span class="at">main =</span> imagen, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb178-5"><a href="muestreo-aleatorio-simple.html#cb178-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-1.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-2.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-3.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-4.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-5.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-6.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-7.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-8.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-9.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-10.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-11.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-12.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-13.png" width="50%" style="display: block; margin: auto;" /><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-160-14.png" width="50%" style="display: block; margin: auto;" />
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-1.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-2.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-3.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-4.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-5.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-6.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-7.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-8.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-9.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-10.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-11.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-12.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-13.png" width="50%" style="display: block; margin: auto;" /><img src="NotasEstadistica_files/figure-html/unnamed-chunk-160-14.png" width="50%" style="display: block; margin: auto;" />
 Para cada una de las imágenes contamos las cabecitas que aparecen:</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="muestreo-aleatorio-simple.html#cb179-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb179-2"><a href="muestreo-aleatorio-simple.html#cb179-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Imagen =</span> imagenes.muestreadas,</span>
@@ -1568,7 +1568,7 @@ Podemos graficar la función de distribución acumulada como función de <span c
 <span id="cb183-8"><a href="muestreo-aleatorio-simple.html#cb183-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Función de distribución acumulada como función de p&quot;</span>,</span>
 <span id="cb183-9"><a href="muestreo-aleatorio-simple.html#cb183-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Modelo Binomial(1000,p) evaluado en x = 200&quot;</span></span>
 <span id="cb183-10"><a href="muestreo-aleatorio-simple.html#cb183-10" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-165-1.png" width="672" />
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-165-1.png" width="672" />
 Notamos entonces que lo que necesitamos es hallar la <span class="math inline">\(p\)</span> donde la función de distribución acumulada (como función de <span class="math inline">\(p\)</span>) toca al <span class="math inline">\(0.75\)</span>. Para ello, como no podemos despejar, utilizamos un método numérico a través de <code>uniroot</code> para encontrar el <span class="math inline">\(0\)</span> de la función <span class="math inline">\(g(p) = F_B(200; 1000, p) - 0.75\)</span> (pues la <span class="math inline">\(p^*\)</span> tal que <span class="math inline">\(g(p^*)=0\)</span> es la respuesta):</p>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="muestreo-aleatorio-simple.html#cb184-1" aria-hidden="true" tabindex="-1"></a>g.fun <span class="ot">&lt;-</span> <span class="cf">function</span>(p){<span class="fu">pbinom</span>(<span class="dv">200</span>, <span class="dv">1000</span>, p) <span class="sc">-</span> <span class="fl">0.75</span>}</span>
 <span id="cb184-2"><a href="muestreo-aleatorio-simple.html#cb184-2" aria-hidden="true" tabindex="-1"></a>raiz  <span class="ot">&lt;-</span> <span class="fu">uniroot</span>(g.fun, <span class="at">lower =</span> <span class="dv">0</span>, <span class="at">upper =</span> <span class="fl">0.5</span>)</span>
@@ -2085,21 +2085,24 @@ gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": true,
-"facebook": false,
+"facebook": true,
 "twitter": true,
-"linkedin": false,
+"linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
+"whatsapp": true,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": ["night", "white", "sepia"],
+"theme": "white",
 "family": "sans",
-"size": [2, 4]
+"size": 2
 },
-"edit": null,
+"edit": {
+"link": "https://github.com/RodrigoZepeda/LibroEstadistica/edit/master/02-muestreoaleatoriosimple.Rmd",
+"text": "Colaborar"
+},
 "history": {
 "link": null,
 "text": null
@@ -2108,15 +2111,21 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Introduccion_a_Muestreo.pdf", "Introduccion_a_Muestreo.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
 },
 "toolbar": {
-"position": "fixed"
-},
+"position": "fixed",
+"download": ["pdf", "epub"],
 "search": true,
+"fontsettings": {
+"theme": ["night", "white", "sepia"],
+"family": "sans",
+"size": [2, 4]
+}
+},
 "info": true
 });
 });

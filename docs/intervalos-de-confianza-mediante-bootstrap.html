@@ -342,7 +342,7 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
+<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello | Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License</a></li>
 
 </ul>
 
@@ -407,7 +407,7 @@ Z =\lim_{N-n, n \to \infty} \sqrt{\frac{1}{\textrm{Var}(\bar{x}_{\mathcal{S}})}}
 <span id="cb213-31"><a href="intervalos-de-confianza-mediante-bootstrap.html#cb213-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Proporción p&quot;</span>,</span>
 <span id="cb213-32"><a href="intervalos-de-confianza-mediante-bootstrap.html#cb213-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Estimación de p para una Bernoulli&quot;</span></span>
 <span id="cb213-33"><a href="intervalos-de-confianza-mediante-bootstrap.html#cb213-33" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-195-1.png" width="672" />
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-195-1.png" width="672" />
 En el caso de la Bernoulli, por ejemplo, se puede un mejor intervalo de confianza para cuando la proporción <span class="math inline">\(\hat{p} = 0\)</span> <strong>bajo una hipótesis distribucional</strong>. Esta se encuentra en el paquete <code>binom</code> de <code>R</code>:</p>
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="intervalos-de-confianza-mediante-bootstrap.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(binom)</span>
 <span id="cb214-2"><a href="intervalos-de-confianza-mediante-bootstrap.html#cb214-2" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.confint</span>(<span class="dv">0</span>, n, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">method =</span> <span class="st">&#39;exact&#39;</span>)</span></code></pre></div>
@@ -445,7 +445,7 @@ tenemos entonces que <span class="math inline">\(\mathbb{E}[\bar{Y}] = \lambda\)
 \hat{y} = n \bar{y} = \sum\limits_{i = 1}^n y_i
 \]</span></p>
 <p>Observamos que para <span class="math inline">\(y\)</span> fijo, la distribución Poisson es decreciente antes de la media en <span class="math inline">\(\lambda\)</span> y creciente después de la media:
-<img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-197-1.png" width="672" /></p>
+<img src="NotasEstadistica_files/figure-html/unnamed-chunk-197-1.png" width="672" /></p>
 <p>Podemos entonces obtener un estimador <span class="math inline">\(\lambda\)</span> consideramos los valores <span class="math inline">\(\lambda_1\)</span> y <span class="math inline">\(\lambda_2\)</span> tales que:
 <span class="math display">\[
 \sum\limits_{k \leq \hat{y}} \dfrac{(n\lambda_1)^{\hat{y}} e^{-n\lambda_1}}{\hat{y}!} = \alpha / 2 \quad \text{ y } \quad \sum\limits_{k  \geq \hat{y}} \dfrac{(n\lambda_2)^{\hat{y}} e^{-n\lambda_2}}{\hat{y}!} =\alpha / 2
@@ -777,21 +777,24 @@ gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": true,
-"facebook": false,
+"facebook": true,
 "twitter": true,
-"linkedin": false,
+"linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
+"whatsapp": true,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": ["night", "white", "sepia"],
+"theme": "white",
 "family": "sans",
-"size": [2, 4]
+"size": 2
 },
-"edit": null,
+"edit": {
+"link": "https://github.com/RodrigoZepeda/LibroEstadistica/edit/master/04-intervalos_de_confianza.Rmd",
+"text": "Colaborar"
+},
 "history": {
 "link": null,
 "text": null
@@ -800,15 +803,21 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Introduccion_a_Muestreo.pdf", "Introduccion_a_Muestreo.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
 },
 "toolbar": {
-"position": "fixed"
-},
+"position": "fixed",
+"download": ["pdf", "epub"],
 "search": true,
+"fontsettings": {
+"theme": ["night", "white", "sepia"],
+"family": "sans",
+"size": [2, 4]
+}
+},
 "info": true
 });
 });

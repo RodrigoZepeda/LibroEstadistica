@@ -342,7 +342,7 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
+<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello | Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License</a></li>
 
 </ul>
 
@@ -651,7 +651,7 @@ o bien:
 <span id="cb366-9"><a href="repaso-de-proba.html#cb366-9" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dats2) <span class="sc">+</span> <span class="fu">geom_step</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">&quot;firebrick&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Distribución acumulada de la Poisson(1)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb366-10"><a href="repaso-de-proba.html#cb366-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;x&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;F_X(x)&quot;</span>)</span>
 <span id="cb366-11"><a href="repaso-de-proba.html#cb366-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(plot1,plot2, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-301-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-301-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Si una función de distribución acumulada <span class="math inline">\(F_X\)</span> era continua entonces decíamos que la variable aleatoria asociada (<span class="math inline">\(X\)</span>) es <em>continua</em>. En particular, la continuidad implica que:
 <span class="math display">\[
 \mathbb{P}(X = k) = 0 \qquad \forall k 
@@ -675,7 +675,7 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span id="cb367-3"><a href="repaso-de-proba.html#cb367-3" aria-hidden="true" tabindex="-1"></a>dats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
 <span id="cb367-4"><a href="repaso-de-proba.html#cb367-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dats) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Función de masa de probabilidad</span><span class="sc">\n</span><span class="st">uniforme discreta&quot;</span>) <span class="sc">+</span></span>
 <span id="cb367-5"><a href="repaso-de-proba.html#cb367-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;x&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;p(x)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-302-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-302-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Un modelo particular salía de considerar el siguiente problema:</p>
 <blockquote>
 <p>Tenemos una moneda que cae Águila con probabilidad <span class="math inline">\(p\)</span> y Sol con probabilidad <span class="math inline">\((1-p)\)</span> (con <span class="math inline">\(0 &lt; p &lt; 1\)</span>). Nos interesa saber cuál es la probabilidad de tener <span class="math inline">\(k\)</span> Águilas en <span class="math inline">\(n\)</span> tiros.
@@ -690,7 +690,7 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span id="cb368-3"><a href="repaso-de-proba.html#cb368-3" aria-hidden="true" tabindex="-1"></a>dats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
 <span id="cb368-4"><a href="repaso-de-proba.html#cb368-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dats) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Función de masa de probabilidad</span><span class="sc">\n</span><span class="st">Binomial(10,1/3)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb368-5"><a href="repaso-de-proba.html#cb368-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;x&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;p(x)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-303-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-303-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Una pregunta distinta que nos pudimos hacer fue:</p>
 <blockquote>
 <p>Tenemos una moneda que cae Águila con probabilidad <span class="math inline">\(p\)</span> y Sol con probabilidad <span class="math inline">\((1-p)\)</span> (con <span class="math inline">\(0 &lt; p &lt; 1\)</span>). Arrojamos la moneda hasta obtener <span class="math inline">\(r\)</span> Águilas y en ese momento nos detenemos. Determina la probabilidad de que se aviente la moneda <span class="math inline">\(k\)</span> veces.</p>
@@ -705,7 +705,7 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span id="cb369-3"><a href="repaso-de-proba.html#cb369-3" aria-hidden="true" tabindex="-1"></a>dats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
 <span id="cb369-4"><a href="repaso-de-proba.html#cb369-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dats) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Función de masa de probabilidad</span><span class="sc">\n</span><span class="st">BinomialNegativo(10,1/3)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb369-5"><a href="repaso-de-proba.html#cb369-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;x&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;p(x)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-304-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-304-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Finalmente, otro modelo que pudimos hacer con monedas es un caso específico del <em>Binomial Negativo</em> . Aquí la pregunta es, se tira una moneda que tiene probabilidad <span class="math inline">\(p\)</span> de salir Águila hasta que se obtiene el águila. Contamos cuántos tiros ocurrieron hasta que ocurriera el primer Águila y la pregunta de interés es la probabilidad de haber realizado específicamente <span class="math inline">\(k\)</span> tiros. Para ello necesitamos tener <span class="math inline">\((k-1)\)</span> tiros que fueran sol: <span class="math inline">\((1-p)^{k-1}\)</span> y un tiro que saliera águila <span class="math inline">\(p\)</span>. Esto nos genera el modelo geométrico:</p>
 <p>Una variable aleatoria <span class="math inline">\(X\)</span> tiene una distribución <span class="math inline">\(\text{Geométrica}(p)\)</span> si:
 <span class="math display">\[
@@ -716,7 +716,7 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span id="cb370-3"><a href="repaso-de-proba.html#cb370-3" aria-hidden="true" tabindex="-1"></a>dats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
 <span id="cb370-4"><a href="repaso-de-proba.html#cb370-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dats) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Función de masa de probabilidad</span><span class="sc">\n</span><span class="st">Geométrica(1/3)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb370-5"><a href="repaso-de-proba.html#cb370-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;x&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;p(x)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-305-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-305-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Otro modelo de interés es el siguiente:</p>
 <blockquote>
 <p>Se tiene una población de tamaño <span class="math inline">\(M\)</span> donde <span class="math inline">\(N\)</span> individuos pertenecen al partido político AZUL y <span class="math inline">\(M-N\)</span> pertenecen al VERDE Se toma una submuestra de tamaño <span class="math inline">\(m\)</span>. Determina la probabilidad de que haya <span class="math inline">\(n\)</span> individuos del partido político AZUL.</p>
@@ -731,7 +731,7 @@ para todo <span class="math inline">\(x \in\mathbb{R}\)</span>.</p>
 <span id="cb371-3"><a href="repaso-de-proba.html#cb371-3" aria-hidden="true" tabindex="-1"></a>dats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
 <span id="cb371-4"><a href="repaso-de-proba.html#cb371-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dats) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Función de masa de probabilidad</span><span class="sc">\n</span><span class="st">Hipergeométrica(250, 150, 50)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb371-5"><a href="repaso-de-proba.html#cb371-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;x&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;p(x)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-306-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-306-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>El modelo Poisson va a ser bastante útil. Para estudiarlo, consideremos un modelo. Vamos a pensar en un servidor de computación (piensa en una página de Internet) que recibe solicitudes de entrar a la página de manera independiente y aleatoria en un intervalo de tiempo entre <span class="math inline">\(t = 0\)</span> y <span class="math inline">\(t = 1\)</span>. Como primera aproximación podemos dividir el intervalo en <span class="math inline">\(n\)</span> pedazos cada uno de longitud <span class="math inline">\(1/n\)</span> y asumir que, a fuerza, sólo una conexión se puede realizar en cada uno de esos pedazos. Finalmente, asumamos que la probabilidad <span class="math inline">\(p\)</span> de que se haga una conexión es proporcional a la longitud del intervalo y sea <span class="math inline">\(p = \lambda / n\)</span>. Con estas hipótesis, la probabilidad de tener <span class="math inline">\(k\)</span> conexiones (<span class="math inline">\(k\)</span> entero entre <span class="math inline">\(0\)</span> y <span class="math inline">\(n\)</span>) está dada por un modelo binomial:
 <span class="math display">\[\begin{equation}\nonumber
 \begin{aligned}
@@ -755,7 +755,7 @@ Esto resulta en el modelo Poisson:</p>
 <span id="cb372-3"><a href="repaso-de-proba.html#cb372-3" aria-hidden="true" tabindex="-1"></a>dats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
 <span id="cb372-4"><a href="repaso-de-proba.html#cb372-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dats) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Función de masa de probabilidad</span><span class="sc">\n</span><span class="st">Poisson(4)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb372-5"><a href="repaso-de-proba.html#cb372-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;x&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;p(x)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-307-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-307-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="funciones-de-densidad" class="section level2" number="9.8">
 <h2><span class="header-section-number">B.8</span> Funciones de densidad</h2>
@@ -779,7 +779,7 @@ f_X(x) = \dfrac{1}{b-a}\mathbb{I}_{(a,b)}(x)
 <span id="cb373-3"><a href="repaso-de-proba.html#cb373-3" aria-hidden="true" tabindex="-1"></a>dats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
 <span id="cb373-4"><a href="repaso-de-proba.html#cb373-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dats) <span class="sc">+</span> <span class="fu">geom_step</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Función de densidad</span><span class="sc">\n</span><span class="st">Uniforme(-1,1)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb373-5"><a href="repaso-de-proba.html#cb373-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;x&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;f_X(x)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-308-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-308-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Una generalización del modelo uniforme es el beta (eventualmente veremos de dónde sale):</p>
 <p>Una variable aleatoria <span class="math inline">\(X\)</span> tiene una distribución <span class="math inline">\(\text{Beta}(\alpha,\beta)\)</span> si:
 <span class="math display">\[
@@ -801,7 +801,7 @@ B(\alpha, \beta) = \dfrac{\Gamma (\alpha) \Gamma (\beta)}{\Gamma (\alpha + \beta
 <span id="cb374-10"><a href="repaso-de-proba.html#cb374-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Función de densidad</span><span class="sc">\n</span><span class="st">Beta(a,b)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb374-11"><a href="repaso-de-proba.html#cb374-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;x&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;f_X(x)&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb374-12"><a href="repaso-de-proba.html#cb374-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">&quot;Parámetros&quot;</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;deepskyblue3&quot;</span>,<span class="st">&quot;firebrick&quot;</span>,<span class="st">&quot;cyan&quot;</span>))</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-309-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-309-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Podemos deducir el modelo exponencial a partir de la descripción del Poisson. Volvamos al mismo problema del <span class="math inline">\(\textrm{Poisson}(\lambda)\)</span> donde hay computadoras conectándose a un servidor. Sea <span class="math inline">\(W\)</span> la variable aleatoria que denota el tiempo de espera hasta el primer evento. Analicemos su distribución acumulada; notamos que
 <span class="math display">\[
 F_W(w) = \mathbb{P}(W \leq w) = 1 - \mathbb{P}(W &gt; w)
@@ -900,7 +900,7 @@ f_X(x) = \dfrac{1}{x \sqrt{2 \pi \sigma^2}}e^{-(\ln(x) - \mu)^2/2\sigma^2} \math
 <span id="cb375-3"><a href="repaso-de-proba.html#cb375-3" aria-hidden="true" tabindex="-1"></a>dats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
 <span id="cb375-4"><a href="repaso-de-proba.html#cb375-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dats) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Función de densidad</span><span class="sc">\n</span><span class="st">Lognormal(0,1)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb375-5"><a href="repaso-de-proba.html#cb375-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;x&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;f_X(x)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-310-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-310-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>La pregunta es, cómo obtener la función de densidad de <span class="math inline">\(X\)</span> si se conoce la función <span class="math inline">\(\phi\)</span>; el teorema de cambio de variable nos da una respuesta cuando <span class="math inline">\(\phi\)</span> es monótona estrictamente creciente o bien estrictamente decreciente y diferenciable.</p>
 <p>Sea <span class="math inline">\(X\)</span> una variable aleatoria continua y <span class="math inline">\(\phi\)</span> una función estrictamente creciente ó estrictamente decreciente y diferenciable. Entonces:
 <span class="math display">\[
@@ -1142,18 +1142,18 @@ donde el símbolo <span class="math inline">\(\sim\)</span> se lee “se distrib
 <p>donde podemos ver la aproximación normal si tomamos, por ejemplo, las <span class="math inline">\(X_i\)</span> siguen una distribución Gamma:</p>
 <div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="repaso-de-proba.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TeoremaCentralLimite</span>(<span class="at">distribucion =</span> rgamma, <span class="at">mu =</span> <span class="dv">1</span>, <span class="at">sigma =</span> <span class="fl">0.5</span>, <span class="at">shape =</span> <span class="dv">2</span>, </span>
 <span id="cb377-2"><a href="repaso-de-proba.html#cb377-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">scale =</span> <span class="fl">0.5</span>, <span class="at">distname =</span> <span class="st">&quot;Gama(2,1/2)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-312-1.png" width="384" style="display: block; margin: auto;" />
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-312-1.png" width="384" style="display: block; margin: auto;" />
 La binomial se ve así:</p>
 <div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="repaso-de-proba.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TeoremaCentralLimite</span>(<span class="at">distribucion =</span> rbinom, <span class="at">mu =</span> <span class="fl">4.5</span>, <span class="at">sigma =</span> <span class="fl">2.475</span>, <span class="at">size =</span> <span class="dv">10</span>, </span>
 <span id="cb378-2"><a href="repaso-de-proba.html#cb378-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">prob =</span> <span class="fl">0.45</span>, <span class="at">distname =</span> <span class="st">&quot;Binomial(10,0.45)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-313-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-313-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Poisson:</p>
 <div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="repaso-de-proba.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TeoremaCentralLimite</span>(<span class="at">lambda =</span> <span class="dv">1</span>, <span class="at">distname =</span> <span class="st">&quot;Poisson(1)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-314-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-314-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>E inclusive uniformes:</p>
 <div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="repaso-de-proba.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TeoremaCentralLimite</span>(<span class="at">distribucion =</span> runif, <span class="at">mu =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">sigma =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">12</span>, </span>
 <span id="cb380-2"><a href="repaso-de-proba.html#cb380-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">distname =</span> <span class="st">&quot;Uniforme(0,1)&quot;</span>)</span></code></pre></div>
-<p><img src="Introduccion_a_Muestreo_files/figure-html/unnamed-chunk-315-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="NotasEstadistica_files/figure-html/unnamed-chunk-315-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Experimenta con otras distribuciones ¿puedes encontrar alguna para la que no funcione?</p>
 </div>
 <div id="ejercicio-14" class="section level3" number="9.16.2">
@@ -1264,21 +1264,24 @@ gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": true,
-"facebook": false,
+"facebook": true,
 "twitter": true,
-"linkedin": false,
+"linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
+"whatsapp": true,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": ["night", "white", "sepia"],
+"theme": "white",
 "family": "sans",
-"size": [2, 4]
+"size": 2
 },
-"edit": null,
+"edit": {
+"link": "https://github.com/RodrigoZepeda/LibroEstadistica/edit/master/99-apéndice.Rmd",
+"text": "Colaborar"
+},
 "history": {
 "link": null,
 "text": null
@@ -1287,15 +1290,21 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Introduccion_a_Muestreo.pdf", "Introduccion_a_Muestreo.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
 },
 "toolbar": {
-"position": "fixed"
-},
+"position": "fixed",
+"download": ["pdf", "epub"],
 "search": true,
+"fontsettings": {
+"theme": ["night", "white", "sepia"],
+"family": "sans",
+"size": [2, 4]
+}
+},
 "info": true
 });
 });

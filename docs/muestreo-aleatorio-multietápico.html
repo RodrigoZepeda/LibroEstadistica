@@ -342,7 +342,7 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
+<li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello | Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License</a></li>
 
 </ul>
 
@@ -741,21 +741,24 @@ gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": true,
-"facebook": false,
+"facebook": true,
 "twitter": true,
-"linkedin": false,
+"linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
+"whatsapp": true,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": ["night", "white", "sepia"],
+"theme": "white",
 "family": "sans",
-"size": [2, 4]
+"size": 2
 },
-"edit": null,
+"edit": {
+"link": "https://github.com/RodrigoZepeda/LibroEstadistica/edit/master/05-muestreo_multietapico.Rmd",
+"text": "Colaborar"
+},
 "history": {
 "link": null,
 "text": null
@@ -764,15 +767,21 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Introduccion_a_Muestreo.pdf", "Introduccion_a_Muestreo.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
 },
 "toolbar": {
-"position": "fixed"
-},
+"position": "fixed",
+"download": ["pdf", "epub"],
 "search": true,
+"fontsettings": {
+"theme": ["night", "white", "sepia"],
+"family": "sans",
+"size": [2, 4]
+}
+},
 "info": true
 });
 });

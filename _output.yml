@@ -7,25 +7,25 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Estadística I: Análisis exploratorio de datos y muestreo</a></li>
       after: |
-        <li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello</a></li>
+        <li><a href="https://github.com/RodrigoZepeda/LibroEstadistica" target="blank">Rodrigo Zepeda Tello | Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License</a></li>
+    edit: 
+      link: https://github.com/RodrigoZepeda/LibroEstadistica/edit/master/%s
+      text: "Colaborar"
     toolbar:
       position: fixed
-    edit : null
-    download: ["pdf", "epub"]
-    search: yes
-    fontsettings:
-      theme: ["night","white", "sepia"]
-      family: sans
-      size: [2, 4]
+      download: ["pdf", "epub"]
+      search: yes
+      fontsettings:
+        theme: ["night","white", "sepia"]
+        family: sans
+        size: [2, 4]
     sharing:
-      facebook: no
+      facebook: yes
       github: yes
       twitter: yes
-      linkedin: no
-      weibo: no
-      instapaper: no
-      vk: no
+      linkedin: yes
+      whatsapp: yes
     info: yes
 bookdown::pdf_book:
-  keep_tex: yes
+  keep_tex: no
 bookdown::epub_book: default
