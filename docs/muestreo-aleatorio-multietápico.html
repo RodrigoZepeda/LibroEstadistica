@@ -740,7 +740,7 @@ da el intervalo de confianza.</p>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
+"github": false,
 "facebook": true,
 "twitter": true,
 "linkedin": true,
@@ -748,12 +748,12 @@ gitbook.start({
 "instapaper": false,
 "vk": false,
 "whatsapp": true,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["whatsapp", "twitter", "linkedin", "facebook"]
 },
 "fontsettings": {
-"theme": "white",
+"theme": ["night", "white", "sepia"],
 "family": "sans",
-"size": 2
+"size": [2, 4]
 },
 "edit": {
 "link": "https://github.com/RodrigoZepeda/LibroEstadistica/edit/master/05-muestreo_multietapico.Rmd",
@@ -767,21 +767,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["NotasEstadistica.pdf", "NotasEstadistica.epub"],
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
 },
 "toolbar": {
-"position": "fixed",
-"download": ["pdf", "epub"],
-"search": true,
-"fontsettings": {
-"theme": ["night", "white", "sepia"],
-"family": "sans",
-"size": [2, 4]
-}
+"position": "fixed"
 },
+"search": true,
 "info": true
 });
 });
