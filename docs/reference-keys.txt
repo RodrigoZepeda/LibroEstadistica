@@ -135,3 +135,5 @@ ley-de-los-grandes-números
 teorema-del-límite-central
 programación-en-r-del-teorema-del-límite-central-con-variables-aleatorias-independientes-idénticamente-distribuidas
 ejercicio-14
+teorema-de-límite-central-bajo-condición-de-lindberg
+teorema-de-límite-central-para-poblaciones-finitas

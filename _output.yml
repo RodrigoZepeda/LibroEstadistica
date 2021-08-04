@@ -13,18 +13,18 @@ bookdown::gitbook:
       text: "Colaborar"
     toolbar:
       position: fixed
-      download: ["pdf", "epub"]
-      search: yes
-      fontsettings:
-        theme: ["night","white", "sepia"]
-        family: sans
-        size: [2, 4]
+    download: ["pdf", "epub"]
+    search: yes
+    fontsettings:
+      theme: ["night","white", "sepia"]
+      family: sans
+      size: [2, 4]
     sharing:
       facebook: yes
-      github: yes
       twitter: yes
       linkedin: yes
       whatsapp: yes
+      all: ["whatsapp","twitter","linkedin","facebook"]
     info: yes
 bookdown::pdf_book:
   keep_tex: no
