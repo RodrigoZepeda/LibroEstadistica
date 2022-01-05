@@ -65,9 +65,9 @@ donde $\ell \in \mathbb{N}$ con $\ell > 0$ y las $z_i$ sin pérdida de generalid
     
   + *Categórica* si cada entrada de $z_{k}$ es una indicadora de pertenencia a algún conjunto (por ejemplo `Hombre / Mujer` ó `Ingresos Altos / Ingresos Medios / Ingresos Bajos`). Usualmente $z_{k}$ se representa con un caracter o con un entero (por ejemplo poniendo `Enfermo` y `Sano` o bien codificando `Enfermo = 1` y `Sano = 0`. Una variable cateórica puede ser *lógica* si $z_{k}$ es un indicador que toma alguno de los dos valores: `VERDADERO` ó `FALSO`. 
   
-  + *Ordinal*  Una variable ordinal es aquél $z_{k} \in \mathcal{C}$ donde sobre  $\mathcal{C}$ existe un orden total; es decir si $x,y,w\in z_{k}$ se tiene que:
+  + *Ordinal*  Una variable ordinal es aquél $z_{k} \in \mathcal{C}$ donde sobre  $\mathcal{C}$ existe un orden total; es decir si $x,y,w\in \mathcal{C}$ se tiene que:
     a. Ocurre al menos una de las siguientes: $x \leq y$ ó $x \geq y$.
-    b. Si $x \leq y$ y $y \geq w$ entonces $x \leq w$
+    b. Si $x \leq y$ y $y \leq w$ entonces $x \leq w$
     c. Si $x \leq y$ y $x \geq y$ entonces $x = y$.
   Ejemplos de variables ordinales son los grados de escolaridad (`Sin elstudios o con primaria < Secundaria y/o Preparatoria < Universidad o Técnico < Posgrado` ), los premios en una competencia (`Medalla de oro > Medalla de plata > Medalla de bronce`), las preferencias de un consumidor siempre y cuando no formen ciclos (`Donas < Pastel < Gelatina < Flan`).     
   Variables numéricas univariadas son ordinales por el orden natural de $\mathbb{R}$.
@@ -198,7 +198,7 @@ donde el caso $\bar{c} = 0$ se interpreta como el límite por la derecha (respec
 
 Ahora bien, si tomamos
 $$
-c=\sum\limits_{i = 1}^n \cos (\theta_i) \qquad \text{y} \qquad \bar{s} =\sum\limits_{i = 1}^n \sin (\theta_i)
+c=\sum\limits_{i = 1}^n \cos (\theta_i) \qquad \text{y} \qquad s =\sum\limits_{i = 1}^n \sin (\theta_i)
 $$
 podemos definir _la longitud resultante_ como $r=(c^2 + s^2)^{\frac{1}{2}}$, entonces, es perfectamente aceptable tomar _la longitud resultante promedio_ previamente definida como:
 $$
