@@ -1840,7 +1840,7 @@ $$
 $$
 y podemos aplicar la aproximación que usamos arriba para un conjunto $A$:
 $$
-\mathbb{P}\big(X \in (-\infty, x] \big) \approx \sum\limits_{i=1}^n \mathbb{I}_{(-\infty, x]}(x_i)
+\mathbb{P}\big(X \in (-\infty, x] \big) \approx \frac{1}{n} \sum\limits_{i=1}^n \mathbb{I}_{(-\infty, x]}(x_i)
 $$
 
 La función de distribución empírica está definida para un vector numérico $\vec{x} = (x_1, x_2, \dots, x_n)^T$ por: 
