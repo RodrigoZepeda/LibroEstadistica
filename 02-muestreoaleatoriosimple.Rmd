@@ -25,7 +25,7 @@ library(kableExtra)
 Supongamos una matriz de datos de tamaño $N \times L$ dada por:
 $$
 U = \begin{pmatrix} 
-z_1 \Big| z_2 \Big| \dots \Big| z_{\ell}
+z_1 \Big| z_2 \Big| \dots \Big| z_{L}
 \end{pmatrix} 
 $$
 
@@ -388,7 +388,7 @@ se tiene que $Z \sim \textrm{Normal}(0,1)$.
 En este teorema central podemos observar que hay algo muy parecido a la media muestral embebido en el teorema (la $\frac{1}{n}\sum_{i = 1}^n X_i$) _pero_ no es exactamente la media muestral (aquí se supone que todas las $X_i$ son independientes con distribución $F_X$ y en el caso de muestreo aleatorio sin reemplazo se sabe que las indicadoras **NO** son independientes y que de hecho tampoco son idénticamente distribuidas cuando analizamos $\sum_{i = 1}^{n} x_i \mathbb{I}_{\mathcal{S}}(x_i)$). Entonces _técnicamente_ no podemos aplicar el teorema central del límite así como está a nuestra muestra. Sin embargo, Hàjek (y más tarde [Rosen](https://projecteuclid.org/download/pdf_1/euclid.afm/1485893466) ) encontraron condiciones _sin tener que pedir independencia ni distribución idéntica_ que permiten sustituir las $X_i$ por las de la media muestral ($x_i \mathbb{I}_{\mathcal{S}}(x_i)$) y que, cuando $N$ y $n$ tienden a infinito "de buena manera", se tiene algo similar a esta expresión (**OJO** no es una expresión _correcta_ pero es la idea):
 
 $$
-Z =\lim_{N, n \to \infty} \sqrt{\frac{1}{\textrm{Var}(\bar{x}_{\mathcal{S}})}} \cdot  \Big( \frac{1}{n}\sum_{i = 1}^N x_i \mathbb{I}_{\mathcal{S}}(x_i) - \bar{x}_{\mathcal{U}}\Big)
+Z =\lim_{N, n \to \infty} \sqrt{\frac{1}{\textrm{Var}(\bar{x}_{\mathcal{S}})}} \cdot  \Big( \frac{1}{n}\sum_{i = 1}^N x_i \mathbb{I}_{\mathcal{S}}(x_i) - \bar{x}_{\mathcal{U}}\Big) \sim \textrm{Normal}(0,1)
 $$
 donde $\mu = \sum_{k = 1}^N x_k$ es la media poblacional y $\sigma^2 = \frac{1}{N} \sum_{k = 1}^N (x_k - \mu)^2$ la varianza poblacional no ajustada. La demostración propia de este teorema la posponemos para una sección posterior. Por ahora, ejemplificaremos el teorema del límite central en `R`, utilizaremos la expresión anterior para deducir y explicar el concepto de intervalo de confianza y, finalmente, haremos un ejemplo de estimación de intervalo.   
 
@@ -414,7 +414,7 @@ $$
  \cdot  N\dfrac{\Big( \frac{1}{n}\sum_{i = 1}^N x_i \mathbb{I}_{\mathcal{S}}(x_i) - \bar{x}_{\mathcal{U}}\Big)}{N\sqrt{\textrm{Var}(\bar{x}_{\mathcal{S}})}}
 =  \dfrac{\hat{t} - t}{\sqrt{\textrm{Var}(\hat{t})}}  \mathrel{\dot\sim} \textrm{Normal}(0,1)
 $$
-De donde se sigue que si se desea tener un intervalo de tamali $(1 - \alpha) \times 100 \%$ lo que hay que hacer es buscar $L(\mathcal{S})$ y $U(\mathcal{S})$ tales que:
+De donde se sigue que si se desea tener un intervalo de tamaño $(1 - \alpha) \times 100 \%$ lo que hay que hacer es buscar $L(\mathcal{S})$ y $U(\mathcal{S})$ tales que:
 
 $$
 \mathbb{P}\Bigg( L(\mathcal{S}) \leq \dfrac{\hat{t} - t}{\sqrt{\textrm{Var}(\hat{t})}} \leq U(\mathcal{S}) \Bigg) = 1 - \alpha
@@ -425,7 +425,7 @@ $$
 $$
 de donde despejamos:
 $$
-\mathbb{P}\Bigg( z_{\alpha/2}\sqrt{\textrm{Var}(\hat{t})} \leq \hat{t} - t \leq z_{1- \alpha/2}\sqrt{\textrm{Var}(\hat{t})} \Bigg) = \mathbb{P}\Bigg( \hat{t} - z_{1-\alpha/2}\sqrt{\textrm{Var}(\hat{t})} \leq t \leq \hat{t} +  z_{ \alpha/2}\sqrt{\textrm{Var}(\hat{t})} \Bigg)  =  1 - \alpha
+\mathbb{P}\Bigg( z_{\alpha/2}\sqrt{\textrm{Var}(\hat{t})} \leq \hat{t} - t \leq z_{1- \alpha/2}\sqrt{\textrm{Var}(\hat{t})} \Bigg) = \mathbb{P}\Bigg( \hat{t} - z_{1-\alpha/2}\sqrt{\textrm{Var}(\hat{t})} \leq t \leq \hat{t} +  z_{1- \alpha/2}\sqrt{\textrm{Var}(\hat{t})} \Bigg)  =  1 - \alpha
 $$
 
 Notamos que como no conocemos $\textrm{Var}(\hat{t})$ la podemos aproximar mediante $\widehat{\textrm{Var}}(\hat{t})$ (hay mejores aproximaciones mediante una $t$ de Student asintótica pero no lo usaremos ahora) y tener intervalos aproximados de la forma:
@@ -1251,7 +1251,7 @@ Una observación es bastante relevante aquí:
 \\ & = \frac{m}{N} - \sum\limits_{j = 0}^{m-2}\binom{m}{j}\Big(-\frac{1}{N}\Big)^{m-j} \\ & = \frac{m}{N} + \mathcal{O}\Bigg( \frac{m^2}{N^2}\Bigg)
 \end{align*}
 
-donde $\mathcal{O}\Bigg( \frac{m^2}{N^2}\Bigg)$ es notación que implica que una función $f(n)$ es de orden $g(n)$ (denotado $f(n) = \mathcal{O}\big(g(n)\big)$) si y sólo si existe $M$ tal que para cualquier $n \in\mathbb{N}$tal que $|f(n)|/g(n)\leq M$. Escrito con palabras en este caso esto significa que si $m/N$ es pequeño entonces $\frac{m^2}{N^2}$ es caso $0$ y entonces muestrear con reemplazo es casi lo mismo que muestrear sin reemplazo (lo cual tiene sentido: si tu población es muy grande $N \gg 0$ entonces está bien difícil que vuelvas a capturar a uno en tu encuesta y por tanto es casi lo mismo muestrear **con** que **sin** reemplazo en términos prácticos).
+donde $\mathcal{O}\Bigg( \frac{m^2}{N^2}\Bigg)$ es notación que implica que una función $f(n)$ es de orden $g(n)$ (denotado $f(n) = \mathcal{O}\big(g(n)\big)$) si y sólo si existe $M$ tal que para cualquier $n \in\mathbb{N}$tal que $|f(n)|/g(n)\leq M$. Escrito con palabras en este caso esto significa que si $m/N$ es pequeño entonces $\frac{m^2}{N^2}$ es casi $0$ y entonces muestrear con reemplazo es casi lo mismo que muestrear sin reemplazo (lo cual tiene sentido: si tu población es muy grande $N \gg 0$ entonces está bien difícil que vuelvas a capturar a uno en tu encuesta y por tanto es casi lo mismo muestrear **con** que **sin** reemplazo en términos prácticos).
 
 Para el análisis del muestreo aleatorio simple con reemplazo podemos generalizar la idea de variables indicadoras. Como en este tipo de muestreo pueden aparecer **varias veces** los mismos valores $x_i$ utilizaremos unas variables $\mathbb{A}_{\mathcal{S}}(x_i)$ para denotar cuántas veces aparece el valor $x_i$ en la muestra aleatoria $\mathcal{S}$; es decir:
 $$
